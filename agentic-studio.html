@@ -3197,6 +3197,108 @@ html.theme-light .search-footer-link{color:#7C3AED}
   font-size: 10.5px; color: var(--t3);
   margin-top: 4px; padding-left: 4px;
 }
+
+/* === Brief 10: Configurator Settings tab === */
+.kc-settings { display:flex; flex-direction:column; gap:24px; max-height:480px; overflow-y:auto; padding-right:6px; }
+.kc-set-section { display:flex; flex-direction:column; padding-bottom:24px; border-bottom:0.5px solid var(--bd); }
+.kc-set-section:last-child { border-bottom:none; padding-bottom:0; }
+.kc-set-hd-row { display:flex; align-items:center; gap:6px; margin-bottom:6px; }
+.kc-set-hd { font-size:12px; font-weight:500; color:var(--t1); }
+.kc-set-info { color:var(--t3); cursor:help; display:inline-flex; }
+.kc-set-info:hover { color:var(--t1); }
+.kc-set-sub { font-size:11px; color:var(--t3); margin-bottom:14px; line-height:1.45; }
+.kc-set-radio-group { display:flex; flex-direction:column; gap:8px; }
+.kc-set-radio { display:flex; gap:10px; cursor:pointer; padding:9px 11px; border-radius:var(--r6); border:1px solid var(--bd); align-items:flex-start; background:rgba(255,255,255,0.02); transition:border-color .12s, background .12s; }
+.kc-set-radio:hover { background:rgba(255,255,255,0.04); border-color:var(--bds); }
+.kc-set-radio.disabled { opacity:0.55; cursor:not-allowed; }
+.kc-set-radio.disabled:hover { background:rgba(255,255,255,0.02); border-color:var(--bd); }
+.kc-set-radio input[type=radio] { margin-top:2px; flex-shrink:0; accent-color:var(--pri); }
+.kc-set-radio-content { flex:1; min-width:0; }
+.kc-set-radio-lbl-row { display:flex; align-items:center; gap:6px; }
+.kc-set-radio-ico { color:var(--t2); display:inline-flex; flex-shrink:0; }
+.kc-set-radio-ico.ok { color:var(--ok); }
+.kc-set-radio-ico.info { color:var(--pri); }
+.kc-set-radio-ico.warn { color:var(--warn); }
+.kc-set-radio-ico.pur { color:var(--pur); }
+.kc-set-radio-lbl { font-size:12.5px; color:var(--t1); font-weight:500; }
+.kc-set-radio-desc { font-size:11px; color:var(--t3); margin-top:4px; line-height:1.45; }
+.kc-set-note { font-size:10.5px; color:var(--t3); margin-top:10px; font-style:italic; }
+.kc-set-drift { font-size:11px; color:var(--warn); margin-top:10px; display:flex; align-items:flex-start; gap:6px; }
+.kc-set-drift-refresh { margin-top:10px; background:transparent; border:1px solid var(--warn); color:var(--warn); font-size:11px; padding:5px 12px; border-radius:var(--r6); cursor:pointer; font-family:inherit; display:inline-flex; align-items:center; gap:5px; align-self:flex-start; }
+.kc-set-drift-refresh:hover { background:rgba(212,143,2,0.08); }
+
+.kc-lock-notice { background:rgba(202,138,4,0.08); border:1px solid rgba(202,138,4,0.2); padding:10px 12px; border-radius:var(--r6); display:flex; gap:8px; align-items:flex-start; margin-bottom:14px; }
+.kc-lock-notice-ico { color:var(--warn); display:inline-flex; flex-shrink:0; margin-top:1px; }
+.kc-lock-notice-body { flex:1; min-width:0; }
+.kc-lock-notice-msg { font-size:12px; color:var(--warn); font-weight:500; }
+.kc-lock-notice-resolution { font-size:11px; color:var(--t2); margin-top:4px; }
+.kc-lock-notice-contact { font-size:10.5px; color:var(--t3); margin-top:6px; font-style:italic; }
+
+.kc-policies-table { display:flex; flex-direction:column; gap:8px; }
+.kc-policy-row { display:flex; align-items:center; gap:14px; padding:10px 12px; background:rgba(255,255,255,0.02); border:1px solid var(--bd); border-radius:var(--r6); }
+.kc-policy-row.readonly { opacity:0.88; }
+.kc-policy-info { flex:1; min-width:0; }
+.kc-policy-label { font-size:12px; color:var(--t1); font-weight:500; }
+.kc-policy-desc { font-size:10.5px; color:var(--t3); margin-top:2px; }
+.kc-policy-control { flex-shrink:0; display:flex; align-items:center; gap:8px; }
+.kc-policy-state { font-size:11.5px; color:var(--t2); }
+.kc-policy-tenant-badge { display:inline-flex; align-items:center; gap:3px; font-size:10px; color:var(--t3); background:rgba(255,255,255,0.04); padding:2px 7px; border-radius:999px; }
+.kc-policy-tenant-badge svg { opacity:0.7; }
+.kc-policy-select { background:rgba(255,255,255,0.04); border:1px solid var(--bd); color:var(--t1); font-size:12px; padding:5px 10px; border-radius:var(--r6); font-family:inherit; cursor:pointer; min-width:170px; outline:none; }
+.kc-policy-select:focus { border-color:var(--pri); }
+.kc-policy-chips { display:flex; gap:4px; }
+.kc-policy-chip { background:transparent; border:1px solid var(--bd); color:var(--t2); font-size:11px; padding:3px 11px; border-radius:999px; cursor:pointer; font-family:inherit; }
+.kc-policy-chip:hover { color:var(--t1); border-color:var(--t3); }
+.kc-policy-chip.active { background:rgba(96,165,250,0.12); border-color:rgba(96,165,250,0.4); color:var(--pri); }
+.kc-purpose-other { margin-top:8px; flex-basis:100%; }
+.kc-purpose-other input { width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--bd); color:var(--t1); font-size:12px; padding:6px 10px; border-radius:var(--r6); font-family:inherit; box-sizing:border-box; outline:none; }
+.kc-purpose-other input:focus { border-color:var(--pri); }
+
+.kc-find-tab .dirty-dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--pri); margin-left:6px; vertical-align:middle; }
+
+/* === Brief 11: Notify-first review ribbon + review surface === */
+.kc-notify-ribbon { display:flex; align-items:center; gap:10px; padding:10px 16px; background:rgba(202,138,4,0.08); border-top:0.5px solid rgba(202,138,4,0.3); border-bottom:0.5px solid rgba(202,138,4,0.3); margin:0 -22px 16px; }
+.kc-notify-ribbon-ico { color:var(--warn); display:inline-flex; flex-shrink:0; }
+.kc-notify-ribbon-msg { font-size:12px; color:var(--t1); }
+.kc-notify-ribbon-msg strong { color:var(--warn); font-weight:600; }
+.kc-notify-ribbon-sub { font-size:11px; color:var(--t3); }
+.kc-notify-ribbon-spacer { flex:1; }
+.kc-notify-ribbon-btn { background:var(--pri); border:none; color:#0a0a0a; font-size:11.5px; padding:6px 12px; border-radius:var(--r6); cursor:pointer; font-family:inherit; font-weight:500; }
+.kc-notify-ribbon-btn:hover { filter:brightness(1.1); }
+.kc-notify-ribbon-btn:disabled { opacity:0.5; cursor:default; }
+
+.kc-review { display:flex; flex-direction:column; gap:16px; max-height:480px; overflow-y:auto; padding-right:6px; }
+.kc-review-hd { display:flex; align-items:flex-start; gap:10px; }
+.kc-review-back { background:transparent; border:none; color:var(--t3); cursor:pointer; font-size:11.5px; font-family:inherit; padding:0; align-self:flex-start; }
+.kc-review-back:hover { color:var(--t1); }
+.kc-review-title { font-size:14px; font-weight:500; color:var(--t1); margin-bottom:3px; }
+.kc-review-sub { font-size:11px; color:var(--t3); }
+.kc-review-cards { display:flex; flex-direction:column; gap:10px; }
+.kc-cand-card { background:rgba(255,255,255,0.03); border:1px solid var(--bd); border-radius:var(--r8); padding:12px 14px; display:flex; flex-direction:column; gap:10px; transition:background .12s, opacity .12s; }
+.kc-cand-card.rejected { background:rgba(202,138,4,0.05); border-color:rgba(202,138,4,0.2); }
+.kc-cand-card.rejected .kc-cand-stmt { opacity:0.7; }
+.kc-cand-top { display:flex; gap:10px; align-items:flex-start; }
+.kc-cand-plane { background:rgba(96,165,250,0.12); color:var(--pri); border:0.5px solid rgba(96,165,250,0.25); font-size:10px; padding:2px 8px; border-radius:999px; flex-shrink:0; font-weight:500; margin-top:1px; }
+.kc-cand-stmt { font-size:13px; color:var(--t1); line-height:1.45; font-weight:500; flex:1; min-width:0; }
+.kc-cand-meta { display:flex; flex-direction:column; gap:3px; font-size:11px; color:var(--t3); padding-left:62px; line-height:1.45; }
+.kc-cand-meta-row strong { color:var(--t2); font-weight:500; }
+.kc-cand-actions { display:flex; align-items:center; gap:10px; padding-left:62px; }
+.kc-cand-action-btn { display:inline-flex; align-items:center; gap:6px; background:transparent; border:1px solid var(--bd); color:var(--t2); font-size:11.5px; padding:5px 12px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.kc-cand-action-btn:hover { color:var(--t1); border-color:var(--t3); }
+.kc-cand-action-btn.approved { background:rgba(5,223,114,0.1); border-color:rgba(5,223,114,0.3); color:var(--ok); }
+.kc-cand-action-btn.rejected { background:rgba(202,138,4,0.1); border-color:rgba(202,138,4,0.3); color:var(--warn); }
+.kc-cand-reason { margin-left:62px; }
+.kc-cand-reason input { width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--bd); color:var(--t1); font-size:11.5px; padding:6px 10px; border-radius:var(--r6); font-family:inherit; outline:none; box-sizing:border-box; }
+.kc-cand-reason input:focus { border-color:var(--warn); }
+
+.kc-review-footer { display:flex; align-items:center; gap:10px; padding-top:14px; border-top:1px solid var(--bd); }
+.kc-review-summary { font-size:11.5px; color:var(--t3); flex:1; }
+.kc-review-summary strong { color:var(--t1); font-weight:600; }
+.kc-review-defer-btn { background:transparent; border:1px solid var(--bd); color:var(--t2); font-size:11.5px; padding:6px 12px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.kc-review-defer-btn:hover { color:var(--t1); border-color:var(--t3); }
+.kc-review-apply-btn { background:var(--pri); border:none; color:#0a0a0a; font-size:11.5px; padding:6px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; font-weight:500; }
+.kc-review-apply-btn:hover:not(:disabled) { filter:brightness(1.1); }
+.kc-review-apply-btn:disabled { opacity:0.5; cursor:default; }
 </style>
 </head>
 <body>
@@ -17644,6 +17746,795 @@ function hgsSmConfirmRemove(){
       return r;
     };
     window._kcOpen = _kcOpen;
+  }
+})();
+
+/* === Brief 10: Configurator Settings tab === */
+(function _brief10Settings(){
+  if(window.__KC_BRIEF10_SETTINGS_APPLIED) return;
+  window.__KC_BRIEF10_SETTINGS_APPLIED = true;
+  if(typeof KC_STATE === 'undefined') return;
+
+  // ─── Constants ──────────────────────────────────────────────────
+  var PURPOSE_OPTIONS = [
+    { id:'',                    label:'Select a purpose…' },
+    { id:'customer-support',    label:'Customer support' },
+    { id:'sales-operations',    label:'Sales operations' },
+    { id:'internal-analytics',  label:'Internal analytics' },
+    { id:'compliance-reporting',label:'Compliance reporting' },
+    { id:'marketing-automation',label:'Marketing automation' },
+    { id:'other',               label:'Other (specify)' }
+  ];
+  var SENSITIVITY_TIERS = ['Low','Medium','High','Critical'];
+
+  // SVG icons (12px) for the radio rows
+  var ICO_SNOW = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v11M2 4l10 6M2 10l10-6M7 3.5L5.5 2M7 3.5L8.5 2M7 10.5L5.5 12M7 10.5L8.5 12"/></svg>';
+  var ICO_BROADCAST = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M3 5C4.3 4 5.6 3.5 8 3.5s3.7.5 5 1.5M4 7.5c1-.7 2.4-1.2 4-1.2s3 .5 4 1.2M5 10c.6-.4 1.5-.7 3-.7s2.4.3 3 .7"/><circle cx="8" cy="12.5" r="0.9" fill="currentColor"/></svg>';
+  var ICO_BELL = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v.8M3.5 6c0-1.9 1.6-3.5 3.5-3.5S10.5 4.1 10.5 6v2L12 9.5H2L3.5 8V6z"/><path d="M5.5 11.5a1.5 1.5 0 003 0"/></svg>';
+  var ICO_SHIELD_CHECK = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L12 3v4c0 3-2.2 5.3-5 6-2.8-.7-5-3-5-6V3l5-1.5z"/><path d="M4.5 7l1.7 1.7L9.5 5.5"/></svg>';
+  var ICO_BOOK = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 2.5h4a2 2 0 012 2v8a1.5 1.5 0 00-1.5-1.5h-4.5v-8.5z"/><path d="M11.5 2.5h-4a2 2 0 00-2 2v8a1.5 1.5 0 011.5-1.5h4.5v-8.5z"/></svg>';
+  var ICO_FOLDER_SEARCH = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 4v7.5h11V5.5h-6L5 4H1.5z"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M9.7 9.7l1.3 1.3"/></svg>';
+  var ICO_STACK3 = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L12.5 4 7 6.5 1.5 4 7 1.5z"/><path d="M2 6.5L7 8.7 12 6.5"/><path d="M2 9L7 11.2 12 9"/></svg>';
+  var ICO_INFO = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5.5"/><path d="M7 6v3.5"/><circle cx="7" cy="4.3" r="0.5" fill="currentColor"/></svg>';
+  var ICO_LOCK = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6.5" width="9" height="5.5" rx="1.1"/><path d="M4.5 6.5V4.5a2.5 2.5 0 015 0V6.5"/></svg>';
+  var ICO_TENANT = '<svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L12 3v4c0 3-2.2 5.3-5 6-2.8-.7-5-3-5-6V3l5-1.5z"/><rect x="5" y="6" width="4" height="3.5" rx="0.6"/><path d="M5.8 6V4.8a1.2 1.2 0 012.4 0V6"/></svg>';
+  var ICO_ALERT = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L13 12H1L7 1.5z"/><path d="M7 6v3M7 10.5v.1"/></svg>';
+  var ICO_REFRESH = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 4a4.5 4.5 0 10.5 5"/><path d="M12 1.5v3h-3"/></svg>';
+
+  function esc(s){ try { return _kcEsc(s); } catch(e){ return String(s == null ? '' : s); } }
+
+  // ─── State defaults + init ─────────────────────────────────────
+  function initSettingsState(){
+    if(KC_STATE.retrievalDepth == null) KC_STATE.retrievalDepth = 'truth-canon';
+    if(KC_STATE.purpose == null)        KC_STATE.purpose = '';
+    if(KC_STATE.purposeOther == null)   KC_STATE.purposeOther = '';
+    if(KC_STATE.sensitivityTier == null) KC_STATE.sensitivityTier = 'Medium';
+  }
+  initSettingsState();
+
+  function snapshotSettings(){
+    return {
+      retrievalDepth: KC_STATE.retrievalDepth,
+      purpose: KC_STATE.purpose,
+      purposeOther: KC_STATE.purposeOther,
+      sensitivityTier: KC_STATE.sensitivityTier,
+      behaviorLive: KC_STATE.behavior && KC_STATE.behavior.live,
+      behaviorNotify: KC_STATE.behavior && KC_STATE.behavior.notify
+    };
+  }
+  function settingsDirty(){
+    var init = KC_STATE._settingsInitial;
+    if(!init) return false;
+    var cur = snapshotSettings();
+    return ['retrievalDepth','purpose','purposeOther','sensitivityTier','behaviorLive','behaviorNotify']
+      .some(function(k){ return init[k] !== cur[k]; });
+  }
+  KC_STATE._settingsInitial = snapshotSettings();
+
+  // ─── Handlers ──────────────────────────────────────────────────
+  window._kcSetRetrievalDepth = function(v){
+    KC_STATE.retrievalDepth = v;
+    if(typeof _kcRender === 'function') _kcRender();
+  };
+  window._kcSetPurpose = function(v){
+    KC_STATE.purpose = v || '';
+    if(v !== 'other') KC_STATE.purposeOther = '';
+    if(typeof _kcRender === 'function') _kcRender();
+  };
+  window._kcSetPurposeOther = function(v){
+    KC_STATE.purposeOther = v || '';
+    // No re-render on each keystroke; the input value drives state directly.
+  };
+  window._kcSetSensitivity = function(v){
+    KC_STATE.sensitivityTier = v;
+    if(typeof _kcRender === 'function') _kcRender();
+  };
+
+  // ─── Patch _kcSetFindTab to allow 'settings' ───────────────────
+  var _origSetFindTab = window._kcSetFindTab;
+  window._kcSetFindTab = function(tab){
+    if(tab === 'settings'){
+      window.KC_FIND_TAB = 'settings';
+      if(typeof _kcRender === 'function') _kcRender();
+      return;
+    }
+    if(typeof _origSetFindTab === 'function') return _origSetFindTab(tab);
+  };
+
+  // ─── Section: Behavior (in Settings tab, flat — not accordion) ─
+  function renderBehaviorSection(){
+    var b = KC_STATE.behavior || { live: true, notify: false };
+    var locked = false;
+    var resolution = null;
+    try {
+      if(typeof _kcLockResolution === 'function'){
+        resolution = _kcLockResolution();
+        locked = !!resolution;
+      }
+    } catch(e){}
+
+    var lockNotice = '';
+    if(locked && resolution){
+      var lockedNames = (resolution.lockedStacks || []).map(function(s){ return s.name; });
+      var msg = lockedNames.length === 1
+        ? 'Behavior locked by ' + esc(lockedNames[0])
+        : 'Behavior locked by ' + lockedNames.length + ' Stacks';
+      var resolutionTxt = lockedNames.length > 1
+        ? 'Most restrictive setting applies: ' + esc(resolution.forcedNotify ? 'Live + Notify' : 'Live')
+        : '';
+      lockNotice = '<div class="kc-lock-notice">' +
+        '<span class="kc-lock-notice-ico">' + ICO_LOCK + '</span>' +
+        '<div class="kc-lock-notice-body">' +
+          '<div class="kc-lock-notice-msg">' + msg + '</div>' +
+          (resolutionTxt ? '<div class="kc-lock-notice-resolution">' + resolutionTxt + '</div>' : '') +
+          '<div class="kc-lock-notice-contact">To request a change, contact the Stack owner.</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    var modes = [
+      { id:'snapshot',     label:'Snapshot',     ico:ICO_SNOW,      iconCls:'pur',
+        desc:"Lock the binding to its current state. New matching facts won't be added; existing facts won't be removed.",
+        checked: !b.live },
+      { id:'live',         label:'Live',         ico:ICO_BROADCAST, iconCls:'ok',
+        desc:"Keep the binding current. New facts that match the binding's substacks are added automatically; removed facts are removed.",
+        checked: !!b.live && !b.notify },
+      { id:'live-notify',  label:'Live + Notify', ico:ICO_BELL,     iconCls:'warn',
+        desc:"Keep the binding current, but notify before adding new matching facts. You'll review each candidate before it joins the binding.",
+        checked: !!b.live && !!b.notify }
+    ];
+    var disabledAttr = locked ? 'disabled' : '';
+    var disabledCls = locked ? ' disabled' : '';
+
+    var radios = modes.map(function(m){
+      var onclick = locked ? '' : ' onclick="_kcSetBehaviorBriefTen(\'' + m.id + '\')"';
+      return '<label class="kc-set-radio' + disabledCls + '"' + onclick + '>' +
+        '<input type="radio" name="kcBehaviorB10" ' + (m.checked ? 'checked' : '') + ' ' + disabledAttr + ' onchange="_kcSetBehaviorBriefTen(\'' + m.id + '\')"/>' +
+        '<div class="kc-set-radio-content">' +
+          '<div class="kc-set-radio-lbl-row">' +
+            '<span class="kc-set-radio-ico ' + m.iconCls + '">' + m.ico + '</span>' +
+            '<span class="kc-set-radio-lbl">' + esc(m.label) + '</span>' +
+          '</div>' +
+          '<div class="kc-set-radio-desc">' + esc(m.desc) + '</div>' +
+        '</div>' +
+      '</label>';
+    }).join('');
+
+    // Drift indicator when Snapshot
+    var driftBlock = '';
+    if(!b.live){
+      var drifted = null;
+      try { if(typeof _kcCheckDrift === 'function') drifted = _kcCheckDrift(); } catch(e){}
+      if(drifted){
+        var s = drifted.count === 1 ? '' : 's';
+        driftBlock = '<div class="kc-set-drift">' + ICO_ALERT +
+          '<span>' + drifted.count + ' attached Stack' + s + ' ha' + (drifted.count===1?'s':'ve') + ' been revised since you snapshotted.</span>' +
+        '</div>' +
+        '<button class="kc-set-drift-refresh" type="button" onclick="_kcRefreshSnapshot()">' + ICO_REFRESH + ' Refresh snapshot</button>';
+      }
+    }
+
+    return '<div class="kc-set-section">' +
+      '<div class="kc-set-hd-row">' +
+        '<span class="kc-set-hd">Behavior</span>' +
+      '</div>' +
+      '<div class="kc-set-sub">How this binding consumes content as the underlying Stacks and substacks evolve.</div>' +
+      lockNotice +
+      '<div class="kc-set-radio-group">' + radios + '</div>' +
+      driftBlock +
+    '</div>';
+  }
+
+  // Behavior radio handler — maps unified id to legacy live/notify pair
+  window._kcSetBehaviorBriefTen = function(modeId){
+    if(modeId === 'snapshot'){
+      if(typeof _kcSetLive === 'function') _kcSetLive(false);
+    } else if(modeId === 'live'){
+      if(typeof _kcSetLive === 'function') _kcSetLive(true);
+      if(typeof _kcSetBehaviorMode === 'function') _kcSetBehaviorMode('auto');
+    } else if(modeId === 'live-notify'){
+      if(typeof _kcSetLive === 'function') _kcSetLive(true);
+      if(typeof _kcSetBehaviorMode === 'function') _kcSetBehaviorMode('notify');
+    }
+  };
+
+  // ─── Section: Retrieval depth ──────────────────────────────────
+  function renderRetrievalDepthSection(){
+    var v = KC_STATE.retrievalDepth || 'truth-canon';
+    var tiers = [
+      { id:'truth-only',          label:'Truth only',              ico:ICO_SHIELD_CHECK, iconCls:'ok',
+        desc:'Deterministic retrieval from attested facts only. Most restrictive.' },
+      { id:'truth-canon',         label:'Truth + Canon',           ico:ICO_BOOK,         iconCls:'info',
+        desc:'Adds current-by-construction reference documents. The default for governed retrieval.' },
+      { id:'truth-canon-sandbox', label:'Truth + Canon + Sandbox', ico:ICO_FOLDER_SEARCH, iconCls:'',
+        desc:'Adds exploratory content from the Sandbox Plane. Sandbox results are labeled non-authoritative.' },
+      { id:'all-tiers',           label:'All accessible tiers',    ico:ICO_STACK3,        iconCls:'',
+        desc:'Includes Ad Hoc Vault content uploaded in the current session. Use with caution.' }
+    ];
+    var radios = tiers.map(function(t){
+      var checked = v === t.id;
+      return '<label class="kc-set-radio" onclick="_kcSetRetrievalDepth(\'' + t.id + '\')">' +
+        '<input type="radio" name="kcRetrievalDepth" ' + (checked ? 'checked' : '') + ' onchange="_kcSetRetrievalDepth(\'' + t.id + '\')"/>' +
+        '<div class="kc-set-radio-content">' +
+          '<div class="kc-set-radio-lbl-row">' +
+            '<span class="kc-set-radio-ico ' + t.iconCls + '">' + t.ico + '</span>' +
+            '<span class="kc-set-radio-lbl">' + esc(t.label) + '</span>' +
+          '</div>' +
+          '<div class="kc-set-radio-desc">' + esc(t.desc) + '</div>' +
+        '</div>' +
+      '</label>';
+    }).join('');
+
+    var info = '<span class="kc-set-info" title="Content tiers are hierarchical: Truth Retrieval (TR) > Canon Retrieval (CR) > Sandbox RAG (SRAG) > Ad Hoc RAG (AHRAG). Each higher tier has more authoritative content. Bindings access lower tiers only when higher tiers are also enabled.">' + ICO_INFO + '</span>';
+
+    return '<div class="kc-set-section">' +
+      '<div class="kc-set-hd-row">' +
+        '<span class="kc-set-hd">Retrieval depth</span>' + info +
+      '</div>' +
+      '<div class="kc-set-sub">Which content tiers this binding\'s node can retrieve from at runtime.</div>' +
+      '<div class="kc-set-radio-group">' + radios + '</div>' +
+      '<div class="kc-set-note">Retrieval depth choices are constrained by tenant policy in production. v1 prototype allows free selection.</div>' +
+    '</div>';
+  }
+
+  // ─── Section: Policies ─────────────────────────────────────────
+  function renderPoliciesSection(){
+    // Purpose (editable)
+    var purposeOpts = PURPOSE_OPTIONS.map(function(o){
+      return '<option value="' + esc(o.id) + '" ' + (KC_STATE.purpose === o.id ? 'selected' : '') + '>' + esc(o.label) + '</option>';
+    }).join('');
+    var purposeOther = (KC_STATE.purpose === 'other')
+      ? '<div class="kc-purpose-other"><input type="text" placeholder="Specify purpose…" value="' + esc(KC_STATE.purposeOther || '') + '" oninput="_kcSetPurposeOther(this.value)"/></div>'
+      : '';
+    var purposeRow = '<div class="kc-policy-row">' +
+      '<div class="kc-policy-info">' +
+        '<div class="kc-policy-label">Purpose</div>' +
+        '<div class="kc-policy-desc">What this binding\'s node is being used for</div>' +
+      '</div>' +
+      '<div class="kc-policy-control">' +
+        '<select class="kc-policy-select" onchange="_kcSetPurpose(this.value)">' + purposeOpts + '</select>' +
+      '</div>' +
+      purposeOther +
+    '</div>';
+
+    // Sensitivity tier (editable, chip)
+    var sensChips = SENSITIVITY_TIERS.map(function(s){
+      var active = KC_STATE.sensitivityTier === s;
+      return '<button class="kc-policy-chip' + (active ? ' active' : '') + '" type="button" onclick="_kcSetSensitivity(\'' + s + '\')">' + esc(s) + '</button>';
+    }).join('');
+    var sensRow = '<div class="kc-policy-row">' +
+      '<div class="kc-policy-info">' +
+        '<div class="kc-policy-label">Sensitivity tier</div>' +
+        '<div class="kc-policy-desc">Maximum data sensitivity this binding can handle</div>' +
+      '</div>' +
+      '<div class="kc-policy-control">' +
+        '<div class="kc-policy-chips">' + sensChips + '</div>' +
+      '</div>' +
+    '</div>';
+
+    // Read-only policies
+    function readOnlyRow(label, desc, state, tooltip){
+      return '<div class="kc-policy-row readonly">' +
+        '<div class="kc-policy-info">' +
+          '<div class="kc-policy-label">' + esc(label) + '</div>' +
+          '<div class="kc-policy-desc">' + esc(desc) + '</div>' +
+        '</div>' +
+        '<div class="kc-policy-control">' +
+          '<span class="kc-policy-state">' + esc(state) + '</span>' +
+          '<span class="kc-policy-tenant-badge" title="' + esc(tooltip) + '">' + ICO_TENANT + ' tenant</span>' +
+        '</div>' +
+      '</div>';
+    }
+
+    var fieldMaskingRow = readOnlyRow(
+      'Field masking', 'PII fields masked in retrieved content', 'Enabled',
+      'PII fields are masked in retrieved content. This is a tenant-level governance policy.'
+    );
+    var toolAccessRow = readOnlyRow(
+      'Tool access', 'External tool calls governed by tenant allowlist', 'Restricted to allowlist',
+      'External tool calls (APIs, etc.) are governed by tenant tool allowlist. Contact your governance lead to modify.'
+    );
+    var consentRow = readOnlyRow(
+      'Consent & suppression', 'User consent and data suppression honored at retrieval', 'Honored',
+      'User-level consent settings and data suppression are honored at retrieval time. This is a tenant-level guarantee.'
+    );
+
+    return '<div class="kc-set-section">' +
+      '<div class="kc-set-hd-row">' +
+        '<span class="kc-set-hd">Policies</span>' +
+      '</div>' +
+      '<div class="kc-set-sub">Governance policies applied to this binding\'s retrieval and execution.</div>' +
+      '<div class="kc-policies-table">' +
+        purposeRow + sensRow + fieldMaskingRow + toolAccessRow + consentRow +
+      '</div>' +
+    '</div>';
+  }
+
+  // ─── Settings tab renderer ─────────────────────────────────────
+  function renderSettingsTab(){
+    initSettingsState();
+    return '<div class="kc-settings">' +
+      renderBehaviorSection() +
+      renderRetrievalDepthSection() +
+      renderPoliciesSection() +
+    '</div>';
+  }
+
+  // ─── Patch _kcRenderStateB: add Settings tab + render it ───────
+  var _origRenderStateB_B10 = (typeof window._kcRenderStateB === 'function') ? window._kcRenderStateB : _kcRenderStateB;
+  var wrappedRenderStateB = function(){
+    var html = _origRenderStateB_B10.apply(this, arguments);
+    var activeTab = window.KC_FIND_TAB || 'precurated';
+
+    // Inject a third tab into the Find tabs row
+    var dirtyDot = settingsDirty() ? '<span class="dirty-dot" aria-label="unsaved changes"></span>' : '';
+    var settingsTabBtn = '<button class="kc-find-tab ' + (activeTab === 'settings' ? 'active' : 'inactive') + '" onclick="window._kcSetFindTab(\'settings\')">Settings' + dirtyDot + '</button>';
+    html = html.replace(
+      /(<button class="kc-find-tab[^"]*"[^>]*>Create your own<\/button>)/,
+      '$1' + settingsTabBtn
+    );
+
+    // If Settings tab is active, replace the find-body content with the Settings tab.
+    // Use depth-aware div walking — naive regex stops at the first nested </div></div>
+    // and leaks the rest of the Pre-curated/Create-your-own content below.
+    if(activeTab === 'settings'){
+      html = replaceFindBody(html, renderSettingsTab());
+      // Brief 9 emits Pre-curated/Create-your-own tabs with active class based on
+      // its own state. When the active tab is Settings, demote both to inactive.
+      html = html.replace(
+        /<button class="kc-find-tab active"([^>]*>Pre-curated knowledge<\/button>)/,
+        '<button class="kc-find-tab inactive"$1'
+      );
+      html = html.replace(
+        /<button class="kc-find-tab active"([^>]*>Create your own<\/button>)/,
+        '<button class="kc-find-tab inactive"$1'
+      );
+    }
+    return html;
+  };
+
+  // Depth-aware replacement for the kc-find-body div's contents.
+  function replaceFindBody(html, newInner){
+    if(!html || typeof html !== 'string') return html;
+    var openRe = /<div class="kc-find-body"[^>]*>/;
+    var m = html.match(openRe);
+    if(!m) return html;
+    var openIdx = html.indexOf(m[0]);
+    var afterOpen = openIdx + m[0].length;
+    var depth = 1;
+    var tokenRe = /<\/?div\b[^>]*>/g;
+    tokenRe.lastIndex = afterOpen;
+    var endIdx = -1;
+    var t;
+    while((t = tokenRe.exec(html)) !== null){
+      if(t[0].charAt(1) === '/'){
+        depth--;
+        if(depth === 0){ endIdx = t.index + t[0].length; break; }
+      } else {
+        depth++;
+      }
+    }
+    if(endIdx === -1) return html;
+    return html.substring(0, openIdx) +
+      '<div class="kc-find-body">' + newInner + '</div>' +
+      html.substring(endIdx);
+  }
+  try { window._kcRenderStateB = wrappedRenderStateB; } catch(e){}
+  try { _kcRenderStateB = wrappedRenderStateB; } catch(e){}
+
+  // ─── Patch _kcOpen: reset settings + snapshot initial ──────────
+  var _origKcOpenB10S = (typeof window._kcOpen === 'function') ? window._kcOpen : _kcOpen;
+  var wrappedKcOpenB10S = function(){
+    var r = _origKcOpenB10S.apply(this, arguments);
+    // Load from existing binding settings if present
+    var sub = null;
+    try {
+      if(typeof bldrNet !== 'undefined' && bldrNet){
+        var res = _pcFindSub(bldrNet, KC_STATE.parentId, KC_STATE.subId);
+        sub = res && res.sub;
+      }
+    } catch(e){}
+    var existing = sub && sub.binding && sub.binding.settings;
+    KC_STATE.retrievalDepth  = (existing && existing.retrievalDepth)  || 'truth-canon';
+    KC_STATE.purpose         = (existing && existing.purpose)         || '';
+    KC_STATE.purposeOther    = (existing && existing.purposeOther)    || '';
+    KC_STATE.sensitivityTier = (existing && existing.sensitivityTier) || 'Medium';
+    KC_STATE._settingsInitial = snapshotSettings();
+    return r;
+  };
+  try { window._kcOpen = wrappedKcOpenB10S; } catch(e){}
+  try { _kcOpen = wrappedKcOpenB10S; } catch(e){}
+
+  // ─── Patch _kcSave: persist settings to sub.binding ────────────
+  if(typeof _kcSave === 'function'){
+    var _origKcSaveB10 = _kcSave;
+    _kcSave = function(){
+      var r = _origKcSaveB10.apply(this, arguments);
+      try {
+        if(typeof bldrNet !== 'undefined' && bldrNet){
+          var res = _pcFindSub(bldrNet, KC_STATE.parentId, KC_STATE.subId);
+          if(res && res.sub && res.sub.binding){
+            res.sub.binding.settings = {
+              retrievalDepth: KC_STATE.retrievalDepth,
+              purpose: KC_STATE.purpose,
+              purposeOther: KC_STATE.purposeOther,
+              sensitivityTier: KC_STATE.sensitivityTier
+            };
+          }
+        }
+      } catch(e){}
+      return r;
+    };
+    window._kcSave = _kcSave;
+  }
+})();
+
+/* === Brief 11: Notify-first review ribbon + in-modal review surface === */
+(function _brief11Notify(){
+  if(window.__KC_BRIEF11_APPLIED) return;
+  window.__KC_BRIEF11_APPLIED = true;
+  if(typeof KC_STATE === 'undefined') return;
+
+  // SVG icons
+  var ICO_BELL_RIBBON = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v.8M3.5 6c0-1.9 1.6-3.5 3.5-3.5S10.5 4.1 10.5 6v2L12 9.5H2L3.5 8V6z"/><path d="M5.5 11.5a1.5 1.5 0 003 0"/></svg>';
+  var ICO_CHECK_GO = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 7.5 6 11 11.5 4"/></svg>';
+  var ICO_X = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l8 8M11 3l-8 8"/></svg>';
+
+  function esc(s){ try { return _kcEsc(s); } catch(e){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"})[c]; }); } }
+
+  // Demo candidates: seeded into KC_STATE.pendingCandidates on _kcOpen when
+  // the binding is in Live + Notify mode AND at least one Stack is attached.
+  function buildDemoPendingCandidates(){
+    return [
+      {
+        id: 'fact-cand-001',
+        statement: 'Discount approvals over 25% require CFO sign-off',
+        plane: 'Sales TP',
+        sourceSubstack: 'Pricing policy facts',
+        sourceStack: 'Pricing Policy',
+        sourceDocument: 'Q3 Sales Compensation Memo.pdf',
+        promotedDate: 'May 28',
+        decisionState: null,
+        rejectionReason: null
+      },
+      {
+        id: 'fact-cand-002',
+        statement: 'Strategic accounts may receive bespoke pricing terms outside the standard tier ladder',
+        plane: 'Sales TP',
+        sourceSubstack: 'Pricing policy facts',
+        sourceStack: 'Pricing Policy',
+        sourceDocument: 'Account Strategy Playbook v3.docx',
+        promotedDate: 'May 30',
+        decisionState: null,
+        rejectionReason: null
+      },
+      {
+        id: 'fact-cand-003',
+        statement: 'Volume pricing tiers reset at the start of each fiscal quarter',
+        plane: 'Compliance TP',
+        sourceSubstack: 'Pricing policy facts',
+        sourceStack: 'Pricing Policy',
+        sourceDocument: 'Fiscal Calendar 2026.pdf',
+        promotedDate: 'Jun 2',
+        decisionState: null,
+        rejectionReason: null
+      }
+    ];
+  }
+
+  function bindingIsNotifyFirst(){
+    return !!(KC_STATE.behavior && KC_STATE.behavior.live && KC_STATE.behavior.notify);
+  }
+
+  function pendingCount(){
+    var list = KC_STATE.pendingCandidates || [];
+    return list.filter(function(c){ return c.decisionState === null; }).length;
+  }
+  function approvedCount(){
+    return (KC_STATE.pendingCandidates || []).filter(function(c){ return c.decisionState === 'approved'; }).length;
+  }
+  function rejectedCount(){
+    return (KC_STATE.pendingCandidates || []).filter(function(c){ return c.decisionState === 'rejected'; }).length;
+  }
+  function deferredCount(){
+    return (KC_STATE.pendingCandidates || []).filter(function(c){ return c.decisionState === null; }).length;
+  }
+
+  // ─── Handlers ──────────────────────────────────────────────────
+  window._kcOpenReview = function(){
+    KC_STATE._reviewOpen = true;
+    // Default: leave decisionState null; user explicitly chooses Approve/Reject
+    if(typeof _kcRender === 'function') _kcRender();
+  };
+  window._kcCloseReview = function(){
+    KC_STATE._reviewOpen = false;
+    // Reset any in-progress (non-applied) decisions to null so "Decide later" is a true defer
+    (KC_STATE.pendingCandidates || []).forEach(function(c){
+      if(c.decisionState !== null){ c.decisionState = null; c.rejectionReason = null; }
+    });
+    if(typeof _kcRender === 'function') _kcRender();
+  };
+  window._kcCandApprove = function(id){
+    var c = (KC_STATE.pendingCandidates || []).find(function(x){ return x.id === id; });
+    if(!c) return;
+    c.decisionState = (c.decisionState === 'approved') ? null : 'approved';
+    if(c.decisionState !== 'rejected') c.rejectionReason = null;
+    if(typeof _kcRender === 'function') _kcRender();
+  };
+  window._kcCandReject = function(id){
+    var c = (KC_STATE.pendingCandidates || []).find(function(x){ return x.id === id; });
+    if(!c) return;
+    c.decisionState = (c.decisionState === 'rejected') ? null : 'rejected';
+    if(typeof _kcRender === 'function') _kcRender();
+  };
+  window._kcCandReason = function(id, v){
+    var c = (KC_STATE.pendingCandidates || []).find(function(x){ return x.id === id; });
+    if(!c) return;
+    c.rejectionReason = v || '';
+    // Don't re-render on each keystroke
+  };
+
+  window._kcApplyDecisions = function(){
+    var list = KC_STATE.pendingCandidates || [];
+    var decided = list.filter(function(c){ return c.decisionState !== null; });
+    if(!decided.length) return;
+    var approved = decided.filter(function(c){ return c.decisionState === 'approved'; });
+    var rejected = decided.filter(function(c){ return c.decisionState === 'rejected'; });
+
+    // Apply approvals: bump the matching item's fact count (best-effort,
+    // since the prototype doesn't track individual fact IDs on stack items)
+    approved.forEach(function(c){
+      var match = (KC_STATE.items || []).find(function(it){
+        if(it.kind === 'stack' && it.name === c.sourceStack) return true;
+        if(it.kind === 'search' && it.name === c.sourceSubstack) return true;
+        return false;
+      });
+      if(match){
+        match.facts = (match.facts || 0) + 1;
+      }
+    });
+
+    // Apply rejections: persist a synthetic exclusion record for visibility
+    rejected.forEach(function(c){
+      var match = (KC_STATE.items || []).find(function(it){
+        if(it.kind === 'stack' && it.name === c.sourceStack) return true;
+        if(it.kind === 'search' && it.name === c.sourceSubstack) return true;
+        return false;
+      });
+      if(match){
+        match.excludedFactIds = match.excludedFactIds || [];
+        // Use the candidate id as the excluded reference (synthetic in this prototype)
+        if(match.excludedFactIds.indexOf(c.id) < 0) match.excludedFactIds.push(c.id);
+        match.excludedReasons = match.excludedReasons || {};
+        if(c.rejectionReason) match.excludedReasons[c.id] = c.rejectionReason;
+      }
+    });
+
+    // Remove decided candidates from the pending list (deferred remain)
+    KC_STATE.pendingCandidates = list.filter(function(c){ return c.decisionState === null; });
+    KC_STATE._reviewOpen = false;
+
+    if(typeof toast === 'function'){
+      var parts = [];
+      if(approved.length) parts.push(approved.length + ' approved');
+      if(rejected.length) parts.push(rejected.length + ' rejected');
+      toast(decided.length + ' decision' + (decided.length === 1 ? '' : 's') + ' applied — ' + parts.join(', '), 'success');
+    }
+    if(typeof _kcRender === 'function') _kcRender();
+  };
+
+  // ─── Ribbon markup ────────────────────────────────────────────
+  function renderRibbon(){
+    var n = pendingCount();
+    if(n === 0 || KC_STATE._reviewOpen) return '';
+    var reviewing = KC_STATE._reviewOpen;
+    return '<div class="kc-notify-ribbon">' +
+      '<span class="kc-notify-ribbon-ico">' + ICO_BELL_RIBBON + '</span>' +
+      '<div>' +
+        '<div class="kc-notify-ribbon-msg"><strong>' + n + '</strong> candidate fact' + (n === 1 ? '' : 's') + ' awaiting your review</div>' +
+        '<div class="kc-notify-ribbon-sub">matched a substack\'s filter via DIAN promotion</div>' +
+      '</div>' +
+      '<span class="kc-notify-ribbon-spacer"></span>' +
+      '<button class="kc-notify-ribbon-btn" type="button" onclick="_kcOpenReview()" ' + (reviewing ? 'disabled' : '') + '>Review →</button>' +
+    '</div>';
+  }
+
+  // ─── Review surface ───────────────────────────────────────────
+  function renderReviewSurface(){
+    var list = KC_STATE.pendingCandidates || [];
+    if(!list.length){
+      return '<div class="kc-review">' +
+        '<div class="kc-review-hd"><button class="kc-review-back" type="button" onclick="_kcCloseReview()">← Back to Find knowledge</button></div>' +
+        '<div class="kc-review-sub">No pending candidates.</div>' +
+      '</div>';
+    }
+    var n = list.length;
+    var approved = approvedCount();
+    var rejected = rejectedCount();
+    var deferred = deferredCount();
+    var decidedTotal = approved + rejected;
+
+    var cards = list.map(function(c){
+      var stateCls = (c.decisionState === 'rejected') ? ' rejected'
+                   : (c.decisionState === 'approved') ? ' approved' : '';
+      var matchSrc = c.sourceStack
+        ? esc(c.sourceStack) + ' → ' + esc(c.sourceSubstack || '')
+        : esc(c.sourceSubstack || '');
+      var approveBtn = '<button class="kc-cand-action-btn ' + (c.decisionState === 'approved' ? 'approved' : '') + '" type="button" onclick="_kcCandApprove(\'' + esc(c.id) + '\')">' + ICO_CHECK_GO + ' Approve</button>';
+      var rejectBtn = '<button class="kc-cand-action-btn ' + (c.decisionState === 'rejected' ? 'rejected' : '') + '" type="button" onclick="_kcCandReject(\'' + esc(c.id) + '\')">' + ICO_X + ' Reject</button>';
+      var reasonInput = (c.decisionState === 'rejected')
+        ? '<div class="kc-cand-reason"><input type="text" placeholder="Reason (optional) — why this fact doesn\'t belong…" value="' + esc(c.rejectionReason || '') + '" oninput="_kcCandReason(\'' + esc(c.id) + '\', this.value)"/></div>'
+        : '';
+      return '<div class="kc-cand-card' + stateCls + '">' +
+        '<div class="kc-cand-top">' +
+          '<span class="kc-cand-plane">' + esc(c.plane) + '</span>' +
+          '<div class="kc-cand-stmt">' + esc(c.statement) + '</div>' +
+        '</div>' +
+        '<div class="kc-cand-meta">' +
+          '<div class="kc-cand-meta-row"><strong>Matches:</strong> ' + matchSrc + '</div>' +
+          (c.sourceDocument ? '<div class="kc-cand-meta-row"><strong>Promoted from:</strong> ' + esc(c.sourceDocument) + '</div>' : '') +
+          (c.promotedDate ? '<div class="kc-cand-meta-row"><strong>via DIAN on</strong> ' + esc(c.promotedDate) + '</div>' : '') +
+        '</div>' +
+        '<div class="kc-cand-actions">' + approveBtn + rejectBtn + '</div>' +
+        reasonInput +
+      '</div>';
+    }).join('');
+
+    return '<div class="kc-review">' +
+      '<div class="kc-review-hd">' +
+        '<div>' +
+          '<div class="kc-review-title">Review new facts</div>' +
+          '<div class="kc-review-sub">' + n + ' candidate fact' + (n===1?'':'s') + ' matched your binding\'s substacks. Decide what to do with each.</div>' +
+        '</div>' +
+        '<span style="flex:1"></span>' +
+        '<button class="kc-review-back" type="button" onclick="_kcCloseReview()">← Back to Find knowledge</button>' +
+      '</div>' +
+      '<div class="kc-review-cards">' + cards + '</div>' +
+      '<div class="kc-review-footer">' +
+        '<div class="kc-review-summary"><strong>' + approved + '</strong> approved · <strong>' + rejected + '</strong> rejected · <strong>' + deferred + '</strong> deferred</div>' +
+        '<button class="kc-review-defer-btn" type="button" onclick="_kcCloseReview()">Decide later</button>' +
+        '<button class="kc-review-apply-btn" type="button" onclick="_kcApplyDecisions()" ' + (decidedTotal === 0 ? 'disabled title="Make a decision on at least one card to apply."' : '') + '>Apply ' + decidedTotal + ' decision' + (decidedTotal === 1 ? '' : 's') + '</button>' +
+      '</div>' +
+    '</div>';
+  }
+
+  // Depth-aware replacement for kc-find-section (mirror of Brief 10 helper for kc-find-body)
+  function replaceFindSection(html, newInner){
+    if(!html || typeof html !== 'string') return html;
+    var openRe = /<div class="kc-find-section"[^>]*>/;
+    var m = html.match(openRe);
+    if(!m) return html;
+    var openIdx = html.indexOf(m[0]);
+    var afterOpen = openIdx + m[0].length;
+    var depth = 1;
+    var tokenRe = /<\/?div\b[^>]*>/g;
+    tokenRe.lastIndex = afterOpen;
+    var endIdx = -1;
+    var t;
+    while((t = tokenRe.exec(html)) !== null){
+      if(t[0].charAt(1) === '/'){
+        depth--;
+        if(depth === 0){ endIdx = t.index + t[0].length; break; }
+      } else {
+        depth++;
+      }
+    }
+    if(endIdx === -1) return html;
+    return html.substring(0, openIdx) +
+      '<div class="kc-find-section">' + newInner + '</div>' +
+      html.substring(endIdx);
+  }
+
+  // ─── Patch _kcRenderStateB: ribbon at top + review takeover ───
+  var _origRenderStateB_B11 = (typeof window._kcRenderStateB === 'function') ? window._kcRenderStateB : _kcRenderStateB;
+  var wrappedRenderStateB11 = function(){
+    var html = _origRenderStateB_B11.apply(this, arguments);
+
+    // Inject ribbon at the top of kc-b-wrap (after the opening tag, before children)
+    var ribbon = renderRibbon();
+    if(ribbon){
+      html = html.replace(
+        /(<div class="kc-b-wrap[^"]*"[^>]*>)/,
+        '$1' + ribbon
+      );
+    }
+
+    // If reviewing, replace the kc-find-section with the review surface
+    if(KC_STATE._reviewOpen){
+      html = replaceFindSection(html, renderReviewSurface());
+    }
+    return html;
+  };
+  try { window._kcRenderStateB = wrappedRenderStateB11; } catch(e){}
+  try { _kcRenderStateB = wrappedRenderStateB11; } catch(e){}
+
+  // ─── Patch _kcOpen: seed demo pending candidates ──────────────
+  var _origKcOpenB11 = (typeof window._kcOpen === 'function') ? window._kcOpen : _kcOpen;
+  var wrappedKcOpenB11 = function(){
+    var r = _origKcOpenB11.apply(this, arguments);
+    KC_STATE._reviewOpen = false;
+
+    // Seed pending candidates from saved binding if present
+    var sub = null;
+    try {
+      if(typeof bldrNet !== 'undefined' && bldrNet){
+        var res = _pcFindSub(bldrNet, KC_STATE.parentId, KC_STATE.subId);
+        sub = res && res.sub;
+      }
+    } catch(e){}
+    var saved = sub && sub.binding && sub.binding.pendingCandidates;
+    if(saved && Array.isArray(saved)){
+      KC_STATE.pendingCandidates = saved.map(function(c){ return Object.assign({}, c); });
+    } else if(bindingIsNotifyFirst() && (KC_STATE.items || []).some(function(it){ return it.kind === 'stack' && it.name === 'Pricing Policy'; })){
+      // Demo seed: only when Pricing Policy is attached + L+N mode
+      KC_STATE.pendingCandidates = buildDemoPendingCandidates();
+    } else {
+      KC_STATE.pendingCandidates = [];
+    }
+    return r;
+  };
+  try { window._kcOpen = wrappedKcOpenB11; } catch(e){}
+  try { _kcOpen = wrappedKcOpenB11; } catch(e){}
+
+  // ─── Behavior change interception ─────────────────────────────
+  // When switching from L+N → Live (auto-approve) or L+N → Snapshot (discard),
+  // confirm with the user when pending candidates exist.
+  var _origSetLiveB11 = (typeof window._kcSetLive === 'function') ? window._kcSetLive : _kcSetLive;
+  if(typeof _origSetLiveB11 === 'function'){
+    window._kcSetLive = function(on){
+      var wasNotifyFirst = bindingIsNotifyFirst();
+      var goingToSnapshot = !on;
+      var pending = pendingCount();
+      if(wasNotifyFirst && goingToSnapshot && pending > 0){
+        var ok = window.confirm('You have ' + pending + ' pending candidate fact' + (pending===1?'':'s') + '. Switching to Snapshot will discard them. Continue?');
+        if(!ok) return; // cancel — don't change
+        KC_STATE.pendingCandidates = [];
+      }
+      return _origSetLiveB11(on);
+    };
+  }
+  var _origSetBehaviorModeB11 = (typeof window._kcSetBehaviorMode === 'function') ? window._kcSetBehaviorMode : _kcSetBehaviorMode;
+  if(typeof _origSetBehaviorModeB11 === 'function'){
+    window._kcSetBehaviorMode = function(mode){
+      var wasNotifyFirst = bindingIsNotifyFirst();
+      var goingToAuto = (mode === 'auto');
+      var pending = pendingCount();
+      if(wasNotifyFirst && goingToAuto && pending > 0){
+        var ok = window.confirm('You have ' + pending + ' pending candidate fact' + (pending===1?'':'s') + '. Switching to Live will automatically approve them. Continue?');
+        if(!ok) return;
+        // Auto-approve: bump fact counts where possible, then clear pending
+        var list = KC_STATE.pendingCandidates;
+        list.forEach(function(c){
+          var match = (KC_STATE.items || []).find(function(it){
+            if(it.kind === 'stack' && it.name === c.sourceStack) return true;
+            if(it.kind === 'search' && it.name === c.sourceSubstack) return true;
+            return false;
+          });
+          if(match){ match.facts = (match.facts || 0) + 1; }
+        });
+        KC_STATE.pendingCandidates = [];
+        if(typeof toast === 'function') toast(pending + ' candidate' + (pending===1?'':'s') + ' auto-approved', 'success');
+      }
+      return _origSetBehaviorModeB11(mode);
+    };
+  }
+
+  // ─── _kcSave: persist pendingCandidates ───────────────────────
+  if(typeof _kcSave === 'function'){
+    var _origKcSaveB11 = _kcSave;
+    _kcSave = function(){
+      var r = _origKcSaveB11.apply(this, arguments);
+      try {
+        if(typeof bldrNet !== 'undefined' && bldrNet){
+          var res = _pcFindSub(bldrNet, KC_STATE.parentId, KC_STATE.subId);
+          if(res && res.sub && res.sub.binding){
+            res.sub.binding.pendingCandidates = (KC_STATE.pendingCandidates || []).map(function(c){ return Object.assign({}, c); });
+          }
+        }
+      } catch(e){}
+      return r;
+    };
+    window._kcSave = _kcSave;
   }
 })();
 
