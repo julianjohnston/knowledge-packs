@@ -3299,6 +3299,92 @@ html.theme-light .search-footer-link{color:#7C3AED}
 .kc-review-apply-btn { background:var(--pri); border:none; color:#0a0a0a; font-size:11.5px; padding:6px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; font-weight:500; }
 .kc-review-apply-btn:hover:not(:disabled) { filter:brightness(1.1); }
 .kc-review-apply-btn:disabled { opacity:0.5; cursor:default; }
+
+/* === Brief 13: HGS fact inspection panel === */
+.hgs-insp-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:1100; opacity:0; pointer-events:none; transition:opacity 0.2s ease-out; }
+.hgs-insp-backdrop.open { opacity:1; pointer-events:auto; }
+.hgs-insp { position:fixed; top:0; right:0; bottom:0; width:400px; max-width:90vw; background:var(--bg); border-left:0.5px solid var(--bd); z-index:1101; display:flex; flex-direction:column; transform:translateX(100%); transition:transform 0.22s ease-out; box-shadow:-8px 0 24px rgba(0,0,0,0.3); }
+.hgs-insp.open { transform:translateX(0); }
+.hgs-insp-hd { padding:16px 18px; border-bottom:0.5px solid var(--bd); display:flex; align-items:flex-start; gap:10px; flex-shrink:0; }
+.hgs-insp-hd-main { flex:1; min-width:0; }
+.hgs-insp-title { font-size:14px; font-weight:500; color:var(--t1); line-height:1.4; margin-bottom:5px; word-wrap:break-word; }
+.hgs-insp-id-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:10.5px; color:var(--t3); }
+.hgs-insp-id { font-family:var(--mono, ui-monospace, monospace); }
+.hgs-insp-badge { display:inline-flex; align-items:center; gap:4px; font-size:10px; padding:2px 7px; border-radius:999px; font-weight:500; text-transform:capitalize; }
+.hgs-insp-badge.verified { background:rgba(5,223,114,0.12); color:var(--ok); border:0.5px solid rgba(5,223,114,0.3); }
+.hgs-insp-badge.pending { background:rgba(212,143,2,0.12); color:var(--warn); border:0.5px solid rgba(212,143,2,0.3); }
+.hgs-insp-badge.rejected { background:rgba(220,38,38,0.12); color:var(--err); border:0.5px solid rgba(220,38,38,0.3); }
+.hgs-insp-hd-actions { display:flex; gap:6px; flex-shrink:0; }
+.hgs-insp-icon-btn { background:transparent; border:none; color:var(--t3); cursor:pointer; padding:4px; border-radius:var(--r4); display:inline-flex; align-items:center; }
+.hgs-insp-icon-btn:hover { color:var(--t1); background:rgba(255,255,255,0.05); }
+.hgs-insp-body { flex:1; overflow-y:auto; padding:16px 18px; display:flex; flex-direction:column; gap:20px; }
+.hgs-insp-sec-lbl { font-size:10px; letter-spacing:0.05em; text-transform:uppercase; color:var(--t3); font-weight:500; margin-bottom:8px; }
+.hgs-insp-stmt { background:rgba(96,165,250,0.06); border:0.5px solid rgba(96,165,250,0.2); border-radius:var(--r6); padding:14px; display:flex; gap:10px; align-items:flex-start; }
+.hgs-insp-stmt-ico { color:var(--ok); flex-shrink:0; margin-top:2px; }
+.hgs-insp-stmt-text { font-size:13.5px; color:var(--t1); line-height:1.5; flex:1; }
+.hgs-insp-context { font-size:12px; color:var(--t2); line-height:1.55; }
+.hgs-insp-signals { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; }
+.hgs-insp-sig { background:rgba(255,255,255,0.03); border:0.5px solid var(--bd); border-radius:var(--r6); padding:10px; text-align:center; }
+.hgs-insp-sig.ok { border-color:rgba(5,223,114,0.3); background:rgba(5,223,114,0.05); }
+.hgs-insp-sig.warn { border-color:rgba(212,143,2,0.3); background:rgba(212,143,2,0.05); }
+.hgs-insp-sig.err { border-color:rgba(220,38,38,0.3); background:rgba(220,38,38,0.05); }
+.hgs-insp-sig.info { border-color:rgba(96,165,250,0.3); background:rgba(96,165,250,0.05); }
+.hgs-insp-sig-val { font-size:15px; font-weight:600; color:var(--t1); }
+.hgs-insp-sig.ok .hgs-insp-sig-val { color:var(--ok); }
+.hgs-insp-sig.warn .hgs-insp-sig-val { color:var(--warn); }
+.hgs-insp-sig.err .hgs-insp-sig-val { color:var(--err); }
+.hgs-insp-sig.info .hgs-insp-sig-val { color:var(--pri); }
+.hgs-insp-sig-lbl { font-size:10px; color:var(--t3); margin-top:3px; letter-spacing:0.03em; }
+.hgs-insp-rows { display:flex; flex-direction:column; gap:7px; }
+.hgs-insp-row { display:flex; gap:10px; font-size:12px; align-items:baseline; }
+.hgs-insp-row-k { color:var(--t3); width:88px; flex-shrink:0; font-size:11px; }
+.hgs-insp-row-v { color:var(--t1); flex:1; word-wrap:break-word; }
+.hgs-insp-row-v.expired { color:var(--err); }
+.hgs-insp-src { font-size:12px; color:var(--t2); line-height:1.55; }
+.hgs-insp-src strong { color:var(--t1); font-weight:500; }
+.hgs-insp-src-doc { display:inline-flex; align-items:center; gap:6px; color:var(--t1); }
+.hgs-insp-foot { padding:14px 18px; border-top:0.5px solid var(--bd); flex-shrink:0; display:flex; gap:8px; }
+.hgs-insp-cta { flex:1; background:var(--pri); border:none; color:#0a0a0a; font-size:12.5px; padding:9px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; font-weight:500; display:flex; align-items:center; justify-content:center; gap:6px; }
+.hgs-insp-cta:hover { filter:brightness(1.1); }
+.hgs-insp-cta.secondary { background:transparent; border:1px solid var(--bd); color:var(--t1); font-weight:500; }
+.hgs-insp-cta.secondary:hover { background:rgba(255,255,255,0.04); border-color:var(--t3); filter:none; }
+.hgs-insp-cta.secondary .hgs-insp-spark { color:var(--pur); }
+
+/* Lightweight Propose Change preview modal */
+.hgs-pc-ov { position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1200; display:none; align-items:flex-start; justify-content:center; padding-top:8vh; }
+.hgs-pc-ov.open { display:flex; }
+.hgs-pc { background:var(--bg); border:0.5px solid var(--bd); border-radius:var(--r8); width:min(640px, 92vw); max-height:84vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 24px 60px rgba(0,0,0,0.4); }
+.hgs-pc-hd { display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:0.5px solid var(--bd); }
+.hgs-pc-hd-ico { color:var(--pur); display:inline-flex; flex-shrink:0; }
+.hgs-pc-hd-ttl { font-size:14px; font-weight:600; color:var(--t1); flex:1; }
+.hgs-pc-hd-close { background:transparent; border:none; color:var(--t3); cursor:pointer; padding:4px; border-radius:var(--r4); display:inline-flex; }
+.hgs-pc-hd-close:hover { color:var(--t1); background:rgba(255,255,255,0.05); }
+.hgs-pc-body { padding:18px; overflow-y:auto; display:flex; flex-direction:column; gap:16px; }
+.hgs-pc-prefill-note { background:rgba(96,165,250,0.06); border:0.5px solid rgba(96,165,250,0.2); border-radius:var(--r6); padding:9px 12px; font-size:11.5px; color:var(--t2); display:flex; gap:8px; align-items:flex-start; }
+.hgs-pc-prefill-note .pc-info-ico { color:var(--pri); flex-shrink:0; margin-top:1px; }
+.hgs-pc-sec { display:flex; flex-direction:column; gap:6px; }
+.hgs-pc-sec-lbl { font-size:10px; letter-spacing:0.05em; text-transform:uppercase; color:var(--t3); font-weight:500; }
+.hgs-pc-sec-val { font-size:12.5px; color:var(--t1); line-height:1.5; padding:8px 10px; background:rgba(255,255,255,0.03); border:0.5px solid var(--bd); border-radius:var(--r6); }
+.hgs-pc-sec-val.editable { background:rgba(96,165,250,0.04); border-color:rgba(96,165,250,0.15); }
+.hgs-pc-sec-input { width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--bd); color:var(--t1); font-size:12.5px; padding:8px 10px; border-radius:var(--r6); font-family:inherit; line-height:1.5; box-sizing:border-box; outline:none; resize:vertical; }
+.hgs-pc-sec-input:focus { border-color:var(--pri); }
+.hgs-pc-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+.hgs-pc-foot { padding:12px 18px; border-top:0.5px solid var(--bd); display:flex; justify-content:flex-end; gap:8px; }
+.hgs-pc-cancel { background:transparent; border:1px solid var(--bd); color:var(--t1); font-size:12.5px; padding:8px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.hgs-pc-cancel:hover { background:rgba(255,255,255,0.04); border-color:var(--t3); }
+.hgs-pc-send { background:var(--pur); border:none; color:#fff; font-size:12.5px; padding:8px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; font-weight:500; display:inline-flex; align-items:center; gap:6px; }
+.hgs-pc-send:hover { filter:brightness(1.1); }
+
+/* Inline inspect button on candidate/review/excluded rows */
+.hgs-row-inspect { background:transparent; border:none; color:var(--t3); cursor:pointer; padding:4px 6px; border-radius:var(--r4); display:inline-flex; align-items:center; font-family:inherit; flex-shrink:0; }
+.hgs-row-inspect:hover { color:var(--t1); background:rgba(255,255,255,0.05); }
+
+/* === Brief 14: Configurator inspect triggers (inline ⋮ buttons) === */
+.kc-result-inspect, .kc-cand-inspect { background:transparent; border:none; color:var(--t3); cursor:pointer; padding:2px 6px; border-radius:var(--r4); display:inline-flex; align-items:center; justify-content:center; font-family:inherit; flex-shrink:0; font-size:14px; line-height:1; margin-left:auto; }
+.kc-result-inspect:hover, .kc-cand-inspect:hover { color:var(--t1); background:rgba(255,255,255,0.05); }
+.kc-result-cb { position:relative; }
+.kc-cand-card .kc-cand-inspect { position:absolute; top:10px; right:10px; }
+.kc-cand-card { position:relative; }
 </style>
 </head>
 <body>
@@ -18536,6 +18622,734 @@ function hgsSmConfirmRemove(){
     };
     window._kcSave = _kcSave;
   }
+})();
+
+/* === Brief 13: HGS fact inspection panel === */
+(function _brief13Inspector(){
+  if(window.__HGS_BRIEF13_APPLIED) return;
+  window.__HGS_BRIEF13_APPLIED = true;
+
+  // SVG icons
+  var ICO_VERIFY = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5L13.5 3v5c0 3.5-2.5 5.7-5.5 6.5C5 13.7 2.5 11.5 2.5 8V3L8 1.5z"/><path d="M5.5 8l1.8 1.8 3.2-3.6"/></svg>';
+  var ICO_CLOSE = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg>';
+  var ICO_EXT = '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2H2v10h10V9"/><path d="M9 2h3v3M12 2L7 7"/></svg>';
+  var ICO_FILE = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h5L11 4v8.5H3V1.5z"/><path d="M8 1.5V4h3M5 6.5h4M5 8.5h4M5 10.5h2"/></svg>';
+  var ICO_INSPECT = '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5.5"/><path d="M7 4.5v3.5"/><circle cx="7" cy="10" r="0.5" fill="currentColor"/></svg>';
+  var ICO_SPARK = '<svg class="hgs-insp-spark" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L8.2 5.3 12 6.5 8.2 7.7 7 11.5 5.8 7.7 2 6.5 5.8 5.3z"/><path d="M11 11.5l.4 1.2 1.2.4-1.2.4-.4 1.2-.4-1.2-1.2-.4 1.2-.4z" opacity="0.6"/></svg>';
+
+  function esc(s){ try { return hgsEsc(s); } catch(e){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"})[c]; }); } }
+
+  // Deterministic hash for stable signal seeding per fact id
+  function hashId(id){
+    var h = 2166136261;
+    for(var i = 0; i < id.length; i++){ h ^= id.charCodeAt(i); h = (h * 16777619) >>> 0; }
+    return h;
+  }
+
+  // Synthesize the extended fact metadata (signals/validity/source/context)
+  // from the underlying fact + any related state. Deterministic by id so
+  // the same fact always shows the same derived values across opens.
+  function extendFact(f, sourceList){
+    if(!f) return null;
+    var h = hashId(f.id || '');
+    var confidence = 70 + (h % 26); // 70-95
+    var riskRoll = (h >> 5) % 10;   // 0-9
+    var risk = riskRoll < 7 ? 'Low' : (riskRoll < 9 ? 'Medium' : 'High');
+    var polarityRoll = (h >> 10) % 10;
+    var polarity = polarityRoll < 7 ? 'Positive' : (polarityRoll < 9 ? 'Neutral' : 'Negative');
+
+    // Status: facts in stack are 'verified'; pending are 'pending'; excluded are 'rejected'
+    var status = 'verified';
+    if(sourceList === 'pending') status = 'pending';
+    else if(sourceList === 'excluded') status = 'rejected';
+
+    // Validity
+    var validFrom = f.attested || f.inStackSince || 'Jan 10, 2024';
+    var validTo = (h >> 15) % 10 < 8 ? 'Dec 31, 2026' : 'Expired';
+    var lastReview = ((h >> 20) % 5 === 0)
+      ? '2 hours ago'
+      : ((h >> 21) % 4 === 0)
+        ? 'yesterday'
+        : ((h >> 22) % 3 === 0)
+          ? '3 days ago'
+          : '2 weeks ago';
+
+    // Source
+    var srcDocs = [
+      'Q3 Cloud SLA Agreement.pdf',
+      'Pricing Policy Master v4.docx',
+      'Compliance Audit Manual 2026.pdf',
+      'Compensation Plan Q2.xlsx',
+      'Account Strategy Playbook v3.docx',
+      'Discount Approval Matrix.pdf',
+      'Sales Process Handbook.pdf',
+      'MSA Standard Template.docx'
+    ];
+    var docIdx = h % srcDocs.length;
+    var source = {
+      document: f.promotedFrom || srcDocs[docIdx],
+      extractedDate: f.promotedOn || validFrom,
+      bridgeId: 'br-' + (h & 0xffff).toString(16)
+    };
+
+    // Context — short blurb derived from topic
+    var contextByTopic = {
+      'Pricing policy': 'Governs how pricing decisions are made, approved, and audited. Defines escalation thresholds and exception handling.',
+      'Discount approval': 'Codifies the approval matrix for discounts across deal sizes, with explicit escalation triggers and finance involvement.',
+      'Compensation': 'Defines base compensation, equity vesting, and bonus structures. Reviewed annually and tied to performance OKRs.',
+      'Commission': 'Specifies commission accelerators, clawback windows, and split rules for renewals and partner-sourced deals.',
+      'Sales process': 'Process governance for the sales motion — qualification, handoff, pipeline reviews.',
+      'Customer onboarding': 'Defines the onboarding sequence, SLA windows, and CSM engagement for new customers.',
+      'Audit trail': 'Compliance and audit posture: retention windows, evidence collection, third-party audit cadence.',
+      'Operations': 'Production operations: deployment approvals, access controls, incident response SLAs.',
+      'SLA': 'Governs service availability commitments. Defines measurement windows, exclusions, and remedies for non-compliance such as service credits.'
+    };
+    var context = contextByTopic[f.topic] || null;
+
+    return {
+      id: f.id,
+      statement: f.statement,
+      status: status,
+      category: f.topic || (f.substack || ''),
+      plane: f.plane,
+      topic: f.topic || '',
+      context: context,
+      signals: { confidence: confidence, risk: risk, polarity: polarity },
+      validity: { validFrom: validFrom, validTo: validTo, lastReview: lastReview },
+      source: source,
+      owner: f.owner || ''
+    };
+  }
+
+  // Resolve a fact id across all HGS sources
+  function resolveFact(factId){
+    if(typeof HGS_STATE === 'undefined' || !HGS_STATE) return null;
+    var f;
+    f = (HGS_STATE.facts || []).find(function(x){ return x.id === factId; });
+    if(f) return extendFact(f, 'facts');
+    f = (HGS_STATE.pendingCandidates || []).find(function(x){ return x.id === factId; });
+    if(f) return extendFact(f, 'pending');
+    f = (HGS_STATE.excludedFacts || []).find(function(x){ return x.id === factId; });
+    if(f) return extendFact(f, 'excluded');
+    f = (HGS_STATE.truthPlaneCandidates || []).find(function(x){ return x.id === factId; });
+    if(f) return extendFact(f, 'candidates');
+    return null;
+  }
+
+  function ensurePanel(){
+    var backdrop = document.getElementById('hgsInspBackdrop');
+    if(backdrop) return { backdrop: backdrop, panel: document.getElementById('hgsInsp') };
+    backdrop = document.createElement('div');
+    backdrop.id = 'hgsInspBackdrop';
+    backdrop.className = 'hgs-insp-backdrop';
+    backdrop.addEventListener('click', window.hgsCloseInspector);
+    document.body.appendChild(backdrop);
+
+    var panel = document.createElement('aside');
+    panel.id = 'hgsInsp';
+    panel.className = 'hgs-insp';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-label', 'Fact details');
+    document.body.appendChild(panel);
+    return { backdrop: backdrop, panel: panel };
+  }
+
+  function renderPanelBody(f){
+    if(!f) return '';
+    var sig = f.signals || {};
+    var val = f.validity || {};
+    var src = f.source || {};
+    // Confidence color
+    var confCls = sig.confidence == null ? 'info' : (sig.confidence > 80 ? 'info' : sig.confidence >= 50 ? 'warn' : 'err');
+    var riskCls = sig.risk === 'Low' ? 'ok' : sig.risk === 'Medium' ? 'warn' : sig.risk === 'High' || sig.risk === 'Critical' ? 'err' : '';
+    var polCls = sig.polarity === 'Positive' ? 'ok' : sig.polarity === 'Negative' ? 'warn' : '';
+    var expiredCls = (val.validTo === 'Expired') ? ' expired' : '';
+
+    var sigPills = '';
+    if(sig.confidence != null) sigPills += '<div class="hgs-insp-sig ' + confCls + '"><div class="hgs-insp-sig-val">' + sig.confidence + '%</div><div class="hgs-insp-sig-lbl">Confidence</div></div>';
+    if(sig.risk) sigPills += '<div class="hgs-insp-sig ' + riskCls + '"><div class="hgs-insp-sig-val">' + esc(sig.risk) + '</div><div class="hgs-insp-sig-lbl">Risk</div></div>';
+    if(sig.polarity) sigPills += '<div class="hgs-insp-sig ' + polCls + '"><div class="hgs-insp-sig-val">' + esc(sig.polarity) + '</div><div class="hgs-insp-sig-lbl">Polarity</div></div>';
+
+    var contextBlock = f.context
+      ? '<div><div class="hgs-insp-sec-lbl">What this governs</div><div class="hgs-insp-context">' + esc(f.context) + '</div></div>'
+      : '';
+
+    var signalsBlock = sigPills
+      ? '<div><div class="hgs-insp-sec-lbl">Signals</div><div class="hgs-insp-signals">' + sigPills + '</div></div>'
+      : '';
+
+    var validityRows = '';
+    if(val.validFrom) validityRows += '<div class="hgs-insp-row"><span class="hgs-insp-row-k">Valid from</span><span class="hgs-insp-row-v">' + esc(val.validFrom) + '</span></div>';
+    if(val.validTo) validityRows += '<div class="hgs-insp-row"><span class="hgs-insp-row-k">Valid to</span><span class="hgs-insp-row-v' + expiredCls + '">' + esc(val.validTo) + '</span></div>';
+    if(val.lastReview) validityRows += '<div class="hgs-insp-row"><span class="hgs-insp-row-k">Last review</span><span class="hgs-insp-row-v">' + esc(val.lastReview) + '</span></div>';
+    var validityBlock = validityRows
+      ? '<div><div class="hgs-insp-sec-lbl">Validity</div><div class="hgs-insp-rows">' + validityRows + '</div></div>'
+      : '';
+
+    var srcParts = [];
+    if(src.document) srcParts.push('<div>Extracted from <span class="hgs-insp-src-doc">' + ICO_FILE + '<strong>' + esc(src.document) + '</strong></span></div>');
+    if(src.extractedDate) srcParts.push('<div>via DIAN on <strong>' + esc(src.extractedDate) + '</strong></div>');
+    if(f.owner) srcParts.push('<div style="margin-top:6px">Owner: <strong>' + esc(f.owner) + '</strong></div>');
+    var sourceBlock = srcParts.length
+      ? '<div><div class="hgs-insp-sec-lbl">Source &amp; provenance</div><div class="hgs-insp-src">' + srcParts.join('') + '</div></div>'
+      : '';
+
+    return '<div><div class="hgs-insp-sec-lbl">Truth statement</div>' +
+      '<div class="hgs-insp-stmt">' +
+        '<span class="hgs-insp-stmt-ico">' + ICO_VERIFY + '</span>' +
+        '<span class="hgs-insp-stmt-text">' + esc(f.statement) + '</span>' +
+      '</div></div>' +
+      contextBlock +
+      signalsBlock +
+      validityBlock +
+      sourceBlock;
+  }
+
+  window.hgsOpenInspector = function(factId){
+    var f = resolveFact(factId);
+    if(!f) return;
+    // Close any open fact menu first
+    try { if(typeof hgsCloseFactMenu === 'function') hgsCloseFactMenu(); } catch(e){}
+    var refs = ensurePanel();
+    var title = (f.statement || '').length > 90 ? (f.statement.slice(0, 90) + '…') : f.statement;
+    var headerHtml =
+      '<div class="hgs-insp-hd-main">' +
+        '<div class="hgs-insp-title">' + esc(title) + '</div>' +
+        '<div class="hgs-insp-id-row">' +
+          '<span class="hgs-insp-id">' + esc(f.id) + '</span>' +
+          '<span class="hgs-insp-badge ' + esc(f.status) + '">' + esc(f.status) + '</span>' +
+          (f.category ? '<span>·</span><span>' + esc(f.category) + '</span>' : '') +
+        '</div>' +
+      '</div>' +
+      '<div class="hgs-insp-hd-actions">' +
+        '<button class="hgs-insp-icon-btn" type="button" onclick="hgsInspectorOpenInTruthPlane()" title="Open in new">' + ICO_EXT + '</button>' +
+        '<button class="hgs-insp-icon-btn" type="button" onclick="hgsCloseInspector()" title="Close" aria-label="Close">' + ICO_CLOSE + '</button>' +
+      '</div>';
+    var footerHtml =
+      '<button class="hgs-insp-cta secondary" type="button" onclick="hgsInspectorPropose()">' + ICO_SPARK + 'Propose Change</button>' +
+      '<button class="hgs-insp-cta" type="button" onclick="hgsInspectorOpenInTruthPlane()">View in Truth Plane →</button>';
+    refs.panel.innerHTML =
+      '<div class="hgs-insp-hd">' + headerHtml + '</div>' +
+      '<div class="hgs-insp-body">' + renderPanelBody(f) + '</div>' +
+      '<div class="hgs-insp-foot">' + footerHtml + '</div>';
+    // Animate in — guard against re-entrancy (if hgsCloseInspector ran
+    // synchronously after this open call, don't restore the .open class)
+    window.HGS_INSP_FACT_ID = factId;
+    requestAnimationFrame(function(){
+      if(window.HGS_INSP_FACT_ID !== factId) return;
+      refs.backdrop.classList.add('open');
+      refs.panel.classList.add('open');
+    });
+  };
+
+  window.hgsCloseInspector = function(){
+    var backdrop = document.getElementById('hgsInspBackdrop');
+    var panel = document.getElementById('hgsInsp');
+    if(backdrop) backdrop.classList.remove('open');
+    if(panel) panel.classList.remove('open');
+    window.HGS_INSP_FACT_ID = null;
+  };
+
+  window.hgsInspectorOpenInTruthPlane = function(){
+    var id = window.HGS_INSP_FACT_ID;
+    if(typeof toast === 'function') toast('Opening ' + (id || 'fact') + ' in Truth Plane…', 'info');
+    try { console.log('[Brief 13] View in Truth Plane →', id); } catch(e){}
+  };
+
+  // ─── Propose Change CTA → close inspector + open prefilled modal ─
+  window.hgsInspectorPropose = function(){
+    var id = window.HGS_INSP_FACT_ID;
+    var f = resolveFact(id);
+    if(!f) return;
+    window.hgsCloseInspector();
+    openProposeChange(f);
+  };
+
+  function ensureProposeModal(){
+    var ov = document.getElementById('hgsPcOv');
+    if(ov) return ov;
+    ov = document.createElement('div');
+    ov.id = 'hgsPcOv';
+    ov.className = 'hgs-pc-ov';
+    ov.addEventListener('click', function(e){ if(e.target === ov) closeProposeChange(); });
+    document.body.appendChild(ov);
+    return ov;
+  }
+
+  function openProposeChange(f){
+    var ov = ensureProposeModal();
+    var sig = f.signals || {};
+    var val = f.validity || {};
+    var headerHtml =
+      '<div class="hgs-pc-hd">' +
+        '<span class="hgs-pc-hd-ico">' + ICO_SPARK + '</span>' +
+        '<div class="hgs-pc-hd-ttl">Propose Change · ' + esc(f.id) + '</div>' +
+        '<button class="hgs-pc-hd-close" type="button" onclick="hgsClosePropose()" aria-label="Close">' + ICO_CLOSE + '</button>' +
+      '</div>';
+    var bodyHtml =
+      '<div class="hgs-pc-body">' +
+        '<div class="hgs-pc-prefill-note">' +
+          '<span class="pc-info-ico">' + ICO_INSPECT + '</span>' +
+          '<span>Pre-populated from the current fact. Edit the proposed statement and add a rationale to send the proposal for review.</span>' +
+        '</div>' +
+        '<div class="hgs-pc-sec">' +
+          '<label class="hgs-pc-sec-lbl" for="hgsPcStmt">Proposed statement</label>' +
+          '<textarea id="hgsPcStmt" class="hgs-pc-sec-input" rows="3">' + esc(f.statement) + '</textarea>' +
+        '</div>' +
+        '<div class="hgs-pc-sec">' +
+          '<span class="hgs-pc-sec-lbl">Knowledge base / category</span>' +
+          '<div class="hgs-pc-sec-val">' + esc(f.category || f.topic || '—') + '</div>' +
+        '</div>' +
+        '<div>' +
+          '<div class="hgs-pc-sec-lbl" style="margin-bottom:6px">Governance signals</div>' +
+          '<div class="hgs-pc-grid">' +
+            '<div class="hgs-pc-sec-val">Confidence · ' + (sig.confidence != null ? sig.confidence + '%' : '—') + '</div>' +
+            '<div class="hgs-pc-sec-val">Risk · ' + esc(sig.risk || '—') + '</div>' +
+            '<div class="hgs-pc-sec-val">Polarity · ' + esc(sig.polarity || '—') + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div>' +
+          '<div class="hgs-pc-sec-lbl" style="margin-bottom:6px">Validity &amp; scope</div>' +
+          '<div class="hgs-pc-grid" style="grid-template-columns:1fr 1fr">' +
+            '<div class="hgs-pc-sec-val">From · ' + esc(val.validFrom || '—') + '</div>' +
+            '<div class="hgs-pc-sec-val">To · ' + esc(val.validTo || '—') + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="hgs-pc-sec">' +
+          '<label class="hgs-pc-sec-lbl" for="hgsPcRationale">Rationale</label>' +
+          '<textarea id="hgsPcRationale" class="hgs-pc-sec-input" rows="3" placeholder="Why this fact should change…"></textarea>' +
+        '</div>' +
+        '<div class="hgs-pc-sec">' +
+          '<span class="hgs-pc-sec-lbl">Urgency · approval workflow</span>' +
+          '<div class="hgs-pc-sec-val">Normal · Manual (defaults — adjust in Governance Studio)</div>' +
+        '</div>' +
+      '</div>';
+    var footerHtml =
+      '<div class="hgs-pc-foot">' +
+        '<button class="hgs-pc-cancel" type="button" onclick="hgsClosePropose()">Cancel</button>' +
+        '<button class="hgs-pc-send" type="button" onclick="hgsSendProposal()">' + ICO_SPARK + 'Send proposal</button>' +
+      '</div>';
+    ov.innerHTML = '<div class="hgs-pc" role="dialog" aria-label="Propose change">' + headerHtml + bodyHtml + footerHtml + '</div>';
+    window.HGS_PC_FACT_ID = f.id;
+    ov.classList.add('open');
+    setTimeout(function(){ var inp = document.getElementById('hgsPcRationale'); if(inp) inp.focus(); }, 0);
+  }
+
+  function closeProposeChange(){
+    var ov = document.getElementById('hgsPcOv');
+    if(ov) ov.classList.remove('open');
+    window.HGS_PC_FACT_ID = null;
+  }
+  window.hgsClosePropose = closeProposeChange;
+  window.hgsSendProposal = function(){
+    var id = window.HGS_PC_FACT_ID;
+    var stmt = document.getElementById('hgsPcStmt');
+    var rationale = document.getElementById('hgsPcRationale');
+    try {
+      console.log('[Brief 13 Δ1] Send proposal →', {
+        factId: id,
+        proposedStatement: stmt ? stmt.value : '',
+        rationale: rationale ? rationale.value : ''
+      });
+    } catch(e){}
+    if(typeof toast === 'function') toast('Proposal sent for ' + (id || 'fact') + ' — pending review', 'success');
+    closeProposeChange();
+  };
+
+  // ESC also closes the propose modal
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && window.HGS_PC_FACT_ID){
+      closeProposeChange();
+    }
+  });
+
+  // ESC closes the inspector
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && window.HGS_INSP_FACT_ID){
+      window.hgsCloseInspector();
+    }
+  });
+
+  // ─── Patch hgsToggleFactMenu: replace items with View fact details + Exclude ─
+  if(typeof window.hgsToggleFactMenu === 'function' || typeof hgsToggleFactMenu === 'function'){
+    window.hgsToggleFactMenu = function(ev, factId){
+      document.querySelectorAll('.hgs-fact-menu').forEach(function(m){ m.remove(); });
+      if(HGS_FACT_MENU_OPEN === factId){ HGS_FACT_MENU_OPEN = null; return; }
+      HGS_FACT_MENU_OPEN = factId;
+      var cell = ev.target.closest('.hgs-fact-actions');
+      if(!cell) return;
+      var menu = document.createElement('div');
+      menu.className = 'hgs-fact-menu';
+      menu.innerHTML =
+        '<button type="button" onclick="hgsCloseFactMenu();hgsOpenInspector(\'' + esc(factId) + '\')">' +
+          ICO_INSPECT +
+          'View fact details' +
+        '</button>' +
+        '<button type="button" class="danger" onclick="hgsOpenExcludeDlg(\'' + esc(factId) + '\')">' +
+          '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M2 2l10 10M3.5 4.2C2.4 5.1 1.5 6.4 1.2 7c0 0 2 4 5.8 4 .9 0 1.7-.2 2.4-.5M10.4 9.7c1.4-.9 2.3-2.1 2.4-2.7 0 0-2-4-5.8-4-.9 0-1.7.2-2.4.5"/></svg>' +
+          'Exclude from substack' +
+        '</button>';
+      document.body.appendChild(menu);
+      var r = cell.getBoundingClientRect();
+      var menuW = 200;
+      var left = r.right - menuW;
+      var top = r.bottom + 4;
+      if(top + menu.offsetHeight > window.innerHeight - 12) top = r.top - menu.offsetHeight - 4;
+      if(left < 12) left = 12;
+      menu.style.left = left + 'px';
+      menu.style.top = top + 'px';
+    };
+    try { hgsToggleFactMenu = window.hgsToggleFactMenu; } catch(e){}
+  }
+
+  // ─── Inline inspect buttons on other surfaces ──────────────────
+  // Add facts candidate rows — covers both unlocked and locked rows by walking
+  // _hgsAfFilteredCandidates() in render order and injecting inspect buttons
+  // sequentially.
+  if(typeof window.renderHgsAddFacts === 'function' || typeof renderHgsAddFacts === 'function'){
+    var _origRenderAdd = (typeof window.renderHgsAddFacts === 'function') ? window.renderHgsAddFacts : renderHgsAddFacts;
+    var wrappedRenderAdd = function(){
+      var html = _origRenderAdd();
+      var ids = [];
+      try { if(typeof _hgsAfFilteredCandidates === 'function') ids = _hgsAfFilteredCandidates().map(function(c){ return c.id; }); } catch(e){}
+      var i = 0;
+      html = html.replace(/<div class="hgs-candidate([^"]*)"([^>]*)>([\s\S]*?)<\/div>(\s*<\/div>)/g, function(match, cls, attrs, inner, closeTags){
+        // Skip the placeholder "no facts match" row (no statement inside)
+        if(inner.indexOf('hgs-cand-statement') < 0) return match;
+        var factId = ids[i++];
+        if(!factId) return match;
+        var btn = '<button class="hgs-row-inspect" type="button" onclick="event.stopPropagation();hgsOpenInspector(\'' + factId + '\')" title="View fact details" aria-label="View fact details">' + ICO_INSPECT + '</button>';
+        return '<div class="hgs-candidate' + cls + '"' + attrs + '>' + inner + btn + '</div>' + closeTags;
+      });
+      return html;
+    };
+    try { window.renderHgsAddFacts = wrappedRenderAdd; renderHgsAddFacts = wrappedRenderAdd; } catch(e){}
+  }
+
+  // Notify-first review cards
+  if(typeof window.renderHgsPendingReview === 'function' || typeof renderHgsPendingReview === 'function'){
+    var _origRenderPR = (typeof window.renderHgsPendingReview === 'function') ? window.renderHgsPendingReview : renderHgsPendingReview;
+    var wrappedRenderPR = function(){
+      var html = _origRenderPR();
+      // Inject inspect button per card — anchor to the checkbox onclick handler
+      html = html.replace(
+        /(onclick="hgsPrToggle\('([^']+)'\)"[^>]*>[\s\S]*?<\/span>)/g,
+        function(match, captured, factId){
+          var btn = '<button class="hgs-row-inspect" type="button" style="margin-left:auto" onclick="event.stopPropagation();hgsOpenInspector(\'' + factId + '\')" title="View fact details" aria-label="View fact details">' + ICO_INSPECT + '</button>';
+          // Don't inject here; we'll inject elsewhere using a different strategy
+          return match;
+        }
+      );
+      // Alternate strategy: add inspect button after the meta line of each card
+      html = html.replace(
+        /(<div class="hgs-pr-meta">[\s\S]*?<\/div>)/g,
+        function(meta){
+          // The card has the candidate id embedded in its checkbox onclick — pull from outer context.
+          // Simpler: leave the meta inject as-is, and instead append in the card via a separate sweep.
+          return meta;
+        }
+      );
+      // Inject inspect button into each card directly — append it inside hgs-pr-row before the closing of hgs-pr-body
+      html = html.replace(
+        /(<div class="hgs-pr-card[^"]*">[\s\S]*?hgsPrToggle\('([^']+)'\)[\s\S]*?<\/div>)(\s*<div class="hgs-pr-reason">)/g,
+        function(m, before, factId, after){
+          var btn = '<div style="display:flex;justify-content:flex-end;margin-top:6px"><button class="hgs-row-inspect" type="button" onclick="event.stopPropagation();hgsOpenInspector(\'' + factId + '\')" title="View fact details" aria-label="View fact details">' + ICO_INSPECT + ' View details</button></div>';
+          return before + btn + after;
+        }
+      );
+      return html;
+    };
+    try { window.renderHgsPendingReview = wrappedRenderPR; renderHgsPendingReview = wrappedRenderPR; } catch(e){}
+  }
+
+  // Excluded view cards
+  if(typeof window.renderHgsExcluded === 'function' || typeof renderHgsExcluded === 'function'){
+    var _origRenderEx = (typeof window.renderHgsExcluded === 'function') ? window.renderHgsExcluded : renderHgsExcluded;
+    var wrappedRenderEx = function(){
+      var html = _origRenderEx();
+      // Inject inspect button before "Include back" on each ex-card
+      html = html.replace(
+        /(<div class="hgs-ex-card">[\s\S]*?<\/div>)(\s*<button class="hgs-include-btn"[^>]*onclick="hgsIncludeBack\('([^']+)'\))/g,
+        function(m, before, after, factId){
+          var btn = '<button class="hgs-row-inspect" type="button" style="margin-right:6px" onclick="event.stopPropagation();hgsOpenInspector(\'' + factId + '\')" title="View fact details" aria-label="View fact details">' + ICO_INSPECT + '</button>';
+          return before + btn + after;
+        }
+      );
+      return html;
+    };
+    try { window.renderHgsExcluded = wrappedRenderEx; renderHgsExcluded = wrappedRenderEx; } catch(e){}
+  }
+})();
+
+/* === Brief 14: Configurator fact inspection panel triggers === */
+(function _brief14ConfigInspect(){
+  if(window.__KC_BRIEF14_APPLIED) return;
+  window.__KC_BRIEF14_APPLIED = true;
+  if(typeof KC_STATE === 'undefined' || typeof KC_FACTS === 'undefined') return;
+
+  // ── Augment HGS_STATE.facts with any KC_FACTS not present, so the inspector's
+  //    resolveFact (which searches HGS_STATE) finds KC fact ids. Translate plane id
+  //    ('sales' → 'Sales TP') and topic id ('pricing-policy' → 'Pricing policy').
+  function ensureKcFactsInHgsState(){
+    if(typeof HGS_STATE === 'undefined' || !HGS_STATE || !Array.isArray(HGS_STATE.facts)) return;
+    var existing = {};
+    HGS_STATE.facts.forEach(function(f){ existing[f.id] = true; });
+    KC_FACTS.forEach(function(kf){
+      if(existing[kf.id]) return;
+      var pl = (typeof _kcPlane === 'function' && _kcPlane(kf.plane)) ? _kcPlane(kf.plane).label : kf.plane;
+      var tp = (typeof _kcTopic === 'function' && _kcTopic(kf.topic)) ? _kcTopic(kf.topic).label : kf.topic;
+      HGS_STATE.facts.push({
+        id: kf.id,
+        statement: kf.statement,
+        plane: pl,
+        owner: 'Sarah Chen',
+        substack: '',
+        topic: tp,
+        inStackSince: 'Mar 14'
+      });
+    });
+  }
+
+  // Wrap _kcOpen to augment HGS_STATE.facts on every modal open
+  var _origKcOpenB14 = (typeof window._kcOpen === 'function') ? window._kcOpen : _kcOpen;
+  var wrappedKcOpenB14 = function(){
+    var r = _origKcOpenB14.apply(this, arguments);
+    ensureKcFactsInHgsState();
+    return r;
+  };
+  try { window._kcOpen = wrappedKcOpenB14; } catch(e){}
+  try { _kcOpen = wrappedKcOpenB14; } catch(e){}
+
+  // ── Three-dot menu helper for configurator fact rows
+  window._kcOpenFactMenu = function(ev, factId, canExclude, itemId){
+    document.querySelectorAll('.hgs-fact-menu').forEach(function(m){ m.remove(); });
+    var trigger = ev.target.closest('.kc-attached-fact-menu, .kc-result-inspect, .kc-cand-inspect, button');
+    if(!trigger) trigger = ev.target;
+    var menu = document.createElement('div');
+    menu.className = 'hgs-fact-menu kc-fact-menu';
+    var items = '<button type="button" onclick="document.querySelectorAll(\'.hgs-fact-menu\').forEach(function(m){m.remove();});hgsOpenInspector(\'' + factId + '\')">' +
+      '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5.5"/><path d="M7 4.5v3.5"/><circle cx="7" cy="10" r="0.5" fill="currentColor"/></svg>' +
+      'View fact details</button>';
+    if(canExclude && itemId){
+      items += '<button type="button" class="danger" onclick="document.querySelectorAll(\'.hgs-fact-menu\').forEach(function(m){m.remove();});_kcExcludeFromSubstack(\'' + itemId + '\',\'' + factId + '\')">' +
+        '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M2 2l10 10M3.5 4.2C2.4 5.1 1.5 6.4 1.2 7c0 0 2 4 5.8 4 .9 0 1.7-.2 2.4-.5"/></svg>' +
+        'Exclude from this substack</button>';
+    }
+    menu.innerHTML = items;
+    document.body.appendChild(menu);
+    var r = trigger.getBoundingClientRect();
+    var menuW = 220;
+    var left = r.right - menuW;
+    var top = r.bottom + 4;
+    if(top + menu.offsetHeight > window.innerHeight - 12) top = r.top - menu.offsetHeight - 4;
+    if(left < 12) left = 12;
+    menu.style.left = left + 'px';
+    menu.style.top = top + 'px';
+    ev.stopPropagation && ev.stopPropagation();
+  };
+
+  // Close kc-fact-menu on outside click
+  document.addEventListener('click', function(e){
+    if(!document.querySelector('.kc-fact-menu')) return;
+    if(e.target.closest('.kc-fact-menu')) return;
+    if(e.target.closest('.kc-attached-fact-menu, .kc-result-inspect, .kc-cand-inspect')) return;
+    document.querySelectorAll('.kc-fact-menu').forEach(function(m){ m.remove(); });
+  });
+
+  // ── Post-render: inject inspect triggers across all 4 configurator surfaces
+  function postRenderInjectInspect(){
+    // Surface 1+2: Expanded Attached containers (Stack and substack)
+    // Both kinds get the Exclude option — Stack-attached facts can be excluded
+    // from the Stack's contribution to this binding via item.excludedFactIds.
+    document.querySelectorAll('.kc-attached-card.expanded').forEach(function(card){
+      var rm = card.querySelector('.kc-attached-rm');
+      if(!rm) return;
+      var match = (rm.getAttribute('onclick') || '').match(/_kcRemoveItem\('([^']+)'\)/);
+      var itemId = match && match[1];
+      if(!itemId) return;
+      var item = (KC_STATE.items || []).find(function(i){ return i.id === itemId; });
+      if(!item) return;
+      // Brief 7's _kcRenderInlineFacts emits facts in this order — for Stack
+      // containers, KC_FACTS filtered by plane (without honoring excludedFactIds);
+      // for substack containers, item.factIds. We mirror that order to map DOM
+      // rows to fact ids by index, then drop rows whose fact is in excludedFactIds.
+      var fullFactIds = [];
+      if(item.kind === 'stack'){
+        var st = KC_STACKS.find(function(s){ return s.id === item.stackId; });
+        if(st){
+          fullFactIds = KC_FACTS.filter(function(f){ return st.planes.indexOf(f.plane) >= 0; })
+            .slice(0, st.facts).map(function(f){ return f.id; });
+        }
+      } else {
+        fullFactIds = (item.factIds || []).slice();
+      }
+      var excludedSet = new Set(item.excludedFactIds || []);
+      var rows = card.querySelectorAll('.kc-attached-facts > .kc-attached-fact');
+      rows.forEach(function(row, i){
+        var factId = fullFactIds[i];
+        if(!factId){ return; }
+        if(excludedSet.has(factId)){
+          // Drop the row — fact has been excluded by the workflow author
+          row.parentNode && row.parentNode.removeChild(row);
+          return;
+        }
+        row.setAttribute('data-fact-id', factId);
+        var existing = row.querySelector('.kc-attached-fact-menu');
+        // canExclude=true for both Stack and substack containers
+        var btnAttrs = 'onclick="event.stopPropagation();_kcOpenFactMenu(event,\'' + factId + '\',true,\'' + itemId + '\')"';
+        if(existing){
+          existing.outerHTML = '<button class="kc-attached-fact-menu" type="button" title="Fact actions" aria-label="Fact actions" ' + btnAttrs + '>⋮</button>';
+        } else {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'kc-attached-fact-menu';
+          btn.title = 'Fact actions';
+          btn.setAttribute('aria-label', 'Fact actions');
+          btn.innerHTML = '⋮';
+          btn.setAttribute('onclick', "event.stopPropagation();_kcOpenFactMenu(event,'" + factId + "',true,'" + itemId + "')");
+          row.appendChild(btn);
+        }
+      });
+    });
+    // Surface 3: Create-your-own search result rows
+    document.querySelectorAll('.kc-result-cb:not(.dup):not([data-b14-injected])').forEach(function(row){
+      var input = row.querySelector('input[onchange*="_kcToggleSearchFact"]');
+      if(!input) return;
+      var m = (input.getAttribute('onchange') || '').match(/_kcToggleSearchFact\('([^']+)'\)/);
+      var factId = m && m[1];
+      if(!factId) return;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'kc-result-inspect';
+      btn.title = 'View fact details';
+      btn.setAttribute('aria-label', 'View fact details');
+      btn.innerHTML = '⋮';
+      btn.setAttribute('onclick', "event.stopPropagation();event.preventDefault();_kcOpenFactMenu(event,'" + factId + "',false,null)");
+      row.appendChild(btn);
+      row.setAttribute('data-b14-injected', '1');
+    });
+    // Surface 4: Notify-first review cards
+    document.querySelectorAll('.kc-cand-card:not([data-b14-injected])').forEach(function(card){
+      var approve = card.querySelector('button[onclick*="_kcCandApprove"]');
+      if(!approve) return;
+      var m = (approve.getAttribute('onclick') || '').match(/_kcCandApprove\('([^']+)'\)/);
+      var candId = m && m[1];
+      if(!candId) return;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'kc-cand-inspect';
+      btn.title = 'View fact details';
+      btn.setAttribute('aria-label', 'View fact details');
+      btn.innerHTML = '⋮';
+      btn.setAttribute('onclick', "event.stopPropagation();_kcOpenFactMenu(event,'" + candId + "',false,null)");
+      card.appendChild(btn);
+      card.setAttribute('data-b14-injected', '1');
+    });
+  }
+
+  // Hook into _kcRender so post-injection runs after each render
+  var _origKcRenderB14 = (typeof window._kcRender === 'function') ? window._kcRender : _kcRender;
+  if(typeof _origKcRenderB14 === 'function'){
+    var wrappedKcRenderB14 = function(){
+      var r = _origKcRenderB14.apply(this, arguments);
+      try { postRenderInjectInspect(); } catch(e){}
+      return r;
+    };
+    try { window._kcRender = wrappedKcRenderB14; } catch(e){}
+    try { _kcRender = wrappedKcRenderB14; } catch(e){}
+  }
+
+  // Augment KC pending candidates to also live in HGS_STATE for resolveFact()
+  // (configurator's notify-first candidates have their own data model — add them
+  // as synthetic "facts" when the review surface is open so the inspector resolves them)
+  function ensureKcPendingInHgsState(){
+    if(typeof HGS_STATE === 'undefined' || !HGS_STATE || !Array.isArray(HGS_STATE.facts)) return;
+    if(!KC_STATE || !Array.isArray(KC_STATE.pendingCandidates)) return;
+    var existing = {};
+    HGS_STATE.facts.forEach(function(f){ existing[f.id] = true; });
+    KC_STATE.pendingCandidates.forEach(function(c){
+      if(existing[c.id]) return;
+      HGS_STATE.facts.push({
+        id: c.id,
+        statement: c.statement,
+        plane: c.plane,
+        owner: 'Sarah Chen',
+        substack: c.sourceSubstack || '',
+        topic: c.sourceSubstack || '',
+        inStackSince: c.promotedDate || 'Mar 14'
+      });
+    });
+  }
+  // Re-run augmentation in the render wrap so pending candidates flow in
+  var _augHook = wrappedKcRenderB14;
+  try {
+    window._kcRender = function(){
+      ensureKcPendingInHgsState();
+      return _augHook.apply(this, arguments);
+    };
+    _kcRender = window._kcRender;
+  } catch(e){}
+
+  // ── Close cascading: when configurator closes, close inspector too
+  if(typeof window._kcClose === 'function' || typeof _kcClose === 'function'){
+    var _origKcCloseB14 = (typeof window._kcClose === 'function') ? window._kcClose : _kcClose;
+    var wrappedKcCloseB14 = function(){
+      try { if(typeof window.hgsCloseInspector === 'function') window.hgsCloseInspector(); } catch(e){}
+      return _origKcCloseB14.apply(this, arguments);
+    };
+    try { window._kcClose = wrappedKcCloseB14; } catch(e){}
+    try { _kcClose = wrappedKcCloseB14; } catch(e){}
+  }
+
+  // When Propose Change clicked from inside configurator → also close configurator
+  // Per Brief 14: "the configurator modal also closes (the workflow author is now
+  // in a different surface)"
+  var _origInspectorPropose = window.hgsInspectorPropose;
+  window.hgsInspectorPropose = function(){
+    var kcOpen = document.getElementById('kcModalOv') && document.getElementById('kcModalOv').classList.contains('open');
+    if(_origInspectorPropose) _origInspectorPropose.apply(this, arguments);
+    if(kcOpen){
+      // Close kc modal directly (but skip the inspector-close cascade since
+      // hgsInspectorPropose already closes the inspector)
+      var ov = document.getElementById('kcModalOv');
+      if(ov) ov.classList.remove('open');
+    }
+  };
+
+  // When View in Truth Plane clicked from configurator → also close configurator
+  var _origInspectorTP = window.hgsInspectorOpenInTruthPlane;
+  window.hgsInspectorOpenInTruthPlane = function(){
+    var kcOpen = document.getElementById('kcModalOv') && document.getElementById('kcModalOv').classList.contains('open');
+    try { window.hgsCloseInspector && window.hgsCloseInspector(); } catch(e){}
+    if(_origInspectorTP) _origInspectorTP.apply(this, arguments);
+    if(kcOpen){
+      var ov = document.getElementById('kcModalOv');
+      if(ov) ov.classList.remove('open');
+    }
+  };
+
+  // Extend _kcExcludeFromSubstack to also handle Stack-kind containers.
+  // Brief 7 guarded on item.kind === 'search'; for Brief 14's universal
+  // "Exclude" affordance, Stack-attached facts excluded by the workflow
+  // author land in item.excludedFactIds and drop from the displayed list.
+  var _origKcExcludeB14 = window._kcExcludeFromSubstack;
+  window._kcExcludeFromSubstack = function(itemId, factId){
+    var item = (KC_STATE.items || []).find(function(i){ return i.id === itemId; });
+    if(!item) return;
+    if(item.kind === 'search'){
+      // Delegate to Brief 7's original handler for substack containers
+      if(typeof _origKcExcludeB14 === 'function') return _origKcExcludeB14(itemId, factId);
+      return;
+    }
+    // Stack containers: add to excludedFactIds, decrement displayed fact count
+    item.excludedFactIds = item.excludedFactIds || [];
+    if(item.excludedFactIds.indexOf(factId) < 0){
+      item.excludedFactIds.push(factId);
+      // Decrement the visible fact count (clamp at 0)
+      item.facts = Math.max(0, (item.facts || 0) - 1);
+    }
+    if(typeof _kcRender === 'function') _kcRender();
+  };
 })();
 
 </script>
