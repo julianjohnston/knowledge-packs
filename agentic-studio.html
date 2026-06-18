@@ -3385,6 +3385,54 @@ html.theme-light .search-footer-link{color:#7C3AED}
 .kc-result-cb { position:relative; }
 .kc-cand-card .kc-cand-inspect { position:absolute; top:10px; right:10px; }
 .kc-cand-card { position:relative; }
+
+/* === Brief 15: Knowledge Pack draft lifecycle === */
+.hgs-pill-draft { background:rgba(255,255,255,0.08); color:var(--t2); border-color:var(--bd); }
+.hgs-pill-deprecated { background:rgba(255,255,255,0.04); color:var(--t3); border-color:var(--bd); }
+
+/* Publish Knowledge Pack button — secondary success treatment */
+.hgs-publish-btn { background:rgba(5,223,114,0.12); border:1px solid rgba(5,223,114,0.35); color:var(--ok); font-size:12px; font-weight:500; padding:0 12px; height:30px; border-radius:var(--r6); cursor:pointer; font-family:inherit; display:inline-flex; align-items:center; gap:5px; }
+.hgs-publish-btn:hover:not(:disabled) { background:rgba(5,223,114,0.18); filter:brightness(1.05); }
+.hgs-publish-btn:disabled { opacity:0.45; cursor:not-allowed; background:rgba(5,223,114,0.05); border-color:rgba(5,223,114,0.18); }
+
+/* Publish dialog */
+.hgs-pub-ov { position:fixed; inset:0; background:rgba(0,0,0,0.55); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); z-index:1200; display:none; align-items:flex-start; justify-content:center; padding-top:8vh; }
+.hgs-pub-ov.open { display:flex; }
+.hgs-pub { background:var(--bg); border:0.5px solid var(--bd); border-radius:var(--r8); width:min(560px, 92vw); max-height:84vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 24px 60px rgba(0,0,0,0.4); }
+.hgs-pub-hd { padding:18px 20px 12px; border-bottom:0.5px solid var(--bd); }
+.hgs-pub-hd-ttl { font-size:15px; font-weight:600; color:var(--t1); }
+.hgs-pub-hd-sub { font-size:11.5px; color:var(--t3); margin-top:4px; }
+.hgs-pub-body { padding:16px 20px; overflow-y:auto; display:flex; flex-direction:column; gap:14px; }
+.hgs-pub-pack { background:rgba(255,255,255,0.03); border:0.5px solid var(--bd); border-radius:var(--r6); padding:12px 14px; }
+.hgs-pub-pack-nm { font-size:13.5px; font-weight:500; color:var(--t1); margin-bottom:4px; }
+.hgs-pub-pack-desc { font-size:11.5px; color:var(--t3); line-height:1.5; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.hgs-pub-stats { display:flex; gap:8px; flex-wrap:wrap; }
+.hgs-pub-stat { background:rgba(255,255,255,0.04); border:0.5px solid var(--bd); border-radius:var(--r6); padding:8px 12px; font-size:11.5px; color:var(--t1); flex:1; min-width:140px; }
+.hgs-pub-stat-val { font-weight:600; color:var(--t1); }
+.hgs-pub-stat-lbl { color:var(--t3); margin-left:4px; }
+.hgs-pub-row { display:flex; align-items:flex-start; gap:10px; font-size:12px; color:var(--t2); }
+.hgs-pub-row-k { color:var(--t3); width:120px; flex-shrink:0; font-size:11.5px; }
+.hgs-pub-row-v { color:var(--t1); flex:1; }
+.hgs-pub-cats { display:flex; gap:4px; flex-wrap:wrap; }
+.hgs-pub-cat { background:rgba(96,165,250,0.12); color:var(--pri); border:0.5px solid rgba(96,165,250,0.25); font-size:10.5px; padding:2px 8px; border-radius:999px; }
+.hgs-pub-callout { background:rgba(96,165,250,0.06); border:0.5px solid rgba(96,165,250,0.2); border-radius:var(--r6); padding:10px 12px; font-size:11.5px; color:var(--t2); display:flex; gap:8px; align-items:flex-start; line-height:1.5; }
+.hgs-pub-callout-ico { color:var(--pri); flex-shrink:0; margin-top:1px; }
+.hgs-pub-err { background:rgba(220,38,38,0.08); border:0.5px solid rgba(220,38,38,0.3); color:var(--err); font-size:11.5px; padding:9px 12px; border-radius:var(--r6); }
+.hgs-pub-foot { padding:12px 20px; border-top:0.5px solid var(--bd); display:flex; justify-content:flex-end; gap:8px; }
+.hgs-pub-cancel { background:transparent; border:1px solid var(--bd); color:var(--t1); font-size:12.5px; padding:8px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.hgs-pub-cancel:hover { background:rgba(255,255,255,0.04); border-color:var(--t3); }
+.hgs-pub-confirm { background:var(--ok); border:none; color:#0a0a0a; font-size:12.5px; padding:8px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; font-weight:500; display:inline-flex; align-items:center; gap:6px; }
+.hgs-pub-confirm:hover:not(:disabled) { filter:brightness(1.08); }
+.hgs-pub-confirm:disabled { opacity:0.5; cursor:default; }
+
+/* Delete-draft + Discard-revert dialogs share the same shell as publish */
+.hgs-dd-confirm { background:var(--err); border:none; color:#fff; font-size:12.5px; padding:8px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; font-weight:500; }
+.hgs-dd-confirm:hover { filter:brightness(1.1); }
+.hgs-revert-confirm { background:var(--warn); border:none; color:#0a0a0a; font-size:12.5px; padding:8px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; font-weight:500; }
+.hgs-revert-confirm:hover { filter:brightness(1.1); }
+
+/* Draft badge on list cards */
+.hgs-l-draft-badge { background:rgba(255,255,255,0.08); color:var(--t2); border:0.5px solid var(--bd); font-size:9.5px; font-weight:600; padding:2px 7px; border-radius:999px; letter-spacing:0.04em; text-transform:uppercase; flex-shrink:0; }
 </style>
 </head>
 <body>
@@ -13845,9 +13893,9 @@ function renderHgsHeader(){
     : '';
   host.innerHTML = `
     <div class="hgs-back-row">
-      <button class="hgs-back-link" type="button" onclick="exitHgs()" aria-label="Back to Stacks">
+      <button class="hgs-back-link" type="button" onclick="exitHgs()" aria-label="Back to Knowledge Packs">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 2.5L4 6l3.5 3.5"/></svg>
-        <span>Stacks</span>
+        <span>Knowledge Packs</span>
       </button>
     </div>
     <div class="hgs-name-row">
@@ -15392,8 +15440,8 @@ function renderHgsStacksList(){
     <div class="hgs-l-wrap">
       <div class="hgs-l-hd">
         <div>
-          <div class="hgs-l-ttl">Stacks</div>
-          <div class="hgs-l-sub">${total} Stack${total === 1 ? '' : 's'} · curated and owned by the tenant</div>
+          <div class="hgs-l-ttl">Knowledge Packs</div>
+          <div class="hgs-l-sub">${total} Knowledge Pack${total === 1 ? '' : 's'} · curated and owned by the tenant</div>
         </div>
         <button class="hgs-l-new-btn" type="button" onclick="hgsOpenNewStack()">
           <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
@@ -19350,6 +19398,412 @@ function hgsSmConfirmRemove(){
     }
     if(typeof _kcRender === 'function') _kcRender();
   };
+})();
+
+/* === Brief 15: Knowledge Pack draft lifecycle === */
+(function _brief15DraftLifecycle(){
+  if(window.__HGS_BRIEF15_APPLIED) return;
+  window.__HGS_BRIEF15_APPLIED = true;
+
+  // Current user for ownership scoping. In a real product this would come
+  // from a session/auth context; for the prototype Sarah Chen is the demo user.
+  var CURRENT_USER_NAME = 'Sarah Chen';
+
+  function esc(s){ try { return hgsEsc(s); } catch(e){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"})[c]; }); } }
+
+  // ─── Seed: tenantStacks need publicationState. Existing fixtures stay
+  //         published; only newly-created packs land in draft.
+  if(typeof tenantStacks !== 'undefined' && Array.isArray(tenantStacks)){
+    tenantStacks.forEach(function(t){
+      if(!t.publicationState) t.publicationState = 'published';
+    });
+  }
+
+  // ─── Patch hgsCreateStack: new packs land in 'draft' state with current
+  //         user as owner. The downstream loader (_hgsLoadMinimalStack) is
+  //         also patched to propagate the publicationState into HGS_STATE.
+  if(typeof window.hgsCreateStack === 'function' || typeof hgsCreateStack === 'function'){
+    var _origCreateStack = (typeof window.hgsCreateStack === 'function') ? window.hgsCreateStack : hgsCreateStack;
+    // Wrap tenantStacks.push so we can mutate the new entry just before
+    // the original calls hgsOpenStackEdit on it.
+    var _origPush = tenantStacks.push;
+    window.hgsCreateStack = function(){
+      tenantStacks.push = function(){
+        var idx = arguments.length - 1;
+        if(arguments[idx] && typeof arguments[idx] === 'object'){
+          arguments[idx].publicationState = 'draft';
+        }
+        return _origPush.apply(this, arguments);
+      };
+      try {
+        return _origCreateStack.apply(this, arguments);
+      } finally {
+        tenantStacks.push = _origPush;
+      }
+    };
+    try { hgsCreateStack = window.hgsCreateStack; } catch(e){}
+  }
+
+  // ─── Patch _hgsLoadMinimalStack to propagate publicationState from tenantStacks
+  if(typeof window._hgsLoadMinimalStack === 'function' || typeof _hgsLoadMinimalStack === 'function'){
+    var _origLoadMin = (typeof window._hgsLoadMinimalStack === 'function') ? window._hgsLoadMinimalStack : _hgsLoadMinimalStack;
+    window._hgsLoadMinimalStack = function(t){
+      _origLoadMin(t);
+      if(HGS_STATE){
+        HGS_STATE.publicationState = (t && t.publicationState) || 'published';
+        // Mark owner against CURRENT_USER for permission checks
+        if(HGS_STATE.owner) HGS_STATE.owner.isCurrentUser = (HGS_STATE.owner.name === CURRENT_USER_NAME);
+      }
+      if(HGS_INITIAL) HGS_INITIAL.publicationState = HGS_STATE.publicationState;
+    };
+    try { _hgsLoadMinimalStack = window._hgsLoadMinimalStack; } catch(e){}
+  }
+
+  // ─── Patch renderHgsHeader to emit DRAFT pill + Publish button when draft.
+  if(typeof window.renderHgsHeader === 'function' || typeof renderHgsHeader === 'function'){
+    var _origRenderHeader = (typeof window.renderHgsHeader === 'function') ? window.renderHgsHeader : renderHgsHeader;
+    window.renderHgsHeader = function(){
+      _origRenderHeader();
+      var s = HGS_STATE;
+      if(!s) return;
+      var isDraft = s.publicationState === 'draft';
+      var leftEl = document.querySelector('#hgsHeader .hgs-name-left');
+      var actionsEl = document.querySelector('#hgsHeader .hgs-name-actions');
+      if(!leftEl || !actionsEl) return;
+
+      // Replace PUBLISHED pill with DRAFT pill when applicable
+      if(isDraft){
+        var publishedPill = leftEl.querySelector('.hgs-pill-published');
+        if(publishedPill){
+          publishedPill.classList.remove('hgs-pill-published');
+          publishedPill.classList.add('hgs-pill-draft');
+          publishedPill.textContent = 'DRAFT';
+        }
+        // Inject Publish button at the start of the actions zone (before Discard)
+        if(!actionsEl.querySelector('.hgs-publish-btn')){
+          var canPublish = !!(s.substacks && s.substacks.length > 0);
+          var publishBtn = document.createElement('button');
+          publishBtn.className = 'hgs-publish-btn';
+          publishBtn.type = 'button';
+          publishBtn.innerHTML =
+            '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L12 6.5H9.5v5H4.5v-5H2L7 1.5z"/></svg>' +
+            'Publish Knowledge Pack';
+          if(!canPublish){
+            publishBtn.disabled = true;
+            publishBtn.title = 'Add at least one substack with facts before publishing.';
+          } else {
+            publishBtn.setAttribute('onclick', 'hgsOpenPublishDlg()');
+          }
+          actionsEl.insertBefore(publishBtn, actionsEl.firstChild);
+        }
+        // On drafts, Discard is always enabled (clean draft → delete-draft flow;
+        // dirty draft → revert flow). The original render disabled it when
+        // hasUnsavedChanges was false — which prevented the two-step delete path.
+        var discardBtn = actionsEl.querySelector('button[onclick="hgsDiscard()"]');
+        if(discardBtn) discardBtn.disabled = false;
+      }
+    };
+    try { renderHgsHeader = window.renderHgsHeader; } catch(e){}
+  }
+
+  // ─── Publish dialog ───────────────────────────────────────────────
+  function ensurePublishDialog(){
+    var ov = document.getElementById('hgsPubOv');
+    if(ov) return ov;
+    ov = document.createElement('div');
+    ov.id = 'hgsPubOv';
+    ov.className = 'hgs-pub-ov';
+    ov.addEventListener('click', function(e){ if(e.target === ov) closePublishDialog(); });
+    document.body.appendChild(ov);
+    return ov;
+  }
+
+  function modeLabel(b){
+    if(!b) return 'Live · auto-update';
+    if(b.notificationMode === 'notify-first') return 'Live + Notify · workflow author reviews changes';
+    if(b.notificationMode === 'snapshot') return 'Snapshot · pinned to a past state';
+    return 'Live · auto-update with Truth';
+  }
+  function workflowControlLabel(b){
+    if(!b) return 'Customizable by workflows';
+    return (b.workflowControl === 'locked')
+      ? 'Locked — workflows cannot customize Behavior'
+      : 'Customizable by workflows';
+  }
+
+  function renderPublishBody(s){
+    var subCount = (s.substacks || []).length;
+    var factCount = s.factCount || 0;
+    var catChips = (s.categories || []).map(function(c){ return '<span class="hgs-pub-cat">' + esc(c) + '</span>'; }).join('');
+    var ico = '<svg class="hgs-pub-callout-ico" width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5.5"/><path d="M7 6v3.5"/><circle cx="7" cy="4.3" r="0.5" fill="currentColor"/></svg>';
+    return '<div class="hgs-pub-body">' +
+      '<div class="hgs-pub-pack">' +
+        '<div class="hgs-pub-pack-nm">' + esc(s.name) + '</div>' +
+        '<div class="hgs-pub-pack-desc">' + esc(s.description || '') + '</div>' +
+      '</div>' +
+      '<div class="hgs-pub-stats">' +
+        '<div class="hgs-pub-stat"><span class="hgs-pub-stat-val">' + subCount + '</span><span class="hgs-pub-stat-lbl">substack' + (subCount===1?'':'s') + '</span></div>' +
+        '<div class="hgs-pub-stat"><span class="hgs-pub-stat-val">' + factCount + '</span><span class="hgs-pub-stat-lbl">fact' + (factCount===1?'':'s') + '</span></div>' +
+      '</div>' +
+      '<div class="hgs-pub-row"><span class="hgs-pub-row-k">Behavior</span><span class="hgs-pub-row-v">' + esc(modeLabel(s.behavior)) + '</span></div>' +
+      '<div class="hgs-pub-row"><span class="hgs-pub-row-k">Workflow control</span><span class="hgs-pub-row-v">' + esc(workflowControlLabel(s.behavior)) + '</span></div>' +
+      (catChips ? '<div class="hgs-pub-row"><span class="hgs-pub-row-k">Categories</span><div class="hgs-pub-cats">' + catChips + '</div></div>' : '') +
+      '<div class="hgs-pub-callout">' + ico +
+        '<span>After publishing, you can continue to edit this Knowledge Pack. Workflow authors will see your updates based on their bindings\' Behavior settings.</span>' +
+      '</div>' +
+    '</div>';
+  }
+
+  window.hgsOpenPublishDlg = function(){
+    var s = HGS_STATE;
+    if(!s) return;
+    if(!(s.substacks && s.substacks.length > 0)) return;
+    var ov = ensurePublishDialog();
+    var html =
+      '<div class="hgs-pub" role="dialog" aria-label="Publish Knowledge Pack">' +
+        '<div class="hgs-pub-hd">' +
+          '<div class="hgs-pub-hd-ttl">Publish this Knowledge Pack?</div>' +
+          '<div class="hgs-pub-hd-sub">Review what will become tenant-visible</div>' +
+        '</div>' +
+        renderPublishBody(s) +
+        '<div class="hgs-pub-foot">' +
+          '<button class="hgs-pub-cancel" type="button" onclick="hgsClosePublishDlg()">Cancel</button>' +
+          '<button class="hgs-pub-confirm" type="button" onclick="hgsConfirmPublish()">' +
+            '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L12 6.5H9.5v5H4.5v-5H2L7 1.5z"/></svg>' +
+            'Publish Knowledge Pack' +
+          '</button>' +
+        '</div>' +
+      '</div>';
+    ov.innerHTML = html;
+    ov.classList.add('open');
+    window.HGS_PUB_OPEN = true;
+  };
+
+  function closePublishDialog(){
+    var ov = document.getElementById('hgsPubOv');
+    if(ov) ov.classList.remove('open');
+    window.HGS_PUB_OPEN = false;
+  }
+  window.hgsClosePublishDlg = closePublishDialog;
+
+  window.hgsConfirmPublish = function(){
+    var s = HGS_STATE;
+    if(!s) return;
+    // Atomic commit: clear unsaved + flip publication state + update tenantStacks
+    s.hasUnsavedChanges = false;
+    s.publicationState = 'published';
+    if(HGS_INITIAL){ HGS_INITIAL.hasUnsavedChanges = false; HGS_INITIAL.publicationState = 'published'; }
+    // Sync tenantStacks entry so the list page reflects the change
+    if(typeof tenantStacks !== 'undefined'){
+      var entry = tenantStacks.find(function(t){ return t.id === s.id; });
+      if(entry){
+        entry.publicationState = 'published';
+        entry.factCount = s.factCount || entry.factCount;
+        entry.lastUpdated = _todayLabel();
+      }
+    }
+    // History event
+    try {
+      if(typeof hgsHAddEvent === 'function'){
+        hgsHAddEvent({ type:'stack-publish', description:'published this Knowledge Pack', actor:CURRENT_USER_NAME });
+      }
+    } catch(e){}
+    closePublishDialog();
+    try { renderHgs(); } catch(e){}
+    if(typeof toast === 'function') toast('"' + s.name + '" published', 'success');
+  };
+
+  function _todayLabel(){
+    // Brief constraint: no Date.now()/new Date() in workflow scripts — that only
+    // applies to the Workflow tool's deterministic scripts, not main-page JS.
+    var d = new Date();
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[d.getMonth()] + ' ' + d.getDate();
+  }
+
+  // ─── Discard dual semantics ───────────────────────────────────────
+  // Wraps hgsDiscard. Routes to revert (existing) or delete-draft based on state.
+  if(typeof window.hgsDiscard === 'function' || typeof hgsDiscard === 'function'){
+    var _origDiscard = (typeof window.hgsDiscard === 'function') ? window.hgsDiscard : hgsDiscard;
+    window.hgsDiscard = function(){
+      var s = HGS_STATE;
+      if(!s) return _origDiscard();
+      var isDraft = s.publicationState === 'draft';
+      var hasUnsaved = !!s.hasUnsavedChanges;
+      if(isDraft && !hasUnsaved){
+        // Delete-draft flow
+        openDeleteDraftDialog();
+        return;
+      }
+      if(hasUnsaved){
+        // Revert flow (with confirm)
+        openRevertDialog();
+        return;
+      }
+      // Fallback (published + no unsaved) — original behavior was no-op (button disabled)
+      _origDiscard();
+    };
+    try { hgsDiscard = window.hgsDiscard; } catch(e){}
+  }
+
+  function openRevertDialog(){
+    var s = HGS_STATE;
+    if(!s) return;
+    var ov = ensurePublishDialog();
+    var html =
+      '<div class="hgs-pub" role="dialog" aria-label="Discard unsaved changes">' +
+        '<div class="hgs-pub-hd">' +
+          '<div class="hgs-pub-hd-ttl">Discard unsaved changes?</div>' +
+        '</div>' +
+        '<div class="hgs-pub-body">' +
+          '<div style="font-size:13px;color:var(--t1);line-height:1.55;">Your unsaved changes will be lost. Continue?</div>' +
+        '</div>' +
+        '<div class="hgs-pub-foot">' +
+          '<button class="hgs-pub-cancel" type="button" onclick="hgsClosePublishDlg()">Cancel</button>' +
+          '<button class="hgs-revert-confirm" type="button" onclick="hgsConfirmRevert()">Discard changes</button>' +
+        '</div>' +
+      '</div>';
+    ov.innerHTML = html;
+    ov.classList.add('open');
+    window.HGS_PUB_OPEN = true;
+  }
+
+  function openDeleteDraftDialog(){
+    var s = HGS_STATE;
+    if(!s) return;
+    var ov = ensurePublishDialog();
+    var html =
+      '<div class="hgs-pub" role="dialog" aria-label="Delete this draft">' +
+        '<div class="hgs-pub-hd">' +
+          '<div class="hgs-pub-hd-ttl">Delete this draft?</div>' +
+        '</div>' +
+        '<div class="hgs-pub-body">' +
+          '<div style="font-size:13px;color:var(--t1);line-height:1.55;">' +
+            '<strong>' + esc(s.name) + '</strong> hasn\'t been published yet. Deleting will remove it permanently. This action cannot be undone.' +
+          '</div>' +
+        '</div>' +
+        '<div class="hgs-pub-foot">' +
+          '<button class="hgs-pub-cancel" type="button" onclick="hgsClosePublishDlg()">Cancel</button>' +
+          '<button class="hgs-dd-confirm" type="button" onclick="hgsConfirmDeleteDraft()">Delete draft</button>' +
+        '</div>' +
+      '</div>';
+    ov.innerHTML = html;
+    ov.classList.add('open');
+    window.HGS_PUB_OPEN = true;
+  }
+
+  window.hgsConfirmRevert = function(){
+    closePublishDialog();
+    // Delegate to the original discard which restores HGS_STATE from HGS_INITIAL
+    if(typeof _origDiscard === 'function') return _origDiscard();
+  };
+  // Inner ref for revert delegation
+  var _origDiscard = (typeof window.hgsDiscard === 'function') ? null : null; // placeholder
+  // Replace with the captured original by rewiring after the patch above:
+  (function _captureOrigDiscard(){
+    // Search the script for the original by name — fallback: call HGS_STATE reset manually
+    // The original function was already wrapped above; we kept it in _origDiscard
+    // within that scope. To make revert work cleanly, we reset HGS_STATE here too:
+    window.hgsConfirmRevert = function(){
+      closePublishDialog();
+      if(typeof HGS_INITIAL !== 'undefined' && HGS_INITIAL){
+        HGS_STATE = JSON.parse(JSON.stringify(HGS_INITIAL));
+        if(typeof HGS_CATEGORY_PICKER_OPEN !== 'undefined') HGS_CATEGORY_PICKER_OPEN = false;
+        try { renderHgs(); } catch(e){}
+        if(typeof toast === 'function') toast('Changes discarded','info');
+      }
+    };
+  })();
+
+  window.hgsConfirmDeleteDraft = function(){
+    var s = HGS_STATE;
+    if(!s) return;
+    var name = s.name;
+    // Remove from tenantStacks
+    if(typeof tenantStacks !== 'undefined' && Array.isArray(tenantStacks)){
+      var idx = tenantStacks.findIndex(function(t){ return t.id === s.id; });
+      if(idx >= 0) tenantStacks.splice(idx, 1);
+    }
+    closePublishDialog();
+    // Return to the list
+    try { exitHgs(); } catch(e){}
+    if(typeof toast === 'function') toast('"' + name + '" draft deleted', 'info');
+  };
+
+  // ESC closes the publish/revert/delete dialog
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && window.HGS_PUB_OPEN){
+      closePublishDialog();
+    }
+  });
+
+  // ─── Owner-scoped draft visibility on list page ──────────────────
+  // Filter out drafts not owned by current user from the list source data.
+  // Brief 7 of the configurator already filters drafts via publicationState
+  // on KC_STACKS — that path is unchanged here.
+  if(typeof window.renderHgsStacksList === 'function' || typeof renderHgsStacksList === 'function'){
+    var _origRenderList = (typeof window.renderHgsStacksList === 'function') ? window.renderHgsStacksList : renderHgsStacksList;
+    window.renderHgsStacksList = function(){
+      // Temporarily replace tenantStacks with a filtered view via a Proxy-like
+      // approach: we mutate-in-place to drop other-owner drafts, then restore.
+      // Simpler: just patch the rendered DOM after _orig runs — find any card
+      // whose stackId points to a draft not owned by current user and remove it.
+      var r = _origRenderList();
+      try {
+        var listView = document.getElementById('vHgsList');
+        if(!listView) return r;
+        // Walk visible cards/rows and drop other-owner drafts; tag current-user
+        // drafts with a DRAFT badge.
+        var cards = listView.querySelectorAll('[onclick*="hgsOpenStackEdit"]');
+        var dropped = 0;
+        var keptIds = {};
+        cards.forEach(function(card){
+          var m = (card.getAttribute('onclick') || '').match(/hgsOpenStackEdit\('([^']+)'\)/);
+          var sid = m && m[1];
+          if(!sid) return;
+          var t = tenantStacks.find(function(x){ return x.id === sid; });
+          if(!t) return;
+          if(t.publicationState === 'draft' && t.owner !== CURRENT_USER_NAME){
+            card.parentNode && card.parentNode.removeChild(card);
+            dropped++;
+            return;
+          }
+          keptIds[sid] = true;
+          // Add DRAFT badge for current user's drafts
+          if(t.publicationState === 'draft' && !card.querySelector('.hgs-l-draft-badge')){
+            var badge = document.createElement('span');
+            badge.className = 'hgs-l-draft-badge';
+            badge.textContent = 'DRAFT';
+            // Card view: append to header row near the title; List view: append at end of row
+            var nm = card.querySelector('.hgs-l-card-nm') || card.querySelector('.hgs-l-trow > div');
+            if(nm && nm.parentNode){
+              // Insert after the name element
+              if(nm.nextSibling) nm.parentNode.insertBefore(badge, nm.nextSibling);
+              else nm.parentNode.appendChild(badge);
+            } else {
+              card.appendChild(badge);
+            }
+          }
+        });
+        // Update visible count in the header subtitle
+        var subEl = listView.querySelector('.hgs-l-sub');
+        if(subEl){
+          var keptCount = Object.keys(keptIds).length;
+          subEl.textContent = keptCount + ' Knowledge Pack' + (keptCount === 1 ? '' : 's') + ' · curated and owned by the tenant';
+        }
+      } catch(e){}
+      return r;
+    };
+    try { renderHgsStacksList = window.renderHgsStacksList; } catch(e){}
+  }
+
+  // ─── HGS Save button label: "Save changes" stays, but for new drafts with
+  //     no content the original disabled state is fine. No change needed here.
+
+  // ─── KC_STACKS configurator catalog: Brief 9 already filters by
+  //     publicationState === 'published' — no draft KC_STACKS exist in v1
+  //     unless HGS creates one. The catalog feeds from KC_STACKS, which is a
+  //     separate dataset; tenantStacks → KC_STACKS sync is out of scope.
 })();
 
 </script>
