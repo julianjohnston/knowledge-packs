@@ -3631,27 +3631,20 @@ html.theme-light .search-footer-link{color:#7C3AED}
 .b20-tab { background:transparent; border:none; padding:10px 14px; font-size:12.5px; font-weight:500; color:var(--t3); cursor:pointer; font-family:inherit; border-bottom:2px solid transparent; margin-bottom:-1px; }
 .b20-tab:hover { color:var(--t1); }
 .b20-tab.active { color:var(--t1); border-bottom-color:var(--pri); }
-/* Body — rail + main */
-.b20-body { flex:1; display:flex; min-height:0; overflow:hidden; }
-.b20-rail { width:280px; flex-shrink:0; padding:14px 12px; border-right:1px solid var(--bd); overflow-y:auto; }
-.b20-rail-section-hd { font-size:10.5px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; padding:0 6px 4px; }
-.b20-rail-item { display:flex; align-items:center; justify-content:space-between; padding:7px 10px; border-radius:var(--r6); font-size:12px; color:var(--t1); cursor:pointer; }
-.b20-rail-item:hover { background:rgba(255,255,255,0.04); }
-.b20-rail-item.active { background:rgba(96,165,250,0.10); color:var(--pri); }
-.b20-rail-item-lbl { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.b20-rail-item-count { font-size:11px; color:var(--t3); margin-left:6px; flex-shrink:0; }
-.b20-rail-item.active .b20-rail-item-count { color:var(--pri); }
-.b20-rail-empty { padding:6px 10px; font-size:11px; color:var(--t4); font-style:italic; }
-.b20-rail-add { width:100%; background:transparent; border:1px dashed var(--bd); color:var(--t2); font-size:11.5px; padding:7px 10px; border-radius:var(--r6); cursor:pointer; font-family:inherit; margin-top:4px; text-align:left; }
-.b20-rail-add:hover:not(:disabled) { background:rgba(255,255,255,0.04); color:var(--t1); border-color:rgba(255,255,255,0.2); }
-.b20-rail-add:disabled { opacity:0.5; cursor:default; }
-/* Main view (right of rail) */
-.b20-main { flex:1; padding:0; overflow-y:auto; }
+/* Body — uses HGS comp grid pattern: 260px rail + 1fr main */
+.b20-body { flex:1; display:grid; grid-template-columns:260px 1fr; min-height:0; overflow:hidden; }
+.b20-body > .hgs-rail { border-right:1px solid var(--bd); min-height:0; }
+.b20-body > .hgs-main { min-height:0; }
 .b20-edit-shell { padding:40px 30px; max-width:680px; margin:0 auto; text-align:center; }
 .b20-edit-shell-ttl { font-size:16px; font-weight:600; color:var(--t1); margin-bottom:8px; }
 .b20-edit-shell-sub { font-size:12px; color:var(--t3); line-height:1.5; margin-bottom:14px; }
 .b20-edit-shell-passnote { padding:10px 14px; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.25); border-radius:var(--r6); display:inline-block; font-size:11px; color:var(--pur); text-align:left; max-width:560px; }
 .b20-settings-shell { padding:30px; max-width:680px; margin:0 auto; text-align:center; }
+/* v2-only column adornments (Brief 20: SOURCE column added in configurator) */
+.b20-source-pill { display:inline-flex; align-items:center; font-size:10px; font-weight:500; padding:2px 8px; border-radius:999px; background:rgba(255,255,255,0.04); border:0.5px solid var(--bd); color:var(--t2); }
+.b20-source-pill.this-binding { background:rgba(96,165,250,0.08); border-color:rgba(96,165,250,0.30); color:var(--pri); }
+/* Canon-row icon used in rail (matches existing HGS canon-ico styling) */
+.b20-rail-row-canon-ico { color:var(--pri); display:inline-flex; flex-shrink:0; margin-right:2px; }
 /* Footer */
 .b20-ft { display:flex; align-items:center; justify-content:space-between; padding:12px 20px; border-top:1px solid var(--bd); flex-shrink:0; gap:14px; }
 .b20-ft-status { font-size:11.5px; color:var(--t3); }
@@ -3664,76 +3657,14 @@ html.theme-light .search-footer-link{color:#7C3AED}
 .b20-ft-save { background:var(--pri); border:none; color:#0a0a0a; font-size:12.5px; font-weight:600; padding:7px 16px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
 .b20-ft-save:hover { filter:brightness(1.1); }
 
-/* Brief 20 Pass B — composition main view ─────────────────────── */
-.b20-main-pad { padding:18px 22px 30px; }
-.b20-main-hd { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
-.b20-main-hd-l { flex:1; min-width:0; }
-.b20-main-ttl { font-size:14.5px; font-weight:600; color:var(--t1); margin-bottom:3px; }
-.b20-main-sub { font-size:11.5px; color:var(--t3); }
-.b20-main-hd-r { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+/* Brief 20 Pass B — inherits HGS visual system; v2-only additions:    */
+/* SOURCE column pill (above) and a back-link variant for nested views */
 .b20-back-link { background:transparent; border:none; color:var(--t3); font-size:11.5px; cursor:pointer; padding:4px 0; font-family:inherit; display:inline-flex; align-items:center; gap:4px; margin-bottom:8px; }
 .b20-back-link:hover { color:var(--t1); }
-.b20-search { position:relative; }
-.b20-search input { background:var(--bg); border:1px solid var(--bd); border-radius:var(--r6); padding:6px 10px 6px 28px; font-size:11.5px; color:var(--t1); font-family:inherit; width:220px; }
-.b20-search-ico { position:absolute; left:9px; top:50%; transform:translateY(-50%); color:var(--t3); display:inline-flex; }
-/* v2 fact/canon tables */
-.b20-table { width:100%; border-collapse:collapse; font-size:12px; }
-.b20-table thead th { text-align:left; font-size:10.5px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; padding:8px 10px; border-bottom:1px solid var(--bd); background:rgba(255,255,255,0.015); }
-.b20-table tbody td { padding:10px; border-bottom:1px solid var(--bd); vertical-align:top; color:var(--t1); font-size:11.5px; line-height:1.5; }
-.b20-table tbody tr:hover { background:rgba(255,255,255,0.025); }
-.b20-table tbody tr:last-child td { border-bottom:none; }
-.b20-fact-text { color:var(--t1); }
-.b20-fact-meta { color:var(--t3); font-size:11px; margin-top:2px; }
-.b20-row-actions { width:36px; color:var(--t3); cursor:pointer; text-align:center; }
-.b20-row-actions:hover { color:var(--t1); }
-.b20-empty-cell { text-align:center; color:var(--t3); padding:24px !important; font-style:italic; }
-.b20-plane-pill { font-size:9.5px; font-weight:600; padding:2px 6px; border-radius:3px; text-transform:uppercase; letter-spacing:0.05em; display:inline-block; }
-.b20-plane-pill.sales { background:rgba(96,165,250,0.16); color:var(--pri); }
-.b20-plane-pill.compliance { background:rgba(167,139,250,0.16); color:var(--pur); }
-.b20-plane-pill.hr { background:rgba(255,100,103,0.16); color:rgb(255,140,140); }
-.b20-plane-pill.ops { background:rgba(5,223,114,0.16); color:var(--ok); }
-.b20-source-pill { font-size:10px; padding:2px 6px; border-radius:3px; background:rgba(255,255,255,0.04); border:1px solid var(--bd); color:var(--t2); }
-.b20-source-pill.this-binding { background:rgba(96,165,250,0.08); border-color:rgba(96,165,250,0.25); color:var(--pri); }
-.b20-version-pill { font-size:10px; padding:2px 6px; border-radius:3px; background:rgba(255,255,255,0.04); border:1px solid var(--bd); color:var(--t2); }
-/* Add facts inline flow */
-.b20-add-card { background:rgba(255,255,255,0.02); border:1px solid var(--bd); border-radius:var(--r8); padding:14px; margin-bottom:14px; }
-.b20-add-card-hd { font-size:11px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px; }
-.b20-add-row { display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap; }
-.b20-add-row-lbl { font-size:11px; color:var(--t3); min-width:60px; }
-.b20-add-chip { background:rgba(255,255,255,0.04); border:1px solid var(--bd); color:var(--t1); font-size:11px; padding:4px 10px; border-radius:999px; cursor:pointer; font-family:inherit; }
-.b20-add-chip.active { background:rgba(96,165,250,0.16); color:var(--pri); border-color:rgba(96,165,250,0.35); }
-.b20-add-chip:hover { background:rgba(255,255,255,0.07); }
-.b20-add-search { flex:1; min-width:200px; }
-.b20-add-search input { width:100%; background:var(--bg); border:1px solid var(--bd); border-radius:var(--r6); padding:7px 10px; font-size:12px; color:var(--t1); font-family:inherit; }
-.b20-add-results { max-height:320px; overflow-y:auto; border-top:1px solid var(--bd); }
-.b20-add-result-row { display:flex; align-items:center; gap:10px; padding:8px 10px; border-bottom:1px solid var(--bd); cursor:pointer; }
-.b20-add-result-row:hover { background:rgba(255,255,255,0.03); }
-.b20-add-result-row input[type="checkbox"] { width:14px; height:14px; accent-color:var(--pri); cursor:pointer; }
-.b20-add-result-body { flex:1; min-width:0; }
-.b20-add-result-text { font-size:11.5px; color:var(--t1); line-height:1.4; }
-.b20-add-result-meta { font-size:10.5px; color:var(--t3); margin-top:2px; }
-.b20-add-name-row { display:flex; align-items:center; gap:8px; margin-top:14px; }
-.b20-add-name-row input { flex:1; background:var(--bg); border:1px solid var(--bd); border-radius:var(--r6); padding:7px 10px; font-size:12px; color:var(--t1); font-family:inherit; }
-.b20-add-footer { display:flex; justify-content:flex-end; gap:8px; margin-top:14px; }
-.b20-add-cancel { background:transparent; border:1px solid var(--bd); color:var(--t1); font-size:11.5px; padding:6px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
-.b20-add-commit { background:var(--pri); border:none; color:#0a0a0a; font-size:11.5px; font-weight:600; padding:6px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
-.b20-add-commit:disabled { opacity:0.5; cursor:default; }
-/* Single Canon detail inline */
-.b20-canon-detail { padding:18px 22px 30px; }
-.b20-canon-fields { display:grid; grid-template-columns:160px 1fr; gap:10px 16px; margin-top:14px; }
-.b20-canon-field-lbl { font-size:10.5px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; padding-top:2px; }
-.b20-canon-field-val { font-size:12px; color:var(--t1); }
-.b20-canon-preview { font-size:12px; color:var(--t2); line-height:1.6; background:rgba(255,255,255,0.03); padding:14px 16px; border-radius:var(--r6); border:1px solid var(--bd); white-space:pre-wrap; margin-top:18px; }
-.b20-canon-drift-warn { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:var(--r4); font-size:11px; background:rgba(212,143,2,0.12); color:var(--warn); border:1px solid rgba(212,143,2,0.30); margin-top:8px; }
-/* Excluded view */
-.b20-excl-group { margin-bottom:14px; }
-.b20-excl-group-hd { font-size:11px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px; }
-.b20-excl-card { background:rgba(255,255,255,0.02); border:1px solid var(--bd); border-radius:var(--r6); padding:10px 12px; margin-bottom:6px; display:flex; gap:10px; align-items:flex-start; }
-.b20-excl-card-body { flex:1; min-width:0; }
-.b20-excl-card-text { font-size:11.5px; color:var(--t1); margin-bottom:3px; }
-.b20-excl-card-reason { font-size:10.5px; color:var(--t3); font-style:italic; }
-.b20-excl-incl-btn { background:transparent; border:1px solid var(--bd); color:var(--t1); font-size:11px; padding:4px 10px; border-radius:var(--r6); cursor:pointer; font-family:inherit; flex-shrink:0; }
-.b20-excl-incl-btn:hover { background:rgba(255,255,255,0.05); }
+/* v2 ATTACHED KNOWLEDGE PACKS rail uses substack-style row with pack tint */
+.hgs-rail-row.pack { border-left-color:transparent; }
+.hgs-rail-row.pack.active { border-left-color:var(--pur); }
+.hgs-rail-row .pack-ico { color:var(--pur); display:inline-flex; flex-shrink:0; margin-right:2px; }
 </style>
 </head>
 <body>
@@ -21509,7 +21440,7 @@ function hgsSmConfirmRemove(){
         '</div>';
     } else {
       bodyHtml =
-        '<div class="b20-body">' +
+        '<div class="b20-body" style="display:block;overflow-y:auto">' +
           '<div class="b20-settings-shell">' +
             '<div class="b20-edit-shell-ttl">Settings — binding context</div>' +
             '<div class="b20-edit-shell-sub">Behavior, Retrieval depth, and Policies sections render here in Pass D, including the retrieval clarification UI when ≥ 1 Canon is attached.</div>' +
@@ -21696,12 +21627,12 @@ function hgsSmConfirmRemove(){
     if(B20_STATE.activeTab === 'composition'){
       bodyHtml =
         '<div class="b20-body">' +
-          '<div class="b20-rail">' + _b20RenderRail(allFacts, allCanons, packCount, substackCount, localCanonCount, excludedCount) + '</div>' +
-          '<div class="b20-main">' + _b20RenderMain(allFacts, allCanons) + '</div>' +
+          '<div class="hgs-rail">' + _b20RenderRail(allFacts, allCanons, packCount, substackCount, localCanonCount, excludedCount) + '</div>' +
+          '<div class="hgs-main">' + _b20RenderMain(allFacts, allCanons) + '</div>' +
         '</div>';
     } else {
       bodyHtml =
-        '<div class="b20-body">' +
+        '<div class="b20-body" style="display:block;overflow-y:auto">' +
           '<div class="b20-settings-shell">' +
             '<div class="b20-edit-shell-ttl">Settings — binding context</div>' +
             '<div class="b20-edit-shell-sub">Behavior, Retrieval depth, and Policies sections render here in Pass D, including the retrieval clarification UI when ≥ 1 Canon is attached.</div>' +
@@ -21730,59 +21661,105 @@ function hgsSmConfirmRemove(){
       '</div>';
   };
 
-  // ─── Rail renderer ────────────────────────────────────────────────
+  // ─── Rail renderer (uses HGS visual system) ──────────────────────
   function _b20RenderRail(allFacts, allCanons, packCount, substackCount, localCanonCount, excludedCount){
     var sel = B20_STATE.railSelection;
-    function railItem(key, label, count, opts){
-      opts = opts || {};
-      var active = (sel === key) ? ' active' : '';
-      var amber  = opts.amber ? ' style="color:var(--warn)"' : '';
-      var cnt = (count != null) ? '<span class="b20-rail-item-count"' + (opts.amber ? ' style="color:var(--warn)"' : '') + '>' + count + '</span>' : '';
-      return '<div class="b20-rail-item' + active + '" onclick="_b20Select(\'' + esc(key) + '\')"' + amber + '><span class="b20-rail-item-lbl">' + esc(label) + '</span>' + cnt + '</div>';
-    }
-
     var html = '';
-    html += '<div class="b20-rail-section-hd">ALL CONTENT</div>';
-    html += railItem('all-facts',  'All facts',  allFacts.length);
-    html += railItem('all-canons', 'All Canons', allCanons.length);
 
-    html += '<div class="b20-rail-section-hd" style="margin-top:14px">ATTACHED KNOWLEDGE PACKS · ' + packCount + '</div>';
+    // ALL CONTENT section
+    html += '<div class="hgs-rail-section">All content</div>';
+    html += '<button class="hgs-rail-row' + (sel === 'all-facts' ? ' active' : '') + '" type="button" onclick="_b20Select(\'all-facts\')">' +
+      '<div class="hgs-rail-row-main">' +
+        '<div class="hgs-rail-row-nm">All facts</div>' +
+        '<div class="hgs-rail-row-sub">Across attached packs + local substacks</div>' +
+      '</div>' +
+      '<div class="hgs-rail-row-count">' + allFacts.length + '</div>' +
+    '</button>';
+    html += '<button class="hgs-rail-row' + (sel === 'all-canons' ? ' active' : '') + '" type="button" onclick="_b20Select(\'all-canons\')">' +
+      '<div class="hgs-rail-row-main">' +
+        '<div class="hgs-rail-row-nm">All Canons</div>' +
+        '<div class="hgs-rail-row-sub">Reference documents in this binding</div>' +
+      '</div>' +
+      '<div class="hgs-rail-row-count">' + allCanons.length + '</div>' +
+    '</button>';
+
+    // ATTACHED KNOWLEDGE PACKS section (configurator-only)
+    html += '<div class="hgs-rail-section">Attached Knowledge Packs · ' + packCount + '</div>';
     if((B20_STATE.attachedPacks || []).length){
       (B20_STATE.attachedPacks || []).forEach(function(p){
-        // Pass C will render real packs; placeholder shape:
-        html += railItem('pack-' + p.id, p.name || 'Pack', null);
+        var packFacts = (p.facts != null) ? p.facts : 0;
+        var packCanons = (p.canons || []).length;
+        html += '<button class="hgs-rail-row pack' + (sel === ('pack-' + p.id) ? ' active' : '') + '" type="button" onclick="_b20Select(\'pack-' + esc(p.id) + '\')">' +
+          '<span class="pack-ico"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"><path d="M2 4l5-2.5L12 4l-5 2.5L2 4z"/><path d="M2 4v6l5 2.5L12 10V4"/><path d="M7 6.5v6"/></svg></span>' +
+          '<div class="hgs-rail-row-main">' +
+            '<div class="hgs-rail-row-nm">' + esc(p.name || 'Pack') + '</div>' +
+            '<div class="hgs-rail-row-sub">' + packFacts + ' facts · ' + packCanons + ' Canons</div>' +
+          '</div>' +
+        '</button>';
       });
     } else {
-      html += '<div class="b20-rail-empty">No Knowledge Packs attached yet</div>';
+      html += '<div style="padding:4px 12px;font-size:11px;color:var(--t4);font-style:italic">No Knowledge Packs attached yet</div>';
     }
-    html += '<button class="b20-rail-add" type="button" disabled title="Pass C wires this in">+ Attach Knowledge Pack</button>';
+    html += '<button class="hgs-rail-add" type="button" onclick="_b20OpenPackPicker()"' + (typeof window._b20OpenPackPicker !== 'function' ? ' disabled title="Pass C wires this in"' : '') + '>' +
+      '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>' +
+      'Attach Knowledge Pack' +
+    '</button>';
 
-    html += '<div class="b20-rail-section-hd" style="margin-top:14px">SUBSTACKS · ' + substackCount + '</div>';
+    // SUBSTACKS section
+    html += '<div class="hgs-rail-section">Substacks · ' + substackCount + '</div>';
     if(substackCount){
       (B20_STATE.items || []).forEach(function(it){
-        html += railItem('substack-' + it.id, it.name, (it.factIds || []).length);
+        var planeScope = (it.planes || []).map(planeLabel).join(' + ') || 'all planes';
+        html += '<button class="hgs-rail-row substack' + (sel === ('substack-' + it.id) ? ' active' : '') + '" type="button" onclick="_b20Select(\'substack-' + esc(it.id) + '\')">' +
+          '<div class="hgs-rail-row-main">' +
+            '<div class="hgs-rail-row-nm">' + esc(it.name) + '</div>' +
+            '<div class="hgs-rail-row-sub">' + esc(planeScope) + '</div>' +
+          '</div>' +
+          '<div class="hgs-rail-row-count">' + (it.factIds || []).length + '</div>' +
+        '</button>';
       });
     } else {
-      html += '<div class="b20-rail-empty">No local substacks</div>';
+      html += '<div style="padding:4px 12px;font-size:11px;color:var(--t4);font-style:italic">No local substacks</div>';
     }
-    html += '<button class="b20-rail-add" type="button" onclick="_b20StartAddFacts()">+ Add facts</button>';
+    html += '<button class="hgs-rail-add" type="button" onclick="_b20StartAddFacts()">' +
+      '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>' +
+      'Add facts' +
+    '</button>';
 
-    html += '<div class="b20-rail-section-hd" style="margin-top:14px">CANONS · ' + localCanonCount + '</div>';
+    // CANONS section (local-only — pack Canons live inside the pack)
+    html += '<div class="hgs-rail-section">Canons · ' + localCanonCount + '</div>';
     if(localCanonCount){
       (B20_STATE.localCanons || []).forEach(function(cid){
         var c = kcCanon(cid); if(!c) return;
         var drift = canonDrift(c);
-        var driftMark = drift ? ' <span style="color:var(--warn)" title="' + (drift === 'deprecated' ? 'Deprecated upstream' : 'Newer version available') + '">' + ICO_ALERT_TRI + '</span>' : '';
-        html += '<div class="b20-rail-item' + (sel === ('canon-' + c.id) ? ' active' : '') + '" onclick="_b20Select(\'canon-' + esc(c.id) + '\')"><span class="b20-rail-item-lbl">' + esc(c.name) + driftMark + '</span><span class="b20-rail-item-count">v' + esc(c.version) + '</span></div>';
+        var driftMark = drift ? ' <span style="color:var(--warn);display:inline-flex;vertical-align:middle;margin-left:4px" title="' + (drift === 'deprecated' ? 'Deprecated upstream' : 'Newer version available') + '">' + ICO_ALERT_TRI + '</span>' : '';
+        html += '<button class="hgs-rail-row canon' + (sel === ('canon-' + c.id) ? ' active' : '') + '" type="button" onclick="_b20Select(\'canon-' + esc(c.id) + '\')">' +
+          '<span class="canon-ico">' + ICO_DOC_CANON + '</span>' +
+          '<div class="hgs-rail-row-main">' +
+            '<div class="hgs-rail-row-nm hgs-rail-row-nm-canon">' + esc(c.name) + driftMark + '</div>' +
+          '</div>' +
+          '<div class="hgs-rail-row-count">v' + esc(c.version) + '</div>' +
+        '</button>';
       });
     } else {
-      html += '<div class="b20-rail-empty">No local Canons</div>';
+      html += '<div style="padding:4px 12px;font-size:11px;color:var(--t4);font-style:italic">No local Canons</div>';
     }
-    html += '<button class="b20-rail-add" type="button" onclick="_b20OpenCanonPicker()">+ Attach Canon</button>';
+    html += '<button class="hgs-rail-add" type="button" onclick="_b20OpenCanonPicker()">' +
+      '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>' +
+      'Attach Canon' +
+    '</button>';
 
+    // Excluded chip (matches HGS rail-row.excluded)
     if(excludedCount){
-      html += '<div style="margin-top:14px"></div>';
-      html += railItem('excluded', 'Excluded', excludedCount);
+      html += '<div class="hgs-rail-sep"></div>';
+      html += '<button class="hgs-rail-row excluded' + (sel === 'excluded' ? ' active' : '') + '" type="button" onclick="_b20Select(\'excluded\')">' +
+        '<span class="hgs-rail-excl-ico"><svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M2 2l10 10M3.5 4.2C2.4 5.1 1.5 6.4 1.2 7c0 0 2 4 5.8 4 .9 0 1.7-.2 2.4-.5M10.4 9.7c1.4-.9 2.3-2.1 2.4-2.7 0 0-2-4-5.8-4-.9 0-1.7.2-2.4.5"/></svg></span>' +
+        '<div class="hgs-rail-row-main">' +
+          '<div class="hgs-rail-row-nm">Excluded</div>' +
+          '<div class="hgs-rail-row-sub">Removed from substacks</div>' +
+        '</div>' +
+        '<div class="hgs-rail-row-count">' + excludedCount + '</div>' +
+      '</button>';
     }
 
     return html;
@@ -21806,6 +21783,32 @@ function hgsSmConfirmRemove(){
     return _b20RenderAllFacts(allFacts);
   }
 
+  // Shared helpers for the main views (use HGS visual system) ──────
+  function b20MainHd(title, subtitle, opts){
+    opts = opts || {};
+    var search = opts.search !== false ? (
+      '<div class="hgs-main-actions">' +
+        '<div class="hgs-filter-wrap">' +
+          '<span class="hgs-filter-ico">' + ICO_SEARCH + '</span>' +
+          '<input class="hgs-filter-inp" type="text" placeholder="' + esc(opts.searchPlaceholder || 'Filter…') + '" value="' + esc(B20_STATE.factSearch || '') + '" oninput="_b20SetFactSearch(this.value)"/>' +
+        '</div>' +
+      '</div>'
+    ) : '';
+    var back = opts.backTo ? '<button class="b20-back-link" onclick="_b20Select(\'' + esc(opts.backTo) + '\')">' + ICO_BACK_TRI + ' ' + esc(opts.backLabel || 'Back') + '</button>' : '';
+    return back +
+      '<div class="hgs-main-hd">' +
+        '<div>' +
+          '<div class="hgs-main-title">' + esc(title) + '</div>' +
+          '<div class="hgs-main-sub">' + esc(subtitle) + '</div>' +
+        '</div>' +
+        search +
+      '</div>';
+  }
+  function planeBadgeFromId(pid){
+    // Convert plane ID to label, then use HGS plane badge helper
+    return (typeof hgsPlaneBadge === 'function') ? hgsPlaneBadge(planeLabel(pid)) : esc(planeLabel(pid));
+  }
+
   // ─── All facts view ──────────────────────────────────────────────
   function _b20RenderAllFacts(rows){
     var q = (B20_STATE.factSearch || '').toLowerCase().trim();
@@ -21816,35 +21819,24 @@ function hgsSmConfirmRemove(){
     });
     var tableRows;
     if(!filtered.length){
-      tableRows = '<tr><td class="b20-empty-cell" colspan="5">' + (q ? 'No facts match “' + esc(q) + '”' : 'No facts in this binding yet. Use + Add facts or attach a Knowledge Pack.') + '</td></tr>';
+      tableRows = '<tr class="hgs-table-row"><td class="hgs-empty-cell" colspan="5">' + (q ? 'No facts match “' + esc(q) + '”' : 'No facts in this binding yet. Use + Add facts or attach a Knowledge Pack.') + '</td></tr>';
     } else {
       tableRows = filtered.map(function(r){
         var f = KC_FACTS.find(function(x){ return x.id === r.factId; });
         if(!f) return '';
-        return '<tr>' +
-          '<td><div class="b20-fact-text">' + esc(f.statement) + '</div><div class="b20-fact-meta">Topic: ' + esc(topicLabel(f.topic)) + '</div></td>' +
-          '<td><span class="b20-plane-pill ' + planeClass(f.plane) + '">' + esc(planeLabel(f.plane)) + '</span></td>' +
-          '<td>' + esc(r.substackName) + '</td>' +
-          '<td><span class="b20-source-pill this-binding">This binding</span></td>' +
-          '<td class="b20-row-actions" title="Fact actions">⋮</td>' +
+        return '<tr class="hgs-table-row">' +
+          '<td><div class="hgs-fact-statement">' + esc(f.statement) + '</div><div class="hgs-fact-meta">Topic: ' + esc(topicLabel(f.topic)) + '</div></td>' +
+          '<td>' + planeBadgeFromId(f.plane) + '</td>' +
+          '<td><span style="font-size:11px;color:var(--t2)">' + esc(r.substackName) + '</span></td>' +
+          '<td><span class="b20-source-pill this-binding">' + esc(r.source) + '</span></td>' +
+          '<td class="hgs-fact-actions" title="Fact actions">⋮</td>' +
         '</tr>';
       }).join('');
     }
-    return '<div class="b20-main-pad">' +
-      '<div class="b20-main-hd">' +
-        '<div class="b20-main-hd-l">' +
-          '<div class="b20-main-ttl">All facts · ' + rows.length + '</div>' +
-          '<div class="b20-main-sub">Aggregated across attached Knowledge Packs and locally-composed substacks</div>' +
-        '</div>' +
-        '<div class="b20-main-hd-r">' +
-          '<div class="b20-search">' +
-            '<span class="b20-search-ico">' + ICO_SEARCH + '</span>' +
-            '<input type="text" placeholder="Search facts…" value="' + esc(B20_STATE.factSearch || '') + '" oninput="_b20SetFactSearch(this.value)"/>' +
-          '</div>' +
-        '</div>' +
-      '</div>' +
-      '<table class="b20-table">' +
-        '<thead><tr><th>Fact</th><th style="width:120px">Plane</th><th style="width:200px">Substack</th><th style="width:130px">Source</th><th style="width:36px"></th></tr></thead>' +
+    return '<div style="padding:16px 20px">' +
+      b20MainHd('All facts · ' + rows.length, 'Aggregated across attached Knowledge Packs and locally-composed substacks', { searchPlaceholder: 'Filter facts…' }) +
+      '<table class="hgs-table">' +
+        '<thead class="hgs-table-hd"><tr><th>Fact</th><th class="col-plane">Plane</th><th class="col-substack">Substack</th><th style="width:120px">Source</th><th class="col-actions"></th></tr></thead>' +
         '<tbody>' + tableRows + '</tbody>' +
       '</table>' +
     '</div>';
@@ -21860,7 +21852,7 @@ function hgsSmConfirmRemove(){
     });
     var tableRows;
     if(!filtered.length){
-      tableRows = '<tr><td class="b20-empty-cell" colspan="5">' + (q ? 'No Canons match “' + esc(q) + '”' : 'No Canons attached yet. Use + Attach Canon or attach a Knowledge Pack containing Canons.') + '</td></tr>';
+      tableRows = '<tr class="hgs-table-row"><td class="hgs-empty-cell" colspan="5">' + (q ? 'No Canons match “' + esc(q) + '”' : 'No Canons attached yet. Use + Attach Canon or attach a Knowledge Pack containing Canons.') + '</td></tr>';
     } else {
       tableRows = filtered.map(function(r){
         var c = kcCanon(r.canonId); if(!c) return '';
@@ -21868,30 +21860,19 @@ function hgsSmConfirmRemove(){
         var driftMark = '';
         if(drift === 'deprecated') driftMark = ' <span style="color:var(--warn)" title="Deprecated upstream">' + ICO_ALERT_TRI + '</span>';
         else if(drift === 'version') driftMark = ' <span style="color:var(--warn)" title="Newer version v' + esc(c.latestVersion) + ' available">' + ICO_ALERT_TRI + '</span>';
-        return '<tr onclick="_b20Select(\'canon-' + esc(c.id) + '\')" style="cursor:pointer">' +
-          '<td><div class="b20-fact-text">' + esc(c.name) + driftMark + '</div><div class="b20-fact-meta">' + esc(c.audienceScope || '') + '</div></td>' +
-          '<td><span class="b20-version-pill">v' + esc(c.version) + '</span></td>' +
-          '<td>' + esc(c.category || '—') + '</td>' +
-          '<td><span class="b20-source-pill this-binding">This binding</span></td>' +
-          '<td class="b20-row-actions" title="Canon actions">⋮</td>' +
+        return '<tr class="hgs-table-row" onclick="_b20Select(\'canon-' + esc(c.id) + '\')" style="cursor:pointer">' +
+          '<td><div class="hgs-fact-statement">' + esc(c.name) + driftMark + '</div><div class="hgs-fact-meta">' + esc(c.audienceScope || '') + '</div></td>' +
+          '<td><span style="font-size:11px;color:var(--t2)">v' + esc(c.version) + '</span></td>' +
+          '<td><span style="font-size:11px;color:var(--t2)">' + esc(c.category || '—') + '</span></td>' +
+          '<td><span class="b20-source-pill this-binding">' + esc(r.source) + '</span></td>' +
+          '<td class="hgs-fact-actions" title="Canon actions">⋮</td>' +
         '</tr>';
       }).join('');
     }
-    return '<div class="b20-main-pad">' +
-      '<div class="b20-main-hd">' +
-        '<div class="b20-main-hd-l">' +
-          '<div class="b20-main-ttl">All Canons · ' + rows.length + '</div>' +
-          '<div class="b20-main-sub">Aggregated across attached Knowledge Packs and locally-attached Canons</div>' +
-        '</div>' +
-        '<div class="b20-main-hd-r">' +
-          '<div class="b20-search">' +
-            '<span class="b20-search-ico">' + ICO_SEARCH + '</span>' +
-            '<input type="text" placeholder="Search Canons…" value="' + esc(B20_STATE.factSearch || '') + '" oninput="_b20SetFactSearch(this.value)"/>' +
-          '</div>' +
-        '</div>' +
-      '</div>' +
-      '<table class="b20-table">' +
-        '<thead><tr><th>Name</th><th style="width:90px">Version</th><th style="width:140px">Category</th><th style="width:130px">Source</th><th style="width:36px"></th></tr></thead>' +
+    return '<div style="padding:16px 20px">' +
+      b20MainHd('All Canons · ' + rows.length, 'Aggregated across attached Knowledge Packs and locally-attached Canons', { searchPlaceholder: 'Filter Canons…' }) +
+      '<table class="hgs-table">' +
+        '<thead class="hgs-table-hd"><tr><th>Name</th><th style="width:90px">Version</th><th style="width:140px">Category</th><th style="width:120px">Source</th><th class="col-actions"></th></tr></thead>' +
         '<tbody>' + tableRows + '</tbody>' +
       '</table>' +
     '</div>';
@@ -21900,84 +21881,93 @@ function hgsSmConfirmRemove(){
   // ─── Single substack view ────────────────────────────────────────
   function _b20RenderSubstack(sid){
     var ss = (B20_STATE.items || []).find(function(x){ return x.id === sid; });
-    if(!ss) return '<div class="b20-main-pad">Substack not found.</div>';
-    var facts = (ss.factIds || []).map(function(id){ return KC_FACTS.find(function(x){ return x.id === id; }); }).filter(Boolean);
+    if(!ss) return '<div style="padding:20px;color:var(--t3)">Substack not found.</div>';
+    var allFacts = (ss.factIds || []).map(function(id){ return KC_FACTS.find(function(x){ return x.id === id; }); }).filter(Boolean);
+    var visible = allFacts.filter(function(f){ return !isExcluded(f.id, ss.id); });
     var q = (B20_STATE.factSearch || '').toLowerCase().trim();
-    if(q) facts = facts.filter(function(f){ return f.statement.toLowerCase().indexOf(q) >= 0; });
+    if(q) visible = visible.filter(function(f){ return f.statement.toLowerCase().indexOf(q) >= 0; });
     var rows;
-    if(!facts.length){
-      rows = '<tr><td class="b20-empty-cell" colspan="4">' + (q ? 'No facts match “' + esc(q) + '”' : 'This substack has no facts.') + '</td></tr>';
+    if(!visible.length){
+      rows = '<tr class="hgs-table-row"><td class="hgs-empty-cell" colspan="4">' + (q ? 'No facts match “' + esc(q) + '”' : 'This substack has no facts.') + '</td></tr>';
     } else {
-      rows = facts.map(function(f){
-        var excluded = isExcluded(f.id, ss.id);
-        if(excluded) return '';
-        return '<tr>' +
-          '<td><div class="b20-fact-text">' + esc(f.statement) + '</div><div class="b20-fact-meta">Topic: ' + esc(topicLabel(f.topic)) + '</div></td>' +
-          '<td><span class="b20-plane-pill ' + planeClass(f.plane) + '">' + esc(planeLabel(f.plane)) + '</span></td>' +
+      rows = visible.map(function(f){
+        return '<tr class="hgs-table-row">' +
+          '<td><div class="hgs-fact-statement">' + esc(f.statement) + '</div><div class="hgs-fact-meta">Topic: ' + esc(topicLabel(f.topic)) + '</div></td>' +
+          '<td>' + planeBadgeFromId(f.plane) + '</td>' +
           '<td><span class="b20-source-pill this-binding">This binding</span></td>' +
-          '<td class="b20-row-actions" onclick="_b20ExcludeFact(\'' + esc(f.id) + '\',\'' + esc(ss.id) + '\')" title="Exclude from substack">⋮</td>' +
+          '<td class="hgs-fact-actions" onclick="_b20ExcludeFact(\'' + esc(f.id) + '\',\'' + esc(ss.id) + '\')" title="Exclude from substack">⋮</td>' +
         '</tr>';
       }).join('');
     }
-    return '<div class="b20-main-pad">' +
-      '<button class="b20-back-link" onclick="_b20Select(\'all-facts\')">' + ICO_BACK_TRI + ' All content</button>' +
-      '<div class="b20-main-hd">' +
-        '<div class="b20-main-hd-l">' +
-          '<div class="b20-main-ttl">' + esc(ss.name) + ' · ' + (ss.factIds || []).length + '</div>' +
-          '<div class="b20-main-sub">Local substack · planes: ' + ((ss.planes || []).map(planeLabel).join(', ') || 'all') + '</div>' +
-        '</div>' +
-        '<div class="b20-main-hd-r">' +
-          '<div class="b20-search">' +
-            '<span class="b20-search-ico">' + ICO_SEARCH + '</span>' +
-            '<input type="text" placeholder="Search facts…" value="' + esc(B20_STATE.factSearch || '') + '" oninput="_b20SetFactSearch(this.value)"/>' +
-          '</div>' +
-        '</div>' +
-      '</div>' +
-      '<table class="b20-table">' +
-        '<thead><tr><th>Fact</th><th style="width:120px">Plane</th><th style="width:130px">Source</th><th style="width:36px"></th></tr></thead>' +
+    var planeScope = (ss.planes || []).map(planeLabel).join(' + ') || 'all planes';
+    return '<div style="padding:16px 20px">' +
+      b20MainHd(ss.name + ' · ' + visible.length, 'Local substack · scope: ' + planeScope + ' · re-evaluates as Truth evolves', { backTo:'all-facts', backLabel:'All content', searchPlaceholder:'Filter facts…' }) +
+      '<table class="hgs-table">' +
+        '<thead class="hgs-table-hd"><tr><th>Fact</th><th class="col-plane">Plane</th><th style="width:120px">Source</th><th class="col-actions"></th></tr></thead>' +
         '<tbody>' + rows + '</tbody>' +
       '</table>' +
     '</div>';
   }
 
-  // ─── Single Canon detail view ────────────────────────────────────
+  // ─── Single Canon detail view (uses HGS hgs-canon-* layout) ──────
   function _b20RenderCanonDetail(cid){
     var c = kcCanon(cid);
-    if(!c) return '<div class="b20-main-pad">Canon not found.</div>';
+    if(!c) return '<div style="padding:20px;color:var(--t3)">Canon not found.</div>';
     var drift = canonDrift(c);
-    var driftBlock = '';
+    var driftBanner = '';
     if(drift === 'deprecated'){
-      driftBlock = '<div class="b20-canon-drift-warn">' + ICO_ALERT_TRI + 'Deprecated upstream by its owner</div>';
+      driftBanner = '<div class="hgs-canon-warn-banner">' +
+        '<span class="hgs-canon-warn-banner-ico">' + ICO_ALERT_TRI + '</span>' +
+        '<div class="hgs-canon-warn-banner-msg"><strong>Deprecated upstream.</strong> The Canon owner has marked this version as deprecated. Existing references continue to resolve, but new attachments are blocked.</div>' +
+      '</div>';
     } else if(drift === 'version'){
-      driftBlock = '<div class="b20-canon-drift-warn">' + ICO_ALERT_TRI + 'Newer version available: v' + esc(c.latestVersion) + ' published ' + esc(c.latestVersionDate || '') + '</div>';
+      driftBanner = '<div class="hgs-canon-warn-banner">' +
+        '<span class="hgs-canon-warn-banner-ico">' + ICO_ALERT_TRI + '</span>' +
+        '<div class="hgs-canon-warn-banner-msg"><strong>Newer version available.</strong> v' + esc(c.latestVersion) + ' was published ' + esc(c.latestVersionDate || '') + '. Review changes in the notify-first queue when the binding mode supports it.</div>' +
+      '</div>';
     }
-    return '<div class="b20-canon-detail">' +
+    var relatedBlock = c.factCount ? (
+      '<div class="hgs-canon-related">' +
+        '<div class="hgs-canon-related-text">' + c.factCount + ' fact(s) in this binding are linked to this Canon as Bridge IDs.</div>' +
+        '<button class="hgs-canon-related-link" type="button" onclick="event.preventDefault()">View related facts →</button>' +
+      '</div>'
+    ) : '';
+    return '<div style="padding:16px 20px">' +
       '<button class="b20-back-link" onclick="_b20Select(\'all-canons\')">' + ICO_BACK_TRI + ' All Canons</button>' +
-      '<div class="b20-main-hd">' +
-        '<div class="b20-main-hd-l">' +
-          '<div class="b20-main-ttl">' + esc(c.name) + '</div>' +
-          '<div class="b20-main-sub">v' + esc(c.version) + ' · ' + esc(c.publishedDate) + ' · ' + esc(c.owner) + '</div>' +
-          driftBlock +
+      '<div class="hgs-canon-detail">' +
+        '<div class="hgs-canon-header">' +
+          '<div class="hgs-canon-name-row">' +
+            '<span class="hgs-canon-ico-big">' + ICO_DOC_CANON + '</span>' +
+            '<div class="hgs-canon-name">' + esc(c.name) + '</div>' +
+          '</div>' +
+          '<div class="hgs-canon-meta-row">' +
+            '<span><strong>Version</strong> v' + esc(c.version) + '</span>' +
+            '<span><strong>Owner</strong> ' + esc(c.owner) + '</span>' +
+            '<span><strong>Audience</strong> ' + esc(c.audienceScope) + '</span>' +
+            '<span><strong>Category</strong> ' + esc(c.category) + '</span>' +
+            '<span><strong>Published</strong> ' + esc(c.publishedDate) + '</span>' +
+          '</div>' +
         '</div>' +
-        '<div class="b20-main-hd-r">' +
-          '<button class="b20-back-link" onclick="event.preventDefault()" style="margin:0">View full document in Canon Plane →</button>' +
+        driftBanner +
+        '<div class="hgs-canon-section">' +
+          '<div class="hgs-canon-sec-lbl">Description</div>' +
+          '<div class="hgs-canon-sec-val">' + esc(c.description) + '</div>' +
+        '</div>' +
+        relatedBlock +
+        '<div class="hgs-canon-section">' +
+          '<div class="hgs-canon-sec-lbl">Document preview</div>' +
+          '<div class="hgs-canon-preview">' + esc(c.previewText || '') + '</div>' +
+          '<button class="hgs-canon-preview-link" type="button" onclick="event.preventDefault()">View full document in Canon Plane →</button>' +
         '</div>' +
       '</div>' +
-      '<div class="b20-canon-fields">' +
-        '<div class="b20-canon-field-lbl">Description</div><div class="b20-canon-field-val">' + esc(c.description) + '</div>' +
-        '<div class="b20-canon-field-lbl">Audience</div><div class="b20-canon-field-val">' + esc(c.audienceScope) + '</div>' +
-        '<div class="b20-canon-field-lbl">Category</div><div class="b20-canon-field-val">' + esc(c.category) + '</div>' +
-        (c.factCount ? '<div class="b20-canon-field-lbl">Related facts</div><div class="b20-canon-field-val">' + c.factCount + ' fact(s) linked from this Canon</div>' : '') +
-      '</div>' +
-      '<div class="b20-canon-preview">' + esc(c.previewText || '') + '</div>' +
     '</div>';
   }
 
-  // ─── Excluded view ───────────────────────────────────────────────
+  // ─── Excluded view (uses HGS hgs-ex-* layout) ─────────────────────
   function _b20RenderExcluded(){
     var excl = B20_STATE.excluded || [];
     if(!excl.length){
-      return '<div class="b20-main-pad"><div class="b20-main-hd"><div class="b20-main-hd-l"><div class="b20-main-ttl">Excluded</div><div class="b20-main-sub">No facts have been excluded.</div></div></div></div>';
+      return '<div style="padding:16px 20px"><div class="hgs-af-wrap"><div class="hgs-ex-hd"><span class="hgs-ex-ttl">Excluded · 0 facts</span></div><div class="hgs-ex-empty">No excluded facts.</div></div></div>';
     }
     // Group by substack
     var byss = {};
@@ -21991,31 +21981,32 @@ function hgsSmConfirmRemove(){
       var cards = byss[sid].map(function(e){
         var f = KC_FACTS.find(function(x){ return x.id === e.factId; });
         if(!f) return '';
-        return '<div class="b20-excl-card">' +
-          '<div class="b20-excl-card-body">' +
-            '<div class="b20-excl-card-text">' + esc(f.statement) + '</div>' +
-            (e.reason ? '<div class="b20-excl-card-reason">"' + esc(e.reason) + '"</div>' : '') +
+        return '<div class="hgs-ex-card">' +
+          '<div class="hgs-ex-body">' +
+            '<div class="hgs-ex-statement">' + esc(f.statement) + '</div>' +
+            '<div class="hgs-ex-meta">' + planeBadgeFromId(f.plane) + ' <span>·</span> <span>' + esc(topicLabel(f.topic)) + '</span></div>' +
+            (e.reason ? '<div class="hgs-ex-reason">"' + esc(e.reason) + '"</div>' : '') +
           '</div>' +
-          '<button class="b20-excl-incl-btn" onclick="_b20IncludeBack(\'' + esc(e.factId) + '\',\'' + esc(sid) + '\')">Include back</button>' +
+          '<button class="hgs-include-btn" type="button" onclick="_b20IncludeBack(\'' + esc(e.factId) + '\',\'' + esc(sid) + '\')">' +
+            '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9V6a2 2 0 00-2-2H2.5M5 1.5L2 4.5l3 3"/></svg>' +
+            'Include back' +
+          '</button>' +
         '</div>';
       }).join('');
-      return '<div class="b20-excl-group">' +
-        '<div class="b20-excl-group-hd">' + esc(ssName) + ' · ' + byss[sid].length + '</div>' +
-        cards +
-      '</div>';
+      return '<div class="hgs-ex-group-lbl">Excluded from "' + esc(ssName) + '" · ' + byss[sid].length + '</div>' + cards;
     }).join('');
-    return '<div class="b20-main-pad">' +
-      '<div class="b20-main-hd">' +
-        '<div class="b20-main-hd-l">' +
-          '<div class="b20-main-ttl">Excluded · ' + excl.length + '</div>' +
-          '<div class="b20-main-sub">Facts removed from substacks. Use Include back to restore.</div>' +
+    return '<div style="padding:16px 20px">' +
+      '<div class="hgs-af-wrap">' +
+        '<div class="hgs-ex-hd">' +
+          '<span class="hgs-ex-ttl">Excluded · ' + excl.length + ' fact' + (excl.length === 1 ? '' : 's') + '</span>' +
         '</div>' +
+        '<div class="hgs-ex-sub">These facts were removed from substacks in this binding. Use Include back to restore.</div>' +
+        groups +
       '</div>' +
-      groups +
     '</div>';
   }
 
-  // ─── Add facts inline flow ───────────────────────────────────────
+  // ─── Add facts inline flow (uses HGS hgs-af-* / hgs-rp-* layout) ─
   function _b20RenderAddFacts(){
     var af = B20_STATE.addFacts || {};
     var planeSel = af.planeSel || [];
@@ -22031,73 +22022,86 @@ function hgsSmConfirmRemove(){
     var q = query.toLowerCase().trim();
     if(q) pool = pool.filter(function(f){ return f.statement.toLowerCase().indexOf(q) >= 0; });
 
+    var planeScopeLabel = planeSel.length
+      ? planeSel.map(planeLabel).join(' + ')
+      : 'All accessible planes (' + (KC_PLANES || []).length + ')';
     var planeChips = (KC_PLANES || []).map(function(p){
       var active = planeSel.indexOf(p.id) >= 0;
-      return '<button class="b20-add-chip' + (active ? ' active' : '') + '" type="button" onclick="_b20TogglePlane(\'' + esc(p.id) + '\')">' + esc(p.label) + '</button>';
+      return '<button class="hgs-topic-chip' + (active ? ' active' : '') + '" type="button" onclick="_b20TogglePlane(\'' + esc(p.id) + '\')">' + esc(p.label) + '</button>';
     }).join('');
     var topicChips = (KC_TOPICS || []).map(function(t){
       var active = topicSel === t.id;
       var compat = !planeSel.length || (t.planes || []).some(function(p){ return planeSel.indexOf(p) >= 0; });
       var dis = compat ? '' : ' disabled';
-      return '<button class="b20-add-chip' + (active ? ' active' : '') + '" type="button"' + dis + ' onclick="_b20SetTopic(\'' + esc(t.id) + '\')">' + esc(t.label) + '</button>';
+      return '<button class="hgs-topic-chip' + (active ? ' active' : '') + '" type="button"' + dis + ' onclick="_b20SetTopic(\'' + esc(t.id) + '\')">' + esc(t.label) + '</button>';
     }).join('');
 
-    var resultsHtml;
+    var candRows;
     if(!pool.length){
-      resultsHtml = '<div style="padding:20px;text-align:center;color:var(--t3);font-style:italic">No facts match. Adjust filters or search.</div>';
+      candRows = '<div class="hgs-candidate"><div class="hgs-cand-body"><div class="hgs-cand-meta" style="font-style:italic">No facts match the current filters.</div></div></div>';
     } else {
-      resultsHtml = pool.slice(0, 50).map(function(f){
+      candRows = pool.slice(0, 50).map(function(f){
         var checked = picked.has(f.id);
-        return '<div class="b20-add-result-row" onclick="_b20TogglePick(\'' + esc(f.id) + '\')">' +
-          '<input type="checkbox"' + (checked ? ' checked' : '') + ' onclick="event.stopPropagation();_b20TogglePick(\'' + esc(f.id) + '\')"/>' +
-          '<div class="b20-add-result-body">' +
-            '<div class="b20-add-result-text">' + esc(f.statement) + '</div>' +
-            '<div class="b20-add-result-meta"><span class="b20-plane-pill ' + planeClass(f.plane) + '" style="margin-right:6px">' + esc(planeLabel(f.plane)) + '</span>' + esc(topicLabel(f.topic)) + '</div>' +
+        var cls = 'hgs-candidate' + (checked ? '' : ' deselected');
+        return '<div class="' + cls + '" onclick="_b20TogglePick(\'' + esc(f.id) + '\')">' +
+          '<span class="hgs-cb' + (checked ? ' checked' : '') + '"><span class="hgs-cb-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5L5 9l4.5-5.5"/></svg></span></span>' +
+          '<div class="hgs-cand-body">' +
+            '<div class="hgs-cand-statement">' + esc(f.statement) + '</div>' +
+            '<div class="hgs-cand-meta">' + planeBadgeFromId(f.plane) + ' <span>·</span> <span>' + esc(topicLabel(f.topic)) + '</span></div>' +
           '</div>' +
         '</div>';
       }).join('');
     }
 
-    // Auto-suggest substack name based on topic if name is empty
+    // Auto-suggest substack name based on filters
     var suggestedName = name;
     if(!suggestedName){
       if(topicSel) suggestedName = topicLabel(topicSel) + ' facts';
       else if(planeSel.length === 1) suggestedName = planeLabel(planeSel[0]) + ' facts';
     }
+    var selectedCount = picked.size;
 
-    return '<div class="b20-main-pad">' +
-      '<button class="b20-back-link" onclick="_b20CancelAddFacts()">' + ICO_BACK_TRI + ' All content</button>' +
-      '<div class="b20-main-hd">' +
-        '<div class="b20-main-hd-l">' +
-          '<div class="b20-main-ttl">Add facts</div>' +
-          '<div class="b20-main-sub">Filter Truth, pick facts, name your substack.</div>' +
+    return '<div style="padding:16px 20px">' +
+      '<div class="hgs-af-wrap">' +
+        '<div class="hgs-af-ttl">Add facts to this binding</div>' +
+        '<div class="hgs-af-sub">Filter Truth to find facts you want to bundle. Your filters become a substack that stays current as Truth evolves.</div>' +
+        '<div class="hgs-pane">' +
+          '<div class="hgs-pane-lbl">Search in</div>' +
+          '<div class="hgs-af-row">' +
+            '<span class="hgs-plane-pill">' +
+              '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="7" cy="7" r="5"/><path d="M2 7h10M7 2c1.7 1.7 1.7 8.3 0 10M7 2c-1.7 1.7-1.7 8.3 0 10"/></svg>' +
+              esc(planeScopeLabel) +
+            '</span>' +
+            planeChips +
+          '</div>' +
+          '<div class="hgs-af-search" style="margin-bottom:12px">' +
+            '<span class="hgs-af-search-ico">' + ICO_SEARCH + '</span>' +
+            '<input class="hgs-af-search-inp" type="text" placeholder="Keyword search across facts…" value="' + esc(query) + '" oninput="_b20SetAddQuery(this.value)"/>' +
+          '</div>' +
+          '<div class="hgs-pane-lbl">Or pick a topic</div>' +
+          '<div class="hgs-af-row" style="margin-bottom:12px">' + topicChips + '</div>' +
         '</div>' +
-      '</div>' +
-      '<div class="b20-add-card">' +
-        '<div class="b20-add-card-hd">FILTERS</div>' +
-        '<div class="b20-add-row">' +
-          '<div class="b20-add-row-lbl">Search</div>' +
-          '<div class="b20-add-search"><input type="text" placeholder="Search Truth…" value="' + esc(query) + '" oninput="_b20SetAddQuery(this.value)"/></div>' +
+        '<div class="hgs-rp">' +
+          '<div class="hgs-rp-hd">' +
+            '<div class="hgs-rp-hd-r1">' +
+              '<span><strong>' + pool.length + '</strong> candidate fact' + (pool.length === 1 ? '' : 's') + ' match' + (pool.length === 1 ? 'es' : '') + ' your filters · <strong>' + selectedCount + '</strong> selected</span>' +
+            '</div>' +
+            '<div class="hgs-rp-hd-r2">' +
+              '<div class="hgs-rp-name-block">' +
+                '<div class="hgs-rp-name-lbl">Substack name</div>' +
+                '<input class="hgs-rp-name-inp" type="text" placeholder="' + esc(suggestedName || 'Name this substack…') + '" value="' + esc(name) + '" oninput="_b20SetAddName(this.value)"/>' +
+                '<div class="hgs-rp-name-help">Auto-named from your filters. Click to rename.</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+          candRows +
         '</div>' +
-        '<div class="b20-add-row">' +
-          '<div class="b20-add-row-lbl">Planes</div>' +
-          planeChips +
-        '</div>' +
-        '<div class="b20-add-row">' +
-          '<div class="b20-add-row-lbl">Topic</div>' +
-          topicChips +
-        '</div>' +
-      '</div>' +
-      '<div class="b20-add-card">' +
-        '<div class="b20-add-card-hd">RESULTS · ' + pool.length + ' (' + picked.size + ' picked)</div>' +
-        '<div class="b20-add-results">' + resultsHtml + '</div>' +
-      '</div>' +
-      '<div class="b20-add-card">' +
-        '<div class="b20-add-card-hd">SUBSTACK NAME</div>' +
-        '<input type="text" placeholder="' + esc(suggestedName || 'Name this substack…') + '" value="' + esc(name) + '" oninput="_b20SetAddName(this.value)" style="width:100%;background:var(--bg);border:1px solid var(--bd);border-radius:var(--r6);padding:8px 10px;font-size:12px;color:var(--t1);font-family:inherit"/>' +
-        '<div class="b20-add-footer">' +
-          '<button class="b20-add-cancel" type="button" onclick="_b20CancelAddFacts()">Cancel</button>' +
-          '<button class="b20-add-commit" type="button" onclick="_b20CommitAddFacts()"' + (picked.size === 0 ? ' disabled' : '') + '>Add ' + picked.size + ' fact' + (picked.size === 1 ? '' : 's') + '</button>' +
+        '<div class="hgs-af-actions">' +
+          '<div class="hgs-af-actions-l"><strong>' + selectedCount + ' selected</strong> · will be added as a new substack</div>' +
+          '<div class="hgs-af-actions-r">' +
+            '<button class="kc-mbtn ghost" type="button" onclick="_b20CancelAddFacts()">Cancel</button>' +
+            '<button class="kc-mbtn primary" type="button" onclick="_b20CommitAddFacts()"' + (selectedCount === 0 ? ' disabled' : '') + '>Add ' + selectedCount + ' fact' + (selectedCount === 1 ? '' : 's') + '</button>' +
+          '</div>' +
         '</div>' +
       '</div>' +
     '</div>';
