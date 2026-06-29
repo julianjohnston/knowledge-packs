@@ -3665,6 +3665,35 @@ html.theme-light .search-footer-link{color:#7C3AED}
 .hgs-rail-row.pack { border-left-color:transparent; }
 .hgs-rail-row.pack.active { border-left-color:var(--pur); }
 .hgs-rail-row .pack-ico { color:var(--pur); display:inline-flex; flex-shrink:0; margin-right:2px; }
+/* Knowledge Pack picker (modal-within-modal, z above v2 modal) */
+.b20-pp-ov { position:fixed; inset:0; background:rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:1200; opacity:0; pointer-events:none; transition:opacity 0.15s; }
+.b20-pp-ov.open { opacity:1; pointer-events:auto; }
+.b20-pp { background:var(--bg2); border:1px solid var(--bd); border-radius:12px; width:920px; max-width:94vw; height:78vh; max-height:86vh; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 16px 48px rgba(0,0,0,0.5); }
+.b20-pp-hd { display:flex; align-items:center; justify-content:space-between; padding:14px 20px; border-bottom:1px solid var(--bd); flex-shrink:0; }
+.b20-pp-hd-ttl { font-size:14px; font-weight:600; color:var(--t1); }
+.b20-pp-filters { padding:12px 20px; border-bottom:1px solid var(--bd); flex-shrink:0; display:flex; flex-direction:column; gap:10px; }
+.b20-pp-search { position:relative; }
+.b20-pp-search input { width:100%; background:var(--bg); border:0.5px solid var(--bd); border-radius:var(--r6); padding:8px 10px 8px 30px; font-size:12px; color:var(--t1); font-family:inherit; }
+.b20-pp-search .hgs-filter-ico { left:10px; }
+.b20-pp-cats { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+.b20-pp-cats-lbl { font-size:10.5px; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; margin-right:4px; }
+.b20-pp-body { flex:1; overflow-y:auto; padding:14px 20px; display:grid; grid-template-columns:repeat(2, 1fr); gap:10px; }
+.b20-pp-card { background:rgba(255,255,255,0.02); border:1px solid var(--bd); border-radius:var(--r8); padding:12px 14px; transition:background 0.15s, border-color 0.15s; }
+.b20-pp-card:hover { background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.18); }
+.b20-pp-card.attached { opacity:0.6; }
+.b20-pp-card-top { display:flex; align-items:flex-start; gap:10px; margin-bottom:8px; }
+.b20-pp-card-ico { width:30px; height:30px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; flex-shrink:0; }
+.b20-pp-card-body { flex:1; min-width:0; }
+.b20-pp-card-nm-row { display:flex; align-items:center; gap:6px; margin-bottom:2px; }
+.b20-pp-card-nm { font-size:12.5px; font-weight:600; color:var(--t1); }
+.b20-pp-card-desc { font-size:11px; color:var(--t3); line-height:1.4; }
+.b20-pp-card-add { background:var(--pri); border:none; color:#0a0a0a; font-size:11px; font-weight:600; padding:5px 12px; border-radius:var(--r6); cursor:pointer; font-family:inherit; flex-shrink:0; }
+.b20-pp-card-add:hover { filter:brightness(1.1); }
+.b20-pp-card-added { font-size:10.5px; color:var(--ok); font-weight:600; padding:5px 12px; border:1px solid rgba(5,223,114,0.30); background:rgba(5,223,114,0.10); border-radius:var(--r6); flex-shrink:0; }
+.b20-pp-card-cats { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:6px; }
+.b20-pp-card-cat { font-size:9.5px; padding:1px 6px; border-radius:3px; background:rgba(255,255,255,0.04); border:0.5px solid var(--bd); color:var(--t2); }
+.b20-pp-card-meta { display:flex; flex-wrap:wrap; gap:6px; font-size:10.5px; color:var(--t3); padding-top:8px; border-top:0.5px solid var(--bd); }
+.b20-pp-ft { display:flex; align-items:center; justify-content:space-between; padding:12px 20px; border-top:1px solid var(--bd); flex-shrink:0; }
 </style>
 </head>
 <body>
@@ -21687,7 +21716,7 @@ function hgsSmConfirmRemove(){
     html += '<div class="hgs-rail-section">Attached Knowledge Packs · ' + packCount + '</div>';
     if((B20_STATE.attachedPacks || []).length){
       (B20_STATE.attachedPacks || []).forEach(function(p){
-        var packFacts = (p.facts != null) ? p.facts : 0;
+        var packFacts = (p.factCount != null) ? p.factCount : ((p.facts != null) ? p.facts : 0);
         var packCanons = (p.canons || []).length;
         html += '<button class="hgs-rail-row pack' + (sel === ('pack-' + p.id) ? ' active' : '') + '" type="button" onclick="_b20Select(\'pack-' + esc(p.id) + '\')">' +
           '<span class="pack-ico"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"><path d="M2 4l5-2.5L12 4l-5 2.5L2 4z"/><path d="M2 4v6l5 2.5L12 10V4"/><path d="M7 6.5v6"/></svg></span>' +
@@ -22271,6 +22300,604 @@ function hgsSmConfirmRemove(){
     if(typeof window.hgsCloseCanonPicker === 'function') window.hgsCloseCanonPicker();
     window.KC_CP_CONTEXT = 'hgs';
     window.KC_CP_ATTACHED_SET = null;
+    _b20Render();
+  };
+})();
+
+// ─── Brief 20 Pass C: configurator-only surfaces ─────────────────────
+// Attached Knowledge Packs (rail rows, single-pack read-only view),
+// aggregated SOURCE column across packs + local, KP picker modal,
+// detach confirm, per-pack three-dot menu (View in HGS, Detach).
+(function(){
+  if(typeof window === 'undefined') return;
+  if(typeof window.B20_STATE === 'undefined') return;
+  if(typeof KC_FACTS === 'undefined') return;
+  if(typeof tenantStacks === 'undefined') return;
+
+  function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function kcCanon(id){ return (CANON_DOCUMENTS || []).find(function(c){ return c.id === id; }); }
+  function planeLabel(pid){
+    var p = (typeof KC_PLANES !== 'undefined') ? KC_PLANES.find(function(x){ return x.id === pid; }) : null;
+    return p ? p.label : pid;
+  }
+  function topicLabel(tid){
+    var t = (typeof KC_TOPICS !== 'undefined') ? KC_TOPICS.find(function(x){ return x.id === tid; }) : null;
+    return t ? t.label : tid;
+  }
+  function planeBadgeFromId(pid){
+    return (typeof hgsPlaneBadge === 'function') ? hgsPlaneBadge(planeLabel(pid)) : esc(planeLabel(pid));
+  }
+  function canonDrift(c){
+    if(!c) return null;
+    if(c.publicationState === 'deprecated') return 'deprecated';
+    if(c.latestVersion && c.latestVersion !== c.version) return 'version';
+    return null;
+  }
+  var ICO_ALERT_TRI = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L13 12H1L7 1.5z"/><path d="M7 6v3M7 10.5h.01"/></svg>';
+  var ICO_SEARCH    = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4"/><path d="M9.5 9.5L12 12"/></svg>';
+  var ICO_BACK_TRI  = '<svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l-4 4 4 4"/></svg>';
+  var ICO_DOC_CANON = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h5l3 3v8a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5z"/><path d="M8 1.5v3h3"/></svg>';
+  var ICO_LOCK = '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><rect x="2" y="5.5" width="8" height="5" rx="1"/><path d="M4 5.5V3.5a2 2 0 014 0v2"/></svg>';
+
+  // tenantStacks-id → planes for fact derivation
+  var TS_PACK_PLANES = {
+    'pricing-policy':           ['sales','compliance'],
+    'soc2-controls':            ['compliance'],
+    'commission-structure':     ['hr'],
+    'customer-onboarding':      ['sales'],
+    'procurement-approval':     ['ops'],
+    'pto-leave-policy':         ['hr'],
+    'renewal-playbook':         ['sales'],
+    'data-retention-schedules': ['compliance']
+  };
+  // tenantStacks-id → KC_STACKS-id (for canon lookup via KC_STACK_CANONS)
+  var TS_PACK_TO_KC = {
+    'pricing-policy':           'st-pricing',
+    'commission-structure':     'st-comp',
+    'data-retention-schedules': 'st-audit',
+    'customer-onboarding':      'st-onboard'
+  };
+  function packCanonIds(packId){
+    var kcId = TS_PACK_TO_KC[packId];
+    if(kcId && window.KC_STACK_CANONS && window.KC_STACK_CANONS[kcId]) return window.KC_STACK_CANONS[kcId];
+    return [];
+  }
+  function packFacts(packId){
+    var planes = TS_PACK_PLANES[packId] || [];
+    if(!planes.length) return [];
+    return KC_FACTS.filter(function(f){ return planes.indexOf(f.plane) >= 0; });
+  }
+  function tenantStack(id){ return tenantStacks.find(function(s){ return s.id === id; }); }
+
+  // ─── Re-seed default binding to include 1 attached pack (per Brief 20 mock data) ─
+  if(typeof window._b20OpenModal === 'function'){
+    var _b20PassCOrigOpen = window._b20OpenModal;
+    window._b20OpenModal = function(net, parent, sub){
+      _b20PassCOrigOpen.call(this, net, parent, sub);
+      var binding = sub && sub.binding;
+      // Re-seed only if not previously persisted with Pass C shape
+      if(!binding || !binding.attachedPacks){
+        if(!B20_STATE.attachedPacks || !B20_STATE.attachedPacks.length){
+          var p = tenantStack('pricing-policy');
+          if(p){
+            B20_STATE.attachedPacks = [{
+              packId: p.id,
+              name: p.name,
+              owner: p.owner,
+              factCount: p.factCount,
+              canons: packCanonIds(p.id),
+              categories: p.categories,
+              iconBg: p.iconBg,
+              iconColor: p.iconColor,
+              lastUpdated: p.lastUpdated,
+              dependentCount: p.dependentCount,
+              workflowControl: p.workflowControl,
+              description: p.description
+            }];
+          }
+        }
+      } else {
+        B20_STATE.attachedPacks = JSON.parse(JSON.stringify(binding.attachedPacks));
+      }
+      B20_STATE.singlePackSubview = 'facts';
+      _b20Render();
+    };
+  }
+
+  // ─── Save also persists attachedPacks ─────────────────────────────
+  if(typeof window._b20Save === 'function'){
+    var _b20OrigSave = window._b20Save;
+    window._b20Save = function(){
+      // Snapshot the attached packs onto the sub.binding before calling original
+      if(typeof bldrNet !== 'undefined' && bldrNet){
+        var parent = _pcFindNode(bldrNet, B20_STATE.parentId);
+        var sub = parent && parent.subs && parent.subs.find(function(s){ return s._id === B20_STATE.subId; });
+        if(sub){
+          sub.binding = sub.binding || {};
+          sub.binding.attachedPacks = JSON.parse(JSON.stringify(B20_STATE.attachedPacks || []));
+        }
+      }
+      return _b20OrigSave.apply(this, arguments);
+    };
+  }
+
+  // ─── Wrap aggregated rows to include attached pack content ───────
+  // The Pass B IIFE defines aggregatedFacts/aggregatedCanons inside its
+  // closure, so we can't call them directly. Instead, we re-wrap the
+  // main view + count helpers via the main render dispatcher.
+
+  // To inject pack content into the aggregated views, we wrap
+  // _b20RenderMain to intercept and re-compute aggregated rows.
+  var _b20PassCOrigRender = window._b20Render;
+  window._b20Render = function(){
+    // Compute aggregated rows including attached packs
+    var localFactRows = [];
+    (B20_STATE.items || []).forEach(function(it){
+      (it.factIds || []).forEach(function(id){
+        if(!isExcluded(id, it.id)) localFactRows.push({ factId: id, substackId: it.id, substackName: it.name, source: 'This binding' });
+      });
+    });
+    var packFactRows = [];
+    (B20_STATE.attachedPacks || []).forEach(function(p){
+      // Derive facts from plane filter, scoped to a synthesized substack-per-pack
+      packFacts(p.packId).forEach(function(f){
+        packFactRows.push({ factId: f.id, substackId: 'pack-' + p.packId, substackName: 'Pack: ' + p.name, source: p.name });
+      });
+    });
+    window.__B20_AGG_FACTS = packFactRows.concat(localFactRows);
+
+    var localCanonRows = (B20_STATE.localCanons || []).map(function(id){
+      return { canonId: id, source: 'This binding' };
+    });
+    var packCanonRows = [];
+    (B20_STATE.attachedPacks || []).forEach(function(p){
+      (p.canons || []).forEach(function(cid){
+        packCanonRows.push({ canonId: cid, source: p.name });
+      });
+    });
+    window.__B20_AGG_CANONS = packCanonRows.concat(localCanonRows);
+
+    _b20PassCOrigRender.apply(this, arguments);
+  };
+
+  function isExcluded(factId, substackId){
+    return (B20_STATE.excluded || []).some(function(e){ return e.factId === factId && e.substackId === substackId; });
+  }
+
+  // Wrap the rail + main render dispatch by patching their wrappers.
+  // The Pass B renderer reads its own aggregatedFacts/Canons via its
+  // closure. We monkey-patch the modal HTML after render to swap in
+  // pack-aware tables when the relevant rail entry is active.
+  var _b20PrevOriginalRender = window._b20Render;
+  window._b20Render = function(){
+    _b20PrevOriginalRender.apply(this, arguments);
+    var ov = document.getElementById('b20ModalOv');
+    if(!ov || !ov.classList.contains('open')) return;
+    var sel = B20_STATE.railSelection;
+
+    // Always update the footer status to reflect aggregated counts
+    var aggFacts  = window.__B20_AGG_FACTS  || [];
+    var aggCanons = window.__B20_AGG_CANONS || [];
+    var packCount     = (B20_STATE.attachedPacks || []).length;
+    var substackCount = (B20_STATE.items || []).length;
+    var localCanonCount = (B20_STATE.localCanons || []).length;
+    var totalAttached = packCount + localCanonCount + substackCount;
+    var ftStatus = ov.querySelector('.b20-ft-status');
+    if(ftStatus) ftStatus.textContent = totalAttached + ' attached · ' + aggFacts.length + ' facts · ' + aggCanons.length + ' Canons';
+
+    // Replace the ALL CONTENT counts in the rail (now aggregated)
+    var railRows = ov.querySelectorAll('.b20-modal .hgs-rail-row');
+    if(railRows[0]){
+      var c = railRows[0].querySelector('.hgs-rail-row-count');
+      if(c) c.textContent = aggFacts.length;
+    }
+    if(railRows[1]){
+      var c2 = railRows[1].querySelector('.hgs-rail-row-count');
+      if(c2) c2.textContent = aggCanons.length;
+    }
+
+    // If a pack is selected, replace the main view with the single-pack view
+    if(sel && sel.indexOf('pack-') === 0){
+      var packId = sel.slice('pack-'.length);
+      var mainHost = ov.querySelector('.b20-modal .hgs-main');
+      if(mainHost) mainHost.innerHTML = renderSinglePackView(packId);
+      return;
+    }
+
+    // If All facts / All Canons is selected, replace with aggregated table
+    if(sel === 'all-facts'){
+      var mainHost2 = ov.querySelector('.b20-modal .hgs-main');
+      if(mainHost2) mainHost2.innerHTML = renderAggregatedFacts(aggFacts);
+    } else if(sel === 'all-canons'){
+      var mainHost3 = ov.querySelector('.b20-modal .hgs-main');
+      if(mainHost3) mainHost3.innerHTML = renderAggregatedCanons(aggCanons);
+    }
+  };
+
+  // ─── Aggregated All facts view (includes attached pack facts) ────
+  function renderAggregatedFacts(rows){
+    var q = (B20_STATE.factSearch || '').toLowerCase().trim();
+    var filtered = rows.filter(function(r){
+      if(!q) return true;
+      var f = KC_FACTS.find(function(x){ return x.id === r.factId; });
+      return f && f.statement.toLowerCase().indexOf(q) >= 0;
+    });
+    var tableRows;
+    if(!filtered.length){
+      tableRows = '<tr class="hgs-table-row"><td class="hgs-empty-cell" colspan="5">' + (q ? 'No facts match “' + esc(q) + '”' : 'No facts in this binding yet. Use + Add facts or attach a Knowledge Pack.') + '</td></tr>';
+    } else {
+      tableRows = filtered.map(function(r){
+        var f = KC_FACTS.find(function(x){ return x.id === r.factId; });
+        if(!f) return '';
+        var sourcePill = (r.source === 'This binding')
+          ? '<span class="b20-source-pill this-binding">This binding</span>'
+          : '<span class="b20-source-pill">' + esc(r.source) + '</span>';
+        return '<tr class="hgs-table-row">' +
+          '<td><div class="hgs-fact-statement">' + esc(f.statement) + '</div><div class="hgs-fact-meta">Topic: ' + esc(topicLabel(f.topic)) + '</div></td>' +
+          '<td>' + planeBadgeFromId(f.plane) + '</td>' +
+          '<td><span style="font-size:11px;color:var(--t2)">' + esc(r.substackName) + '</span></td>' +
+          '<td>' + sourcePill + '</td>' +
+          '<td class="hgs-fact-actions" title="Fact actions">⋮</td>' +
+        '</tr>';
+      }).join('');
+    }
+    return '<div style="padding:16px 20px">' +
+      '<div class="hgs-main-hd">' +
+        '<div>' +
+          '<div class="hgs-main-title">All facts · ' + rows.length + '</div>' +
+          '<div class="hgs-main-sub">Aggregated across attached Knowledge Packs and locally-composed substacks</div>' +
+        '</div>' +
+        '<div class="hgs-main-actions">' +
+          '<div class="hgs-filter-wrap">' +
+            '<span class="hgs-filter-ico">' + ICO_SEARCH + '</span>' +
+            '<input class="hgs-filter-inp" type="text" placeholder="Filter facts…" value="' + esc(B20_STATE.factSearch || '') + '" oninput="_b20SetFactSearch(this.value)"/>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<table class="hgs-table">' +
+        '<thead class="hgs-table-hd"><tr><th>Fact</th><th class="col-plane">Plane</th><th class="col-substack">Substack</th><th style="width:140px">Source</th><th class="col-actions"></th></tr></thead>' +
+        '<tbody>' + tableRows + '</tbody>' +
+      '</table>' +
+    '</div>';
+  }
+
+  function renderAggregatedCanons(rows){
+    var q = (B20_STATE.factSearch || '').toLowerCase().trim();
+    var filtered = rows.filter(function(r){
+      if(!q) return true;
+      var c = kcCanon(r.canonId);
+      return c && c.name.toLowerCase().indexOf(q) >= 0;
+    });
+    var tableRows;
+    if(!filtered.length){
+      tableRows = '<tr class="hgs-table-row"><td class="hgs-empty-cell" colspan="5">' + (q ? 'No Canons match “' + esc(q) + '”' : 'No Canons attached yet.') + '</td></tr>';
+    } else {
+      tableRows = filtered.map(function(r){
+        var c = kcCanon(r.canonId); if(!c) return '';
+        var drift = canonDrift(c);
+        var driftMark = '';
+        if(drift === 'deprecated') driftMark = ' <span style="color:var(--warn)" title="Deprecated upstream">' + ICO_ALERT_TRI + '</span>';
+        else if(drift === 'version') driftMark = ' <span style="color:var(--warn)" title="Newer version v' + esc(c.latestVersion) + ' available">' + ICO_ALERT_TRI + '</span>';
+        var sourcePill = (r.source === 'This binding')
+          ? '<span class="b20-source-pill this-binding">This binding</span>'
+          : '<span class="b20-source-pill">' + esc(r.source) + '</span>';
+        return '<tr class="hgs-table-row" onclick="_b20Select(\'canon-' + esc(c.id) + '\')" style="cursor:pointer">' +
+          '<td><div class="hgs-fact-statement">' + esc(c.name) + driftMark + '</div><div class="hgs-fact-meta">' + esc(c.audienceScope || '') + '</div></td>' +
+          '<td><span style="font-size:11px;color:var(--t2)">v' + esc(c.version) + '</span></td>' +
+          '<td><span style="font-size:11px;color:var(--t2)">' + esc(c.category || '—') + '</span></td>' +
+          '<td>' + sourcePill + '</td>' +
+          '<td class="hgs-fact-actions" title="Canon actions">⋮</td>' +
+        '</tr>';
+      }).join('');
+    }
+    return '<div style="padding:16px 20px">' +
+      '<div class="hgs-main-hd">' +
+        '<div>' +
+          '<div class="hgs-main-title">All Canons · ' + rows.length + '</div>' +
+          '<div class="hgs-main-sub">Aggregated across attached Knowledge Packs and locally-attached Canons</div>' +
+        '</div>' +
+        '<div class="hgs-main-actions">' +
+          '<div class="hgs-filter-wrap">' +
+            '<span class="hgs-filter-ico">' + ICO_SEARCH + '</span>' +
+            '<input class="hgs-filter-inp" type="text" placeholder="Filter Canons…" value="' + esc(B20_STATE.factSearch || '') + '" oninput="_b20SetFactSearch(this.value)"/>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<table class="hgs-table">' +
+        '<thead class="hgs-table-hd"><tr><th>Name</th><th style="width:90px">Version</th><th style="width:140px">Category</th><th style="width:140px">Source</th><th class="col-actions"></th></tr></thead>' +
+        '<tbody>' + tableRows + '</tbody>' +
+      '</table>' +
+    '</div>';
+  }
+
+  // ─── Single-pack read-only main view ─────────────────────────────
+  function renderSinglePackView(packId){
+    var p = (B20_STATE.attachedPacks || []).find(function(x){ return x.packId === packId; });
+    if(!p) return '<div style="padding:20px;color:var(--t3)">Pack not found in this binding.</div>';
+    var subview = B20_STATE.singlePackSubview || 'facts';
+    var facts  = packFacts(p.packId);
+    var canons = (p.canons || []).map(kcCanon).filter(Boolean);
+    var hgsPackId = TS_PACK_TO_KC[p.packId] || p.packId;
+    var iconBg = p.iconBg || '#EEEDFE';
+    var iconFg = p.iconColor || '#534AB7';
+    var letter = String(p.name || '?').charAt(0).toUpperCase();
+    var locked = (p.workflowControl === 'locked');
+
+    var subnavBtn = function(key, label, count){
+      return '<button class="hgs-topic-chip' + (subview === key ? ' active' : '') + '" type="button" onclick="_b20SetPackSubview(\'' + esc(key) + '\')">' + esc(label) + ' (' + count + ')</button>';
+    };
+
+    var subviewBody;
+    if(subview === 'facts'){
+      var q = (B20_STATE.factSearch || '').toLowerCase().trim();
+      var visible = q ? facts.filter(function(f){ return f.statement.toLowerCase().indexOf(q) >= 0; }) : facts;
+      var rows = visible.length ? visible.map(function(f){
+        return '<tr class="hgs-table-row">' +
+          '<td><div class="hgs-fact-statement">' + esc(f.statement) + '</div><div class="hgs-fact-meta">Topic: ' + esc(topicLabel(f.topic)) + '</div></td>' +
+          '<td>' + planeBadgeFromId(f.plane) + '</td>' +
+          '<td class="hgs-fact-actions" title="View fact details">⋮</td>' +
+        '</tr>';
+      }).join('') : '<tr class="hgs-table-row"><td class="hgs-empty-cell" colspan="3">' + (q ? 'No facts match.' : 'This pack has no facts.') + '</td></tr>';
+      subviewBody =
+        '<div style="margin-top:14px">' +
+          '<div class="hgs-main-hd" style="margin-bottom:8px">' +
+            '<div><div class="hgs-main-sub" style="font-size:11.5px">Read-only — facts in this pack are governed by ' + esc(p.owner) + '.</div></div>' +
+            '<div class="hgs-main-actions">' +
+              '<div class="hgs-filter-wrap"><span class="hgs-filter-ico">' + ICO_SEARCH + '</span>' +
+              '<input class="hgs-filter-inp" type="text" placeholder="Filter pack facts…" value="' + esc(B20_STATE.factSearch || '') + '" oninput="_b20SetFactSearch(this.value)"/></div>' +
+            '</div>' +
+          '</div>' +
+          '<table class="hgs-table">' +
+            '<thead class="hgs-table-hd"><tr><th>Fact</th><th class="col-plane">Plane</th><th class="col-actions"></th></tr></thead>' +
+            '<tbody>' + rows + '</tbody>' +
+          '</table>' +
+        '</div>';
+    } else if(subview === 'canons'){
+      var rows2 = canons.length ? canons.map(function(c){
+        var drift = canonDrift(c);
+        var driftMark = drift === 'deprecated'
+          ? ' <span style="color:var(--warn)" title="Deprecated upstream">' + ICO_ALERT_TRI + '</span>'
+          : drift === 'version'
+            ? ' <span style="color:var(--warn)" title="Newer version v' + esc(c.latestVersion) + ' available">' + ICO_ALERT_TRI + '</span>'
+            : '';
+        return '<tr class="hgs-table-row" onclick="_b20Select(\'canon-' + esc(c.id) + '\')" style="cursor:pointer">' +
+          '<td><div class="hgs-fact-statement">' + esc(c.name) + driftMark + '</div><div class="hgs-fact-meta">' + esc(c.audienceScope || '') + '</div></td>' +
+          '<td><span style="font-size:11px;color:var(--t2)">v' + esc(c.version) + '</span></td>' +
+          '<td><span style="font-size:11px;color:var(--t2)">' + esc(c.category || '—') + '</span></td>' +
+          '<td class="hgs-fact-actions" title="View Canon details">⋮</td>' +
+        '</tr>';
+      }).join('') : '<tr class="hgs-table-row"><td class="hgs-empty-cell" colspan="4">This pack has no Canons.</td></tr>';
+      subviewBody =
+        '<div style="margin-top:14px">' +
+          '<div class="hgs-main-sub" style="font-size:11.5px;margin-bottom:8px">Read-only — Canons in this pack are governed by ' + esc(p.owner) + '.</div>' +
+          '<table class="hgs-table">' +
+            '<thead class="hgs-table-hd"><tr><th>Name</th><th style="width:90px">Version</th><th style="width:140px">Category</th><th class="col-actions"></th></tr></thead>' +
+            '<tbody>' + rows2 + '</tbody>' +
+          '</table>' +
+        '</div>';
+    } else { // substacks
+      // Pre-curated packs in v1 don't have public substacks. Show empty state.
+      subviewBody =
+        '<div style="margin-top:14px;padding:24px;text-align:center;color:var(--t3);border:0.5px dashed var(--bd);border-radius:var(--r6);font-style:italic">' +
+          'Substack composition inside the pack is governed by ' + esc(p.owner) + '. View in HGS to inspect.' +
+        '</div>';
+    }
+
+    return '<div style="padding:16px 20px">' +
+      '<button class="b20-back-link" onclick="_b20Select(\'all-facts\')">' + ICO_BACK_TRI + ' All content</button>' +
+      '<div class="hgs-canon-detail">' +
+        '<div class="hgs-canon-header">' +
+          '<div class="hgs-canon-name-row">' +
+            '<div style="width:28px;height:28px;border-radius:6px;background:' + iconBg + ';color:' + iconFg + ';display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;flex-shrink:0">' + esc(letter) + '</div>' +
+            '<div class="hgs-canon-name">' + esc(p.name) + '</div>' +
+            (locked ? '<span style="color:var(--warn);display:inline-flex;align-items:center;gap:4px;font-size:11px">' + ICO_LOCK + ' Locked</span>' : '') +
+            '<button class="hgs-canon-related-link" type="button" onclick="_b20ViewPackInHgs(\'' + esc(p.packId) + '\')" style="margin-left:auto">View in HGS →</button>' +
+            '<button class="hgs-canon-related-link" type="button" onclick="_b20ConfirmDetachPack(\'' + esc(p.packId) + '\')" style="color:var(--warn)">Detach</button>' +
+          '</div>' +
+          '<div class="hgs-canon-meta-row">' +
+            '<span><strong>Owner</strong> ' + esc(p.owner) + '</span>' +
+            '<span><strong>Facts</strong> ' + p.factCount + '</span>' +
+            '<span><strong>Canons</strong> ' + (p.canons || []).length + '</span>' +
+            '<span><strong>Last updated</strong> ' + esc(p.lastUpdated) + '</span>' +
+            '<span><strong>Dependents</strong> ' + (p.dependentCount || 0) + '</span>' +
+          '</div>' +
+          '<div class="hgs-af-row" style="margin-top:8px">' +
+            subnavBtn('facts', 'Facts', p.factCount) +
+            subnavBtn('canons', 'Canons', (p.canons || []).length) +
+            subnavBtn('substacks', 'Substacks', 0) +
+          '</div>' +
+        '</div>' +
+        subviewBody +
+      '</div>' +
+    '</div>';
+  }
+
+  window._b20SetPackSubview = function(v){
+    B20_STATE.singlePackSubview = (v === 'canons' || v === 'substacks') ? v : 'facts';
+    B20_STATE.factSearch = '';
+    _b20Render();
+  };
+  window._b20ViewPackInHgs = function(packId){
+    _b20CloseModal();
+    if(typeof hgsOpenStackEdit === 'function') hgsOpenStackEdit(packId);
+  };
+
+  // ─── Knowledge Pack picker modal ─────────────────────────────────
+  window._b20OpenPackPicker = function(){
+    var ov = document.getElementById('b20PackPickerOv');
+    if(!ov){
+      ov = document.createElement('div');
+      ov.id = 'b20PackPickerOv';
+      ov.className = 'b20-pp-ov';
+      ov.addEventListener('click', function(e){ if(e.target === ov) _b20ClosePackPicker(); });
+      document.body.appendChild(ov);
+    }
+    B20_STATE.pp = { search: '', categories: new Set() };
+    _b20RenderPackPicker();
+    ov.classList.add('open');
+  };
+  window._b20ClosePackPicker = function(){
+    var ov = document.getElementById('b20PackPickerOv');
+    if(ov) ov.classList.remove('open');
+  };
+  window._b20PpSetSearch = function(v){
+    if(!B20_STATE.pp) B20_STATE.pp = { search:'', categories:new Set() };
+    B20_STATE.pp.search = String(v == null ? '' : v);
+    _b20RenderPackPicker();
+    setTimeout(function(){
+      var inp = document.querySelector('#b20PackPickerOv .b20-pp-search input');
+      if(inp){ try { inp.focus(); var l = inp.value.length; inp.setSelectionRange(l,l); } catch(e){} }
+    }, 0);
+  };
+  window._b20PpToggleCategory = function(cat){
+    if(!B20_STATE.pp) B20_STATE.pp = { search:'', categories:new Set() };
+    if(B20_STATE.pp.categories.has(cat)) B20_STATE.pp.categories.delete(cat);
+    else B20_STATE.pp.categories.add(cat);
+    _b20RenderPackPicker();
+  };
+  window._b20PpAttach = function(packId){
+    var p = tenantStack(packId); if(!p) return;
+    var already = (B20_STATE.attachedPacks || []).some(function(x){ return x.packId === packId; });
+    if(already) return;
+    B20_STATE.attachedPacks = B20_STATE.attachedPacks || [];
+    B20_STATE.attachedPacks.push({
+      packId: p.id,
+      name: p.name,
+      owner: p.owner,
+      factCount: p.factCount,
+      canons: packCanonIds(p.id),
+      categories: p.categories,
+      iconBg: p.iconBg,
+      iconColor: p.iconColor,
+      lastUpdated: p.lastUpdated,
+      dependentCount: p.dependentCount,
+      workflowControl: p.workflowControl,
+      description: p.description
+    });
+    _b20RenderPackPicker();
+    _b20Render();
+  };
+
+  function _b20RenderPackPicker(){
+    var ov = document.getElementById('b20PackPickerOv');
+    if(!ov) return;
+    var pp = B20_STATE.pp || { search:'', categories:new Set() };
+    var q = (pp.search || '').toLowerCase().trim();
+    var cats = pp.categories || new Set();
+    var allCats = (typeof allCategories !== 'undefined' && allCategories) ? allCategories : [];
+    var attachedIds = new Set((B20_STATE.attachedPacks || []).map(function(x){ return x.packId; }));
+
+    var pool = tenantStacks.filter(function(s){
+      if(q){
+        var n = String(s.name || '').toLowerCase();
+        var d = String(s.description || '').toLowerCase();
+        if(n.indexOf(q) < 0 && d.indexOf(q) < 0) return false;
+      }
+      if(cats.size > 0){
+        var anyMatch = (s.categories || []).some(function(c){ return cats.has(c); });
+        if(!anyMatch) return false;
+      }
+      return true;
+    });
+
+    var catChips = allCats.map(function(cat){
+      var active = cats.has(cat);
+      return '<button class="hgs-topic-chip' + (active ? ' active' : '') + '" type="button" onclick="_b20PpToggleCategory(\'' + esc(cat) + '\')">' + esc(cat) + '</button>';
+    }).join('');
+
+    var cards;
+    if(!pool.length){
+      cards = '<div style="padding:30px;text-align:center;color:var(--t3)">No Knowledge Packs match your filters.</div>';
+    } else {
+      cards = pool.map(function(s){
+        var locked = (s.workflowControl === 'locked');
+        var attached = attachedIds.has(s.id);
+        var canonCount = packCanonIds(s.id).length;
+        var letter = String(s.name || '?').charAt(0).toUpperCase();
+        var catChipsCard = (s.categories || []).map(function(c){
+          return '<span class="b20-pp-card-cat">' + esc(c) + '</span>';
+        }).join('');
+        return '<div class="b20-pp-card' + (attached ? ' attached' : '') + '">' +
+          '<div class="b20-pp-card-top">' +
+            '<div class="b20-pp-card-ico" style="background:' + s.iconBg + ';color:' + s.iconColor + '">' + esc(letter) + '</div>' +
+            '<div class="b20-pp-card-body">' +
+              '<div class="b20-pp-card-nm-row">' +
+                '<div class="b20-pp-card-nm">' + esc(s.name) + '</div>' +
+                (locked ? '<span style="color:var(--warn);display:inline-flex" title="Workflows cannot customize Behavior">' + ICO_LOCK + '</span>' : '') +
+              '</div>' +
+              '<div class="b20-pp-card-desc">' + esc(s.description || '') + '</div>' +
+            '</div>' +
+            (attached
+              ? '<span class="b20-pp-card-added">Added</span>'
+              : '<button class="b20-pp-card-add" type="button" onclick="_b20PpAttach(\'' + esc(s.id) + '\')">Add</button>'
+            ) +
+          '</div>' +
+          (catChipsCard ? '<div class="b20-pp-card-cats">' + catChipsCard + '</div>' : '') +
+          '<div class="b20-pp-card-meta">' +
+            '<span>' + esc(s.owner) + '</span>' +
+            '<span>·</span>' +
+            '<span>' + s.factCount + ' facts</span>' +
+            (canonCount ? '<span>·</span><span>' + canonCount + ' Canons</span>' : '') +
+            '<span>·</span>' +
+            '<span>updated ' + esc(s.lastUpdated) + '</span>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    ov.innerHTML =
+      '<div class="b20-pp" role="dialog" aria-label="Attach Knowledge Pack">' +
+        '<div class="b20-pp-hd">' +
+          '<div class="b20-pp-hd-ttl">Attach Knowledge Pack to this binding</div>' +
+          '<button class="b20-hd-close" type="button" onclick="_b20ClosePackPicker()" aria-label="Close"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg></button>' +
+        '</div>' +
+        '<div class="b20-pp-filters">' +
+          '<div class="b20-pp-search">' +
+            '<span class="hgs-filter-ico">' + ICO_SEARCH + '</span>' +
+            '<input type="text" placeholder="Search Knowledge Packs…" value="' + esc(pp.search || '') + '" oninput="_b20PpSetSearch(this.value)"/>' +
+          '</div>' +
+          '<div class="b20-pp-cats"><span class="b20-pp-cats-lbl">Category:</span>' + catChips + '</div>' +
+        '</div>' +
+        '<div class="b20-pp-body">' + cards + '</div>' +
+        '<div class="b20-pp-ft">' +
+          '<div style="font-size:11.5px;color:var(--t3)">' + pool.length + ' available · ' + attachedIds.size + ' already attached</div>' +
+          '<button class="b20-ft-cancel" type="button" onclick="_b20ClosePackPicker()">Done</button>' +
+        '</div>' +
+      '</div>';
+  }
+
+  // ─── Detach confirmation ─────────────────────────────────────────
+  window._b20ConfirmDetachPack = function(packId){
+    var p = (B20_STATE.attachedPacks || []).find(function(x){ return x.packId === packId; });
+    if(!p) return;
+    var ov = document.getElementById('b20DetachDlgOv');
+    if(!ov){
+      ov = document.createElement('div');
+      ov.id = 'b20DetachDlgOv';
+      ov.className = 'kc-detach-dlg-ov';
+      ov.addEventListener('click', function(e){ if(e.target === ov) _b20CloseDetachDlg(); });
+      document.body.appendChild(ov);
+    }
+    var canonCount = (p.canons || []).length;
+    ov.innerHTML =
+      '<div class="kc-detach-dlg" role="dialog" aria-modal="true">' +
+        '<div class="kc-detach-dlg-ttl">Detach ' + esc(p.name) + ' from this binding?</div>' +
+        '<div class="kc-detach-dlg-body">Its ' + p.factCount + ' facts and ' + canonCount + ' Canons will no longer be available to your agent. Any pending Canon version updates from this pack will be discarded.</div>' +
+        '<div class="kc-detach-dlg-ft">' +
+          '<button class="kc-detach-dlg-cancel" type="button" onclick="_b20CloseDetachDlg()">Cancel</button>' +
+          '<button class="kc-detach-dlg-confirm" type="button" onclick="_b20DetachPack(\'' + esc(packId) + '\')">Detach</button>' +
+        '</div>' +
+      '</div>';
+    setTimeout(function(){ ov.classList.add('open'); }, 10);
+  };
+  window._b20CloseDetachDlg = function(){
+    var ov = document.getElementById('b20DetachDlgOv');
+    if(ov) ov.classList.remove('open');
+  };
+  window._b20DetachPack = function(packId){
+    B20_STATE.attachedPacks = (B20_STATE.attachedPacks || []).filter(function(x){ return x.packId !== packId; });
+    if(B20_STATE.railSelection === ('pack-' + packId)) B20_STATE.railSelection = 'all-facts';
+    _b20CloseDetachDlg();
     _b20Render();
   };
 })();
