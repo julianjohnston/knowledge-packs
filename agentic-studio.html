@@ -3663,6 +3663,77 @@ html.theme-light .search-footer-link{color:#7C3AED}
 .b20-ft-cancel:hover { background:rgba(255,255,255,0.04); }
 .b20-ft-save { background:var(--pri); border:none; color:#0a0a0a; font-size:12.5px; font-weight:600; padding:7px 16px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
 .b20-ft-save:hover { filter:brightness(1.1); }
+
+/* Brief 20 Pass B — composition main view ─────────────────────── */
+.b20-main-pad { padding:18px 22px 30px; }
+.b20-main-hd { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
+.b20-main-hd-l { flex:1; min-width:0; }
+.b20-main-ttl { font-size:14.5px; font-weight:600; color:var(--t1); margin-bottom:3px; }
+.b20-main-sub { font-size:11.5px; color:var(--t3); }
+.b20-main-hd-r { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.b20-back-link { background:transparent; border:none; color:var(--t3); font-size:11.5px; cursor:pointer; padding:4px 0; font-family:inherit; display:inline-flex; align-items:center; gap:4px; margin-bottom:8px; }
+.b20-back-link:hover { color:var(--t1); }
+.b20-search { position:relative; }
+.b20-search input { background:var(--bg); border:1px solid var(--bd); border-radius:var(--r6); padding:6px 10px 6px 28px; font-size:11.5px; color:var(--t1); font-family:inherit; width:220px; }
+.b20-search-ico { position:absolute; left:9px; top:50%; transform:translateY(-50%); color:var(--t3); display:inline-flex; }
+/* v2 fact/canon tables */
+.b20-table { width:100%; border-collapse:collapse; font-size:12px; }
+.b20-table thead th { text-align:left; font-size:10.5px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; padding:8px 10px; border-bottom:1px solid var(--bd); background:rgba(255,255,255,0.015); }
+.b20-table tbody td { padding:10px; border-bottom:1px solid var(--bd); vertical-align:top; color:var(--t1); font-size:11.5px; line-height:1.5; }
+.b20-table tbody tr:hover { background:rgba(255,255,255,0.025); }
+.b20-table tbody tr:last-child td { border-bottom:none; }
+.b20-fact-text { color:var(--t1); }
+.b20-fact-meta { color:var(--t3); font-size:11px; margin-top:2px; }
+.b20-row-actions { width:36px; color:var(--t3); cursor:pointer; text-align:center; }
+.b20-row-actions:hover { color:var(--t1); }
+.b20-empty-cell { text-align:center; color:var(--t3); padding:24px !important; font-style:italic; }
+.b20-plane-pill { font-size:9.5px; font-weight:600; padding:2px 6px; border-radius:3px; text-transform:uppercase; letter-spacing:0.05em; display:inline-block; }
+.b20-plane-pill.sales { background:rgba(96,165,250,0.16); color:var(--pri); }
+.b20-plane-pill.compliance { background:rgba(167,139,250,0.16); color:var(--pur); }
+.b20-plane-pill.hr { background:rgba(255,100,103,0.16); color:rgb(255,140,140); }
+.b20-plane-pill.ops { background:rgba(5,223,114,0.16); color:var(--ok); }
+.b20-source-pill { font-size:10px; padding:2px 6px; border-radius:3px; background:rgba(255,255,255,0.04); border:1px solid var(--bd); color:var(--t2); }
+.b20-source-pill.this-binding { background:rgba(96,165,250,0.08); border-color:rgba(96,165,250,0.25); color:var(--pri); }
+.b20-version-pill { font-size:10px; padding:2px 6px; border-radius:3px; background:rgba(255,255,255,0.04); border:1px solid var(--bd); color:var(--t2); }
+/* Add facts inline flow */
+.b20-add-card { background:rgba(255,255,255,0.02); border:1px solid var(--bd); border-radius:var(--r8); padding:14px; margin-bottom:14px; }
+.b20-add-card-hd { font-size:11px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px; }
+.b20-add-row { display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap; }
+.b20-add-row-lbl { font-size:11px; color:var(--t3); min-width:60px; }
+.b20-add-chip { background:rgba(255,255,255,0.04); border:1px solid var(--bd); color:var(--t1); font-size:11px; padding:4px 10px; border-radius:999px; cursor:pointer; font-family:inherit; }
+.b20-add-chip.active { background:rgba(96,165,250,0.16); color:var(--pri); border-color:rgba(96,165,250,0.35); }
+.b20-add-chip:hover { background:rgba(255,255,255,0.07); }
+.b20-add-search { flex:1; min-width:200px; }
+.b20-add-search input { width:100%; background:var(--bg); border:1px solid var(--bd); border-radius:var(--r6); padding:7px 10px; font-size:12px; color:var(--t1); font-family:inherit; }
+.b20-add-results { max-height:320px; overflow-y:auto; border-top:1px solid var(--bd); }
+.b20-add-result-row { display:flex; align-items:center; gap:10px; padding:8px 10px; border-bottom:1px solid var(--bd); cursor:pointer; }
+.b20-add-result-row:hover { background:rgba(255,255,255,0.03); }
+.b20-add-result-row input[type="checkbox"] { width:14px; height:14px; accent-color:var(--pri); cursor:pointer; }
+.b20-add-result-body { flex:1; min-width:0; }
+.b20-add-result-text { font-size:11.5px; color:var(--t1); line-height:1.4; }
+.b20-add-result-meta { font-size:10.5px; color:var(--t3); margin-top:2px; }
+.b20-add-name-row { display:flex; align-items:center; gap:8px; margin-top:14px; }
+.b20-add-name-row input { flex:1; background:var(--bg); border:1px solid var(--bd); border-radius:var(--r6); padding:7px 10px; font-size:12px; color:var(--t1); font-family:inherit; }
+.b20-add-footer { display:flex; justify-content:flex-end; gap:8px; margin-top:14px; }
+.b20-add-cancel { background:transparent; border:1px solid var(--bd); color:var(--t1); font-size:11.5px; padding:6px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.b20-add-commit { background:var(--pri); border:none; color:#0a0a0a; font-size:11.5px; font-weight:600; padding:6px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.b20-add-commit:disabled { opacity:0.5; cursor:default; }
+/* Single Canon detail inline */
+.b20-canon-detail { padding:18px 22px 30px; }
+.b20-canon-fields { display:grid; grid-template-columns:160px 1fr; gap:10px 16px; margin-top:14px; }
+.b20-canon-field-lbl { font-size:10.5px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; padding-top:2px; }
+.b20-canon-field-val { font-size:12px; color:var(--t1); }
+.b20-canon-preview { font-size:12px; color:var(--t2); line-height:1.6; background:rgba(255,255,255,0.03); padding:14px 16px; border-radius:var(--r6); border:1px solid var(--bd); white-space:pre-wrap; margin-top:18px; }
+.b20-canon-drift-warn { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:var(--r4); font-size:11px; background:rgba(212,143,2,0.12); color:var(--warn); border:1px solid rgba(212,143,2,0.30); margin-top:8px; }
+/* Excluded view */
+.b20-excl-group { margin-bottom:14px; }
+.b20-excl-group-hd { font-size:11px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px; }
+.b20-excl-card { background:rgba(255,255,255,0.02); border:1px solid var(--bd); border-radius:var(--r6); padding:10px 12px; margin-bottom:6px; display:flex; gap:10px; align-items:flex-start; }
+.b20-excl-card-body { flex:1; min-width:0; }
+.b20-excl-card-text { font-size:11.5px; color:var(--t1); margin-bottom:3px; }
+.b20-excl-card-reason { font-size:10.5px; color:var(--t3); font-style:italic; }
+.b20-excl-incl-btn { background:transparent; border:1px solid var(--bd); color:var(--t1); font-size:11px; padding:4px 10px; border-radius:var(--r6); cursor:pointer; font-family:inherit; flex-shrink:0; }
+.b20-excl-incl-btn:hover { background:rgba(255,255,255,0.05); }
 </style>
 </head>
 <body>
@@ -21472,15 +21543,731 @@ function hgsSmConfirmRemove(){
   };
 
   window._b20Save = function(){
-    // Pass A stub — Pass B+ persists. Just mark the sub as configured.
+    // Persist v2 binding state onto the sub. Pass D adds full save behavior;
+    // for now we snapshot items/localCanons onto the sub.
     if(typeof bldrNet !== 'undefined' && bldrNet){
       var parent = _pcFindNode(bldrNet, B20_STATE.parentId);
       var sub = parent && parent.subs && parent.subs.find(function(s){ return s._id === B20_STATE.subId; });
-      if(sub){ sub.configured = true; }
+      if(sub){
+        sub.configured = true;
+        sub.binding = sub.binding || {};
+        sub.binding.items       = JSON.parse(JSON.stringify(B20_STATE.items || []));
+        sub.binding.localCanons = JSON.parse(JSON.stringify(B20_STATE.localCanons || []));
+        sub.binding.excluded    = JSON.parse(JSON.stringify(B20_STATE.excluded || []));
+      }
       try { _pcRenderSubs(bldrNet); } catch(e){}
     }
     _b20CloseModal();
-    try { toast('Saved (v2 prototype — Pass A stub)', 'success'); } catch(e){}
+    try { toast('Saved (v2 binding)', 'success'); } catch(e){}
+  };
+})();
+
+// ─── Brief 20 Pass B: unified composition surface inside v2 modal ─────
+(function(){
+  if(typeof window === 'undefined') return;
+  if(typeof window.B20_STATE === 'undefined') return;
+  if(typeof KC_FACTS === 'undefined') return;
+
+  function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function kcCanon(id){ return (CANON_DOCUMENTS || []).find(function(c){ return c.id === id; }); }
+  function planeLabel(pid){
+    var p = (typeof KC_PLANES !== 'undefined') ? KC_PLANES.find(function(x){ return x.id === pid; }) : null;
+    return p ? p.label : pid;
+  }
+  function planeClass(pid){
+    return ({sales:'sales', compliance:'compliance', hr:'hr', ops:'ops'})[pid] || 'sales';
+  }
+  function topicLabel(tid){
+    var t = (typeof KC_TOPICS !== 'undefined') ? KC_TOPICS.find(function(x){ return x.id === tid; }) : null;
+    return t ? t.label : tid;
+  }
+  function uid(prefix){ return prefix + '_' + Math.random().toString(36).slice(2,9); }
+
+  function canonDrift(c){
+    if(!c) return null;
+    if(c.publicationState === 'deprecated') return 'deprecated';
+    if(c.latestVersion && c.latestVersion !== c.version) return 'version';
+    return null;
+  }
+
+  var ICO_ALERT_TRI  = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L13 12H1L7 1.5z"/><path d="M7 6v3M7 10.5h.01"/></svg>';
+  var ICO_DOC_CANON  = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h5l3 3v8a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5z"/><path d="M8 1.5v3h3"/></svg>';
+  var ICO_SEARCH     = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4"/><path d="M9.5 9.5L12 12"/></svg>';
+  var ICO_BACK_TRI   = '<svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l-4 4 4 4"/></svg>';
+
+  // ─── Extend B20_STATE shape ──────────────────────────────────────
+  B20_STATE.items        = B20_STATE.items        || [];
+  B20_STATE.localCanons  = B20_STATE.localCanons  || [];
+  B20_STATE.attachedPacks= B20_STATE.attachedPacks|| [];   // Pass C populates
+  B20_STATE.excluded     = B20_STATE.excluded     || [];   // {factId, substackId, reason}
+  B20_STATE.addFacts     = B20_STATE.addFacts     || null; // {query, planeSel, topicSel, picked:Set, name}
+  B20_STATE.factSearch   = B20_STATE.factSearch   || '';
+
+  // ─── Wrap modal open to seed state per binding (Brief 20 mock data) ─
+  if(typeof window._b20OpenModal === 'function'){
+    var _b20OrigOpen = window._b20OpenModal;
+    window._b20OpenModal = function(net, parent, sub){
+      _b20OrigOpen.call(this, net, parent, sub);
+      // Restore from saved binding if present
+      var binding = sub && sub.binding;
+      if(binding && (binding.items || binding.localCanons)){
+        B20_STATE.items        = JSON.parse(JSON.stringify(binding.items || []));
+        B20_STATE.localCanons  = JSON.parse(JSON.stringify(binding.localCanons || []));
+        B20_STATE.excluded     = JSON.parse(JSON.stringify(binding.excluded || []));
+      } else {
+        // Seed default for first-time v2 binding (Brief 20 mock data)
+        B20_STATE.items = [{
+          id: uid('b20s'),
+          name: 'Customer triage signals',
+          factIds: ['f17','f18','f5','f15'],
+          planes: ['sales'],
+          topic: null,
+          query: ''
+        }];
+        B20_STATE.localCanons = ['canon-016'];
+        B20_STATE.excluded = [];
+      }
+      B20_STATE.addFacts = null;
+      B20_STATE.factSearch = '';
+      B20_STATE.railSelection = 'all-facts';
+      _b20Render();
+    };
+  }
+
+  // ─── Aggregated counts ────────────────────────────────────────────
+  function aggregatedFacts(){
+    // Pass C will add facts from attached packs. Pass B returns local substack facts only.
+    var ids = [];
+    (B20_STATE.items || []).forEach(function(it){
+      (it.factIds || []).forEach(function(id){
+        if(!isExcluded(id, it.id)) ids.push({ factId: id, substackId: it.id, substackName: it.name, source: 'This binding' });
+      });
+    });
+    return ids;
+  }
+  function aggregatedCanons(){
+    // Pass C will add canons from attached packs. Pass B returns local canons only.
+    return (B20_STATE.localCanons || []).map(function(id){
+      return { canonId: id, source: 'This binding' };
+    });
+  }
+  function isExcluded(factId, substackId){
+    return (B20_STATE.excluded || []).some(function(e){ return e.factId === factId && e.substackId === substackId; });
+  }
+
+  // ─── Override _b20Render (Pass A version is the basic chrome) ─────
+  window._b20Render = function(){
+    var ov = document.getElementById('b20ModalOv');
+    if(!ov) return;
+    var parent = (typeof bldrNet !== 'undefined' && bldrNet) ? _pcFindNode(bldrNet, B20_STATE.parentId) : null;
+    var nodeName = parent ? (parent.l || parent.name || 'Node') : 'Node';
+    var ICO_NODE = '<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#A78BFA" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h7l3 3v9H5V4z"/><path d="M7 8h6M7 11h6M7 14h4"/></svg>';
+    var ICO_X = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg>';
+
+    // Aggregated counts
+    var allFacts  = aggregatedFacts();
+    var allCanons = aggregatedCanons();
+    var packCount = (B20_STATE.attachedPacks || []).length;
+    var substackCount = (B20_STATE.items || []).length;
+    var localCanonCount = (B20_STATE.localCanons || []).length;
+    var excludedCount = (B20_STATE.excluded || []).length;
+    var totalAttached = packCount + localCanonCount + substackCount;
+
+    var headerHtml =
+      '<div class="b20-hd">' +
+        '<div class="b20-hd-ico" style="background:rgba(167,139,250,0.16)">' + ICO_NODE + '</div>' +
+        '<div class="b20-hd-body">' +
+          '<div class="b20-hd-ttl-row">' +
+            '<div class="b20-hd-ttl">' + esc(nodeName) + '</div>' +
+            '<span class="b20-popover-preview-pill" style="margin-left:4px">PREVIEW · v2</span>' +
+          '</div>' +
+          '<div class="b20-hd-sub">Configure knowledge for this node</div>' +
+        '</div>' +
+        '<button class="b20-hd-close" type="button" onclick="_b20CloseModal()" aria-label="Close">' + ICO_X + '</button>' +
+      '</div>';
+
+    var tabsHtml =
+      '<div class="b20-tabs">' +
+        '<button class="b20-tab' + (B20_STATE.activeTab === 'composition' ? ' active' : '') + '" type="button" onclick="_b20SetTab(\'composition\')">Composition</button>' +
+        '<button class="b20-tab' + (B20_STATE.activeTab === 'settings' ? ' active' : '') + '" type="button" onclick="_b20SetTab(\'settings\')">Settings</button>' +
+      '</div>';
+
+    var bodyHtml;
+    if(B20_STATE.activeTab === 'composition'){
+      bodyHtml =
+        '<div class="b20-body">' +
+          '<div class="b20-rail">' + _b20RenderRail(allFacts, allCanons, packCount, substackCount, localCanonCount, excludedCount) + '</div>' +
+          '<div class="b20-main">' + _b20RenderMain(allFacts, allCanons) + '</div>' +
+        '</div>';
+    } else {
+      bodyHtml =
+        '<div class="b20-body">' +
+          '<div class="b20-settings-shell">' +
+            '<div class="b20-edit-shell-ttl">Settings — binding context</div>' +
+            '<div class="b20-edit-shell-sub">Behavior, Retrieval depth, and Policies sections render here in Pass D, including the retrieval clarification UI when ≥ 1 Canon is attached.</div>' +
+            '<div class="b20-edit-shell-passnote">Pass D fills this in.</div>' +
+          '</div>' +
+        '</div>';
+    }
+
+    var saveLinkEnabled = (substackCount + localCanonCount) > 0;
+    var footerHtml =
+      '<div class="b20-ft">' +
+        '<div class="b20-ft-status">' + totalAttached + ' attached · ' + allFacts.length + ' facts · ' + allCanons.length + ' Canons</div>' +
+        '<div class="b20-ft-actions">' +
+          '<button class="b20-ft-link" type="button"' + (saveLinkEnabled ? '' : ' disabled') + ' title="' + (saveLinkEnabled ? 'Promote local content into a new Knowledge Pack' : 'No local content to publish. Add facts or Canons directly to this binding first.') + '">Save and publish as Knowledge Pack →</button>' +
+          '<button class="b20-ft-cancel" type="button" onclick="_b20CloseModal()">Cancel</button>' +
+          '<button class="b20-ft-save" type="button" onclick="_b20Save()">Save knowledge</button>' +
+        '</div>' +
+      '</div>';
+
+    ov.innerHTML =
+      '<div class="b20-modal" role="dialog" aria-label="Knowledge v2 configurator">' +
+        headerHtml +
+        tabsHtml +
+        bodyHtml +
+        footerHtml +
+      '</div>';
+  };
+
+  // ─── Rail renderer ────────────────────────────────────────────────
+  function _b20RenderRail(allFacts, allCanons, packCount, substackCount, localCanonCount, excludedCount){
+    var sel = B20_STATE.railSelection;
+    function railItem(key, label, count, opts){
+      opts = opts || {};
+      var active = (sel === key) ? ' active' : '';
+      var amber  = opts.amber ? ' style="color:var(--warn)"' : '';
+      var cnt = (count != null) ? '<span class="b20-rail-item-count"' + (opts.amber ? ' style="color:var(--warn)"' : '') + '>' + count + '</span>' : '';
+      return '<div class="b20-rail-item' + active + '" onclick="_b20Select(\'' + esc(key) + '\')"' + amber + '><span class="b20-rail-item-lbl">' + esc(label) + '</span>' + cnt + '</div>';
+    }
+
+    var html = '';
+    html += '<div class="b20-rail-section-hd">ALL CONTENT</div>';
+    html += railItem('all-facts',  'All facts',  allFacts.length);
+    html += railItem('all-canons', 'All Canons', allCanons.length);
+
+    html += '<div class="b20-rail-section-hd" style="margin-top:14px">ATTACHED KNOWLEDGE PACKS · ' + packCount + '</div>';
+    if((B20_STATE.attachedPacks || []).length){
+      (B20_STATE.attachedPacks || []).forEach(function(p){
+        // Pass C will render real packs; placeholder shape:
+        html += railItem('pack-' + p.id, p.name || 'Pack', null);
+      });
+    } else {
+      html += '<div class="b20-rail-empty">No Knowledge Packs attached yet</div>';
+    }
+    html += '<button class="b20-rail-add" type="button" disabled title="Pass C wires this in">+ Attach Knowledge Pack</button>';
+
+    html += '<div class="b20-rail-section-hd" style="margin-top:14px">SUBSTACKS · ' + substackCount + '</div>';
+    if(substackCount){
+      (B20_STATE.items || []).forEach(function(it){
+        html += railItem('substack-' + it.id, it.name, (it.factIds || []).length);
+      });
+    } else {
+      html += '<div class="b20-rail-empty">No local substacks</div>';
+    }
+    html += '<button class="b20-rail-add" type="button" onclick="_b20StartAddFacts()">+ Add facts</button>';
+
+    html += '<div class="b20-rail-section-hd" style="margin-top:14px">CANONS · ' + localCanonCount + '</div>';
+    if(localCanonCount){
+      (B20_STATE.localCanons || []).forEach(function(cid){
+        var c = kcCanon(cid); if(!c) return;
+        var drift = canonDrift(c);
+        var driftMark = drift ? ' <span style="color:var(--warn)" title="' + (drift === 'deprecated' ? 'Deprecated upstream' : 'Newer version available') + '">' + ICO_ALERT_TRI + '</span>' : '';
+        html += '<div class="b20-rail-item' + (sel === ('canon-' + c.id) ? ' active' : '') + '" onclick="_b20Select(\'canon-' + esc(c.id) + '\')"><span class="b20-rail-item-lbl">' + esc(c.name) + driftMark + '</span><span class="b20-rail-item-count">v' + esc(c.version) + '</span></div>';
+      });
+    } else {
+      html += '<div class="b20-rail-empty">No local Canons</div>';
+    }
+    html += '<button class="b20-rail-add" type="button" onclick="_b20OpenCanonPicker()">+ Attach Canon</button>';
+
+    if(excludedCount){
+      html += '<div style="margin-top:14px"></div>';
+      html += railItem('excluded', 'Excluded', excludedCount);
+    }
+
+    return html;
+  }
+
+  // ─── Main view dispatcher ────────────────────────────────────────
+  function _b20RenderMain(allFacts, allCanons){
+    var sel = B20_STATE.railSelection;
+    if(sel === 'add-facts') return _b20RenderAddFacts();
+    if(sel === 'all-facts') return _b20RenderAllFacts(allFacts);
+    if(sel === 'all-canons') return _b20RenderAllCanons(allCanons);
+    if(sel === 'excluded') return _b20RenderExcluded();
+    if(sel && sel.indexOf('substack-') === 0){
+      var sid = sel.slice('substack-'.length);
+      return _b20RenderSubstack(sid);
+    }
+    if(sel && sel.indexOf('canon-') === 0){
+      var cid = sel.slice('canon-'.length);
+      return _b20RenderCanonDetail(cid);
+    }
+    return _b20RenderAllFacts(allFacts);
+  }
+
+  // ─── All facts view ──────────────────────────────────────────────
+  function _b20RenderAllFacts(rows){
+    var q = (B20_STATE.factSearch || '').toLowerCase().trim();
+    var filtered = rows.filter(function(r){
+      if(!q) return true;
+      var f = KC_FACTS.find(function(x){ return x.id === r.factId; });
+      return f && f.statement.toLowerCase().indexOf(q) >= 0;
+    });
+    var tableRows;
+    if(!filtered.length){
+      tableRows = '<tr><td class="b20-empty-cell" colspan="5">' + (q ? 'No facts match “' + esc(q) + '”' : 'No facts in this binding yet. Use + Add facts or attach a Knowledge Pack.') + '</td></tr>';
+    } else {
+      tableRows = filtered.map(function(r){
+        var f = KC_FACTS.find(function(x){ return x.id === r.factId; });
+        if(!f) return '';
+        return '<tr>' +
+          '<td><div class="b20-fact-text">' + esc(f.statement) + '</div><div class="b20-fact-meta">Topic: ' + esc(topicLabel(f.topic)) + '</div></td>' +
+          '<td><span class="b20-plane-pill ' + planeClass(f.plane) + '">' + esc(planeLabel(f.plane)) + '</span></td>' +
+          '<td>' + esc(r.substackName) + '</td>' +
+          '<td><span class="b20-source-pill this-binding">This binding</span></td>' +
+          '<td class="b20-row-actions" title="Fact actions">⋮</td>' +
+        '</tr>';
+      }).join('');
+    }
+    return '<div class="b20-main-pad">' +
+      '<div class="b20-main-hd">' +
+        '<div class="b20-main-hd-l">' +
+          '<div class="b20-main-ttl">All facts · ' + rows.length + '</div>' +
+          '<div class="b20-main-sub">Aggregated across attached Knowledge Packs and locally-composed substacks</div>' +
+        '</div>' +
+        '<div class="b20-main-hd-r">' +
+          '<div class="b20-search">' +
+            '<span class="b20-search-ico">' + ICO_SEARCH + '</span>' +
+            '<input type="text" placeholder="Search facts…" value="' + esc(B20_STATE.factSearch || '') + '" oninput="_b20SetFactSearch(this.value)"/>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<table class="b20-table">' +
+        '<thead><tr><th>Fact</th><th style="width:120px">Plane</th><th style="width:200px">Substack</th><th style="width:130px">Source</th><th style="width:36px"></th></tr></thead>' +
+        '<tbody>' + tableRows + '</tbody>' +
+      '</table>' +
+    '</div>';
+  }
+
+  // ─── All Canons view ─────────────────────────────────────────────
+  function _b20RenderAllCanons(rows){
+    var q = (B20_STATE.factSearch || '').toLowerCase().trim();
+    var filtered = rows.filter(function(r){
+      if(!q) return true;
+      var c = kcCanon(r.canonId);
+      return c && c.name.toLowerCase().indexOf(q) >= 0;
+    });
+    var tableRows;
+    if(!filtered.length){
+      tableRows = '<tr><td class="b20-empty-cell" colspan="5">' + (q ? 'No Canons match “' + esc(q) + '”' : 'No Canons attached yet. Use + Attach Canon or attach a Knowledge Pack containing Canons.') + '</td></tr>';
+    } else {
+      tableRows = filtered.map(function(r){
+        var c = kcCanon(r.canonId); if(!c) return '';
+        var drift = canonDrift(c);
+        var driftMark = '';
+        if(drift === 'deprecated') driftMark = ' <span style="color:var(--warn)" title="Deprecated upstream">' + ICO_ALERT_TRI + '</span>';
+        else if(drift === 'version') driftMark = ' <span style="color:var(--warn)" title="Newer version v' + esc(c.latestVersion) + ' available">' + ICO_ALERT_TRI + '</span>';
+        return '<tr onclick="_b20Select(\'canon-' + esc(c.id) + '\')" style="cursor:pointer">' +
+          '<td><div class="b20-fact-text">' + esc(c.name) + driftMark + '</div><div class="b20-fact-meta">' + esc(c.audienceScope || '') + '</div></td>' +
+          '<td><span class="b20-version-pill">v' + esc(c.version) + '</span></td>' +
+          '<td>' + esc(c.category || '—') + '</td>' +
+          '<td><span class="b20-source-pill this-binding">This binding</span></td>' +
+          '<td class="b20-row-actions" title="Canon actions">⋮</td>' +
+        '</tr>';
+      }).join('');
+    }
+    return '<div class="b20-main-pad">' +
+      '<div class="b20-main-hd">' +
+        '<div class="b20-main-hd-l">' +
+          '<div class="b20-main-ttl">All Canons · ' + rows.length + '</div>' +
+          '<div class="b20-main-sub">Aggregated across attached Knowledge Packs and locally-attached Canons</div>' +
+        '</div>' +
+        '<div class="b20-main-hd-r">' +
+          '<div class="b20-search">' +
+            '<span class="b20-search-ico">' + ICO_SEARCH + '</span>' +
+            '<input type="text" placeholder="Search Canons…" value="' + esc(B20_STATE.factSearch || '') + '" oninput="_b20SetFactSearch(this.value)"/>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<table class="b20-table">' +
+        '<thead><tr><th>Name</th><th style="width:90px">Version</th><th style="width:140px">Category</th><th style="width:130px">Source</th><th style="width:36px"></th></tr></thead>' +
+        '<tbody>' + tableRows + '</tbody>' +
+      '</table>' +
+    '</div>';
+  }
+
+  // ─── Single substack view ────────────────────────────────────────
+  function _b20RenderSubstack(sid){
+    var ss = (B20_STATE.items || []).find(function(x){ return x.id === sid; });
+    if(!ss) return '<div class="b20-main-pad">Substack not found.</div>';
+    var facts = (ss.factIds || []).map(function(id){ return KC_FACTS.find(function(x){ return x.id === id; }); }).filter(Boolean);
+    var q = (B20_STATE.factSearch || '').toLowerCase().trim();
+    if(q) facts = facts.filter(function(f){ return f.statement.toLowerCase().indexOf(q) >= 0; });
+    var rows;
+    if(!facts.length){
+      rows = '<tr><td class="b20-empty-cell" colspan="4">' + (q ? 'No facts match “' + esc(q) + '”' : 'This substack has no facts.') + '</td></tr>';
+    } else {
+      rows = facts.map(function(f){
+        var excluded = isExcluded(f.id, ss.id);
+        if(excluded) return '';
+        return '<tr>' +
+          '<td><div class="b20-fact-text">' + esc(f.statement) + '</div><div class="b20-fact-meta">Topic: ' + esc(topicLabel(f.topic)) + '</div></td>' +
+          '<td><span class="b20-plane-pill ' + planeClass(f.plane) + '">' + esc(planeLabel(f.plane)) + '</span></td>' +
+          '<td><span class="b20-source-pill this-binding">This binding</span></td>' +
+          '<td class="b20-row-actions" onclick="_b20ExcludeFact(\'' + esc(f.id) + '\',\'' + esc(ss.id) + '\')" title="Exclude from substack">⋮</td>' +
+        '</tr>';
+      }).join('');
+    }
+    return '<div class="b20-main-pad">' +
+      '<button class="b20-back-link" onclick="_b20Select(\'all-facts\')">' + ICO_BACK_TRI + ' All content</button>' +
+      '<div class="b20-main-hd">' +
+        '<div class="b20-main-hd-l">' +
+          '<div class="b20-main-ttl">' + esc(ss.name) + ' · ' + (ss.factIds || []).length + '</div>' +
+          '<div class="b20-main-sub">Local substack · planes: ' + ((ss.planes || []).map(planeLabel).join(', ') || 'all') + '</div>' +
+        '</div>' +
+        '<div class="b20-main-hd-r">' +
+          '<div class="b20-search">' +
+            '<span class="b20-search-ico">' + ICO_SEARCH + '</span>' +
+            '<input type="text" placeholder="Search facts…" value="' + esc(B20_STATE.factSearch || '') + '" oninput="_b20SetFactSearch(this.value)"/>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<table class="b20-table">' +
+        '<thead><tr><th>Fact</th><th style="width:120px">Plane</th><th style="width:130px">Source</th><th style="width:36px"></th></tr></thead>' +
+        '<tbody>' + rows + '</tbody>' +
+      '</table>' +
+    '</div>';
+  }
+
+  // ─── Single Canon detail view ────────────────────────────────────
+  function _b20RenderCanonDetail(cid){
+    var c = kcCanon(cid);
+    if(!c) return '<div class="b20-main-pad">Canon not found.</div>';
+    var drift = canonDrift(c);
+    var driftBlock = '';
+    if(drift === 'deprecated'){
+      driftBlock = '<div class="b20-canon-drift-warn">' + ICO_ALERT_TRI + 'Deprecated upstream by its owner</div>';
+    } else if(drift === 'version'){
+      driftBlock = '<div class="b20-canon-drift-warn">' + ICO_ALERT_TRI + 'Newer version available: v' + esc(c.latestVersion) + ' published ' + esc(c.latestVersionDate || '') + '</div>';
+    }
+    return '<div class="b20-canon-detail">' +
+      '<button class="b20-back-link" onclick="_b20Select(\'all-canons\')">' + ICO_BACK_TRI + ' All Canons</button>' +
+      '<div class="b20-main-hd">' +
+        '<div class="b20-main-hd-l">' +
+          '<div class="b20-main-ttl">' + esc(c.name) + '</div>' +
+          '<div class="b20-main-sub">v' + esc(c.version) + ' · ' + esc(c.publishedDate) + ' · ' + esc(c.owner) + '</div>' +
+          driftBlock +
+        '</div>' +
+        '<div class="b20-main-hd-r">' +
+          '<button class="b20-back-link" onclick="event.preventDefault()" style="margin:0">View full document in Canon Plane →</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="b20-canon-fields">' +
+        '<div class="b20-canon-field-lbl">Description</div><div class="b20-canon-field-val">' + esc(c.description) + '</div>' +
+        '<div class="b20-canon-field-lbl">Audience</div><div class="b20-canon-field-val">' + esc(c.audienceScope) + '</div>' +
+        '<div class="b20-canon-field-lbl">Category</div><div class="b20-canon-field-val">' + esc(c.category) + '</div>' +
+        (c.factCount ? '<div class="b20-canon-field-lbl">Related facts</div><div class="b20-canon-field-val">' + c.factCount + ' fact(s) linked from this Canon</div>' : '') +
+      '</div>' +
+      '<div class="b20-canon-preview">' + esc(c.previewText || '') + '</div>' +
+    '</div>';
+  }
+
+  // ─── Excluded view ───────────────────────────────────────────────
+  function _b20RenderExcluded(){
+    var excl = B20_STATE.excluded || [];
+    if(!excl.length){
+      return '<div class="b20-main-pad"><div class="b20-main-hd"><div class="b20-main-hd-l"><div class="b20-main-ttl">Excluded</div><div class="b20-main-sub">No facts have been excluded.</div></div></div></div>';
+    }
+    // Group by substack
+    var byss = {};
+    excl.forEach(function(e){
+      byss[e.substackId] = byss[e.substackId] || [];
+      byss[e.substackId].push(e);
+    });
+    var groups = Object.keys(byss).map(function(sid){
+      var ss = (B20_STATE.items || []).find(function(x){ return x.id === sid; });
+      var ssName = ss ? ss.name : 'Removed substack';
+      var cards = byss[sid].map(function(e){
+        var f = KC_FACTS.find(function(x){ return x.id === e.factId; });
+        if(!f) return '';
+        return '<div class="b20-excl-card">' +
+          '<div class="b20-excl-card-body">' +
+            '<div class="b20-excl-card-text">' + esc(f.statement) + '</div>' +
+            (e.reason ? '<div class="b20-excl-card-reason">"' + esc(e.reason) + '"</div>' : '') +
+          '</div>' +
+          '<button class="b20-excl-incl-btn" onclick="_b20IncludeBack(\'' + esc(e.factId) + '\',\'' + esc(sid) + '\')">Include back</button>' +
+        '</div>';
+      }).join('');
+      return '<div class="b20-excl-group">' +
+        '<div class="b20-excl-group-hd">' + esc(ssName) + ' · ' + byss[sid].length + '</div>' +
+        cards +
+      '</div>';
+    }).join('');
+    return '<div class="b20-main-pad">' +
+      '<div class="b20-main-hd">' +
+        '<div class="b20-main-hd-l">' +
+          '<div class="b20-main-ttl">Excluded · ' + excl.length + '</div>' +
+          '<div class="b20-main-sub">Facts removed from substacks. Use Include back to restore.</div>' +
+        '</div>' +
+      '</div>' +
+      groups +
+    '</div>';
+  }
+
+  // ─── Add facts inline flow ───────────────────────────────────────
+  function _b20RenderAddFacts(){
+    var af = B20_STATE.addFacts || {};
+    var planeSel = af.planeSel || [];
+    var topicSel = af.topicSel || null;
+    var query = af.query || '';
+    var picked = af.picked || new Set();
+    var name = af.name || '';
+
+    // Filter facts
+    var pool = KC_FACTS.slice();
+    if(planeSel.length) pool = pool.filter(function(f){ return planeSel.indexOf(f.plane) >= 0; });
+    if(topicSel) pool = pool.filter(function(f){ return f.topic === topicSel; });
+    var q = query.toLowerCase().trim();
+    if(q) pool = pool.filter(function(f){ return f.statement.toLowerCase().indexOf(q) >= 0; });
+
+    var planeChips = (KC_PLANES || []).map(function(p){
+      var active = planeSel.indexOf(p.id) >= 0;
+      return '<button class="b20-add-chip' + (active ? ' active' : '') + '" type="button" onclick="_b20TogglePlane(\'' + esc(p.id) + '\')">' + esc(p.label) + '</button>';
+    }).join('');
+    var topicChips = (KC_TOPICS || []).map(function(t){
+      var active = topicSel === t.id;
+      var compat = !planeSel.length || (t.planes || []).some(function(p){ return planeSel.indexOf(p) >= 0; });
+      var dis = compat ? '' : ' disabled';
+      return '<button class="b20-add-chip' + (active ? ' active' : '') + '" type="button"' + dis + ' onclick="_b20SetTopic(\'' + esc(t.id) + '\')">' + esc(t.label) + '</button>';
+    }).join('');
+
+    var resultsHtml;
+    if(!pool.length){
+      resultsHtml = '<div style="padding:20px;text-align:center;color:var(--t3);font-style:italic">No facts match. Adjust filters or search.</div>';
+    } else {
+      resultsHtml = pool.slice(0, 50).map(function(f){
+        var checked = picked.has(f.id);
+        return '<div class="b20-add-result-row" onclick="_b20TogglePick(\'' + esc(f.id) + '\')">' +
+          '<input type="checkbox"' + (checked ? ' checked' : '') + ' onclick="event.stopPropagation();_b20TogglePick(\'' + esc(f.id) + '\')"/>' +
+          '<div class="b20-add-result-body">' +
+            '<div class="b20-add-result-text">' + esc(f.statement) + '</div>' +
+            '<div class="b20-add-result-meta"><span class="b20-plane-pill ' + planeClass(f.plane) + '" style="margin-right:6px">' + esc(planeLabel(f.plane)) + '</span>' + esc(topicLabel(f.topic)) + '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // Auto-suggest substack name based on topic if name is empty
+    var suggestedName = name;
+    if(!suggestedName){
+      if(topicSel) suggestedName = topicLabel(topicSel) + ' facts';
+      else if(planeSel.length === 1) suggestedName = planeLabel(planeSel[0]) + ' facts';
+    }
+
+    return '<div class="b20-main-pad">' +
+      '<button class="b20-back-link" onclick="_b20CancelAddFacts()">' + ICO_BACK_TRI + ' All content</button>' +
+      '<div class="b20-main-hd">' +
+        '<div class="b20-main-hd-l">' +
+          '<div class="b20-main-ttl">Add facts</div>' +
+          '<div class="b20-main-sub">Filter Truth, pick facts, name your substack.</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="b20-add-card">' +
+        '<div class="b20-add-card-hd">FILTERS</div>' +
+        '<div class="b20-add-row">' +
+          '<div class="b20-add-row-lbl">Search</div>' +
+          '<div class="b20-add-search"><input type="text" placeholder="Search Truth…" value="' + esc(query) + '" oninput="_b20SetAddQuery(this.value)"/></div>' +
+        '</div>' +
+        '<div class="b20-add-row">' +
+          '<div class="b20-add-row-lbl">Planes</div>' +
+          planeChips +
+        '</div>' +
+        '<div class="b20-add-row">' +
+          '<div class="b20-add-row-lbl">Topic</div>' +
+          topicChips +
+        '</div>' +
+      '</div>' +
+      '<div class="b20-add-card">' +
+        '<div class="b20-add-card-hd">RESULTS · ' + pool.length + ' (' + picked.size + ' picked)</div>' +
+        '<div class="b20-add-results">' + resultsHtml + '</div>' +
+      '</div>' +
+      '<div class="b20-add-card">' +
+        '<div class="b20-add-card-hd">SUBSTACK NAME</div>' +
+        '<input type="text" placeholder="' + esc(suggestedName || 'Name this substack…') + '" value="' + esc(name) + '" oninput="_b20SetAddName(this.value)" style="width:100%;background:var(--bg);border:1px solid var(--bd);border-radius:var(--r6);padding:8px 10px;font-size:12px;color:var(--t1);font-family:inherit"/>' +
+        '<div class="b20-add-footer">' +
+          '<button class="b20-add-cancel" type="button" onclick="_b20CancelAddFacts()">Cancel</button>' +
+          '<button class="b20-add-commit" type="button" onclick="_b20CommitAddFacts()"' + (picked.size === 0 ? ' disabled' : '') + '>Add ' + picked.size + ' fact' + (picked.size === 1 ? '' : 's') + '</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  // ─── Public handlers ─────────────────────────────────────────────
+  window._b20Select = function(sel){
+    B20_STATE.railSelection = sel;
+    B20_STATE.factSearch = '';
+    if(sel === 'add-facts'){
+      // _b20StartAddFacts initializes the addFacts state
+      _b20StartAddFacts();
+      return;
+    }
+    _b20Render();
+  };
+  window._b20SetFactSearch = function(v){
+    B20_STATE.factSearch = String(v == null ? '' : v);
+    _b20Render();
+    setTimeout(function(){
+      var inp = document.querySelector('#b20ModalOv .b20-search input');
+      if(inp){ try { inp.focus(); var l = inp.value.length; inp.setSelectionRange(l, l); } catch(e){} }
+    }, 0);
+  };
+  window._b20StartAddFacts = function(){
+    B20_STATE.addFacts = { query:'', planeSel:[], topicSel:null, picked:new Set(), name:'' };
+    B20_STATE.railSelection = 'add-facts';
+    _b20Render();
+  };
+  window._b20CancelAddFacts = function(){
+    B20_STATE.addFacts = null;
+    B20_STATE.railSelection = 'all-facts';
+    _b20Render();
+  };
+  window._b20CommitAddFacts = function(){
+    var af = B20_STATE.addFacts; if(!af || !af.picked.size) return;
+    var name = af.name && af.name.trim();
+    if(!name){
+      // Use suggested name
+      if(af.topicSel) name = topicLabel(af.topicSel) + ' facts';
+      else if(af.planeSel.length === 1) name = planeLabel(af.planeSel[0]) + ' facts';
+      else name = 'Custom substack';
+    }
+    var newId = uid('b20s');
+    B20_STATE.items.push({
+      id: newId,
+      name: name,
+      factIds: Array.from(af.picked),
+      planes: (af.planeSel || []).slice(),
+      topic: af.topicSel || null,
+      query: af.query || ''
+    });
+    B20_STATE.addFacts = null;
+    B20_STATE.railSelection = 'substack-' + newId;
+    _b20Render();
+    try { toast('Added ' + af.picked.size + ' fact' + (af.picked.size === 1 ? '' : 's') + ' to ' + name, 'success'); } catch(e){}
+  };
+  window._b20SetAddQuery = function(v){
+    B20_STATE.addFacts.query = String(v == null ? '' : v);
+    _b20Render();
+    setTimeout(function(){
+      var inp = document.querySelector('#b20ModalOv .b20-add-search input');
+      if(inp){ try { inp.focus(); var l = inp.value.length; inp.setSelectionRange(l,l); } catch(e){} }
+    }, 0);
+  };
+  window._b20SetAddName = function(v){
+    B20_STATE.addFacts.name = String(v == null ? '' : v);
+    // Don't re-render on every keystroke for the name input to avoid blur
+    var commitBtn = document.querySelector('#b20ModalOv .b20-add-commit');
+    // No re-render needed — name doesn't affect anything else visually
+  };
+  window._b20TogglePlane = function(pid){
+    var af = B20_STATE.addFacts; if(!af) return;
+    var i = af.planeSel.indexOf(pid);
+    if(i >= 0) af.planeSel.splice(i, 1);
+    else af.planeSel.push(pid);
+    _b20Render();
+  };
+  window._b20SetTopic = function(tid){
+    var af = B20_STATE.addFacts; if(!af) return;
+    af.topicSel = (af.topicSel === tid) ? null : tid;
+    _b20Render();
+  };
+  window._b20TogglePick = function(fid){
+    var af = B20_STATE.addFacts; if(!af) return;
+    if(af.picked.has(fid)) af.picked.delete(fid);
+    else af.picked.add(fid);
+    _b20Render();
+  };
+  window._b20ExcludeFact = function(factId, substackId){
+    B20_STATE.excluded.push({ factId: factId, substackId: substackId, reason: '' });
+    _b20Render();
+    try { toast('Fact excluded from substack', 'info'); } catch(e){}
+  };
+  window._b20IncludeBack = function(factId, substackId){
+    B20_STATE.excluded = (B20_STATE.excluded || []).filter(function(e){ return !(e.factId === factId && e.substackId === substackId); });
+    _b20Render();
+  };
+
+  // ─── Attach Canon to v2 binding ──────────────────────────────────
+  window._b20OpenCanonPicker = function(){
+    if(typeof window.hgsOpenCanonPicker !== 'function') return;
+    window.KC_CP_CONTEXT = 'binding-v2';
+    // Build already-attached set: locally-attached canons + (Pass C: pack canons)
+    var attached = new Set(B20_STATE.localCanons || []);
+    (B20_STATE.attachedPacks || []).forEach(function(p){
+      (p.canons || []).forEach(function(id){ attached.add(id); });
+    });
+    window.KC_CP_ATTACHED_SET = attached;
+    window.hgsOpenCanonPicker();
+    setTimeout(function(){
+      var ttl = document.querySelector('#hgsCpOv .hgs-cp-hd-ttl');
+      if(ttl) ttl.textContent = 'Attach Canons to this binding';
+      // For v2 binding context, the picker's HGS-inferred "already attached"
+      // set is wrong (it reads the active HGS pack's Canons). Re-evaluate
+      // every row against the v2 binding's actual attached set, enabling
+      // or disabling as needed.
+      document.querySelectorAll('#hgsCpOv .hgs-cp-row').forEach(function(row){
+        var cb = row.querySelector('input.hgs-cp-row-cb');
+        if(!cb) return;
+        // Extract the canon id from the row's onclick (covers both row + cb)
+        var onclickStr = (row.getAttribute('onclick') || cb.getAttribute('onclick') || '');
+        var m = onclickStr.match(/hgsCpToggle\('([^']+)'\)/);
+        if(!m) return;
+        var cid = m[1];
+        var top = row.querySelector('.hgs-cp-row-top');
+        if(attached.has(cid)){
+          // Should be disabled
+          if(!row.classList.contains('disabled')){
+            row.classList.add('disabled');
+            cb.disabled = true;
+            row.setAttribute('onclick', '');
+            if(top && !top.querySelector('.hgs-cp-row-already')){
+              var span = document.createElement('span');
+              span.className = 'hgs-cp-row-already';
+              span.textContent = 'already attached';
+              top.appendChild(span);
+            }
+          }
+        } else {
+          // Should be enabled
+          if(row.classList.contains('disabled')){
+            row.classList.remove('disabled');
+            cb.disabled = false;
+            row.setAttribute('onclick', "hgsCpToggle('" + cid + "')");
+            var pill = top && top.querySelector('.hgs-cp-row-already');
+            if(pill) pill.remove();
+          }
+        }
+      });
+      // Re-route attach button
+      var attachBtn = document.querySelector('#hgsCpOv .hgs-cp-attach');
+      if(attachBtn){
+        attachBtn.setAttribute('onclick', '_b20CpAttach()');
+      }
+    }, 30);
+  };
+  window._b20CpAttach = function(){
+    var picked = window.HGS_CP_SELECTED;
+    if(!picked || !picked.size) return;
+    B20_STATE.localCanons = B20_STATE.localCanons || [];
+    picked.forEach(function(cid){
+      if(B20_STATE.localCanons.indexOf(cid) < 0 && !(window.KC_CP_ATTACHED_SET && window.KC_CP_ATTACHED_SET.has(cid))){
+        B20_STATE.localCanons.push(cid);
+      }
+    });
+    if(typeof window.hgsCloseCanonPicker === 'function') window.hgsCloseCanonPicker();
+    window.KC_CP_CONTEXT = 'hgs';
+    window.KC_CP_ATTACHED_SET = null;
+    _b20Render();
   };
 })();
 
