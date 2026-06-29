@@ -24466,6 +24466,55 @@ window.addEventListener && window.addEventListener('DOMContentLoaded', function(
   }
 })();
 
+// ─── v2 first-time empty state gate ──────────────────────────────────
+// The Pass B/C/D/Brief-18 wrappers of _b20OpenModal each seed demo
+// content (pack attachments, local substacks, local Canons, candidates,
+// history). That's correct ONLY for the canonical demo target (Lead
+// Qualification). For any other workflow node, a brand-new Knowledge v2
+// sub-binding should land on the empty-state landing per Brief 20.
+//
+// This wrap runs last and clears all seeded state when the parent node
+// isn't the demo target AND the sub has no saved binding.
+(function(){
+  if(typeof window === 'undefined') return;
+  if(typeof window._b20OpenModal !== 'function') return;
+  var DEMO_NODE_NAMES = ['Lead Qualification'];
+  function isDemoNode(parent){
+    if(!parent) return false;
+    var n = parent.l || parent.name || '';
+    return DEMO_NODE_NAMES.indexOf(n) >= 0;
+  }
+  var _origOpen = window._b20OpenModal;
+  window._b20OpenModal = function(net, parent, sub){
+    _origOpen.call(this, net, parent, sub);
+    var binding = sub && sub.binding;
+    var hasSavedContent = binding && (
+      (binding.items && binding.items.length) ||
+      (binding.attachedPacks && binding.attachedPacks.length) ||
+      (binding.localCanons && binding.localCanons.length)
+    );
+    if(isDemoNode(parent) || hasSavedContent) return;
+    // Empty start: clear everything the earlier seeds populated
+    B20_STATE.items            = [];
+    B20_STATE.localCanons      = [];
+    B20_STATE.attachedPacks    = [];
+    B20_STATE.excluded         = [];
+    B20_STATE.pendingCandidates= [];
+    B20_STATE.candidateDecisions = {};
+    B20_STATE.history          = [];
+    B20_STATE._historySeeded   = false;
+    B20_STATE.behavior         = { live:true, notify:false };
+    B20_STATE.retrievalDepth   = 'truth-canon';
+    B20_STATE.railSelection    = 'all-facts';
+    B20_STATE.factSearch       = '';
+    B20_STATE.addFacts         = null;
+    B20_STATE.composeLocalOpen = null;
+    B20_STATE.singlePackSubview = 'facts';
+    B20_STATE.pubConfirmShown  = false;
+    if(typeof window._b20Render === 'function') window._b20Render();
+  };
+})();
+
 </script>
 
 <!-- AI Assistant slideout -->
