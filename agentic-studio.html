@@ -3433,6 +3433,124 @@ html.theme-light .search-footer-link{color:#7C3AED}
 
 /* Draft badge on list cards */
 .hgs-l-draft-badge { background:rgba(255,255,255,0.08); color:var(--t2); border:0.5px solid var(--bd); font-size:9.5px; font-weight:600; padding:2px 7px; border-radius:999px; letter-spacing:0.04em; text-transform:uppercase; flex-shrink:0; }
+
+/* === Brief 16: Canon attachment === */
+.hgs-rail-row.canon { padding-left:14px; }
+.hgs-rail-row .canon-ico { color:var(--pri); display:inline-flex; flex-shrink:0; margin-right:6px; }
+.hgs-rail-row-nm-wrap { display:flex; align-items:center; gap:5px; min-width:0; flex:1; }
+.hgs-rail-row-nm-canon { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.hgs-rail-version { background:rgba(255,255,255,0.06); color:var(--t3); font-size:9.5px; font-weight:500; padding:1px 6px; border-radius:999px; flex-shrink:0; line-height:1.3; }
+.hgs-rail-canon-warn { color:var(--warn); flex-shrink:0; display:inline-flex; margin-left:4px; }
+.hgs-rail-add-canon { margin-top:4px; }
+
+/* All Canons table view */
+.hgs-canons-wrap { display:flex; flex-direction:column; gap:14px; }
+.hgs-canons-hd { display:flex; flex-direction:column; gap:3px; }
+.hgs-canons-ttl { font-size:15px; font-weight:500; color:var(--t1); }
+.hgs-canons-sub { font-size:11.5px; color:var(--t3); }
+.hgs-canons-search { display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.03); border:0.5px solid var(--bd); border-radius:var(--r6); padding:7px 11px; max-width:380px; }
+.hgs-canons-search input { background:transparent; border:none; outline:none; color:var(--t1); font-size:12.5px; font-family:inherit; flex:1; min-width:0; }
+.hgs-canons-search-ico { color:var(--t3); display:flex; flex-shrink:0; }
+.hgs-canons-table { display:flex; flex-direction:column; border:0.5px solid var(--bd); border-radius:var(--r6); overflow:hidden; }
+.hgs-canons-thead { display:grid; grid-template-columns:1fr 80px 1fr 110px 40px; gap:14px; padding:9px 14px; background:rgba(255,255,255,0.02); border-bottom:0.5px solid var(--bd); font-size:10px; letter-spacing:0.05em; text-transform:uppercase; color:var(--t3); font-weight:500; }
+.hgs-canons-trow { display:grid; grid-template-columns:1fr 80px 1fr 110px 40px; gap:14px; padding:11px 14px; border-bottom:0.5px solid var(--bd); cursor:pointer; transition:background .12s; align-items:center; }
+.hgs-canons-trow:last-child { border-bottom:none; }
+.hgs-canons-trow:hover { background:rgba(255,255,255,0.025); }
+.hgs-canons-trow-nm { display:flex; align-items:center; gap:8px; min-width:0; color:var(--t1); font-size:13px; font-weight:500; }
+.hgs-canons-trow-nm .canon-ico { color:var(--pri); flex-shrink:0; display:inline-flex; }
+.hgs-canons-trow-nm-text { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.hgs-canons-trow-ver { font-size:11px; color:var(--t2); font-family:var(--mono, ui-monospace, monospace); }
+.hgs-canons-trow-cat { font-size:11.5px; color:var(--t2); }
+.hgs-canons-trow-date { font-size:11.5px; color:var(--t3); }
+.hgs-canons-trow-warn { color:var(--warn); font-size:11px; margin-left:6px; display:inline-flex; }
+.hgs-canons-trow-actions { display:flex; justify-content:flex-end; }
+.hgs-canons-action-btn { background:transparent; border:none; color:var(--t3); cursor:pointer; padding:4px 6px; border-radius:var(--r4); font-family:inherit; font-size:14px; line-height:1; }
+.hgs-canons-action-btn:hover { color:var(--t1); background:rgba(255,255,255,0.05); }
+.hgs-canons-empty { padding:30px 14px; text-align:center; color:var(--t3); font-size:12px; }
+
+/* Single Canon detail view */
+.hgs-canon-detail { display:flex; flex-direction:column; gap:18px; max-width:760px; }
+.hgs-canon-back { background:transparent; border:none; color:var(--t3); cursor:pointer; font-size:11.5px; font-family:inherit; padding:0; align-self:flex-start; display:inline-flex; align-items:center; gap:4px; }
+.hgs-canon-back:hover { color:var(--t1); }
+.hgs-canon-header { display:flex; flex-direction:column; gap:8px; padding-bottom:18px; border-bottom:0.5px solid var(--bd); }
+.hgs-canon-name-row { display:flex; align-items:center; gap:8px; }
+.hgs-canon-name { font-size:18px; font-weight:500; color:var(--t1); flex:1; }
+.hgs-canon-ico-big { color:var(--pri); display:inline-flex; }
+.hgs-canon-meta-row { display:flex; flex-wrap:wrap; gap:14px; font-size:11.5px; color:var(--t3); }
+.hgs-canon-meta-row strong { color:var(--t2); font-weight:500; }
+.hgs-canon-warn-banner { background:rgba(202,138,4,0.08); border:0.5px solid rgba(202,138,4,0.3); border-radius:var(--r6); padding:10px 12px; display:flex; gap:8px; align-items:flex-start; }
+.hgs-canon-warn-banner-ico { color:var(--warn); flex-shrink:0; margin-top:1px; display:inline-flex; }
+.hgs-canon-warn-banner-msg { font-size:12px; color:var(--t1); line-height:1.5; }
+.hgs-canon-warn-banner-msg strong { color:var(--warn); font-weight:600; }
+.hgs-canon-info-banner { background:rgba(96,165,250,0.06); border:0.5px solid rgba(96,165,250,0.25); border-radius:var(--r6); padding:10px 12px; display:flex; gap:8px; align-items:flex-start; }
+.hgs-canon-info-banner-ico { color:var(--pri); flex-shrink:0; margin-top:1px; display:inline-flex; }
+.hgs-canon-info-banner-msg { font-size:12px; color:var(--t1); line-height:1.5; }
+.hgs-canon-section { display:flex; flex-direction:column; gap:8px; }
+.hgs-canon-sec-lbl { font-size:10px; letter-spacing:0.05em; text-transform:uppercase; color:var(--t3); font-weight:500; }
+.hgs-canon-sec-val { font-size:12px; color:var(--t1); }
+.hgs-canon-related { background:rgba(255,255,255,0.03); border:0.5px solid var(--bd); border-radius:var(--r6); padding:12px 14px; }
+.hgs-canon-related-text { font-size:12px; color:var(--t2); line-height:1.5; margin-bottom:8px; }
+.hgs-canon-related-link { color:var(--pri); font-size:12px; cursor:pointer; background:transparent; border:none; padding:0; font-family:inherit; text-decoration:none; display:inline-flex; align-items:center; gap:4px; }
+.hgs-canon-related-link:hover { text-decoration:underline; }
+.hgs-canon-preview { background:rgba(255,255,255,0.02); border:0.5px solid var(--bd); border-radius:var(--r6); padding:14px; max-height:240px; overflow-y:auto; font-size:12px; color:var(--t2); line-height:1.6; }
+.hgs-canon-preview-link { color:var(--pri); font-size:12px; cursor:pointer; background:transparent; border:none; padding:0; font-family:inherit; margin-top:8px; display:inline-flex; align-items:center; gap:4px; }
+.hgs-canon-preview-link:hover { text-decoration:underline; }
+.hgs-canon-actions { display:flex; gap:8px; padding-top:8px; }
+.hgs-canon-remove-btn { background:transparent; border:1px solid rgba(220,38,38,0.4); color:var(--err); font-size:12px; padding:7px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.hgs-canon-remove-btn:hover { background:rgba(220,38,38,0.08); }
+
+/* Canon picker modal */
+.hgs-cp-ov { position:fixed; inset:0; background:rgba(0,0,0,0.55); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); z-index:1200; display:none; align-items:flex-start; justify-content:center; padding-top:6vh; }
+.hgs-cp-ov.open { display:flex; }
+.hgs-cp { background:var(--bg); border:0.5px solid var(--bd); border-radius:var(--r8); width:min(780px, 94vw); max-height:88vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 24px 60px rgba(0,0,0,0.4); }
+.hgs-cp-hd { padding:16px 20px 14px; border-bottom:0.5px solid var(--bd); display:flex; align-items:center; gap:10px; }
+.hgs-cp-hd-ttl { font-size:14.5px; font-weight:600; color:var(--t1); flex:1; }
+.hgs-cp-hd-close { background:transparent; border:none; color:var(--t3); cursor:pointer; padding:4px; border-radius:var(--r4); display:inline-flex; }
+.hgs-cp-hd-close:hover { color:var(--t1); background:rgba(255,255,255,0.05); }
+.hgs-cp-search { padding:14px 20px; border-bottom:0.5px solid var(--bd); display:flex; flex-direction:column; gap:10px; }
+.hgs-cp-search-box { display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.03); border:0.5px solid var(--bd); border-radius:var(--r6); padding:8px 12px; }
+.hgs-cp-search-box input { background:transparent; border:none; outline:none; color:var(--t1); font-size:13px; font-family:inherit; flex:1; }
+.hgs-cp-search-box-ico { color:var(--t3); display:flex; flex-shrink:0; }
+.hgs-cp-filters { display:flex; flex-wrap:wrap; gap:8px; }
+.hgs-cp-filter-lbl { font-size:10px; letter-spacing:0.05em; text-transform:uppercase; color:var(--t3); font-weight:500; align-self:center; margin-right:4px; }
+.hgs-cp-filter-chip { background:transparent; border:0.5px solid var(--bd); color:var(--t2); font-size:11px; padding:4px 10px; border-radius:999px; cursor:pointer; font-family:inherit; }
+.hgs-cp-filter-chip:hover { color:var(--t1); border-color:var(--t3); }
+.hgs-cp-filter-chip.active { background:rgba(96,165,250,0.12); border-color:rgba(96,165,250,0.4); color:var(--pri); }
+.hgs-cp-results { flex:1; overflow-y:auto; padding:8px 0; }
+.hgs-cp-row { display:flex; gap:10px; padding:11px 20px; border-bottom:0.5px solid var(--bd); cursor:pointer; transition:background .12s; }
+.hgs-cp-row:last-child { border-bottom:none; }
+.hgs-cp-row:hover:not(.disabled) { background:rgba(255,255,255,0.025); }
+.hgs-cp-row.disabled { opacity:0.55; cursor:not-allowed; }
+.hgs-cp-row-cb { flex-shrink:0; margin-top:3px; }
+.hgs-cp-row-body { flex:1; min-width:0; display:flex; flex-direction:column; gap:5px; }
+.hgs-cp-row-top { display:flex; align-items:center; gap:8px; }
+.hgs-cp-row-ico { color:var(--pri); display:inline-flex; flex-shrink:0; }
+.hgs-cp-row-nm { font-size:13px; font-weight:500; color:var(--t1); }
+.hgs-cp-row-already { background:rgba(255,255,255,0.05); color:var(--t3); font-size:10px; padding:1px 7px; border-radius:999px; }
+.hgs-cp-row-meta { font-size:11px; color:var(--t3); display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+.hgs-cp-row-meta .sep { opacity:0.5; }
+.hgs-cp-row-desc { font-size:11.5px; color:var(--t2); line-height:1.5; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.hgs-cp-empty { padding:40px 20px; text-align:center; color:var(--t3); font-size:12px; }
+.hgs-cp-empty .ttl { font-size:13px; color:var(--t1); font-weight:500; margin-bottom:6px; }
+.hgs-cp-foot { padding:12px 20px; border-top:0.5px solid var(--bd); display:flex; align-items:center; gap:10px; }
+.hgs-cp-foot-summary { flex:1; font-size:11.5px; color:var(--t3); }
+.hgs-cp-foot-summary strong { color:var(--t1); font-weight:600; }
+.hgs-cp-cancel { background:transparent; border:1px solid var(--bd); color:var(--t1); font-size:12.5px; padding:8px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.hgs-cp-cancel:hover { background:rgba(255,255,255,0.04); border-color:var(--t3); }
+.hgs-cp-attach { background:var(--pri); border:none; color:#0a0a0a; font-size:12.5px; padding:8px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; font-weight:500; }
+.hgs-cp-attach:hover:not(:disabled) { filter:brightness(1.1); }
+.hgs-cp-attach:disabled { opacity:0.5; cursor:default; }
+
+/* Drift indicator in pack header */
+.hgs-canon-drift-icon { color:var(--warn); display:inline-flex; margin-left:6px; cursor:help; }
+
+/* Bridge ID filter chip on All facts view (Brief 16 delta) */
+.hgs-bridge-filter-row { display:flex; align-items:center; gap:8px; margin:0 0 10px; }
+.hgs-bridge-chip { display:inline-flex; align-items:center; gap:6px; background:rgba(96,165,250,0.12); color:var(--pri); border:0.5px solid rgba(96,165,250,0.35); font-size:11.5px; padding:4px 10px; border-radius:999px; max-width:100%; }
+.hgs-bridge-chip-lbl { color:var(--t3); font-size:10.5px; letter-spacing:0.04em; text-transform:uppercase; font-weight:500; }
+.hgs-bridge-chip-name { font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:320px; }
+.hgs-bridge-chip-x { background:transparent; border:none; color:var(--pri); cursor:pointer; padding:0 2px; display:inline-flex; align-items:center; font-family:inherit; opacity:0.85; }
+.hgs-bridge-chip-x:hover { opacity:1; }
 </style>
 </head>
 <body>
@@ -4834,7 +4952,7 @@ html.theme-light .search-footer-link{color:#7C3AED}
       </div>
       <div class="hgs-confirm-ov" id="hgsConfirmOv" onclick="if(event.target===this)hgsCloseDeprecateConfirm()">
         <div class="hgs-confirm" role="dialog" aria-modal="true" aria-labelledby="hgsConfirmTtl">
-          <div class="hgs-confirm-hd"><div class="hgs-confirm-ttl" id="hgsConfirmTtl">Deprecate this Stack?</div></div>
+          <div class="hgs-confirm-hd"><div class="hgs-confirm-ttl" id="hgsConfirmTtl">Deprecate this Knowledge Pack?</div></div>
           <div class="hgs-confirm-body">Existing dependents will continue working but no new attachments will be allowed.</div>
           <div class="hgs-confirm-ft">
             <button type="button" class="kc-mbtn ghost" onclick="hgsCloseDeprecateConfirm()">Cancel</button>
@@ -14043,7 +14161,7 @@ function renderHgsFactTableMain(substackId){
   const rows = filtered.length ? filtered.map(f => {
     const metaText = f.recentlyAdded && f.approvedNote
       ? `Owner: ${hgsEsc(f.owner)} · ${hgsEsc(f.approvedNote)}`
-      : `Owner: ${hgsEsc(f.owner)} · in Stack since ${hgsEsc(f.inStackSince)}`;
+      : `Owner: ${hgsEsc(f.owner)} · in Knowledge Pack since ${hgsEsc(f.inStackSince)}`;
     const addedPill = f.recentlyAdded ? `<span class="hgs-added-pill">ADDED ${hgsEsc((f.inStackSince||'MAY 23').toUpperCase())}</span>` : '';
     return `
       <tr class="hgs-table-row">
@@ -14596,7 +14714,7 @@ function renderHgsSettings(){
   const identity = `
     <div class="hgs-card">
       <div class="hgs-card-ttl">Identity</div>
-      <div class="hgs-card-hint">How this Stack appears to workflows across the tenant</div>
+      <div class="hgs-card-hint">How this Knowledge Pack appears to workflows across the tenant</div>
       <div class="hgs-card-body">
         <div class="hgs-grid-2">
           <div class="kc-form-field">
@@ -14638,35 +14756,35 @@ function renderHgsSettings(){
   const behavior = `
     <div class="hgs-card">
       <div class="hgs-card-ttl">Behavior</div>
-      <div class="hgs-card-hint">How this Stack responds when Truth evolves</div>
+      <div class="hgs-card-hint">How this Knowledge Pack responds when Truth evolves</div>
       <div class="hgs-card-body">
         <div class="hgs-control">
           <div class="hgs-control-row">
             <div class="hgs-control-text">
-              <div class="hgs-control-ttl">Keep this Stack current</div>
-              <div class="hgs-control-desc">When on, new facts matching this Stack's substack filters are evaluated as Truth evolves. Most Stacks should stay live so they reflect current policy.</div>
+              <div class="hgs-control-ttl">Keep this Knowledge Pack current</div>
+              <div class="hgs-control-desc">When on, new facts matching this Knowledge Pack's substack filters are evaluated as Truth evolves. Most Knowledge Packs should stay live so they reflect current policy.</div>
             </div>
             <label class="mini-tog"><input type="checkbox" ${b.keepCurrent ? 'checked' : ''} onchange="hgsSetBehavior('keepCurrent', this.checked)"/><div class="mini-track"><div class="mini-thumb"></div></div></label>
           </div>
         </div>
         <div class="hgs-control">
           <div class="hgs-control-text">
-            <div class="hgs-control-ttl">When new facts match this Stack</div>
-            <div class="hgs-control-desc">As curator, decide whether matching facts enter this Stack automatically or require your review.</div>
+            <div class="hgs-control-ttl">When new content arrives</div>
+            <div class="hgs-control-desc">As a Governance Admin, decide whether matching facts and Canon version updates enter this Knowledge Pack automatically or require your review.</div>
           </div>
           <div class="hgs-radio-grp">
-            ${radioOpt('notificationMode','auto', b.notificationMode,'Include automatically','Matching facts enter this Stack silently as DIAN promotes them.','')}
-            ${radioOpt('notificationMode','notify-first', b.notificationMode,'Notify me first','Matching facts wait for your approval. Each decision is recorded in History.',' <span class="hgs-recommended">Recommended for Stacks</span>')}
+            ${radioOpt('notificationMode','auto', b.notificationMode,'Include automatically','Matching facts and Canon version updates enter this Knowledge Pack silently as they\'re published.','')}
+            ${radioOpt('notificationMode','notify-first', b.notificationMode,'Notify me first','Matching facts and Canon version updates wait for your approval. Each decision is recorded in History.',' <span class="hgs-recommended">Recommended for Knowledge Packs</span>')}
           </div>
         </div>
         <div class="hgs-control">
           <div class="hgs-control-text">
             <div class="hgs-control-ttl">Workflow control</div>
-            <div class="hgs-control-desc">Decide whether workflows that attach this Stack can change its Behavior in their bindings.</div>
+            <div class="hgs-control-desc">Decide whether workflows that attach this Knowledge Pack can change its Behavior in their bindings.</div>
           </div>
           <div class="hgs-radio-grp">
             ${radioOpt('workflowControl','customizable', b.workflowControl,'Workflows can customize','Workflow authors can adjust live, snapshot, or notification settings on their bindings.','')}
-            ${radioOpt('workflowControl','locked', b.workflowControl,'Workflows cannot customize',"Bindings inherit this Stack's Behavior and cannot override it. Use for compliance, safety, or audit-critical content.",' <span class="hgs-lock-ico"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 014 0v1.5"/></svg></span>')}
+            ${radioOpt('workflowControl','locked', b.workflowControl,'Workflows cannot customize',"Bindings inherit this Knowledge Pack's Behavior and cannot override it. Use for compliance, safety, or audit-critical content.",' <span class="hgs-lock-ico"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 014 0v1.5"/></svg></span>')}
           </div>
         </div>
       </div>
@@ -14675,10 +14793,10 @@ function renderHgsSettings(){
   const danger = `
     <div class="hgs-card hgs-card-danger">
       <div class="hgs-card-ttl">Danger zone</div>
-      <div class="hgs-card-hint">Irreversible Stack-level actions</div>
+      <div class="hgs-card-hint">Irreversible Knowledge Pack-level actions</div>
       <div class="hgs-danger-row">
         <div class="hgs-danger-text">
-          <div class="hgs-danger-ttl">Deprecate this Stack</div>
+          <div class="hgs-danger-ttl">Deprecate this Knowledge Pack</div>
           <div class="hgs-danger-desc">Mark as deprecated. Existing dependents continue working; new attachments are blocked.</div>
         </div>
         <button class="hgs-deprecate-btn" type="button" onclick="hgsOpenDeprecateConfirm()">Deprecate</button>
@@ -14749,14 +14867,19 @@ const HGS_H_ICONS = {
 function _hgsSeedHistory(){
   if(_HGS_H_SEEDED) return;
   const events = [
+    {id:'hc1', type:'canon-version-update', actor:'Sarah Chen', timestamp:'June 12, 2026 · 11:08 AM', description:'accepted Customer Support SLA Handbook v3.2 · 2 facts re-evaluated, no impact', context:null, reason:null},
+    {id:'hc2', type:'canon-attach', actor:'Sarah Chen', timestamp:'June 4, 2026 · 9:21 AM', description:'attached Discount Approval Matrix as a Canon reference', context:null, reason:null},
+    {id:'hc3', type:'canon-version-reject', actor:'Sarah Chen', timestamp:'May 30, 2026 · 3:47 PM', description:'rejected Escalation Protocols v2.4 update · staying on v2.3', context:null, reason:'Pending legal review of new escalation tier'},
+    {id:'hc4', type:'canon-deprecated-upstream', actor:'System', timestamp:'May 25, 2026 · 6:00 AM', description:'Refund Policy was deprecated upstream by its owner', context:null, reason:null},
+    {id:'hc5', type:'canon-detach', actor:'Sarah Chen', timestamp:'May 24, 2026 · 10:12 AM', description:'detached Refund Policy from this Knowledge Pack', context:null, reason:'Replaced by updated reference in Partner Programs Pack'},
     {id:'h1', type:'approve', actor:'Sarah Chen', timestamp:'May 23, 2026 · 2:14 PM', description:'approved "Renewal discounts capped at 15% without director approval" into Pricing policy facts substack', context:'via notify-first review', reason:null},
     {id:'h2', type:'exclude', actor:'Sarah Chen', timestamp:'May 18, 2026 · 9:47 AM', description:'excluded "Q1 promotional pricing for nonprofit accounts" from Pricing policy facts substack', context:null, reason:'One-time promotion, not policy'},
     {id:'h3', type:'substack-add', actor:'Sarah Chen', timestamp:'May 10, 2026 · 11:23 AM', description:'added the Discount approval facts substack · 5 facts from Sales TP + Compliance TP', context:null, reason:null},
     {id:'h4', type:'exclude', actor:'Sarah Chen', timestamp:'March 22, 2026 · 4:08 PM', description:'excluded "Partner referral discounts auto-approved up to 10%" from Discount approval facts substack', context:null, reason:'Covered separately in Partner Programs Stack'},
     {id:'h5', type:'settings-change', actor:'Sarah Chen', timestamp:'March 18, 2026 · 10:30 AM', description:'changed Behavior · notification mode from "Include automatically" to "Notify me first"', context:null, reason:null},
-    {id:'h6', type:'publish', actor:'Sarah Chen', timestamp:'March 14, 2026 · 3:22 PM', description:'published this Stack · 42 facts in 1 substack', context:null, reason:null},
+    {id:'h6', type:'publish', actor:'Sarah Chen', timestamp:'March 14, 2026 · 3:22 PM', description:'published this Knowledge Pack · 42 facts in 1 substack', context:null, reason:null},
     {id:'h7', type:'substack-add', actor:'Sarah Chen', timestamp:'March 14, 2026 · 2:45 PM', description:'added the Pricing policy facts substack · 42 facts from Sales TP + Compliance TP', context:null, reason:null},
-    {id:'h8', type:'stack-create', actor:'Sarah Chen', timestamp:'March 14, 2026 · 2:22 PM', description:'created this Stack as draft', context:null, reason:null}
+    {id:'h8', type:'stack-create', actor:'Sarah Chen', timestamp:'March 14, 2026 · 2:22 PM', description:'created this Knowledge Pack as draft', context:null, reason:null}
   ];
   HGS_STATE.history = JSON.parse(JSON.stringify(events));
   HGS_INITIAL.history = JSON.parse(JSON.stringify(events));
@@ -14771,6 +14894,7 @@ function _hgsHTypeMatches(type, filter){
   if(filter === 'exclusions') return type === 'exclude' || type === 'reject';
   if(filter === 'substacks') return type === 'substack-add';
   if(filter === 'settings') return type === 'settings-change';
+  if(filter === 'canon-changes') return ['canon-attach','canon-detach','canon-version-update','canon-version-reject','canon-deprecated-upstream'].indexOf(type) >= 0;
   return true;
 }
 
@@ -14795,11 +14919,12 @@ function renderHgsHistory(){
   const visible = events.filter(e => _hgsHTypeMatches(e.type, HGS_H_FILTER));
   const total = HGS_STATE.historyEventCount || events.length;
   const filters = [
-    {id:'all',        label:'All'},
-    {id:'inclusions', label:'Inclusions'},
-    {id:'exclusions', label:'Exclusions'},
-    {id:'substacks',  label:'Substacks'},
-    {id:'settings',   label:'Settings'}
+    {id:'all',           label:'All'},
+    {id:'inclusions',    label:'Inclusions'},
+    {id:'exclusions',    label:'Exclusions'},
+    {id:'substacks',     label:'Substacks'},
+    {id:'canon-changes', label:'Canon changes'},
+    {id:'settings',      label:'Settings'}
   ];
   const chips = filters.map(f =>
     `<button type="button" class="hgs-h-chip${HGS_H_FILTER === f.id ? ' active' : ''}" onclick="hgsHSetFilter('${hgsEsc(f.id)}')">${hgsEsc(f.label)}</button>`
@@ -14823,7 +14948,7 @@ function renderHgsHistory(){
       <div class="hgs-h-hd">
         <div>
           <div class="hgs-h-ttl">Activity</div>
-          <div class="hgs-h-sub">Lifecycle events, substack changes, and fact decisions on this Stack</div>
+          <div class="hgs-h-sub">Lifecycle events, substack changes, and fact decisions on this Knowledge Pack</div>
         </div>
         <div class="hgs-h-chips">${chips}</div>
       </div>
@@ -15057,7 +15182,7 @@ function hgsDUpdateTabCount(){
       hgsHAddEvent({ type:'settings-change', description:`updated categories · ${parts.join(' · ')}` });
     }
     if(cur.behavior.keepCurrent !== init.behavior.keepCurrent){
-      hgsHAddEvent({ type:'settings-change', description:`turned ${cur.behavior.keepCurrent ? 'on' : 'off'} Keep this Stack current` });
+      hgsHAddEvent({ type:'settings-change', description:`turned ${cur.behavior.keepCurrent ? 'on' : 'off'} Keep this Knowledge Pack current` });
     }
     if(cur.behavior.notificationMode !== init.behavior.notificationMode){
       const lbl = m => m === 'auto' ? 'Include automatically' : 'Notify me first';
@@ -15298,10 +15423,10 @@ function hgsDUpdateTabCount(){
       truthPlaneCandidates: [],
       topicVocabulary: ['Access controls','Incident response','Audit trail','Compliance'],
       history: [
-        { id:'sh1', type:'publish',      actor:'Marcus Reyes', timestamp:'March 2, 2026 · 10:14 AM', description:'published this Stack · 28 facts in 2 substacks', context:null, reason:null },
+        { id:'sh1', type:'publish',      actor:'Marcus Reyes', timestamp:'March 2, 2026 · 10:14 AM', description:'published this Knowledge Pack · 28 facts in 2 substacks', context:null, reason:null },
         { id:'sh2', type:'substack-add', actor:'Marcus Reyes', timestamp:'March 2, 2026 · 9:52 AM',  description:'added the Incident response substack · 9 facts from Compliance TP', context:null, reason:null },
         { id:'sh3', type:'substack-add', actor:'Marcus Reyes', timestamp:'March 2, 2026 · 9:38 AM',  description:'added the Access controls substack · 11 facts from Compliance TP', context:null, reason:null },
-        { id:'sh4', type:'stack-create', actor:'Marcus Reyes', timestamp:'March 2, 2026 · 9:30 AM',  description:'created this Stack as draft', context:null, reason:null }
+        { id:'sh4', type:'stack-create', actor:'Marcus Reyes', timestamp:'March 2, 2026 · 9:30 AM',  description:'created this Knowledge Pack as draft', context:null, reason:null }
       ],
       dependents: [
         { id:'sd1', workflowName:'Production Deploy Pipeline', nodeName:'Compliance Gate node',       owner:'Marcus Reyes', mode:'live',         attachedDate:'Mar 4' },
@@ -15590,7 +15715,7 @@ function _hgsLoadMinimalStack(t){
     excludedFacts: [],
     truthPlaneCandidates: [],
     topicVocabulary: ['Pricing policy','Discount approval','Compensation','Commission','Sales process','Customer onboarding','Audit trail'],
-    history: [{ id:'h_create', type:'stack-create', actor:t.owner, timestamp:t.lastUpdated, description:'created this Stack as draft', context:null, reason:null }],
+    history: [{ id:'h_create', type:'stack-create', actor:t.owner, timestamp:t.lastUpdated, description:'created this Knowledge Pack as draft', context:null, reason:null }],
     dependents: []
   };
   HGS_STATE = seed;
@@ -15782,7 +15907,7 @@ function hgsCreateStack(){
   hgsOpenStackEdit(id);
   // Surface the stack-create event in the stack's own history
   if(typeof hgsHAddEvent === 'function'){
-    hgsHAddEvent({ type:'stack-create', description:'created this Stack as draft', actor:'Sarah Chen' });
+    hgsHAddEvent({ type:'stack-create', description:'created this Knowledge Pack as draft', actor:'Sarah Chen' });
   }
   toast(`"${name}" created`, 'success');
 }
@@ -15796,12 +15921,18 @@ function hgsCreateStack(){
     if(isEmptyStack && v === 'all-facts'){
       return `<div class="hgs-comp-empty">
         <div class="hgs-comp-empty-ico"><svg width="40" height="40" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5L3 5.5L10 8.5L17 5.5L10 2.5z"/><path d="M3 10L10 13L17 10"/><path d="M3 14.5L10 17.5L17 14.5"/></svg></div>
-        <div class="hgs-comp-empty-ttl">This Stack doesn't have any facts yet</div>
-        <div class="hgs-comp-empty-sub">Compose your first substack by filtering Truth and selecting the facts you want to bundle.</div>
-        <button class="hgs-comp-empty-btn" type="button" onclick="hgsOpenAddFacts()">
-          <svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
-          Add facts
-        </button>
+        <div class="hgs-comp-empty-ttl">This Knowledge Pack doesn't have any content yet</div>
+        <div class="hgs-comp-empty-sub">Add facts by composing substacks from Truth, or attach Canon documents as reference material.</div>
+        <div class="hgs-comp-empty-actions" style="display:flex;gap:10px;justify-content:center">
+          <button class="hgs-comp-empty-btn" type="button" onclick="hgsOpenAddFacts()">
+            <svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
+            Add facts
+          </button>
+          <button class="hgs-comp-empty-btn" type="button" onclick="hgsOpenCanonPicker()" style="background:transparent;border:1px solid var(--bd);color:var(--t1)">
+            <svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
+            Attach Canon
+          </button>
+        </div>
       </div>`;
     }
     return _orig();
@@ -19804,6 +19935,821 @@ function hgsSmConfirmRemove(){
   //     publicationState === 'published' — no draft KC_STACKS exist in v1
   //     unless HGS creates one. The catalog feeds from KC_STACKS, which is a
   //     separate dataset; tenantStacks → KC_STACKS sync is out of scope.
+})();
+
+/* === Brief 16: Canon document attachment to Knowledge Packs === */
+(function _brief16Canons(){
+  if(window.__HGS_BRIEF16_APPLIED) return;
+  window.__HGS_BRIEF16_APPLIED = true;
+
+  function esc(s){ try { return hgsEsc(s); } catch(e){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"})[c]; }); } }
+
+  // ─── Mock Canon documents (tenant pool) ───────────────────────
+  window.CANON_DOCUMENTS = [
+    { id:'canon-001', name:'Customer Support SLA Handbook', description:'Standard service-level agreements and response time commitments for inbound customer support requests across all tiers.', version:'3.2', publishedDate:'Mar 4, 2026', owner:'Sarah Chen', ownerId:'sarah-chen', audienceScope:'All employees', category:'Customer Success', publicationState:'published', lastUpdated:'Mar 4, 2026', previewText:'This handbook defines the standard service-level agreements (SLAs) for inbound customer support requests across all paid plans. Response time commitments are tiered by plan level: Standard (24 business hours), Pro (8 business hours), Enterprise (2 hours, 24/7). Escalation paths follow the protocols defined in the Escalation Protocols Canon. All SLA breaches must be logged and reviewed at the weekly CS leadership meeting…', factCount:12, latestVersion:'3.3', latestVersionDate:'Jun 15, 2026' },
+    { id:'canon-002', name:'Refund Policy', description:'Refund eligibility criteria, processing timelines, and customer-facing communication standards.', version:'2.1', publishedDate:'Jan 18, 2026', owner:'Sarah Chen', ownerId:'sarah-chen', audienceScope:'All employees', category:'Compliance', publicationState:'published', lastUpdated:'Jan 18, 2026', previewText:'Refunds may be issued within 30 days of purchase for any reason. Refunds requested between 31 and 90 days require a written justification reviewed by the CS lead. After 90 days, refunds are at the discretion of the VP of Customer Success and must be logged in the compliance audit trail…', factCount:7 },
+    { id:'canon-003', name:'Escalation Protocols', description:'Procedures for escalating customer issues to senior staff and partner teams.', version:'1.4', publishedDate:'Feb 12, 2026', owner:'Mike Dullea', ownerId:'mike-dullea', audienceScope:'Support team', category:'Operations', publicationState:'deprecated', lastUpdated:'May 10, 2026', deprecatedDate:'May 10, 2026', previewText:'Tier-1 issues are owned by frontline support. Tier-2 escalations route to senior support engineers within 4 business hours. Tier-3 escalations involve partner teams (Engineering, Product) and follow the on-call rotation defined in the Operations runbook…', factCount:9 },
+    { id:'canon-004', name:'Customer Onboarding Standards', description:'End-to-end onboarding playbook from kickoff through value realization.', version:'4.0', publishedDate:'Apr 22, 2026', owner:'Priya Shah', ownerId:'priya-shah', audienceScope:'Customer Success team', category:'Customer Success', publicationState:'published', lastUpdated:'Apr 22, 2026', previewText:'Customer onboarding begins within 3 business days of contract signature. The standard onboarding sequence includes kickoff call (week 1), provisioning checkpoint (week 2), training delivery (weeks 2-4), and value realization review (week 6). Enterprise customers receive a dedicated CSM…', factCount:5 },
+    { id:'canon-005', name:'Discount Approval Matrix', description:'Authority levels for discount approvals across deal sizes and product tiers.', version:'2.7', publishedDate:'May 1, 2026', owner:'David Park', ownerId:'david-park', audienceScope:'Sales team', category:'Compliance', publicationState:'published', lastUpdated:'May 1, 2026', previewText:'Discount authority is tiered: AEs may approve up to 10%, sales managers up to 20%, RVPs up to 30%, and CRO above 30%. Discounts exceeding 25% require finance review. Multi-year contracts have separate authority levels documented in the Compensation Plan Canon…', factCount:14 },
+    { id:'canon-006', name:'Data Retention Schedules', description:'Required retention windows by data class and jurisdiction for GDPR and CCPA compliance.', version:'3.0', publishedDate:'Feb 28, 2026', owner:'Marcus Reyes', ownerId:'marcus-reyes', audienceScope:'All employees', category:'Compliance', publicationState:'published', lastUpdated:'Feb 28, 2026', previewText:'Customer transactional data is retained for 7 years. PII associated with deleted user accounts is anonymized within 30 days. Audit logs are retained for 7 years minimum. Backup data follows the same retention as primary…', factCount:18 },
+    { id:'canon-007', name:'Procurement Approval Thresholds', description:'Approval thresholds and signing authority by spend tier for SOX compliance.', version:'1.8', publishedDate:'Mar 18, 2026', owner:'Jamie Liu', ownerId:'jamie-liu', audienceScope:'All employees', category:'Finance', publicationState:'published', lastUpdated:'Mar 18, 2026', previewText:'Purchases under $5,000 may be approved by department managers. $5,001-$25,000 requires VP approval. $25,001-$100,000 requires CFO sign-off. Above $100,000 requires CEO and Board notification. All software contracts over $10,000 require legal review…', factCount:11 },
+    { id:'canon-008', name:'Commission Plan Standards', description:'Commission tiers, accelerators, and clawback provisions across roles and tenure brackets.', version:'5.2', publishedDate:'Apr 5, 2026', owner:'David Park', ownerId:'david-park', audienceScope:'Sales team', category:'Compliance', publicationState:'published', lastUpdated:'Apr 5, 2026', previewText:'Commission is paid on closed-won deals at the rate specified in the individual contributor compensation plan. Accelerators kick in at 110% of quota. Multi-year deals pay commission on full TCV with clawback provisions for early termination within 12 months…', factCount:8 },
+    { id:'canon-009', name:'PTO and Leave Policy', description:'Paid time off, parental leave, and sabbatical eligibility by role, tenure, and geography.', version:'1.5', publishedDate:'Jan 30, 2026', owner:'Aisha Williams', ownerId:'aisha-williams', audienceScope:'All employees', category:'HR', publicationState:'published', lastUpdated:'Jan 30, 2026', previewText:'Full-time employees in the US accrue 15 days of PTO in their first year, 20 days years 2-5, and 25 days year 6+. Parental leave is 16 weeks for primary caregivers and 6 weeks for secondary. Sabbatical eligibility begins at year 7…', factCount:4 },
+    { id:'canon-010', name:'Renewal Playbook', description:'Renewal motion guidance, retention tactics, and expansion plays for CS and account management.', version:'2.3', publishedDate:'Mar 20, 2026', owner:'Sarah Chen', ownerId:'sarah-chen', audienceScope:'Customer Success team', category:'Customer Success', publicationState:'published', lastUpdated:'Mar 20, 2026', previewText:'Renewal motion begins 120 days before contract end date. Health-score-based segmentation drives engagement intensity: green accounts get light-touch, yellow get standard motion, red trigger executive sponsorship. Multi-year discounts are pre-approved up to 5%…', factCount:13 },
+    { id:'canon-011', name:'Incident Response Procedures', description:'Severity classification, response timelines, and post-mortem requirements for production incidents.', version:'2.0', publishedDate:'May 28, 2026', owner:'Jamie Liu', ownerId:'jamie-liu', audienceScope:'Engineering team', category:'Operations', publicationState:'published', lastUpdated:'May 28, 2026', previewText:'Sev-0 incidents (full outage) require immediate notification of on-call and CTO. Sev-1 (major degradation) requires response within 15 minutes. Sev-2 within 1 hour. All incidents require a post-mortem within 5 business days using the standard template…', factCount:6 },
+    { id:'canon-012', name:'Marketing Brand Guidelines', description:'Brand voice, visual standards, and approval requirements for external-facing marketing collateral.', version:'4.1', publishedDate:'Apr 14, 2026', owner:'Daniel Kamau', ownerId:'daniel-kamau', audienceScope:'Marketing team', category:'Marketing', publicationState:'published', lastUpdated:'Apr 14, 2026', previewText:'All external collateral must be reviewed against brand voice guidelines and visual standards. Logo usage follows the spec sheet in the brand kit. Customer logos may be used only with documented written consent…', factCount:3 },
+    { id:'canon-013', name:'Legal Review Workflow', description:'Triggers and timelines for legal review of contracts, partnerships, and regulatory communications.', version:'1.2', publishedDate:'Feb 5, 2026', owner:'Marcus Reyes', ownerId:'marcus-reyes', audienceScope:'All employees', category:'Legal', publicationState:'superseded', lastUpdated:'Apr 30, 2026', supersededBy:'canon-013a', previewText:'Legal review is required for: contracts over $10,000, partnership agreements, regulatory communications, employment offers above L6, IP assignments, and any cross-border data transfers. Standard turnaround is 5 business days…', factCount:2 },
+    { id:'canon-014', name:'Compensation Adjustment Process', description:'Process for off-cycle compensation changes including promotion, equity refresh, and market adjustments.', version:'1.0', publishedDate:'May 14, 2026', owner:'Aisha Williams', ownerId:'aisha-williams', audienceScope:'HR team', category:'HR', publicationState:'published', lastUpdated:'May 14, 2026', previewText:'Off-cycle comp adjustments require manager initiation with HR business partner review. Adjustments exceeding 15% require VP and CFO sign-off. Market adjustments must reference current Radford or comparable benchmark data…', factCount:5 },
+    { id:'canon-015', name:'Field Sales Playbook', description:'Outbound sales motion, prospecting cadence, and pipeline management standards.', version:'3.1', publishedDate:'Mar 10, 2026', owner:'David Park', ownerId:'david-park', audienceScope:'Sales team', category:'Sales', publicationState:'published', lastUpdated:'Mar 10, 2026', previewText:'Outbound prospecting follows a 12-touch cadence across email, phone, and LinkedIn over 21 days. Pipeline reviews are weekly with sales leadership. All deals over $50k require MEDDIC qualification documentation in the CRM…', factCount:9 }
+  ];
+
+  function canonById(id){ return (CANON_DOCUMENTS || []).find(function(c){ return c.id === id; }); }
+
+  // ─── Seed attached Canons on HGS state when a stack loads ─────
+  // Pricing Policy gets a curated set of 4 canons to demonstrate every state:
+  //   - canon-001 (SLA Handbook) — has v3.3 available upstream → notify-first review
+  //   - canon-005 (Discount Approval Matrix) — clean published
+  //   - canon-003 (Escalation Protocols) — deprecated upstream
+  //   - canon-006 (Data Retention Schedules) — clean published
+  function seedPricingPolicyCanons(){
+    if(typeof HGS_STATE === 'undefined' || !HGS_STATE) return;
+    if(HGS_STATE.id !== 'pricing-policy') return;
+    if(HGS_STATE.canons && HGS_STATE.canons.length) return; // already seeded
+    HGS_STATE.canons = [
+      { id:'canon-001', attachedDate:'Jun 22, 2026', attachedBy:'Sarah Chen', referencedVersion:'3.2' },
+      { id:'canon-005', attachedDate:'Jun 18, 2026', attachedBy:'Sarah Chen', referencedVersion:'2.7' },
+      { id:'canon-003', attachedDate:'Jun 15, 2026', attachedBy:'Sarah Chen', referencedVersion:'1.4' },
+      { id:'canon-006', attachedDate:'Jun 10, 2026', attachedBy:'Sarah Chen', referencedVersion:'3.0' }
+    ];
+    if(HGS_INITIAL) HGS_INITIAL.canons = JSON.parse(JSON.stringify(HGS_STATE.canons));
+  }
+  // Seed on every load (loaders restore HGS_STATE)
+  ['_hgsLoadPricingPolicy','_hgsLoadSoc2','_hgsLoadMinimalStack'].forEach(function(fn){
+    if(typeof window[fn] !== 'function') return;
+    var _orig = window[fn];
+    window[fn] = function(){
+      var r = _orig.apply(this, arguments);
+      if(!HGS_STATE.canons) HGS_STATE.canons = [];
+      if(HGS_INITIAL && !HGS_INITIAL.canons) HGS_INITIAL.canons = [];
+      seedPricingPolicyCanons();
+      return r;
+    };
+    try { window[fn] = window[fn]; } catch(e){}
+  });
+  if(typeof _hgsLoadPricingPolicy === 'function') seedPricingPolicyCanons();
+
+  // ─── Helpers ───────────────────────────────────────────────────
+  var ICO_DOC = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h5L11 4v8.5H3V1.5z"/><path d="M8 1.5V4h3M5 6.5h4M5 8.5h4M5 10.5h2.5"/></svg>';
+  var ICO_DOC_BIG = '<svg width="22" height="22" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h5L11 4v8.5H3V1.5z"/><path d="M8 1.5V4h3M5 6.5h4M5 8.5h4M5 10.5h2.5"/></svg>';
+  var ICO_PLUS = '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>';
+  var ICO_ALERT = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L13 12H1L7 1.5z"/><path d="M7 6v3M7 10.5v.1"/></svg>';
+  var ICO_INFO = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="5.5"/><path d="M7 6v3.5"/><circle cx="7" cy="4.3" r="0.5" fill="currentColor"/></svg>';
+  var ICO_SEARCH = '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4"/><path d="M9.5 9.5L12 12"/></svg>';
+  var ICO_BACK = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 2.5L4 6l3.5 3.5"/></svg>';
+  var ICO_X = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg>';
+  var ICO_EXT = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2H2v10h10V9"/><path d="M9 2h3v3M12 2L7 7"/></svg>';
+
+  // ─── Rail: inject CANONS section + All Canons + Attach Canon ──
+  if(typeof window.renderHgsRail === 'function' || typeof renderHgsRail === 'function'){
+    var _origRail = (typeof window.renderHgsRail === 'function') ? window.renderHgsRail : renderHgsRail;
+    window.renderHgsRail = function(){
+      var html = _origRail.apply(this, arguments);
+      var s = HGS_STATE;
+      if(!s) return html;
+      var canons = s.canons || [];
+      var view = HGS_COMPOSITION_VIEW;
+      var flowActive = (view === 'add-facts' || view === 'pending-review');
+      var disabledCls = flowActive ? ' disabled' : '';
+
+      // All Canons rail entry (only when ≥1 attached) — insert after "All facts" row
+      if(canons.length > 0){
+        var isAllCanonsActive = view === 'all-canons';
+        var allCanonsBtn =
+          '<button class="hgs-rail-row' + (isAllCanonsActive ? ' active' : '') + disabledCls + '" type="button" onclick="hgsSelectAllCanons()">' +
+            '<div class="hgs-rail-row-main">' +
+              '<div class="hgs-rail-row-nm">All Canons</div>' +
+              '<div class="hgs-rail-row-sub">Reference documents</div>' +
+            '</div>' +
+            '<div class="hgs-rail-row-count">' + canons.length + '</div>' +
+          '</button>';
+        // Insert after the first .hgs-rail-row (All facts)
+        html = html.replace(/(<button class="hgs-rail-row[^"]*"[^>]*onclick="hgsSelectAllFacts\(\)">[\s\S]*?<\/button>)/, '$1' + allCanonsBtn);
+      }
+
+      // CANONS section + per-canon rows + "+ Attach Canon" button
+      var canonRows = canons.map(function(ref){
+        var c = canonById(ref.id);
+        if(!c) return '';
+        var isActive = view === ('canon-' + c.id);
+        var deprecated = c.publicationState === 'deprecated';
+        var superseded = c.publicationState === 'superseded' || (c.latestVersion && c.latestVersion !== ref.referencedVersion);
+        var warn = (deprecated || superseded) ? '<span class="hgs-rail-canon-warn" title="' + (deprecated ? 'Deprecated upstream' : 'Newer version available') + '">' + ICO_ALERT + '</span>' : '';
+        return '<button class="hgs-rail-row canon' + (isActive ? ' active' : '') + disabledCls + '" type="button" onclick="hgsSelectCanon(\'' + esc(c.id) + '\')">' +
+          '<span class="canon-ico">' + ICO_DOC + '</span>' +
+          '<div class="hgs-rail-row-nm-wrap">' +
+            '<div class="hgs-rail-row-nm hgs-rail-row-nm-canon">' + esc(c.name) + '</div>' +
+            warn +
+          '</div>' +
+          '<span class="hgs-rail-version">v' + esc(c.version) + '</span>' +
+        '</button>';
+      }).join('');
+
+      var attachBtn =
+        '<button class="hgs-rail-add hgs-rail-add-canon' + disabledCls + '" type="button" onclick="hgsOpenCanonPicker()">' +
+          ICO_PLUS +
+          'Attach Canon' +
+        '</button>';
+
+      var canonSection = '';
+      if(canons.length > 0){
+        canonSection =
+          '<div class="hgs-rail-section">Canons · ' + canons.length + '</div>' +
+          canonRows + attachBtn;
+      } else {
+        canonSection = attachBtn;
+      }
+
+      // Insert canon section BEFORE the .hgs-rail-sep separator
+      html = html.replace(/(<div class="hgs-rail-sep"><\/div>)/, canonSection + '$1');
+      return html;
+    };
+    try { renderHgsRail = window.renderHgsRail; } catch(e){}
+  }
+
+  // ─── Composition main dispatcher: handle all-canons + single canon
+  if(typeof window.renderHgsCompMain === 'function' || typeof renderHgsCompMain === 'function'){
+    var _origCompMain = (typeof window.renderHgsCompMain === 'function') ? window.renderHgsCompMain : renderHgsCompMain;
+    window.renderHgsCompMain = function(){
+      var v = HGS_COMPOSITION_VIEW;
+      if(v === 'all-canons') return '<div class="hgs-main">' + renderAllCanonsView() + '</div>';
+      if(v && v.indexOf('canon-') === 0 && (canonById(v.slice('canon-'.length)))){
+        return '<div class="hgs-main">' + renderSingleCanonView(v.slice('canon-'.length)) + '</div>';
+      }
+      return _origCompMain.apply(this, arguments);
+    };
+    try { renderHgsCompMain = window.renderHgsCompMain; } catch(e){}
+  }
+
+  // ─── Selection handlers ───────────────────────────────────────
+  window.hgsSelectAllCanons = function(){
+    if(HGS_COMPOSITION_VIEW === 'add-facts' || HGS_COMPOSITION_VIEW === 'pending-review') return;
+    HGS_COMPOSITION_VIEW = 'all-canons';
+    renderHgs();
+  };
+  window.hgsSelectCanon = function(id){
+    if(HGS_COMPOSITION_VIEW === 'add-facts' || HGS_COMPOSITION_VIEW === 'pending-review') return;
+    HGS_COMPOSITION_VIEW = 'canon-' + id;
+    renderHgs();
+  };
+
+  // ─── All Canons table view ────────────────────────────────────
+  window.HGS_CANONS_SEARCH = '';
+  window.hgsCanonsSearchSet = function(v){
+    window.HGS_CANONS_SEARCH = v || '';
+    var listEl = document.getElementById('hgsCanonsList');
+    if(!listEl) return;
+    listEl.innerHTML = renderCanonsTableBody();
+  };
+
+  function renderCanonsTableBody(){
+    var s = HGS_STATE;
+    var refs = s.canons || [];
+    var q = (window.HGS_CANONS_SEARCH || '').toLowerCase().trim();
+    var rows = refs.map(function(ref){
+      var c = canonById(ref.id);
+      if(!c) return null;
+      if(q && c.name.toLowerCase().indexOf(q) < 0) return null;
+      var deprecated = c.publicationState === 'deprecated';
+      var superseded = c.publicationState === 'superseded' || (c.latestVersion && c.latestVersion !== ref.referencedVersion);
+      var warn = '';
+      if(deprecated) warn = '<span class="hgs-canons-trow-warn" title="Deprecated upstream on ' + esc(c.deprecatedDate || '') + '">' + ICO_ALERT + '</span>';
+      else if(superseded) warn = '<span class="hgs-canons-trow-warn" title="Newer version available">' + ICO_ALERT + '</span>';
+      return '<div class="hgs-canons-trow" onclick="hgsSelectCanon(\'' + esc(c.id) + '\')">' +
+        '<div class="hgs-canons-trow-nm">' +
+          '<span class="canon-ico">' + ICO_DOC + '</span>' +
+          '<span class="hgs-canons-trow-nm-text">' + esc(c.name) + '</span>' +
+          warn +
+        '</div>' +
+        '<div class="hgs-canons-trow-ver">v' + esc(c.version) + '</div>' +
+        '<div class="hgs-canons-trow-cat">' + esc(c.category) + '</div>' +
+        '<div class="hgs-canons-trow-date">' + esc(ref.attachedDate) + '</div>' +
+        '<div class="hgs-canons-trow-actions">' +
+          '<button class="hgs-canons-action-btn" type="button" onclick="event.stopPropagation();hgsRemoveCanonConfirm(\'' + esc(c.id) + '\')" title="Remove from pack">⋮</button>' +
+        '</div>' +
+      '</div>';
+    }).filter(Boolean).join('');
+    if(!rows){
+      return '<div class="hgs-canons-empty">' + (q ? 'No Canons match "' + esc(window.HGS_CANONS_SEARCH) + '"' : 'No Canons attached to this pack') + '</div>';
+    }
+    return rows;
+  }
+
+  function renderAllCanonsView(){
+    var s = HGS_STATE;
+    var refs = s.canons || [];
+    return '<div class="hgs-canons-wrap">' +
+      '<div class="hgs-canons-hd">' +
+        '<div class="hgs-canons-ttl">All Canons</div>' +
+        '<div class="hgs-canons-sub">' + refs.length + ' Canon' + (refs.length === 1 ? '' : 's') + ' attached to this pack</div>' +
+      '</div>' +
+      '<div class="hgs-canons-search">' +
+        '<span class="hgs-canons-search-ico">' + ICO_SEARCH + '</span>' +
+        '<input type="text" placeholder="Search Canons in this pack…" value="' + esc(window.HGS_CANONS_SEARCH || '') + '" oninput="hgsCanonsSearchSet(this.value)"/>' +
+      '</div>' +
+      '<div class="hgs-canons-table">' +
+        '<div class="hgs-canons-thead">' +
+          '<div>Name</div><div>Version</div><div>Category</div><div>Attached</div><div></div>' +
+        '</div>' +
+        '<div id="hgsCanonsList">' + renderCanonsTableBody() + '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  // ─── Single Canon detail view ─────────────────────────────────
+  function renderSingleCanonView(id){
+    var c = canonById(id);
+    var s = HGS_STATE;
+    var ref = (s.canons || []).find(function(r){ return r.id === id; });
+    if(!c || !ref) return '<div class="hgs-canon-detail"><div class="hgs-canons-empty">Canon not found.</div></div>';
+    var deprecated = c.publicationState === 'deprecated';
+    var newerAvailable = c.latestVersion && c.latestVersion !== ref.referencedVersion;
+    var superseded = c.publicationState === 'superseded';
+    var banner = '';
+    if(deprecated){
+      banner = '<div class="hgs-canon-warn-banner">' +
+        '<span class="hgs-canon-warn-banner-ico">' + ICO_ALERT + '</span>' +
+        '<div class="hgs-canon-warn-banner-msg"><strong>This Canon was deprecated</strong> on ' + esc(c.deprecatedDate || '—') + ' in the Canon Plane. Your pack still references version ' + esc(ref.referencedVersion) + ', but no new bindings will pull this content if your pack is in Snapshot mode. Consider removing it or refreshing.</div>' +
+      '</div>';
+    } else if(newerAvailable){
+      var beh = (HGS_STATE.behavior && HGS_STATE.behavior.notificationMode) || 'notify-first';
+      var modeNote = (beh === 'notify-first') ? 'Live + Notify mode: this version update will appear in pending review for your approval.'
+                  : (HGS_STATE.behavior && HGS_STATE.behavior.keepCurrent === false) ? 'Snapshot mode: your pack stays on v' + esc(ref.referencedVersion) + '. Refresh to update.'
+                  : 'Live mode: your pack will auto-update to v' + esc(c.latestVersion) + ' on next save.';
+      banner = '<div class="hgs-canon-info-banner">' +
+        '<span class="hgs-canon-info-banner-ico">' + ICO_INFO + '</span>' +
+        '<div class="hgs-canon-info-banner-msg"><strong>Version ' + esc(c.latestVersion) + '</strong> of this Canon has been published. ' + modeNote + '</div>' +
+      '</div>';
+    } else if(superseded){
+      banner = '<div class="hgs-canon-info-banner">' +
+        '<span class="hgs-canon-info-banner-ico">' + ICO_INFO + '</span>' +
+        '<div class="hgs-canon-info-banner-msg">This Canon has been superseded in the Canon Plane.</div>' +
+      '</div>';
+    }
+    var factCount = c.factCount || 0;
+    var relatedBlock = factCount > 0
+      ? '<div class="hgs-canon-related">' +
+          '<div class="hgs-canon-related-text">This pack contains ' + factCount + ' fact' + (factCount === 1 ? '' : 's') + ' that originated from this Canon (linked via Bridge IDs).</div>' +
+          '<button class="hgs-canon-related-link" type="button" onclick="hgsCanonViewRelated(\'' + esc(c.id) + '\')">View related facts in this pack →</button>' +
+        '</div>'
+      : '<div class="hgs-canon-related"><div class="hgs-canon-related-text">No facts in this pack reference this Canon yet.</div></div>';
+    return '<div class="hgs-canon-detail">' +
+      '<button class="hgs-canon-back" type="button" onclick="hgsSelectAllCanons()">' + ICO_BACK + ' Back to All Canons</button>' +
+      '<div class="hgs-canon-header">' +
+        '<div class="hgs-canon-name-row">' +
+          '<span class="hgs-canon-ico-big">' + ICO_DOC_BIG + '</span>' +
+          '<div class="hgs-canon-name">' + esc(c.name) + '</div>' +
+        '</div>' +
+        '<div class="hgs-canon-meta-row">' +
+          '<span><strong>Version ' + esc(c.version) + '</strong></span>' +
+          '<span>Published ' + esc(c.publishedDate) + '</span>' +
+          '<span>Owner: <strong>' + esc(c.owner) + '</strong></span>' +
+          '<span>Audience: <strong>' + esc(c.audienceScope) + '</strong></span>' +
+          '<span>Category: <strong>' + esc(c.category) + '</strong></span>' +
+        '</div>' +
+      '</div>' +
+      banner +
+      '<div class="hgs-canon-section">' +
+        '<div class="hgs-canon-sec-lbl">Attached to this pack</div>' +
+        '<div class="hgs-canon-sec-val">' + esc(ref.attachedDate) + ' by <strong>' + esc(ref.attachedBy) + '</strong></div>' +
+      '</div>' +
+      '<div class="hgs-canon-section">' +
+        '<div class="hgs-canon-sec-lbl">Related facts in this pack</div>' +
+        relatedBlock +
+      '</div>' +
+      '<div class="hgs-canon-section">' +
+        '<div class="hgs-canon-sec-lbl">Document preview</div>' +
+        '<div class="hgs-canon-preview">' + esc(c.previewText) + '</div>' +
+        '<button class="hgs-canon-preview-link" type="button" onclick="hgsCanonViewFull(\'' + esc(c.id) + '\')">View full document in Canon Plane →</button>' +
+      '</div>' +
+      '<div class="hgs-canon-section">' +
+        '<div class="hgs-canon-sec-lbl">Actions</div>' +
+        '<div class="hgs-canon-actions">' +
+          '<button class="hgs-canon-remove-btn" type="button" onclick="hgsRemoveCanonConfirm(\'' + esc(c.id) + '\')">Remove from pack</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  window.hgsCanonViewRelated = function(canonId){
+    // Set the persistent Bridge ID filter, then navigate to All facts
+    window.HGS_BRIDGE_FILTER = canonId;
+    hgsSelectAllFacts();
+  };
+  window.hgsCanonViewFull = function(canonId){
+    if(typeof toast === 'function') toast('Opening ' + canonId + ' in Canon Plane…', 'info');
+    try { console.log('[Brief 16] View in Canon Plane →', canonId); } catch(e){}
+  };
+
+  // ─── Remove Canon with confirmation ────────────────────────────
+  window.hgsRemoveCanonConfirm = function(canonId){
+    var c = canonById(canonId);
+    if(!c) return;
+    if(!confirm('Remove "' + c.name + '" (v' + c.version + ') from this pack?\n\nFacts originating from this Canon (Bridge IDs) will remain in the pack. Bindings will lose access to the Canon content immediately in Live mode or on next refresh in Snapshot mode.')) return;
+    var s = HGS_STATE;
+    s.canons = (s.canons || []).filter(function(r){ return r.id !== canonId; });
+    s.hasUnsavedChanges = true;
+    if(typeof hgsHAddEvent === 'function'){
+      hgsHAddEvent({ type:'canon-detach', description:'removed ' + c.name + ' (v' + c.version + ')', actor:'Sarah Chen' });
+    }
+    // If we were viewing this Canon's detail, go back to All Canons (or All facts if none left)
+    if(HGS_COMPOSITION_VIEW === 'canon-' + canonId){
+      HGS_COMPOSITION_VIEW = s.canons.length ? 'all-canons' : 'all-facts';
+    }
+    renderHgs();
+    if(typeof toast === 'function') toast('"' + c.name + '" removed from pack', 'info');
+  };
+
+  // ─── Canon picker modal ───────────────────────────────────────
+  window.HGS_CP_OPEN = false;
+  window.HGS_CP_SEARCH = '';
+  window.HGS_CP_SELECTED = new Set();
+  window.HGS_CP_FILTER_CAT = null;
+  window.HGS_CP_FILTER_AUDIENCE = null;
+
+  function ensureCanonPickerModal(){
+    var ov = document.getElementById('hgsCpOv');
+    if(ov) return ov;
+    ov = document.createElement('div');
+    ov.id = 'hgsCpOv';
+    ov.className = 'hgs-cp-ov';
+    ov.addEventListener('click', function(e){ if(e.target === ov) hgsCloseCanonPicker(); });
+    document.body.appendChild(ov);
+    return ov;
+  }
+
+  function cpFilteredCanons(){
+    var s = HGS_STATE;
+    var attachedIds = new Set((s.canons || []).map(function(r){ return r.id; }));
+    var q = (window.HGS_CP_SEARCH || '').toLowerCase().trim();
+    var cat = window.HGS_CP_FILTER_CAT;
+    var aud = window.HGS_CP_FILTER_AUDIENCE;
+    var pool = (CANON_DOCUMENTS || []).filter(function(c){
+      if(c.publicationState === 'deprecated' || c.publicationState === 'superseded') return false;
+      return true;
+    });
+    var filtered = pool.filter(function(c){
+      if(q){
+        var nameMatch = c.name.toLowerCase().indexOf(q) >= 0;
+        var descMatch = (c.description || '').toLowerCase().indexOf(q) >= 0;
+        if(!nameMatch && !descMatch) return false;
+      }
+      if(cat && c.category !== cat) return false;
+      if(aud && c.audienceScope !== aud) return false;
+      return true;
+    });
+    return { items: filtered, attachedIds: attachedIds, total: pool.length };
+  }
+
+  function renderCpRow(c, attached){
+    var checked = window.HGS_CP_SELECTED.has(c.id);
+    var disabled = attached;
+    var attrs = disabled ? ' disabled' : '';
+    return '<div class="hgs-cp-row' + (disabled ? ' disabled' : '') + '" onclick="' + (disabled ? '' : "hgsCpToggle('" + esc(c.id) + "')") + '">' +
+      '<input type="checkbox" class="hgs-cp-row-cb" ' + (checked ? 'checked' : '') + attrs + ' onclick="event.stopPropagation();hgsCpToggle(\'' + esc(c.id) + '\')"/>' +
+      '<div class="hgs-cp-row-body">' +
+        '<div class="hgs-cp-row-top">' +
+          '<span class="hgs-cp-row-ico">' + ICO_DOC + '</span>' +
+          '<span class="hgs-cp-row-nm">' + esc(c.name) + '</span>' +
+          (attached ? '<span class="hgs-cp-row-already">already attached</span>' : '') +
+        '</div>' +
+        '<div class="hgs-cp-row-meta">' +
+          '<span>v' + esc(c.version) + '</span><span class="sep">·</span>' +
+          '<span>' + esc(c.owner) + '</span><span class="sep">·</span>' +
+          '<span>' + esc(c.audienceScope) + '</span><span class="sep">·</span>' +
+          '<span>' + esc(c.publishedDate) + '</span><span class="sep">·</span>' +
+          '<span>' + esc(c.category) + '</span>' +
+        '</div>' +
+        '<div class="hgs-cp-row-desc">' + esc(c.description) + '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderCanonPicker(){
+    var s = HGS_STATE;
+    var result = cpFilteredCanons();
+    var cats = Array.from(new Set((CANON_DOCUMENTS || []).map(function(c){ return c.category; }))).sort();
+    var auds = Array.from(new Set((CANON_DOCUMENTS || []).map(function(c){ return c.audienceScope; }))).sort();
+
+    var catChips = cats.map(function(cat){
+      var active = window.HGS_CP_FILTER_CAT === cat;
+      return '<button class="hgs-cp-filter-chip' + (active ? ' active' : '') + '" type="button" onclick="hgsCpSetCategoryFilter(\'' + esc(cat) + '\')">' + esc(cat) + '</button>';
+    }).join('');
+    var audChips = auds.map(function(a){
+      var active = window.HGS_CP_FILTER_AUDIENCE === a;
+      return '<button class="hgs-cp-filter-chip' + (active ? ' active' : '') + '" type="button" onclick="hgsCpSetAudienceFilter(\'' + esc(a) + '\')">' + esc(a) + '</button>';
+    }).join('');
+
+    var resultsHtml;
+    if(!result.items.length){
+      if(result.total === 0){
+        resultsHtml = '<div class="hgs-cp-empty">' +
+          '<div class="ttl">No Canons available</div>' +
+          'Either no Canons exist in your tenant, or none match this pack\'s visibility settings.' +
+        '</div>';
+      } else {
+        resultsHtml = '<div class="hgs-cp-empty">' +
+          '<div class="ttl">No Canons match your filters</div>' +
+          '<button class="hgs-cp-cancel" type="button" onclick="hgsCpClearFilters()" style="margin-top:10px">Clear filters</button>' +
+        '</div>';
+      }
+    } else {
+      resultsHtml = result.items.map(function(c){ return renderCpRow(c, result.attachedIds.has(c.id)); }).join('');
+    }
+
+    var selectedCount = window.HGS_CP_SELECTED.size;
+    var attachedTotal = result.attachedIds.size;
+
+    return '<div class="hgs-cp" role="dialog" aria-label="Attach Canons">' +
+      '<div class="hgs-cp-hd">' +
+        '<div class="hgs-cp-hd-ttl">Attach Canons to ' + esc(s.name) + '</div>' +
+        '<button class="hgs-cp-hd-close" type="button" onclick="hgsCloseCanonPicker()" aria-label="Close">' + ICO_X + '</button>' +
+      '</div>' +
+      '<div class="hgs-cp-search">' +
+        '<div class="hgs-cp-search-box">' +
+          '<span class="hgs-cp-search-box-ico">' + ICO_SEARCH + '</span>' +
+          '<input type="text" id="hgsCpSearchInp" placeholder="Search Canons by name or description…" value="' + esc(window.HGS_CP_SEARCH || '') + '" oninput="hgsCpSetSearch(this.value)"/>' +
+        '</div>' +
+        '<div class="hgs-cp-filters">' +
+          '<span class="hgs-cp-filter-lbl">Category:</span>' +
+          catChips +
+        '</div>' +
+        '<div class="hgs-cp-filters">' +
+          '<span class="hgs-cp-filter-lbl">Audience:</span>' +
+          audChips +
+        '</div>' +
+      '</div>' +
+      '<div class="hgs-cp-results" id="hgsCpResults">' + resultsHtml + '</div>' +
+      '<div class="hgs-cp-foot">' +
+        '<div class="hgs-cp-foot-summary"><strong>' + selectedCount + '</strong> selected · <strong>' + attachedTotal + '</strong> already attached</div>' +
+        '<button class="hgs-cp-cancel" type="button" onclick="hgsCloseCanonPicker()">Cancel</button>' +
+        '<button class="hgs-cp-attach" type="button" onclick="hgsCpAttachSelected()" ' + (selectedCount === 0 ? 'disabled' : '') + '>Attach ' + selectedCount + '</button>' +
+      '</div>' +
+    '</div>';
+  }
+
+  window.hgsOpenCanonPicker = function(){
+    window.HGS_CP_SEARCH = '';
+    window.HGS_CP_SELECTED = new Set();
+    window.HGS_CP_FILTER_CAT = null;
+    window.HGS_CP_FILTER_AUDIENCE = null;
+    var ov = ensureCanonPickerModal();
+    ov.innerHTML = renderCanonPicker();
+    ov.classList.add('open');
+    window.HGS_CP_OPEN = true;
+    setTimeout(function(){
+      var inp = document.getElementById('hgsCpSearchInp');
+      if(inp) inp.focus();
+    }, 0);
+  };
+  window.hgsCloseCanonPicker = function(){
+    var ov = document.getElementById('hgsCpOv');
+    if(ov) ov.classList.remove('open');
+    window.HGS_CP_OPEN = false;
+  };
+  function rerenderPicker(){
+    var ov = document.getElementById('hgsCpOv');
+    if(!ov || !ov.classList.contains('open')) return;
+    ov.innerHTML = renderCanonPicker();
+    var inp = document.getElementById('hgsCpSearchInp');
+    if(inp){ inp.focus(); try { inp.setSelectionRange(inp.value.length, inp.value.length); } catch(e){} }
+  }
+  window.hgsCpSetSearch = function(v){
+    window.HGS_CP_SEARCH = v || '';
+    rerenderPicker();
+  };
+  window.hgsCpSetCategoryFilter = function(cat){
+    window.HGS_CP_FILTER_CAT = (window.HGS_CP_FILTER_CAT === cat) ? null : cat;
+    rerenderPicker();
+  };
+  window.hgsCpSetAudienceFilter = function(a){
+    window.HGS_CP_FILTER_AUDIENCE = (window.HGS_CP_FILTER_AUDIENCE === a) ? null : a;
+    rerenderPicker();
+  };
+  window.hgsCpClearFilters = function(){
+    window.HGS_CP_SEARCH = '';
+    window.HGS_CP_FILTER_CAT = null;
+    window.HGS_CP_FILTER_AUDIENCE = null;
+    rerenderPicker();
+  };
+  window.hgsCpToggle = function(id){
+    if(window.HGS_CP_SELECTED.has(id)) window.HGS_CP_SELECTED.delete(id);
+    else window.HGS_CP_SELECTED.add(id);
+    rerenderPicker();
+  };
+  window.hgsCpAttachSelected = function(){
+    var s = HGS_STATE;
+    if(!s) return;
+    if(window.HGS_CP_SELECTED.size === 0) return;
+    s.canons = s.canons || [];
+    var today = _todayLabelB16();
+    var attached = 0;
+    window.HGS_CP_SELECTED.forEach(function(id){
+      var c = canonById(id);
+      if(!c) return;
+      if((s.canons || []).some(function(r){ return r.id === id; })) return; // already attached
+      s.canons.push({ id: id, attachedDate: today, attachedBy: 'Sarah Chen', referencedVersion: c.version });
+      if(typeof hgsHAddEvent === 'function'){
+        hgsHAddEvent({ type:'canon-attach', description:'attached ' + c.name + ' (v' + c.version + ')', actor:'Sarah Chen' });
+      }
+      attached++;
+    });
+    s.hasUnsavedChanges = true;
+    hgsCloseCanonPicker();
+    // After attach, if we were on All facts and this is the first canon, navigate to All Canons
+    if(HGS_COMPOSITION_VIEW === 'all-facts' && s.canons.length === attached){
+      HGS_COMPOSITION_VIEW = 'all-canons';
+    }
+    renderHgs();
+    if(typeof toast === 'function') toast(attached + ' Canon' + (attached === 1 ? '' : 's') + ' attached', 'success');
+  };
+
+  function _todayLabelB16(){
+    var d = new Date();
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  // ─── Publish eligibility: allow pack with ≥1 Canon (no facts) ──
+  if(typeof window.renderHgsHeader === 'function' || typeof renderHgsHeader === 'function'){
+    var _origHeaderB16 = (typeof window.renderHgsHeader === 'function') ? window.renderHgsHeader : renderHgsHeader;
+    window.renderHgsHeader = function(){
+      _origHeaderB16();
+      var s = HGS_STATE;
+      if(!s) return;
+      var isDraft = s.publicationState === 'draft';
+      if(!isDraft) return;
+      // Brief 16 publish eligibility: ≥1 substack OR ≥1 attached Canon
+      var hasSubstacks = !!(s.substacks && s.substacks.length > 0);
+      var hasCanons = !!(s.canons && s.canons.length > 0);
+      var canPublish = hasSubstacks || hasCanons;
+      var publishBtn = document.querySelector('#hgsHeader .hgs-publish-btn');
+      if(!publishBtn) return;
+      if(canPublish){
+        publishBtn.disabled = false;
+        publishBtn.title = '';
+        publishBtn.setAttribute('onclick', 'hgsOpenPublishDlg()');
+      } else {
+        publishBtn.disabled = true;
+        publishBtn.title = 'Add at least one substack with facts or attach at least one Canon before publishing.';
+        publishBtn.removeAttribute('onclick');
+      }
+
+      // Drift indicator: Snapshot mode + any attached Canon is deprecated upstream
+      var inSnapshot = s.behavior && s.behavior.keepCurrent === false;
+      if(inSnapshot && hasCanons){
+        var deprecatedCount = (s.canons || []).reduce(function(n, ref){
+          var c = canonById(ref.id);
+          return c && c.publicationState === 'deprecated' ? n + 1 : n;
+        }, 0);
+        if(deprecatedCount > 0){
+          var nameEl = document.querySelector('#hgsHeader .hgs-stack-name');
+          if(nameEl && !document.querySelector('#hgsHeader .hgs-canon-drift-icon')){
+            var driftSpan = document.createElement('span');
+            driftSpan.className = 'hgs-canon-drift-icon';
+            driftSpan.title = deprecatedCount + ' attached Canon' + (deprecatedCount === 1 ? '' : 's') + ' deprecated upstream';
+            driftSpan.innerHTML = ICO_ALERT;
+            nameEl.parentNode.insertBefore(driftSpan, nameEl.nextSibling);
+          }
+        }
+      }
+    };
+    try { renderHgsHeader = window.renderHgsHeader; } catch(e){}
+  }
+
+  // ─── Dependents tab: copy update including Canon count ────────
+  if(typeof window.renderHgsDependents === 'function' || typeof renderHgsDependents === 'function'){
+    var _origDeps = (typeof window.renderHgsDependents === 'function') ? window.renderHgsDependents : renderHgsDependents;
+    window.renderHgsDependents = function(){
+      var html = _origDeps.apply(this, arguments);
+      var s = HGS_STATE;
+      if(!s) return html;
+      var x = s.factCount || 0;
+      var y = (s.canons || []).length;
+      // Patch summary line: insert " (containing X facts and Y Canons)" after the pack name
+      html = html.replace(
+        /(reference\s+(?:&quot;|")?[^"]*?(?:&quot;|")?)(\s+across the tenant)/,
+        function(m, ref, after){
+          if(/containing/.test(ref)) return m;
+          return ref + ' (containing ' + x + ' fact' + (x === 1 ? '' : 's') + ' and ' + y + ' Canon' + (y === 1 ? '' : 's') + ')' + after;
+        }
+      );
+      return html;
+    };
+    try { renderHgsDependents = window.renderHgsDependents; } catch(e){}
+  }
+
+  // ─── Canon event icons: register SVG + CSS class colors ────────
+  if(typeof HGS_H_ICONS !== 'undefined'){
+    HGS_H_ICONS['canon-attach']            = '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h5L11 4v8.5H3V1.5z"/><path d="M8 1.5V4h3M5 6.5h4M5 8.5h4M5 10.5h2.5"/></svg>';
+    HGS_H_ICONS['canon-detach']            = '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h5L11 4v8.5H3V1.5z"/><path d="M8 1.5V4h3"/><path d="M5 7l4 4M9 7l-4 4"/></svg>';
+    HGS_H_ICONS['canon-version-update']    = '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h5L11 4v8.5H3V1.5z"/><path d="M8 1.5V4h3"/><path d="M7 10V7M5 8l2-2 2 2"/></svg>';
+    HGS_H_ICONS['canon-version-reject']    = '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h5L11 4v8.5H3V1.5z"/><path d="M8 1.5V4h3"/><path d="M5.5 7.5l3 3M8.5 7.5l-3 3"/></svg>';
+    HGS_H_ICONS['canon-deprecated-upstream'] = '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h5L11 4v8.5H3V1.5z"/><path d="M8 1.5V4h3"/><path d="M7 7v2.2M7 10.4v.05"/></svg>';
+  }
+  // CSS class colors for the circular badge background
+  var b16IconStyles = document.createElement('style');
+  b16IconStyles.id = 'hgs-canon-event-icons';
+  b16IconStyles.textContent =
+    '.hgs-h-row-icon.canon-attach{background:rgba(96,165,250,0.16);color:var(--pri)}' +
+    '.hgs-h-row-icon.canon-detach{background:rgba(220,38,38,0.16);color:var(--err)}' +
+    '.hgs-h-row-icon.canon-version-update{background:rgba(5,223,114,0.16);color:var(--ok)}' +
+    '.hgs-h-row-icon.canon-version-reject{background:rgba(212,143,2,0.16);color:var(--warn)}' +
+    '.hgs-h-row-icon.canon-deprecated-upstream{background:rgba(212,143,2,0.16);color:var(--warn)}';
+  if(!document.getElementById('hgs-canon-event-icons')) document.head.appendChild(b16IconStyles);
+})();
+
+/* === Brief 16 delta: surface Canon counts wherever fact counts appear === */
+(function _brief16MetaCounts(){
+  if(window.__HGS_BRIEF16_META_APPLIED) return;
+  window.__HGS_BRIEF16_META_APPLIED = true;
+
+  // Hardcode per-pack Canon counts on tenantStacks for the list view (active
+  // pack derives its count from HGS_STATE.canons; published packs in the list
+  // need a stored value since the loader hasn't run for them yet).
+  if(typeof tenantStacks !== 'undefined' && Array.isArray(tenantStacks)){
+    var SEED_COUNTS = { 'pricing-policy': 4 };
+    tenantStacks.forEach(function(t){
+      if(t.canonCount == null) t.canonCount = SEED_COUNTS[t.id] || 0;
+    });
+  }
+
+  function syncCanonCountToTenant(){
+    if(typeof HGS_STATE === 'undefined' || !HGS_STATE) return;
+    if(typeof tenantStacks === 'undefined') return;
+    var entry = tenantStacks.find(function(t){ return t.id === HGS_STATE.id; });
+    if(entry) entry.canonCount = (HGS_STATE.canons || []).length;
+  }
+
+  // ─── Patch renderHgsHeader: insert "N Canons" into the meta line ──
+  if(typeof window.renderHgsHeader === 'function' || typeof renderHgsHeader === 'function'){
+    var _origHeader = (typeof window.renderHgsHeader === 'function') ? window.renderHgsHeader : renderHgsHeader;
+    window.renderHgsHeader = function(){
+      _origHeader();
+      var s = HGS_STATE;
+      if(!s) return;
+      var canonCount = (s.canons || []).length;
+      var metaEl = document.querySelector('#hgsHeader .hgs-meta');
+      if(!metaEl) return;
+      // Reconstruct: owner · N facts · M Canons (when ≥1) · K dependents
+      var parts = [];
+      if(s.owner && s.owner.name) parts.push(s.owner.name);
+      if(s.factCount != null) parts.push(s.factCount + ' fact' + (s.factCount === 1 ? '' : 's'));
+      if(canonCount > 0) parts.push(canonCount + ' Canon' + (canonCount === 1 ? '' : 's'));
+      if(s.dependentCount != null) parts.push(s.dependentCount + ' dependent' + (s.dependentCount === 1 ? '' : 's'));
+      metaEl.textContent = parts.join(' · ');
+      // Keep tenantStacks in sync so the list view reflects the active pack
+      syncCanonCountToTenant();
+    };
+    try { renderHgsHeader = window.renderHgsHeader; } catch(e){}
+  }
+
+  // ─── Patch the list card render: inject "N canons" into the card footer ──
+  if(typeof window.renderHgsStacksList === 'function' || typeof renderHgsStacksList === 'function'){
+    var _origRenderList = (typeof window.renderHgsStacksList === 'function') ? window.renderHgsStacksList : renderHgsStacksList;
+    window.renderHgsStacksList = function(){
+      var r = _origRenderList.apply(this, arguments);
+      try {
+        document.querySelectorAll('#vHgsList .hgs-l-card').forEach(function(card){
+          if(card.querySelector('.hgs-l-card-canons')) return;
+          var sid = (card.getAttribute('onclick') || '').match(/hgsOpenStackEdit\('([^']+)'\)/);
+          if(!sid) return;
+          var entry = tenantStacks.find(function(t){ return t.id === sid[1]; });
+          if(!entry || !entry.canonCount) return;
+          var ftR = card.querySelector('.hgs-l-card-ft-r');
+          if(!ftR) return;
+          var factsSpan = ftR.querySelector('span');
+          var canonSpan = document.createElement('span');
+          canonSpan.className = 'hgs-l-card-canons';
+          canonSpan.textContent = entry.canonCount + ' canon' + (entry.canonCount === 1 ? '' : 's');
+          if(factsSpan && factsSpan.nextSibling){
+            ftR.insertBefore(canonSpan, factsSpan.nextSibling);
+          } else {
+            ftR.appendChild(canonSpan);
+          }
+        });
+      } catch(e){}
+      return r;
+    };
+    try { renderHgsStacksList = window.renderHgsStacksList; } catch(e){}
+  }
+
+  // ─── Keep tenantStacks canonCount in sync when canons are attached/detached
+  // The Brief 16 attach/detach handlers don't currently update tenantStacks.
+  // Wrap the existing publishers so saves and publishes carry the count back.
+  ['hgsCpAttachSelected','hgsRemoveCanonConfirm','hgsConfirmPublish','hgsSave'].forEach(function(fnName){
+    if(typeof window[fnName] !== 'function') return;
+    var _orig = window[fnName];
+    window[fnName] = function(){
+      var r = _orig.apply(this, arguments);
+      syncCanonCountToTenant();
+      return r;
+    };
+  });
+
+  // ─── Bridge ID filter: persistent dismissible chip on All facts view ──
+  window.HGS_BRIDGE_FILTER = window.HGS_BRIDGE_FILTER || null;
+
+  // Deterministic bridgeId per fact (prototype synthesis):
+  //   facts in known substacks map to specific canons; otherwise hash-cycle
+  //   through the pack's attached canons. Stable across renders.
+  window._hgsFactBridgeId = function(fact){
+    if(!fact) return null;
+    if(fact.source && fact.source.bridgeId) return fact.source.bridgeId;
+    var canons = (HGS_STATE && HGS_STATE.canons) || [];
+    if(!canons.length) return null;
+    var substackMap = {
+      'Pricing policy facts': 'canon-001',
+      'Discount approval facts': 'canon-005'
+    };
+    var attachedIds = canons.map(function(r){ return r.id; });
+    var pref = substackMap[fact.substack];
+    if(pref && attachedIds.indexOf(pref) >= 0) return pref;
+    // Hash fact.id → choose a canon
+    var s = fact.id || '';
+    var h = 0;
+    for(var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+    return attachedIds[h % attachedIds.length];
+  };
+
+  window.hgsClearBridgeFilter = function(){
+    window.HGS_BRIDGE_FILTER = null;
+    if(typeof renderHgs === 'function') renderHgs();
+  };
+
+  // Clear bridge filter when navigating to a substack or other view explicitly
+  ['hgsSelectSubstack','hgsSelectAllCanons','hgsSelectCanon','hgsOpenAddFacts','hgsOpenPendingReview','hgsOpenExcluded'].forEach(function(fnName){
+    if(typeof window[fnName] !== 'function') return;
+    var _orig = window[fnName];
+    window[fnName] = function(){
+      window.HGS_BRIDGE_FILTER = null;
+      return _orig.apply(this, arguments);
+    };
+  });
+
+  // Wrap renderHgsFactTableMain so we can post-process the rendered All facts
+  // view: inject the Bridge filter chip above the table, and drop fact rows
+  // whose bridgeId does not match the filter.
+  if(typeof window.renderHgsFactTableMain === 'function' || typeof renderHgsFactTableMain === 'function'){
+    var _origFactTable = (typeof window.renderHgsFactTableMain === 'function') ? window.renderHgsFactTableMain : renderHgsFactTableMain;
+    window.renderHgsFactTableMain = function(substackId){
+      var html = _origFactTable.apply(this, arguments);
+      // Only apply to the unfiltered "All facts" view (no substack scope) when
+      // a Bridge filter is active.
+      if(substackId || !window.HGS_BRIDGE_FILTER) return html;
+      var canon = (CANON_DOCUMENTS || []).find(function(c){ return c.id === window.HGS_BRIDGE_FILTER; });
+      if(!canon) return html;
+      var facts = (HGS_STATE.facts || []);
+      var filtered = facts.filter(function(f){ return window._hgsFactBridgeId(f) === window.HGS_BRIDGE_FILTER; });
+      var keptIds = new Set(filtered.map(function(f){ return f.id; }));
+      var totalCount = facts.length;
+      var filteredCount = filtered.length;
+      // Inject the Bridge filter chip before the table
+      var chip =
+        '<div class="hgs-bridge-filter-row">' +
+          '<span class="hgs-bridge-chip-lbl">Filtered by</span>' +
+          '<span class="hgs-bridge-chip">' +
+            '<span>Bridge: <span class="hgs-bridge-chip-name">' + hgsEsc(canon.name) + '</span></span>' +
+            '<button class="hgs-bridge-chip-x" type="button" onclick="hgsClearBridgeFilter()" aria-label="Clear bridge filter">' +
+              '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg>' +
+            '</button>' +
+          '</span>' +
+          '<span style="font-size:11px;color:var(--t3);margin-left:6px">Showing ' + filteredCount + ' of ' + totalCount + '</span>' +
+        '</div>';
+      // Inject chip right after the "Filter facts…" search row (or at the top
+      // of the table area if not present). Anchor on the hgs-main-hd close.
+      html = html.replace(/(<div class="hgs-main-hd">[\s\S]*?<\/div>\s*)/, '$1' + chip);
+      // Drop fact table rows whose data-row-id (or text contents) don't match.
+      // The existing table renders <tr class="hgs-table-row"> per fact in
+      // order from HGS_STATE.facts. We'll filter by matching each row to its
+      // fact via index lookup.
+      var factIdx = 0;
+      html = html.replace(/<tr class="hgs-table-row">[\s\S]*?<\/tr>/g, function(rowMatch){
+        var f = facts[factIdx++];
+        if(!f) return rowMatch;
+        return keptIds.has(f.id) ? rowMatch : '';
+      });
+      if(filteredCount === 0){
+        html = html.replace(/<tbody[^>]*>[\s\S]*?<\/tbody>/, function(m){
+          var openTag = m.match(/<tbody[^>]*>/)[0];
+          return openTag + '<tr><td class="hgs-empty-cell" colspan="4">No facts in this pack are linked to ' + hgsEsc(canon.name) + '.</td></tr></tbody>';
+        });
+      }
+      // Footer count: "Showing N of M (filtered by Bridge)"
+      html = html.replace(/<div class="hgs-table-foot">\s*Showing[^·]*·/, '<div class="hgs-table-foot">Showing ' + filteredCount + ' of ' + totalCount + ' (filtered by Bridge) ·');
+      return html;
+    };
+    try { renderHgsFactTableMain = window.renderHgsFactTableMain; } catch(e){}
+  }
 })();
 
 </script>
