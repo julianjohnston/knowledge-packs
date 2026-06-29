@@ -3775,6 +3775,33 @@ html.theme-light .search-footer-link{color:#7C3AED}
 .b20-history-hd-ttl { font-size:14.5px; font-weight:600; color:var(--t1); }
 .b20-history-hd-sub { font-size:11.5px; color:var(--t3); margin-top:3px; margin-bottom:14px; }
 
+/* Brief 18 — visibility control (HGS Settings + list + Dependents) */
+.b18-cd-callout { background:rgba(96,165,250,0.06); border:0.5px solid rgba(96,165,250,0.25); border-radius:var(--r6); padding:10px 12px; display:flex; gap:8px; align-items:flex-start; margin-bottom:14px; }
+.b18-cd-callout-ico { color:var(--pri); flex-shrink:0; display:inline-flex; margin-top:1px; }
+.b18-cd-callout-msg { font-size:11.5px; color:var(--t1); line-height:1.55; }
+.b18-cd-callout-msg strong { color:var(--pri); font-weight:600; }
+.b18-vis-radio-grp { display:flex; flex-direction:column; gap:8px; margin-top:6px; }
+.b18-vis-radio-opt { display:flex; gap:10px; padding:10px 12px; border:0.5px solid var(--bd); border-radius:var(--r6); cursor:pointer; align-items:flex-start; }
+.b18-vis-radio-opt:hover { background:rgba(255,255,255,0.03); }
+.b18-vis-radio-opt.selected { border-color:var(--pri-bd); background:var(--pri-bg); }
+.b18-vis-radio-opt input[type="radio"] { margin-top:2px; accent-color:var(--pri); }
+.b18-vis-radio-body { flex:1; min-width:0; }
+.b18-vis-radio-ttl { font-size:12.5px; font-weight:600; color:var(--t1); margin-bottom:2px; }
+.b18-vis-radio-sub { font-size:11.5px; color:var(--t3); line-height:1.5; }
+.b18-vis-roles { margin-top:10px; padding:12px 14px; background:rgba(255,255,255,0.02); border:0.5px dashed var(--bd); border-radius:var(--r6); display:flex; flex-direction:column; gap:8px; }
+.b18-vis-roles-lbl { font-size:10.5px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:2px; }
+.b18-vis-role-opt { display:flex; gap:8px; align-items:flex-start; cursor:pointer; }
+.b18-vis-role-opt input[type="checkbox"] { margin-top:2px; accent-color:var(--pri); flex-shrink:0; }
+.b18-vis-role-body { flex:1; min-width:0; }
+.b18-vis-role-ttl { font-size:12px; font-weight:500; color:var(--t1); margin-bottom:2px; }
+.b18-vis-role-sub { font-size:11px; color:var(--t3); line-height:1.45; }
+.b18-vis-warn { margin-top:8px; padding:8px 12px; background:rgba(212,143,2,0.10); border:0.5px solid rgba(212,143,2,0.30); color:var(--warn); border-radius:var(--r6); font-size:11.5px; line-height:1.45; display:flex; gap:8px; align-items:flex-start; }
+/* List visibility indicator on card */
+.hgs-l-card-vis { display:inline-flex; align-items:center; gap:4px; font-size:10px; color:var(--t3); margin-top:4px; }
+.hgs-l-card-vis.tenant { color:var(--t3); }
+.hgs-l-card-vis.restricted { color:var(--warn); }
+.hgs-l-card-vis svg { flex-shrink:0; }
+
 /* Knowledge Pack picker (modal-within-modal, z above v2 modal) */
 .b20-pp-ov { position:fixed; inset:0; background:rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:1200; opacity:0; pointer-events:none; transition:opacity 0.15s; }
 .b20-pp-ov.open { opacity:1; pointer-events:auto; }
@@ -23780,6 +23807,7 @@ function hgsSmConfirmRemove(){
     if(typeof window._b20Render === 'function') window._b20Render();
   };
 
+  // (B18 visibility helpers below this point are not v2-modal-scoped)
   // ─── Outermost render wrap: empty-state landing, history tab,
   // rail section-header cleanup, ribbon visibility ─────────────────
   var _deltaOrigRender = window._b20Render;
@@ -23831,6 +23859,358 @@ function hgsSmConfirmRemove(){
       }
     }
   };
+})();
+
+// ─── Brief 18 Pass 1: visibility data layer + HGS surfaces ───────────
+// Adds pack visibility metadata, current-user role mock, visibility-aware
+// filtering in HGS list, Visibility section in HGS Settings, and the
+// Dependents tab "Restricted" owner display when a binding owner lacks
+// current visibility into the pack.
+(function(){
+  if(typeof window === 'undefined') return;
+  if(typeof tenantStacks === 'undefined') return;
+
+  function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  // ─── Current user mock (hardcoded Workflow Author per user direction)
+  window.CURRENT_USER_ROLE = window.CURRENT_USER_ROLE || 'workflow-author';
+  // 'governance-admin' | 'admin' | 'super-admin' always see all; for
+  // Brief 18 demo we stay in 'workflow-author' shoes.
+
+  function isGovernanceRole(role){
+    return role === 'governance-admin' || role === 'admin' || role === 'super-admin';
+  }
+
+  // Pack visibility: { scope: 'tenant' | 'restricted', roles: [] }
+  // Default is 'tenant' for packs without explicit visibility data.
+  function getVisibility(pack){
+    if(pack && pack.visibility && pack.visibility.scope) return pack.visibility;
+    return { scope:'tenant', roles:[] };
+  }
+  window.b18Visibility = getVisibility;
+
+  function canSeePack(pack, role){
+    if(isGovernanceRole(role)) return true;
+    var v = getVisibility(pack);
+    if(v.scope === 'tenant') return true;
+    if(v.scope === 'restricted') return (v.roles || []).indexOf(role) >= 0;
+    return true;
+  }
+  window.b18CanSeePack = canSeePack;
+
+  // ─── Seed Brief 18 mock data on tenantStacks ──────────────────────
+  // Pricing Policy → tenant-wide (default; nothing to seed)
+  // Add two new packs + flag a couple of existing ones
+  function seedVisibilityMock(){
+    if(window.__B18_SEEDED) return;
+    window.__B18_SEEDED = true;
+
+    // Annotate Pricing Policy explicitly
+    var pp = tenantStacks.find(function(s){ return s.id === 'pricing-policy'; });
+    if(pp) pp.visibility = { scope:'tenant', roles:[] };
+
+    // Add 2 new packs to demonstrate restricted scopes
+    if(!tenantStacks.find(function(s){ return s.id === 'compliance-standards'; })){
+      tenantStacks.push({
+        id:'compliance-standards',
+        name:'Compliance Standards',
+        description:'SOC 2, GDPR, and CCPA control statements with attached compliance Canons. Visible to Workflow Authors and Viewers.',
+        owner:'Marcus Reyes',
+        categories:['Compliance','Legal'],
+        factCount:34,
+        dependentCount:6,
+        lastUpdated:'Jun 12',
+        workflowControl:'customizable',
+        iconBg:'#FCEBEB',
+        iconColor:'#791F1F',
+        publicationState:'published',
+        visibility:{ scope:'restricted', roles:['workflow-author','viewer'] }
+      });
+    }
+    if(!tenantStacks.find(function(s){ return s.id === 'internal-engineering-notes'; })){
+      tenantStacks.push({
+        id:'internal-engineering-notes',
+        name:'Internal Engineering Notes',
+        description:'Internal-only operational runbooks and incident postmortems. Visible to governance roles only.',
+        owner:'Jamie Liu',
+        categories:['Engineering','Operations'],
+        factCount:21,
+        dependentCount:2,
+        lastUpdated:'Jun 19',
+        workflowControl:'customizable',
+        iconBg:'#E1F5EE',
+        iconColor:'#085041',
+        publicationState:'published',
+        visibility:{ scope:'restricted', roles:[] }  // governance-only
+      });
+    }
+
+    // Mark a hypothetical "Lead Qualification Signals" if it exists (created
+    // via Save-and-publish flow) as restricted to Workflow Authors
+    var lqs = tenantStacks.find(function(s){ return /lead qualification signals/i.test(s.name); });
+    if(lqs && !lqs.visibility) lqs.visibility = { scope:'restricted', roles:['workflow-author'] };
+
+    // Default any unflagged packs to tenant-wide
+    tenantStacks.forEach(function(s){
+      if(!s.visibility) s.visibility = { scope:'tenant', roles:[] };
+    });
+  }
+  seedVisibilityMock();
+
+  // Helper used by HGS list + indicators
+  function visibilityLabel(v){
+    if(!v || v.scope === 'tenant') return 'All tenant users';
+    if(v.scope === 'restricted'){
+      var names = (v.roles || []).map(function(r){
+        if(r === 'workflow-author') return 'Workflow Authors';
+        if(r === 'viewer') return 'Viewers';
+        return r;
+      });
+      if(!names.length) return 'Governance only';
+      return 'Restricted to ' + names.join(' + ');
+    }
+    return 'All tenant users';
+  }
+  window.b18VisibilityLabel = visibilityLabel;
+
+  // Icons
+  var ICO_GLOBE = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="7" cy="7" r="5"/><path d="M2 7h10M7 2c1.7 1.7 1.7 8.3 0 10M7 2c-1.7 1.7-1.7 8.3 0 10"/></svg>';
+  var ICO_LOCK  = '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><rect x="2" y="5.5" width="8" height="5" rx="1"/><path d="M4 5.5V3.5a2 2 0 014 0v2"/></svg>';
+  var ICO_INFO  = '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="7" cy="7" r="5"/><path d="M7 9.5v-3M7 4.8v.01"/></svg>';
+
+  // ─── Surface 1: HGS Settings — inject Visibility section ──────────
+  if(typeof window.renderHgsSettings === 'function'){
+    var _origRenderSettings = window.renderHgsSettings;
+    window.renderHgsSettings = function(){
+      _origRenderSettings.apply(this, arguments);
+      var host = document.getElementById('hgsPanelSettings');
+      if(!host) return;
+      var settingsWrap = host.querySelector('.hgs-settings');
+      if(!settingsWrap) return;
+      // Inject the Visibility card between Identity (1st) and Behavior (2nd)
+      // The cards: Identity, Behavior, Danger. Insert before Behavior.
+      var cards = settingsWrap.querySelectorAll(':scope > .hgs-card');
+      if(cards.length < 2) return;
+      // Find current pack visibility from HGS_STATE
+      var s = (typeof HGS_STATE !== 'undefined') ? HGS_STATE : null;
+      if(!s) return;
+      var v = s.visibility || { scope:'tenant', roles:[] };
+      s.visibility = v; // ensure stored
+
+      var roleChecks = (function(){
+        var roles = v.roles || [];
+        var wa = roles.indexOf('workflow-author') >= 0;
+        var vw = roles.indexOf('viewer') >= 0;
+        return '<div class="b18-vis-roles">' +
+          '<div class="b18-vis-roles-lbl">SELECT ROLES</div>' +
+          '<label class="b18-vis-role-opt">' +
+            '<input type="checkbox" ' + (wa ? 'checked' : '') + ' onchange="b18ToggleRole(\'workflow-author\', this.checked)"/>' +
+            '<div class="b18-vis-role-body">' +
+              '<div class="b18-vis-role-ttl">Workflow Authors</div>' +
+              '<div class="b18-vis-role-sub">Can see this pack in the Agentic Studio configurator catalog and attach it to bindings.</div>' +
+            '</div>' +
+          '</label>' +
+          '<label class="b18-vis-role-opt">' +
+            '<input type="checkbox" ' + (vw ? 'checked' : '') + ' onchange="b18ToggleRole(\'viewer\', this.checked)"/>' +
+            '<div class="b18-vis-role-body">' +
+              '<div class="b18-vis-role-ttl">Viewers</div>' +
+              '<div class="b18-vis-role-sub">Can see this pack in HGS read-only views.</div>' +
+            '</div>' +
+          '</label>' +
+        '</div>';
+      })();
+
+      var warning = (v.scope === 'restricted' && (!v.roles || !v.roles.length)) ? (
+        '<div class="b18-vis-warn">' + ICO_INFO + '<div><strong>Governance-only visibility.</strong> No Workflow Authors or Viewers will see this pack. Only Governance Admins, Admins, and Super Admins will have access.</div></div>'
+      ) : '';
+
+      var card = document.createElement('div');
+      card.className = 'hgs-card';
+      card.innerHTML =
+        '<div class="hgs-card-ttl">Visibility</div>' +
+        '<div class="hgs-card-hint">Who can see this Knowledge Pack across the tenant</div>' +
+        '<div class="hgs-card-body">' +
+          '<div class="b18-cd-callout">' +
+            '<span class="b18-cd-callout-ico">' + ICO_INFO + '</span>' +
+            '<div class="b18-cd-callout-msg"><strong>Basic role scoping today.</strong> Richer audience scoping coming via Composable Dashboards.</div>' +
+          '</div>' +
+          '<div class="b18-vis-radio-grp">' +
+            '<label class="b18-vis-radio-opt' + (v.scope === 'tenant' ? ' selected' : '') + '">' +
+              '<input type="radio" name="b18-vis-scope" value="tenant" ' + (v.scope === 'tenant' ? 'checked' : '') + ' onchange="b18SetScope(\'tenant\')"/>' +
+              '<div class="b18-vis-radio-body">' +
+                '<div class="b18-vis-radio-ttl">All tenant users</div>' +
+                '<div class="b18-vis-radio-sub">Anyone with HGS read access or configurator access can see this Knowledge Pack.</div>' +
+              '</div>' +
+            '</label>' +
+            '<label class="b18-vis-radio-opt' + (v.scope === 'restricted' ? ' selected' : '') + '">' +
+              '<input type="radio" name="b18-vis-scope" value="restricted" ' + (v.scope === 'restricted' ? 'checked' : '') + ' onchange="b18SetScope(\'restricted\')"/>' +
+              '<div class="b18-vis-radio-body">' +
+                '<div class="b18-vis-radio-ttl">Specific roles only</div>' +
+                '<div class="b18-vis-radio-sub">Restrict visibility to selected roles. Governance Admins and Admins always see this pack regardless.</div>' +
+              '</div>' +
+            '</label>' +
+          '</div>' +
+          (v.scope === 'restricted' ? roleChecks : '') +
+          warning +
+        '</div>';
+      settingsWrap.insertBefore(card, cards[1]);
+    };
+    // re-render if settings panel is currently open
+    try { if((typeof HGS_ACTIVE_TAB !== 'undefined') && HGS_ACTIVE_TAB === 'settings') window.renderHgsSettings(); } catch(e){}
+  }
+
+  window.b18SetScope = function(scope){
+    if(typeof HGS_STATE === 'undefined') return;
+    HGS_STATE.visibility = HGS_STATE.visibility || { scope:'tenant', roles:[] };
+    var prev = HGS_STATE.visibility.scope;
+    HGS_STATE.visibility.scope = (scope === 'restricted') ? 'restricted' : 'tenant';
+    if(typeof hgsMarkDirty === 'function') hgsMarkDirty();
+    // History event hook (Brief 18: history event on visibility change)
+    if(typeof hgsHAddEvent === 'function' && prev !== HGS_STATE.visibility.scope){
+      hgsHAddEvent('settings-change', { description:'changed Visibility · scope from "' + (prev === 'restricted' ? 'Specific roles only' : 'All tenant users') + '" to "' + (HGS_STATE.visibility.scope === 'restricted' ? 'Specific roles only' : 'All tenant users') + '"' });
+    }
+    // Persist back onto tenantStacks for the active pack
+    syncVisibilityToTenant();
+    if(typeof window.renderHgsSettings === 'function') window.renderHgsSettings();
+  };
+  window.b18ToggleRole = function(role, checked){
+    if(typeof HGS_STATE === 'undefined') return;
+    HGS_STATE.visibility = HGS_STATE.visibility || { scope:'restricted', roles:[] };
+    HGS_STATE.visibility.roles = HGS_STATE.visibility.roles || [];
+    var roles = HGS_STATE.visibility.roles;
+    var i = roles.indexOf(role);
+    if(checked && i < 0) roles.push(role);
+    if(!checked && i >= 0) roles.splice(i, 1);
+    if(typeof hgsMarkDirty === 'function') hgsMarkDirty();
+    if(typeof hgsHAddEvent === 'function'){
+      hgsHAddEvent('settings-change', { description:'changed Visibility · roles set to ' + (roles.length ? roles.join(', ') : 'governance only') });
+    }
+    syncVisibilityToTenant();
+    if(typeof window.renderHgsSettings === 'function') window.renderHgsSettings();
+  };
+  function syncVisibilityToTenant(){
+    if(typeof HGS_STATE === 'undefined') return;
+    // HGS_STATE.id may be e.g. 'pricing-policy' or similar; find matching tenant pack
+    var packId = HGS_STATE.id;
+    if(!packId) return;
+    var t = tenantStacks.find(function(s){ return s.id === packId; });
+    if(t) t.visibility = JSON.parse(JSON.stringify(HGS_STATE.visibility));
+  }
+
+  // ─── Surface 2: HGS list — visibility filter + indicators + filtering
+  window.HGS_LIST_VISIBILITY = window.HGS_LIST_VISIBILITY || 'all'; // 'all' | 'tenant' | 'restricted'
+
+  // Wrap _hgsListFiltered to apply visibility-aware data-layer filter
+  if(typeof window._hgsListFiltered === 'function' || typeof _hgsListFiltered === 'function'){
+    var _origListFiltered = (typeof window._hgsListFiltered === 'function') ? window._hgsListFiltered : _hgsListFiltered;
+    window._hgsListFiltered = function(){
+      var base = _origListFiltered.apply(this, arguments);
+      var role = window.CURRENT_USER_ROLE;
+      // Data-layer: drop packs the role can't see
+      var visible = base.filter(function(s){ return canSeePack(s, role); });
+      // Chip filter
+      var chip = window.HGS_LIST_VISIBILITY;
+      if(chip === 'tenant')     visible = visible.filter(function(s){ return getVisibility(s).scope === 'tenant'; });
+      else if(chip === 'restricted') visible = visible.filter(function(s){ return getVisibility(s).scope === 'restricted'; });
+      return visible;
+    };
+    try { _hgsListFiltered = window._hgsListFiltered; } catch(e){}
+  }
+
+  // Inject VISIBILITY filter chip group + indicator on cards via render wrap
+  if(typeof window.renderHgsStacksList === 'function' || typeof renderHgsStacksList === 'function'){
+    var _origRenderList = (typeof window.renderHgsStacksList === 'function') ? window.renderHgsStacksList : renderHgsStacksList;
+    window.renderHgsStacksList = function(){
+      _origRenderList.apply(this, arguments);
+      var host = document.getElementById('vHgsList');
+      if(!host) return;
+      // Insert Visibility filter chip group between Owner and Lock
+      var filtersRow = host.querySelector('.hgs-l-filters');
+      if(filtersRow && !filtersRow.querySelector('[data-b18-visgroup]')){
+        var lockGroup = Array.from(filtersRow.querySelectorAll('.hgs-l-fgroup')).find(function(g){
+          var lbl = g.querySelector('.hgs-l-flbl');
+          return lbl && /lock/i.test(lbl.textContent);
+        });
+        var visGroup = document.createElement('div');
+        visGroup.className = 'hgs-l-fgroup';
+        visGroup.setAttribute('data-b18-visgroup', '1');
+        var current = window.HGS_LIST_VISIBILITY;
+        function chip(id, label){
+          var active = current === id;
+          return '<button class="hgs-l-fchip' + (active ? ' active' : '') + '" type="button" onclick="b18ListSetVis(\'' + esc(id) + '\')">' + esc(label) + (active && id !== 'all' ? '<span class="x"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 3l6 6M9 3l-6 6"/></svg></span>' : '') + '</button>';
+        }
+        visGroup.innerHTML =
+          '<span class="hgs-l-flbl">Visibility</span>' +
+          chip('all',         'All') +
+          chip('tenant',      'Tenant-wide') +
+          chip('restricted',  'Restricted');
+        // Insert before the lock group's separator (i.e. before the separator
+        // that precedes lock). Simpler: insert before lock group itself.
+        if(lockGroup){
+          var sep = document.createElement('span');
+          sep.className = 'hgs-l-fsep';
+          filtersRow.insertBefore(visGroup, lockGroup.previousSibling && lockGroup.previousSibling.classList && lockGroup.previousSibling.classList.contains('hgs-l-fsep') ? lockGroup.previousSibling : lockGroup);
+          filtersRow.insertBefore(sep, lockGroup);
+        } else {
+          filtersRow.appendChild(visGroup);
+        }
+      }
+      // Inject visibility indicator into each card footer
+      var cards = host.querySelectorAll('.hgs-l-card');
+      cards.forEach(function(card){
+        if(card.querySelector('.hgs-l-card-vis')) return;
+        var onclickStr = card.getAttribute('onclick') || '';
+        var m = onclickStr.match(/hgsOpenStackEdit\('([^']+)'\)/);
+        if(!m) return;
+        var sid = m[1];
+        var pack = tenantStacks.find(function(s){ return s.id === sid; });
+        if(!pack) return;
+        var v = getVisibility(pack);
+        var isTenant = v.scope === 'tenant';
+        var label = visibilityLabel(v);
+        var ind = document.createElement('div');
+        ind.className = 'hgs-l-card-vis ' + (isTenant ? 'tenant' : 'restricted');
+        ind.innerHTML = (isTenant ? ICO_GLOBE : ICO_LOCK) + '<span>' + esc(label) + '</span>';
+        card.appendChild(ind);
+      });
+    };
+    try { renderHgsStacksList = window.renderHgsStacksList; } catch(e){}
+  }
+  window.b18ListSetVis = function(v){
+    window.HGS_LIST_VISIBILITY = v;
+    if(typeof window.renderHgsStacksList === 'function') window.renderHgsStacksList();
+  };
+
+  // ─── Surface 4: HGS Dependents — restrict owner display ───────────
+  // Wrap renderHgsDependents output to replace owner name with "Restricted"
+  // when the current pack is restricted AND the binding owner's role isn't
+  // in the visibility set. For demo: 'Alex Chen' is a Workflow Author; if
+  // current HGS_STATE pack is restricted to roles that exclude WA, Alex
+  // shows as Restricted.
+  if(typeof window.renderHgsDependents === 'function' || typeof renderHgsDependents === 'function'){
+    var _origRenderDep = (typeof window.renderHgsDependents === 'function') ? window.renderHgsDependents : renderHgsDependents;
+    window.renderHgsDependents = function(){
+      _origRenderDep.apply(this, arguments);
+      try {
+        if(typeof HGS_STATE === 'undefined') return;
+        var v = HGS_STATE.visibility || { scope:'tenant', roles:[] };
+        if(v.scope !== 'restricted') return;
+        var host = document.getElementById('hgsPanelDependents');
+        if(!host) return;
+        // For each dependent row, if its (mock) owner role can't see the
+        // pack, replace the owner column with "Restricted"
+        var depOwners = (HGS_STATE.dependents || []).map(function(d){ return d.owner; });
+        // Simple heuristic: assume all dependents are Workflow Authors
+        // (matches the mock seed). If WA isn't in v.roles, all owners
+        // become "Restricted".
+        var waVisible = (v.roles || []).indexOf('workflow-author') >= 0;
+        if(waVisible) return;
+        var ownerCells = host.querySelectorAll('.hgs-d-row-owner, .hgs-d-owner');
+        ownerCells.forEach(function(c){ c.textContent = 'Restricted'; c.style.color = 'var(--t3)'; c.style.fontStyle = 'italic'; });
+      } catch(e){}
+    };
+    try { renderHgsDependents = window.renderHgsDependents; } catch(e){}
+  }
 })();
 
 </script>
