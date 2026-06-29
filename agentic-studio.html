@@ -3665,6 +3665,97 @@ html.theme-light .search-footer-link{color:#7C3AED}
 .hgs-rail-row.pack { border-left-color:transparent; }
 .hgs-rail-row.pack.active { border-left-color:var(--pur); }
 .hgs-rail-row .pack-ico { color:var(--pur); display:inline-flex; flex-shrink:0; margin-right:2px; }
+/* Brief 20 Pass D — Settings (binding-context) sections, Pending-review
+   banner + review surface, Save-and-publish dialog */
+.b20-settings-body { padding:18px 24px; max-width:760px; margin:0 auto; }
+.b20-settings-sec { margin-bottom:24px; border:0.5px solid var(--bd); border-radius:var(--r8); background:rgba(255,255,255,0.015); padding:14px 16px; }
+.b20-settings-sec-ttl { font-size:13px; font-weight:600; color:var(--t1); margin-bottom:3px; }
+.b20-settings-sec-sub { font-size:11.5px; color:var(--t3); margin-bottom:12px; line-height:1.45; }
+.b20-radio-row { display:flex; flex-direction:column; gap:8px; }
+.b20-radio-opt { display:flex; gap:10px; padding:10px 12px; border:0.5px solid var(--bd); border-radius:var(--r6); cursor:pointer; align-items:flex-start; background:rgba(255,255,255,0.01); }
+.b20-radio-opt:hover { background:rgba(255,255,255,0.04); }
+.b20-radio-opt.active { border-color:var(--pri-bd); background:var(--pri-bg); }
+.b20-radio-opt input[type="radio"] { margin-top:2px; accent-color:var(--pri); }
+.b20-radio-opt-body { flex:1; min-width:0; }
+.b20-radio-opt-ttl { font-size:12px; font-weight:600; color:var(--t1); margin-bottom:2px; }
+.b20-radio-opt-sub { font-size:11px; color:var(--t3); line-height:1.45; }
+.b20-lock-notice { display:flex; gap:8px; align-items:flex-start; background:rgba(202,138,4,0.08); border:0.5px solid rgba(202,138,4,0.30); border-radius:var(--r6); padding:9px 12px; margin-top:10px; }
+.b20-lock-notice-ico { color:var(--warn); flex-shrink:0; display:inline-flex; margin-top:1px; }
+.b20-lock-notice-msg { font-size:11.5px; color:var(--t1); line-height:1.5; }
+.b20-lock-notice-msg strong { color:var(--warn); font-weight:600; }
+/* Retrieval clarification block — collapsible */
+.b20-rc-block { margin-top:12px; background:rgba(96,165,250,0.05); border:0.5px solid rgba(96,165,250,0.25); border-radius:var(--r6); overflow:hidden; }
+.b20-rc-head { display:flex; align-items:center; gap:8px; padding:10px 12px; cursor:pointer; color:var(--pri); font-size:12px; font-weight:500; }
+.b20-rc-head:hover { background:rgba(96,165,250,0.08); }
+.b20-rc-chev { transition:transform 0.15s; display:inline-flex; }
+.b20-rc-block.open .b20-rc-chev { transform:rotate(90deg); }
+.b20-rc-body { display:none; padding:0 14px 14px; font-size:11.5px; color:var(--t1); line-height:1.6; }
+.b20-rc-block.open .b20-rc-body { display:block; }
+.b20-rc-body ul { margin:6px 0 0 18px; padding:0; }
+.b20-rc-body li { margin-bottom:5px; }
+/* Policies field grid */
+.b20-policy-grid { display:grid; grid-template-columns:140px 1fr; gap:12px 14px; }
+.b20-policy-lbl { font-size:11px; font-weight:500; color:var(--t3); padding-top:6px; }
+.b20-policy-val { font-size:12px; color:var(--t1); }
+.b20-policy-val input, .b20-policy-val select { width:100%; background:var(--bg); border:0.5px solid var(--bd); border-radius:var(--r6); padding:6px 10px; font-size:12px; color:var(--t1); font-family:inherit; }
+.b20-policy-val.readonly { color:var(--t3); font-style:italic; padding-top:6px; }
+/* Notify-first banner above body */
+.b20-nf-banner { display:flex; align-items:center; gap:12px; background:var(--warn-bg); border-bottom:0.5px solid rgba(253,199,0,0.30); padding:10px 18px; flex-shrink:0; }
+.b20-nf-banner-ico { color:var(--warn); flex-shrink:0; display:flex; }
+.b20-nf-banner-body { flex:1; min-width:0; font-size:12px; color:var(--warn); line-height:1.5; }
+.b20-nf-banner-body strong { font-weight:600; }
+.b20-nf-banner-btn { background:var(--pri); color:#fff; border:none; border-radius:var(--r6); padding:5px 12px; font-size:11.5px; font-weight:600; cursor:pointer; font-family:inherit; flex-shrink:0; }
+.b20-nf-banner-btn:hover { filter:brightness(1.1); }
+/* Pending review main view — candidate cards */
+.b20-cand-list { display:flex; flex-direction:column; gap:10px; margin-top:14px; }
+.b20-cand-card { background:rgba(255,255,255,0.02); border:0.5px solid var(--bd); border-radius:var(--r8); padding:14px; }
+.b20-cand-card.canon-update { background:rgba(167,139,250,0.05); border-color:rgba(167,139,250,0.30); }
+.b20-cand-card-hd { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+.b20-cand-badge { display:inline-flex; align-items:center; gap:5px; font-size:10px; font-weight:600; padding:2px 8px; border-radius:3px; text-transform:uppercase; letter-spacing:0.05em; }
+.b20-cand-badge.fact { background:rgba(96,165,250,0.16); color:var(--pri); }
+.b20-cand-badge.canon { background:rgba(167,139,250,0.18); color:var(--pur); }
+.b20-cand-text { font-size:12.5px; color:var(--t1); margin-bottom:6px; line-height:1.5; font-weight:500; }
+.b20-cand-meta { font-size:11px; color:var(--t3); margin-bottom:10px; line-height:1.5; }
+.b20-cand-meta strong { color:var(--t2); font-weight:500; }
+.b20-cand-changelog { background:rgba(255,255,255,0.03); border:0.5px solid var(--bd); border-radius:var(--r6); padding:10px 12px; font-size:11.5px; color:var(--t2); line-height:1.5; margin-bottom:10px; }
+.b20-cand-changelog-lbl { font-size:10px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px; }
+.b20-cand-actions { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.b20-cand-radio { display:inline-flex; align-items:center; gap:5px; font-size:11.5px; color:var(--t1); cursor:pointer; padding:4px 8px; border-radius:var(--r6); border:0.5px solid transparent; }
+.b20-cand-radio input[type="radio"] { accent-color:var(--pri); cursor:pointer; }
+.b20-cand-radio.checked { background:rgba(96,165,250,0.10); border-color:rgba(96,165,250,0.30); }
+.b20-cand-reason-row { margin-top:10px; }
+.b20-cand-reason-row input { width:100%; background:var(--bg); border:0.5px solid var(--bd); border-radius:var(--r6); padding:7px 10px; font-size:11.5px; color:var(--t1); font-family:inherit; }
+.b20-review-foot { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:18px; padding:14px 0; border-top:0.5px solid var(--bd); }
+.b20-review-foot-l { font-size:11.5px; color:var(--t3); }
+.b20-review-foot-r { display:flex; gap:8px; }
+/* Save and publish dialog */
+.b20-pub-dlg-ov { position:fixed; inset:0; background:rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:1300; opacity:0; pointer-events:none; transition:opacity 0.15s; }
+.b20-pub-dlg-ov.open { opacity:1; pointer-events:auto; }
+.b20-pub-dlg { background:var(--bg2); border:1px solid var(--bd); border-radius:12px; width:520px; max-width:94vw; max-height:84vh; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 16px 48px rgba(0,0,0,0.55); }
+.b20-pub-dlg-hd { padding:16px 20px 12px; border-bottom:0.5px solid var(--bd); }
+.b20-pub-dlg-ttl { font-size:14px; font-weight:600; color:var(--t1); margin-bottom:3px; }
+.b20-pub-dlg-sub { font-size:11.5px; color:var(--t3); line-height:1.5; }
+.b20-pub-dlg-body { padding:16px 20px; flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:14px; }
+.b20-pub-field { display:flex; flex-direction:column; gap:5px; }
+.b20-pub-field-lbl { font-size:11px; font-weight:500; color:var(--t2); }
+.b20-pub-field-lbl .req { color:var(--warn); margin-left:2px; }
+.b20-pub-field input, .b20-pub-field textarea { background:var(--bg); border:0.5px solid var(--bd); border-radius:var(--r6); padding:7px 10px; font-size:12px; color:var(--t1); font-family:inherit; }
+.b20-pub-field textarea { min-height:60px; resize:vertical; }
+.b20-pub-cats { display:flex; flex-wrap:wrap; gap:6px; }
+.b20-pub-include { display:flex; flex-direction:column; gap:6px; padding:10px 12px; background:rgba(96,165,250,0.05); border:0.5px solid rgba(96,165,250,0.20); border-radius:var(--r6); }
+.b20-pub-include label { display:flex; gap:8px; align-items:center; font-size:11.5px; color:var(--t1); cursor:pointer; }
+.b20-pub-include input[type="checkbox"] { accent-color:var(--pri); }
+.b20-pub-dlg-ft { padding:12px 20px; border-top:0.5px solid var(--bd); display:flex; justify-content:flex-end; gap:8px; }
+.b20-pub-dlg-cancel { background:transparent; border:0.5px solid var(--bd); color:var(--t1); font-size:12px; padding:7px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.b20-pub-dlg-confirm { background:var(--pri); border:none; color:#0a0a0a; font-size:12px; font-weight:600; padding:7px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.b20-pub-dlg-confirm:disabled { opacity:0.5; cursor:default; }
+/* Post-publish confirmation banner */
+.b20-pub-confirm-banner { background:rgba(5,223,114,0.08); border-bottom:0.5px solid rgba(5,223,114,0.30); padding:10px 18px; display:flex; gap:10px; align-items:center; flex-shrink:0; }
+.b20-pub-confirm-banner-msg { flex:1; font-size:12px; color:var(--t1); line-height:1.5; }
+.b20-pub-confirm-banner-msg strong { color:var(--ok); font-weight:600; }
+.b20-pub-confirm-banner-close { background:transparent; border:none; color:var(--t3); cursor:pointer; font-family:inherit; padding:2px; display:inline-flex; align-items:center; }
+.b20-pub-confirm-banner-close:hover { color:var(--t1); }
+
 /* Knowledge Pack picker (modal-within-modal, z above v2 modal) */
 .b20-pp-ov { position:fixed; inset:0; background:rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:1200; opacity:0; pointer-events:none; transition:opacity 0.15s; }
 .b20-pp-ov.open { opacity:1; pointer-events:auto; }
@@ -22897,8 +22988,571 @@ function hgsSmConfirmRemove(){
   window._b20DetachPack = function(packId){
     B20_STATE.attachedPacks = (B20_STATE.attachedPacks || []).filter(function(x){ return x.packId !== packId; });
     if(B20_STATE.railSelection === ('pack-' + packId)) B20_STATE.railSelection = 'all-facts';
+    // Discard any pending candidates from this pack
+    B20_STATE.pendingCandidates = (B20_STATE.pendingCandidates || []).filter(function(c){ return c.sourcePackId !== packId; });
     _b20CloseDetachDlg();
     _b20Render();
+  };
+})();
+
+// ─── Brief 20 Pass D: Settings divergence, Save and publish, notify-first ─
+(function(){
+  if(typeof window === 'undefined') return;
+  if(typeof window.B20_STATE === 'undefined') return;
+  if(typeof tenantStacks === 'undefined') return;
+
+  function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function kcCanon(id){ return (CANON_DOCUMENTS || []).find(function(c){ return c.id === id; }); }
+
+  // ─── State extensions ─────────────────────────────────────────────
+  B20_STATE.behavior        = B20_STATE.behavior        || { live:true, notify:true };  // Live + Notify
+  B20_STATE.retrievalDepth  = B20_STATE.retrievalDepth  || 'truth-canon';
+  B20_STATE.purpose         = B20_STATE.purpose         || 'qualify-lead';
+  B20_STATE.sensitivityTier = B20_STATE.sensitivityTier || 'Medium';
+  B20_STATE.rcOpen          = (typeof B20_STATE.rcOpen !== 'undefined') ? B20_STATE.rcOpen : false;
+  B20_STATE.pendingCandidates = B20_STATE.pendingCandidates || [];
+  B20_STATE.candidateDecisions = B20_STATE.candidateDecisions || {};   // { candidateId: 'approve'|'reject'|'keep'|'defer', reason }
+  B20_STATE.pubConfirmShown = !!B20_STATE.pubConfirmShown;             // session banner
+
+  // ─── Seed: 1 Canon version update candidate (canon-001 in Pricing Policy)
+  // matches Brief 17 / Brief 20 mock data: binding is Live + Notify, pack
+  // contains canon-001 (Customer Support SLA Handbook v3.2 → v3.3 available)
+  function seedCandidatesIfEmpty(){
+    if(B20_STATE.pendingCandidates && B20_STATE.pendingCandidates.length) return;
+    var packs = B20_STATE.attachedPacks || [];
+    if(!packs.length || !B20_STATE.behavior || !B20_STATE.behavior.notify) return;
+    packs.forEach(function(p){
+      (p.canons || []).forEach(function(cid){
+        var c = kcCanon(cid);
+        if(c && c.latestVersion && c.latestVersion !== c.version && c.publicationState !== 'deprecated'){
+          B20_STATE.pendingCandidates.push({
+            id: 'cand-' + cid,
+            type: 'canon-update',
+            canonId: cid,
+            sourcePackId: p.packId,
+            sourcePackName: p.name,
+            currentVersion: c.version,
+            currentDate: c.publishedDate,
+            newVersion: c.latestVersion,
+            newDate: c.latestVersionDate,
+            changelogExcerpt: 'Section 3.2 updated: SLA tiers now distinguish between standard and premium support contracts. Response time commitments unchanged at the Standard tier; Pro and Enterprise tiers gain a 15-minute first-response escalation path.'
+          });
+        }
+      });
+    });
+  }
+
+  // Reseed candidates whenever the modal opens
+  if(typeof window._b20OpenModal === 'function'){
+    var _b20PassDOrigOpen = window._b20OpenModal;
+    window._b20OpenModal = function(net, parent, sub){
+      _b20PassDOrigOpen.call(this, net, parent, sub);
+      var binding = sub && sub.binding;
+      if(binding){
+        if(binding.behavior) B20_STATE.behavior = JSON.parse(JSON.stringify(binding.behavior));
+        if(binding.retrievalDepth) B20_STATE.retrievalDepth = binding.retrievalDepth;
+        if(binding.purpose) B20_STATE.purpose = binding.purpose;
+        if(binding.sensitivityTier) B20_STATE.sensitivityTier = binding.sensitivityTier;
+        if(binding.pendingCandidates) B20_STATE.pendingCandidates = JSON.parse(JSON.stringify(binding.pendingCandidates));
+      }
+      seedCandidatesIfEmpty();
+      B20_STATE.candidateDecisions = {};
+      _b20Render();
+    };
+  }
+  // Save persists settings + candidates
+  if(typeof window._b20Save === 'function'){
+    var _b20PassDOrigSave = window._b20Save;
+    window._b20Save = function(){
+      if(typeof bldrNet !== 'undefined' && bldrNet){
+        var parent = _pcFindNode(bldrNet, B20_STATE.parentId);
+        var sub = parent && parent.subs && parent.subs.find(function(s){ return s._id === B20_STATE.subId; });
+        if(sub){
+          sub.binding = sub.binding || {};
+          sub.binding.behavior = JSON.parse(JSON.stringify(B20_STATE.behavior));
+          sub.binding.retrievalDepth = B20_STATE.retrievalDepth;
+          sub.binding.purpose = B20_STATE.purpose;
+          sub.binding.sensitivityTier = B20_STATE.sensitivityTier;
+          sub.binding.pendingCandidates = JSON.parse(JSON.stringify(B20_STATE.pendingCandidates || []));
+        }
+      }
+      return _b20PassDOrigSave.apply(this, arguments);
+    };
+  }
+
+  // ─── Patch _b20Render: inject Settings body + notify ribbon + pending
+  // review main view + add pending-review rail row when candidates exist
+  var _b20PassDOrigRender = window._b20Render;
+  window._b20Render = function(){
+    _b20PassDOrigRender.apply(this, arguments);
+    var ov = document.getElementById('b20ModalOv');
+    if(!ov || !ov.classList.contains('open')) return;
+
+    // ── Settings tab body: replace shell with real sections
+    if(B20_STATE.activeTab === 'settings'){
+      var body = ov.querySelector('.b20-body');
+      if(body) body.innerHTML = renderSettingsBody();
+      return;
+    }
+
+    // ── Composition tab — inject notify-first ribbon when candidates exist
+    var pc = B20_STATE.pendingCandidates || [];
+    if(pc.length){
+      // Already injected?
+      if(!ov.querySelector('.b20-nf-banner')){
+        var banner = document.createElement('div');
+        banner.className = 'b20-nf-banner';
+        banner.innerHTML = renderRibbon(pc);
+        var modal = ov.querySelector('.b20-modal');
+        var tabsRow = ov.querySelector('.b20-tabs');
+        if(modal && tabsRow) modal.insertBefore(banner, tabsRow.nextSibling);
+      }
+      // Inject Pending review rail row + adjust main view if selected
+      var rail = ov.querySelector('.b20-modal .hgs-rail');
+      if(rail && !rail.querySelector('.hgs-rail-row.pending')){
+        var sep = document.createElement('div');
+        sep.className = 'hgs-rail-sep';
+        rail.appendChild(sep);
+        var row = document.createElement('button');
+        row.className = 'hgs-rail-row pending' + (B20_STATE.railSelection === 'pending-review' ? ' active' : '');
+        row.type = 'button';
+        row.setAttribute('onclick', "_b20Select('pending-review')");
+        row.innerHTML =
+          '<span style="color:var(--warn);flex-shrink:0;display:flex"><svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v1M3.5 6c0-2 1.6-3.5 3.5-3.5S10.5 4 10.5 6v2L12 9.5H2L3.5 8V6z"/><path d="M5.5 11.5a1.5 1.5 0 003 0"/></svg></span>' +
+          '<div class="hgs-rail-row-main">' +
+            '<div class="hgs-rail-row-nm">Pending review</div>' +
+            '<div class="hgs-rail-row-sub">Awaiting your decision</div>' +
+          '</div>' +
+          '<div class="hgs-rail-row-count">' + pc.length + '</div>';
+        rail.appendChild(row);
+      }
+    }
+
+    // ── If pending review selected, replace main view
+    if(B20_STATE.railSelection === 'pending-review'){
+      var mainHost = ov.querySelector('.b20-modal .hgs-main');
+      if(mainHost) mainHost.innerHTML = renderPendingReviewMain();
+    }
+
+    // ── Footer "Save and publish" — enable/disable + tooltip
+    var pubLink = ov.querySelector('.b20-ft-link');
+    if(pubLink){
+      var hasLocal = (B20_STATE.items || []).length > 0 || (B20_STATE.localCanons || []).length > 0;
+      pubLink.disabled = !hasLocal;
+      pubLink.setAttribute('onclick', hasLocal ? '_b20OpenPubDlg()' : '');
+      pubLink.setAttribute('title', hasLocal
+        ? 'Promote local content into a new Knowledge Pack'
+        : 'No local content to publish. Add facts or Canons directly to this binding first.');
+    }
+
+    // ── Post-publish confirmation banner (sticky until dismissed)
+    if(B20_STATE.pubConfirmShown && !ov.querySelector('.b20-pub-confirm-banner')){
+      var pb = document.createElement('div');
+      pb.className = 'b20-pub-confirm-banner';
+      pb.innerHTML =
+        '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--ok)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l3.5 3.5L12 4"/></svg>' +
+        '<span class="b20-pub-confirm-banner-msg"><strong>Your local content was promoted to ' + esc(B20_STATE.pubConfirmShown) + '.</strong> View in HGS to manage it.</span>' +
+        '<button class="b20-pub-confirm-banner-close" type="button" onclick="_b20DismissPubBanner()" aria-label="Dismiss"><svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg></button>';
+      var modal = ov.querySelector('.b20-modal');
+      var tabs2 = ov.querySelector('.b20-tabs');
+      if(modal && tabs2) modal.insertBefore(pb, tabs2.nextSibling);
+    }
+  };
+
+  // ─── Settings body renderer ──────────────────────────────────────
+  function renderSettingsBody(){
+    var b = B20_STATE.behavior || {};
+    var rd = B20_STATE.retrievalDepth || 'truth-canon';
+    var locked = (B20_STATE.attachedPacks || []).some(function(p){ return p.workflowControl === 'locked'; });
+    var lockedPacks = (B20_STATE.attachedPacks || []).filter(function(p){ return p.workflowControl === 'locked'; });
+
+    function bhvOpt(key, ttl, sub){
+      var checked = (key === 'snapshot' && !b.live) || (key === 'live' && b.live && !b.notify) || (key === 'live-notify' && b.live && b.notify);
+      var disabledAttr = locked ? ' disabled' : '';
+      return '<label class="b20-radio-opt' + (checked ? ' active' : '') + (locked ? '" style="opacity:0.5;cursor:default' : '') + '">' +
+        '<input type="radio" name="b20bhv" value="' + esc(key) + '"' + (checked ? ' checked' : '') + disabledAttr + ' onchange="_b20SetBehavior(\'' + esc(key) + '\')"/>' +
+        '<div class="b20-radio-opt-body">' +
+          '<div class="b20-radio-opt-ttl">' + esc(ttl) + '</div>' +
+          '<div class="b20-radio-opt-sub">' + esc(sub) + '</div>' +
+        '</div>' +
+      '</label>';
+    }
+    function rdOpt(key, ttl, sub){
+      var checked = (rd === key);
+      return '<label class="b20-radio-opt' + (checked ? ' active' : '') + '">' +
+        '<input type="radio" name="b20rd" value="' + esc(key) + '"' + (checked ? ' checked' : '') + ' onchange="_b20SetRetrievalDepth(\'' + esc(key) + '\')"/>' +
+        '<div class="b20-radio-opt-body">' +
+          '<div class="b20-radio-opt-ttl">' + esc(ttl) + '</div>' +
+          '<div class="b20-radio-opt-sub">' + esc(sub) + '</div>' +
+        '</div>' +
+      '</label>';
+    }
+
+    var canonTotal = (window.__B20_AGG_CANONS || []).length;
+    var rcBlock = canonTotal > 0 ? (
+      '<div class="b20-rc-block' + (B20_STATE.rcOpen ? ' open' : '') + '">' +
+        '<div class="b20-rc-head" onclick="_b20ToggleRc()">' +
+          '<span class="b20-rc-chev"><svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 2l4 4-4 4"/></svg></span>' +
+          'How facts and Canons interact at retrieval' +
+        '</div>' +
+        '<div class="b20-rc-body">' +
+          'This binding includes <strong>' + canonTotal + '</strong> attached Canon' + (canonTotal === 1 ? '' : 's') + ' (from your attached Knowledge Packs and locally).<br><br>' +
+          'When your agent retrieves content:' +
+          '<ul>' +
+            '<li>Facts always take priority over Canon content where they overlap (TR &gt; CR per platform authority).</li>' +
+            '<li>Canon content fills in context the facts don\'t cover.</li>' +
+            '<li>Your retrieval depth setting controls which tiers are accessible. If you set <strong>Truth only</strong>, your Canons are not consulted at all.</li>' +
+          '</ul>' +
+        '</div>' +
+      '</div>'
+    ) : '';
+
+    var lockedNotice = locked ? (
+      '<div class="b20-lock-notice">' +
+        '<span class="b20-lock-notice-ico"><svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="2.5" y="6" width="9" height="6" rx="1"/><path d="M4.5 6V4a2.5 2.5 0 015 0v2"/></svg></span>' +
+        '<div class="b20-lock-notice-msg"><strong>Behavior locked.</strong> ' + esc((lockedPacks[0] || {}).name || 'An attached pack') + ' has workflow control set to locked. The pack\'s Governance Admin controls Behavior for this binding.</div>' +
+      '</div>'
+    ) : '';
+
+    return '<div class="b20-body" style="display:block;overflow-y:auto">' +
+      '<div class="b20-settings-body">' +
+
+        '<div class="b20-settings-sec">' +
+          '<div class="b20-settings-sec-ttl">Behavior</div>' +
+          '<div class="b20-settings-sec-sub">How this binding responds as Truth and Canons evolve.</div>' +
+          '<div class="b20-radio-row">' +
+            bhvOpt('snapshot',    'Snapshot',     'Captured at confirm. Facts and Canons stay frozen at the version attached today.') +
+            bhvOpt('live',        'Live',         'Auto-update as Truth changes and Canon versions are accepted upstream.') +
+            bhvOpt('live-notify', 'Live + Notify','Auto-update for facts; notify-first review for Canon version updates.') +
+          '</div>' +
+          lockedNotice +
+        '</div>' +
+
+        '<div class="b20-settings-sec">' +
+          '<div class="b20-settings-sec-ttl">Retrieval depth</div>' +
+          '<div class="b20-settings-sec-sub">Which tiers of content the agent can retrieve from at runtime.</div>' +
+          '<div class="b20-radio-row">' +
+            rdOpt('truth-only',          'Truth only',                 'Retrieve only attested facts. Canons in this binding are not consulted.') +
+            rdOpt('truth-canon',         'Truth + Canon',              'Retrieve facts and Canon content together. Recommended for most bindings.') +
+            rdOpt('truth-canon-sandbox', 'Truth + Canon + Sandbox',    'Include experimental sandbox content. Use for development bindings only.') +
+            rdOpt('all-tiers',           'All accessible tiers',       'Include every tier visible to this binding. Highest recall, broadest surface.') +
+          '</div>' +
+          rcBlock +
+        '</div>' +
+
+        '<div class="b20-settings-sec">' +
+          '<div class="b20-settings-sec-ttl">Policies</div>' +
+          '<div class="b20-settings-sec-sub">Governance constraints that apply when this agent runs.</div>' +
+          '<div class="b20-policy-grid">' +
+            '<div class="b20-policy-lbl">Purpose</div>' +
+            '<div class="b20-policy-val">' +
+              '<select onchange="_b20SetPurpose(this.value)">' +
+                '<option value="qualify-lead"' + (B20_STATE.purpose === 'qualify-lead' ? ' selected' : '') + '>Qualify lead</option>' +
+                '<option value="route-inquiry"' + (B20_STATE.purpose === 'route-inquiry' ? ' selected' : '') + '>Route inquiry</option>' +
+                '<option value="answer-question"' + (B20_STATE.purpose === 'answer-question' ? ' selected' : '') + '>Answer question</option>' +
+                '<option value="other"' + (B20_STATE.purpose === 'other' ? ' selected' : '') + '>Other</option>' +
+              '</select>' +
+            '</div>' +
+            '<div class="b20-policy-lbl">Sensitivity</div>' +
+            '<div class="b20-policy-val">' +
+              '<select onchange="_b20SetSensitivity(this.value)">' +
+                '<option value="Low"' + (B20_STATE.sensitivityTier === 'Low' ? ' selected' : '') + '>Low</option>' +
+                '<option value="Medium"' + (B20_STATE.sensitivityTier === 'Medium' ? ' selected' : '') + '>Medium</option>' +
+                '<option value="High"' + (B20_STATE.sensitivityTier === 'High' ? ' selected' : '') + '>High</option>' +
+              '</select>' +
+            '</div>' +
+            '<div class="b20-policy-lbl">Field masking</div>' +
+            '<div class="b20-policy-val readonly">Inherited from tenant policy — Medium PII masking</div>' +
+            '<div class="b20-policy-lbl">Tool access</div>' +
+            '<div class="b20-policy-val readonly">Standard read-only tools (no external network)</div>' +
+            '<div class="b20-policy-lbl">Consent</div>' +
+            '<div class="b20-policy-val readonly">Conversation logging: on · Per-tenant retention</div>' +
+          '</div>' +
+        '</div>' +
+
+      '</div>' +
+    '</div>';
+  }
+  window._b20SetBehavior = function(key){
+    if(key === 'snapshot')        B20_STATE.behavior = { live:false, notify:false };
+    else if(key === 'live')       B20_STATE.behavior = { live:true,  notify:false };
+    else if(key === 'live-notify')B20_STATE.behavior = { live:true,  notify:true };
+    _b20Render();
+  };
+  window._b20SetRetrievalDepth = function(v){ B20_STATE.retrievalDepth = v; _b20Render(); };
+  window._b20ToggleRc = function(){ B20_STATE.rcOpen = !B20_STATE.rcOpen; _b20Render(); };
+  window._b20SetPurpose = function(v){ B20_STATE.purpose = v; };
+  window._b20SetSensitivity = function(v){ B20_STATE.sensitivityTier = v; };
+
+  // ─── Notify-first ribbon ─────────────────────────────────────────
+  function renderRibbon(pc){
+    var factCands  = pc.filter(function(c){ return c.type === 'fact'; });
+    var canonCands = pc.filter(function(c){ return c.type === 'canon-update'; });
+    var msg;
+    if(factCands.length && !canonCands.length){
+      msg = '<strong>' + pc.length + ' candidate fact' + (pc.length === 1 ? '' : 's') + ' awaiting your review</strong> · matched a substack\'s filter via DIAN promotion';
+    } else if(!factCands.length && canonCands.length){
+      msg = '<strong>' + pc.length + ' Canon version update' + (pc.length === 1 ? '' : 's') + ' awaiting your review</strong> · new versions published in the Canon Plane';
+    } else {
+      msg = '<strong>' + pc.length + ' items awaiting your review</strong> · ' + factCands.length + ' candidate fact' + (factCands.length === 1 ? '' : 's') + ' · ' + canonCands.length + ' Canon version update' + (canonCands.length === 1 ? '' : 's');
+    }
+    return '<span class="b20-nf-banner-ico"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5v1M3.5 6c0-2 1.6-3.5 3.5-3.5S10.5 4 10.5 6v2L12 9.5H2L3.5 8V6z"/><path d="M5.5 11.5a1.5 1.5 0 003 0"/></svg></span>' +
+      '<div class="b20-nf-banner-body">' + msg + '</div>' +
+      '<button class="b20-nf-banner-btn" type="button" onclick="_b20Select(\'pending-review\')">Review</button>';
+  }
+
+  // ─── Pending review main view ────────────────────────────────────
+  function renderPendingReviewMain(){
+    var pc = B20_STATE.pendingCandidates || [];
+    var decisions = B20_STATE.candidateDecisions || {};
+    var cards = pc.map(function(c){
+      var dec = decisions[c.id] || {};
+      if(c.type === 'canon-update'){
+        var canon = kcCanon(c.canonId);
+        var chosen = dec.choice || 'approve';
+        return '<div class="b20-cand-card canon-update">' +
+          '<div class="b20-cand-card-hd"><span class="b20-cand-badge canon">📄 Canon update</span></div>' +
+          '<div class="b20-cand-text">' + esc(canon ? canon.name : c.canonId) + '</div>' +
+          '<div class="b20-cand-meta">' +
+            '<strong>Currently on</strong> v' + esc(c.currentVersion) + ' (published ' + esc(c.currentDate) + ')<br>' +
+            '<strong>New version available</strong> v' + esc(c.newVersion) + ' (published ' + esc(c.newDate || '—') + ')<br>' +
+            '<strong>Attached via</strong> ' + esc(c.sourcePackName) + ' Knowledge Pack' +
+          '</div>' +
+          '<div class="b20-cand-changelog">' +
+            '<div class="b20-cand-changelog-lbl">What changed</div>' +
+            esc(c.changelogExcerpt) +
+          '</div>' +
+          '<div class="b20-cand-actions">' +
+            '<label class="b20-cand-radio' + (chosen === 'approve' ? ' checked' : '') + '"><input type="radio" name="cand-' + esc(c.id) + '"' + (chosen === 'approve' ? ' checked' : '') + ' onchange="_b20SetDecision(\'' + esc(c.id) + '\',\'approve\')"/>Approve update</label>' +
+            '<label class="b20-cand-radio' + (chosen === 'keep' ? ' checked' : '') + '"><input type="radio" name="cand-' + esc(c.id) + '"' + (chosen === 'keep' ? ' checked' : '') + ' onchange="_b20SetDecision(\'' + esc(c.id) + '\',\'keep\')"/>Keep v' + esc(c.currentVersion) + '</label>' +
+            '<label class="b20-cand-radio' + (chosen === 'defer' ? ' checked' : '') + '"><input type="radio" name="cand-' + esc(c.id) + '"' + (chosen === 'defer' ? ' checked' : '') + ' onchange="_b20SetDecision(\'' + esc(c.id) + '\',\'defer\')"/>Defer</label>' +
+          '</div>' +
+          (chosen === 'keep' ? (
+            '<div class="b20-cand-reason-row">' +
+              '<input type="text" placeholder="Optional: why keep this version? (e.g. pending legal review)" value="' + esc(dec.reason || '') + '" oninput="_b20SetDecisionReason(\'' + esc(c.id) + '\', this.value)"/>' +
+            '</div>'
+          ) : '') +
+        '</div>';
+      }
+      // Fact candidate (Brief 11 pattern — not seeded in Pass D but render shape ready)
+      var chosen2 = dec.choice || 'approve';
+      return '<div class="b20-cand-card">' +
+        '<div class="b20-cand-card-hd"><span class="b20-cand-badge fact">Candidate fact</span></div>' +
+        '<div class="b20-cand-text">' + esc(c.statement || '') + '</div>' +
+        '<div class="b20-cand-meta"><strong>Matches</strong> ' + esc(c.matchSubstackName || '') + '</div>' +
+        '<div class="b20-cand-actions">' +
+          '<label class="b20-cand-radio' + (chosen2 === 'approve' ? ' checked' : '') + '"><input type="radio" name="cand-' + esc(c.id) + '"' + (chosen2 === 'approve' ? ' checked' : '') + ' onchange="_b20SetDecision(\'' + esc(c.id) + '\',\'approve\')"/>Approve</label>' +
+          '<label class="b20-cand-radio' + (chosen2 === 'reject' ? ' checked' : '') + '"><input type="radio" name="cand-' + esc(c.id) + '"' + (chosen2 === 'reject' ? ' checked' : '') + ' onchange="_b20SetDecision(\'' + esc(c.id) + '\',\'reject\')"/>Reject</label>' +
+          '<label class="b20-cand-radio' + (chosen2 === 'defer' ? ' checked' : '') + '"><input type="radio" name="cand-' + esc(c.id) + '"' + (chosen2 === 'defer' ? ' checked' : '') + ' onchange="_b20SetDecision(\'' + esc(c.id) + '\',\'defer\')"/>Defer</label>' +
+        '</div>' +
+        (chosen2 === 'reject' ? '<div class="b20-cand-reason-row"><input type="text" placeholder="Reason for reject" value="' + esc(dec.reason || '') + '" oninput="_b20SetDecisionReason(\'' + esc(c.id) + '\', this.value)"/></div>' : '') +
+      '</div>';
+    }).join('');
+
+    var counts = pc.reduce(function(acc, c){
+      var d = decisions[c.id]; if(!d || !d.choice) acc.undecided++;
+      else if(d.choice === 'approve') acc.approved++;
+      else if(d.choice === 'reject' || d.choice === 'keep') acc.kept++;
+      else if(d.choice === 'defer') acc.deferred++;
+      return acc;
+    }, { approved:0, kept:0, deferred:0, undecided:0 });
+
+    return '<div style="padding:16px 20px">' +
+      '<div class="hgs-main-hd">' +
+        '<div>' +
+          '<div class="hgs-main-title">Pending review · ' + pc.length + '</div>' +
+          '<div class="hgs-main-sub">Decide on each candidate. Apply commits all decisions at once.</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="b20-cand-list">' + cards + '</div>' +
+      '<div class="b20-review-foot">' +
+        '<div class="b20-review-foot-l">' + counts.approved + ' approved · ' + counts.kept + ' kept · ' + counts.deferred + ' deferred · ' + counts.undecided + ' undecided</div>' +
+        '<div class="b20-review-foot-r">' +
+          '<button class="kc-mbtn ghost" type="button" onclick="_b20Select(\'all-facts\')">Decide later</button>' +
+          '<button class="kc-mbtn primary" type="button" onclick="_b20ApplyDecisions()"' + (counts.approved + counts.kept === 0 ? ' disabled' : '') + '>Apply ' + (counts.approved + counts.kept) + ' decision' + ((counts.approved + counts.kept) === 1 ? '' : 's') + '</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+  window._b20SetDecision = function(candId, choice){
+    B20_STATE.candidateDecisions[candId] = B20_STATE.candidateDecisions[candId] || {};
+    B20_STATE.candidateDecisions[candId].choice = choice;
+    _b20Render();
+  };
+  window._b20SetDecisionReason = function(candId, reason){
+    B20_STATE.candidateDecisions[candId] = B20_STATE.candidateDecisions[candId] || {};
+    B20_STATE.candidateDecisions[candId].reason = reason;
+    // Don't re-render — keeps the input focused
+  };
+  window._b20ApplyDecisions = function(){
+    var decisions = B20_STATE.candidateDecisions || {};
+    var toClear = [];
+    (B20_STATE.pendingCandidates || []).forEach(function(c){
+      var d = decisions[c.id]; if(!d || !d.choice) return;
+      if(d.choice === 'approve' && c.type === 'canon-update'){
+        // Promote: update the canon's stored version on the underlying canon
+        var canon = kcCanon(c.canonId);
+        if(canon){
+          canon.version = c.newVersion;
+          canon.publishedDate = c.newDate || canon.publishedDate;
+          canon.latestVersion = null;
+        }
+        toClear.push(c.id);
+      } else if(d.choice === 'keep' || d.choice === 'reject'){
+        toClear.push(c.id);
+      }
+      // defer: keep candidate
+    });
+    B20_STATE.pendingCandidates = (B20_STATE.pendingCandidates || []).filter(function(c){ return toClear.indexOf(c.id) < 0; });
+    B20_STATE.candidateDecisions = {};
+    var n = toClear.length;
+    B20_STATE.railSelection = 'all-facts';
+    _b20Render();
+    try { toast('Applied ' + n + ' decision' + (n === 1 ? '' : 's'), 'success'); } catch(e){}
+  };
+
+  // ─── Save and publish as Knowledge Pack ──────────────────────────
+  B20_STATE.pubForm = B20_STATE.pubForm || { name:'', desc:'', cats:new Set(), incCanons:true, incSubstacks:true };
+  window._b20OpenPubDlg = function(){
+    var ov = document.getElementById('b20PubDlgOv');
+    if(!ov){
+      ov = document.createElement('div');
+      ov.id = 'b20PubDlgOv';
+      ov.className = 'b20-pub-dlg-ov';
+      ov.addEventListener('click', function(e){ if(e.target === ov) _b20ClosePubDlg(); });
+      document.body.appendChild(ov);
+    }
+    // Reset form
+    B20_STATE.pubForm = { name:'', desc:'', cats:new Set(), incCanons:(B20_STATE.localCanons||[]).length>0, incSubstacks:(B20_STATE.items||[]).length>0 };
+    _b20RenderPubDlg();
+    ov.classList.add('open');
+  };
+  window._b20ClosePubDlg = function(){
+    var ov = document.getElementById('b20PubDlgOv');
+    if(ov) ov.classList.remove('open');
+  };
+  function _b20RenderPubDlg(){
+    var ov = document.getElementById('b20PubDlgOv');
+    if(!ov) return;
+    var f = B20_STATE.pubForm;
+    var allCats = (typeof allCategories !== 'undefined' && allCategories) ? allCategories : [];
+    var catChips = allCats.map(function(cat){
+      var active = f.cats.has(cat);
+      return '<button class="hgs-topic-chip' + (active ? ' active' : '') + '" type="button" onclick="_b20PubToggleCat(\'' + esc(cat) + '\')">' + esc(cat) + '</button>';
+    }).join('');
+    var hasLocalCanons = (B20_STATE.localCanons || []).length > 0;
+    var hasLocalSubstacks = (B20_STATE.items || []).length > 0;
+    var canCommit = (f.name || '').trim().length > 0 && (f.desc || '').trim().length > 0;
+    ov.innerHTML =
+      '<div class="b20-pub-dlg" role="dialog" aria-modal="true">' +
+        '<div class="b20-pub-dlg-hd">' +
+          '<div class="b20-pub-dlg-ttl">Publish local content as a Knowledge Pack</div>' +
+          '<div class="b20-pub-dlg-sub">Promote your locally-composed substacks and Canons into a tenant-shared draft pack in HGS. You\'ll become the pack\'s Governance Admin.</div>' +
+        '</div>' +
+        '<div class="b20-pub-dlg-body">' +
+          '<div class="b20-pub-field">' +
+            '<div class="b20-pub-field-lbl">Pack name<span class="req">*</span></div>' +
+            '<input type="text" placeholder="e.g. Lead Qualification Signals" value="' + esc(f.name) + '" oninput="_b20PubSetName(this.value)"/>' +
+          '</div>' +
+          '<div class="b20-pub-field">' +
+            '<div class="b20-pub-field-lbl">Description<span class="req">*</span></div>' +
+            '<textarea placeholder="What this pack contains and who should use it…" oninput="_b20PubSetDesc(this.value)">' + esc(f.desc) + '</textarea>' +
+          '</div>' +
+          '<div class="b20-pub-field">' +
+            '<div class="b20-pub-field-lbl">Categories</div>' +
+            '<div class="b20-pub-cats">' + catChips + '</div>' +
+          '</div>' +
+          '<div class="b20-pub-include">' +
+            (hasLocalSubstacks ? '<label><input type="checkbox"' + (f.incSubstacks ? ' checked' : '') + ' onchange="_b20PubToggleInc(\'incSubstacks\')"/>Include ' + (B20_STATE.items || []).length + ' local substack' + ((B20_STATE.items || []).length === 1 ? '' : 's') + ' in the new pack</label>' : '') +
+            (hasLocalCanons ? '<label><input type="checkbox"' + (f.incCanons ? ' checked' : '') + ' onchange="_b20PubToggleInc(\'incCanons\')"/>Include ' + (B20_STATE.localCanons || []).length + ' locally-attached Canon' + ((B20_STATE.localCanons || []).length === 1 ? '' : 's') + ' in the new pack</label>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="b20-pub-dlg-ft">' +
+          '<button class="b20-pub-dlg-cancel" type="button" onclick="_b20ClosePubDlg()">Cancel</button>' +
+          '<button class="b20-pub-dlg-confirm" type="button" onclick="_b20PubConfirm()"' + (canCommit ? '' : ' disabled') + '>Publish as Knowledge Pack</button>' +
+        '</div>' +
+      '</div>';
+  }
+  window._b20PubSetName = function(v){ B20_STATE.pubForm.name = String(v||''); _b20PubRefreshBtn(); };
+  window._b20PubSetDesc = function(v){ B20_STATE.pubForm.desc = String(v||''); _b20PubRefreshBtn(); };
+  window._b20PubToggleCat = function(c){
+    if(B20_STATE.pubForm.cats.has(c)) B20_STATE.pubForm.cats.delete(c);
+    else B20_STATE.pubForm.cats.add(c);
+    _b20RenderPubDlg();
+  };
+  window._b20PubToggleInc = function(k){
+    B20_STATE.pubForm[k] = !B20_STATE.pubForm[k];
+  };
+  function _b20PubRefreshBtn(){
+    var f = B20_STATE.pubForm;
+    var can = (f.name || '').trim().length > 0 && (f.desc || '').trim().length > 0;
+    var btn = document.querySelector('#b20PubDlgOv .b20-pub-dlg-confirm');
+    if(btn) btn.disabled = !can;
+  }
+  window._b20PubConfirm = function(){
+    var f = B20_STATE.pubForm;
+    if(!(f.name || '').trim() || !(f.desc || '').trim()) return;
+    // Build a new tenant pack from local content
+    var newId = 'b20-pub-' + Math.random().toString(36).slice(2, 9);
+    var packFactCount = 0;
+    if(f.incSubstacks) (B20_STATE.items || []).forEach(function(s){ packFactCount += (s.factIds || []).length; });
+    var packCanonIds = f.incCanons ? (B20_STATE.localCanons || []).slice() : [];
+
+    var newPack = {
+      id: newId,
+      name: f.name.trim(),
+      description: f.desc.trim(),
+      owner: 'You',
+      categories: Array.from(f.cats),
+      factCount: packFactCount,
+      dependentCount: 1,
+      lastUpdated: 'just now',
+      workflowControl: 'customizable',
+      iconBg: '#E1F5EE',
+      iconColor: '#085041'
+    };
+    tenantStacks.push(newPack);
+    if(packCanonIds.length){
+      window.KC_STACK_CANONS = window.KC_STACK_CANONS || {};
+      // Store under both potential id keys for safety
+      window.KC_STACK_CANONS[newId] = packCanonIds.slice();
+    }
+    // Attach the new pack to the binding
+    B20_STATE.attachedPacks = B20_STATE.attachedPacks || [];
+    B20_STATE.attachedPacks.push({
+      packId: newId,
+      name: newPack.name,
+      owner: newPack.owner,
+      factCount: newPack.factCount,
+      canons: packCanonIds,
+      categories: newPack.categories,
+      iconBg: newPack.iconBg,
+      iconColor: newPack.iconColor,
+      lastUpdated: newPack.lastUpdated,
+      dependentCount: newPack.dependentCount,
+      workflowControl: newPack.workflowControl,
+      description: newPack.description
+    });
+    // Move local content into the pack (clear local)
+    if(f.incSubstacks) B20_STATE.items = [];
+    if(f.incCanons) B20_STATE.localCanons = [];
+    B20_STATE.pubConfirmShown = newPack.name;
+    _b20ClosePubDlg();
+    _b20Render();
+    try { toast('Published "' + newPack.name + '" to your tenant\'s Knowledge Pack library', 'success'); } catch(e){}
+  };
+  window._b20DismissPubBanner = function(){
+    B20_STATE.pubConfirmShown = false;
+    var ov = document.getElementById('b20ModalOv');
+    var b = ov && ov.querySelector('.b20-pub-confirm-banner');
+    if(b) b.remove();
+  };
+
+  // ─── _b20SetTab override: Pass A's version captured a closure-local
+  // _b20Render that bypasses Pass B/C/D wraps. Re-bind to window.
+  window._b20SetTab = function(tab){
+    B20_STATE.activeTab = (tab === 'settings') ? 'settings' : 'composition';
+    if(typeof window._b20Render === 'function') window._b20Render();
   };
 })();
 
