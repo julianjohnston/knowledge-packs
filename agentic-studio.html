@@ -3551,6 +3551,64 @@ html.theme-light .search-footer-link{color:#7C3AED}
 .hgs-bridge-chip-name { font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:320px; }
 .hgs-bridge-chip-x { background:transparent; border:none; color:var(--pri); cursor:pointer; padding:0 2px; display:inline-flex; align-items:center; font-family:inherit; opacity:0.85; }
 .hgs-bridge-chip-x:hover { opacity:1; }
+
+/* Brief 17 — Configurator Canon visibility */
+/* Pack-expansion CANONS section (inside lavender pack container) */
+.kc-attached-canon-section { margin-top:10px; padding-top:10px; border-top:1px solid var(--bd); }
+.kc-attached-canon-section-hd { font-size:10.5px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px; padding:0 4px; }
+.kc-attached-canon-rows { display:flex; flex-direction:column; gap:4px; }
+.kc-attached-canon-row { display:flex; align-items:center; gap:8px; padding:6px 8px; border-radius:var(--r4); background:rgba(167,139,250,0.06); cursor:pointer; }
+.kc-attached-canon-row:hover { background:rgba(167,139,250,0.10); }
+.kc-attached-canon-row-ico { color:var(--pur); display:inline-flex; flex-shrink:0; }
+.kc-attached-canon-row-nm { flex:1; font-size:11.5px; color:var(--t1); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.kc-attached-canon-row-ver { font-size:10px; color:var(--t3); padding:2px 6px; border-radius:var(--r4); background:rgba(255,255,255,0.04); border:1px solid var(--bd); flex-shrink:0; }
+.kc-attached-canon-row-drift { color:var(--warn); display:inline-flex; flex-shrink:0; cursor:help; }
+/* Locally-attached Canon container (info-blue, sits in ATTACHED list) */
+.kc-attached-card.localcanon { border-left:3px solid var(--pri); padding:10px 12px; }
+.kc-attached-card.localcanon .kc-attached-card-row { gap:10px; align-items:center; cursor:pointer; }
+.kc-attached-local-canon-ico { color:var(--pri); display:inline-flex; flex-shrink:0; }
+.kc-attached-local-canon-ver { font-size:10px; color:var(--t3); padding:2px 6px; border-radius:var(--r4); background:rgba(255,255,255,0.04); border:1px solid var(--bd); flex-shrink:0; margin-right:4px; }
+/* COMPOSE LOCALLY section (between ATTACHED and FIND KNOWLEDGE) */
+.kc-compose-locally { margin-top:18px; }
+.kc-compose-locally-hd { font-size:11px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px; }
+.kc-compose-locally-sub { font-size:11.5px; color:var(--t3); margin-bottom:10px; line-height:1.5; }
+.kc-compose-locally-cards { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.kc-compose-locally-cta { background:rgba(255,255,255,0.02); border:1px solid var(--bd); border-radius:var(--r6); padding:14px; text-align:left; cursor:pointer; font-family:inherit; color:var(--t1); transition:background 0.15s, border-color 0.15s; }
+.kc-compose-locally-cta:hover { background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.18); }
+.kc-compose-locally-cta.active { border-color:var(--pri); background:rgba(96,165,250,0.05); }
+.kc-compose-locally-cta-ttl { font-size:12.5px; font-weight:600; color:var(--t1); margin-bottom:4px; }
+.kc-compose-locally-cta-sub { font-size:11px; color:var(--t3); line-height:1.4; }
+.kc-compose-locally-body { margin-top:12px; }
+/* Canon detail slide-out panel (lightweight; reused for both contexts) */
+.kc-canon-panel-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1300; opacity:0; pointer-events:none; transition:opacity 0.15s; }
+.kc-canon-panel-backdrop.open { opacity:1; pointer-events:auto; }
+.kc-canon-panel { position:fixed; top:0; right:0; bottom:0; width:480px; max-width:90vw; background:var(--bg2); border-left:1px solid var(--bd); box-shadow:-8px 0 32px rgba(0,0,0,0.4); transform:translateX(100%); transition:transform 0.18s ease-out; z-index:1301; display:flex; flex-direction:column; overflow:hidden; }
+.kc-canon-panel.open { transform:translateX(0); }
+.kc-canon-panel-hd { padding:16px 18px 14px; border-bottom:1px solid var(--bd); display:flex; align-items:flex-start; gap:10px; }
+.kc-canon-panel-hd-ico { color:var(--pur); display:inline-flex; flex-shrink:0; margin-top:2px; }
+.kc-canon-panel-hd-body { flex:1; min-width:0; }
+.kc-canon-panel-hd-ttl { font-size:14px; font-weight:600; color:var(--t1); line-height:1.3; margin-bottom:2px; }
+.kc-canon-panel-hd-meta { font-size:11px; color:var(--t3); }
+.kc-canon-panel-close { background:transparent; border:none; color:var(--t3); cursor:pointer; padding:2px; font-family:inherit; display:inline-flex; align-items:center; flex-shrink:0; }
+.kc-canon-panel-close:hover { color:var(--t1); }
+.kc-canon-panel-body { flex:1; overflow-y:auto; padding:16px 18px; }
+.kc-canon-panel-field { margin-bottom:12px; }
+.kc-canon-panel-field-lbl { font-size:10.5px; font-weight:600; color:var(--t3); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:3px; }
+.kc-canon-panel-field-val { font-size:12px; color:var(--t1); }
+.kc-canon-panel-preview { font-size:11.5px; color:var(--t2); line-height:1.5; background:rgba(255,255,255,0.03); padding:10px 12px; border-radius:var(--r6); border:1px solid var(--bd); white-space:pre-wrap; }
+.kc-canon-panel-ft { padding:12px 18px; border-top:1px solid var(--bd); display:flex; justify-content:flex-end; gap:8px; }
+.kc-canon-panel-ft-link { background:transparent; border:1px solid var(--bd); color:var(--t1); font-size:12px; padding:7px 12px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.kc-canon-panel-ft-link:hover { background:rgba(255,255,255,0.04); }
+/* Detach confirm dialog (z above canon panel) */
+.kc-detach-dlg-ov { position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1400; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.12s; }
+.kc-detach-dlg-ov.open { opacity:1; pointer-events:auto; }
+.kc-detach-dlg { background:var(--bg2); border:1px solid var(--bd); border-radius:var(--r8); padding:20px 22px; width:420px; max-width:90vw; box-shadow:0 12px 40px rgba(0,0,0,0.5); }
+.kc-detach-dlg-ttl { font-size:14.5px; font-weight:600; color:var(--t1); margin-bottom:6px; }
+.kc-detach-dlg-body { font-size:12px; color:var(--t2); line-height:1.5; margin-bottom:16px; }
+.kc-detach-dlg-ft { display:flex; justify-content:flex-end; gap:8px; }
+.kc-detach-dlg-cancel { background:transparent; border:1px solid var(--bd); color:var(--t1); font-size:12px; padding:7px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.kc-detach-dlg-confirm { background:var(--warn); border:none; color:#1a1a1a; font-size:12px; font-weight:600; padding:7px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.kc-detach-dlg-confirm:hover { filter:brightness(1.1); }
 </style>
 </head>
 <body>
@@ -20750,6 +20808,382 @@ function hgsSmConfirmRemove(){
     };
     try { renderHgsFactTableMain = window.renderHgsFactTableMain; } catch(e){}
   }
+})();
+
+// ─── Brief 17 Pass 1: Configurator Canon visibility ───────────────────
+// Surface 1: Pack-expansion CANONS section
+// Surface 2: COMPOSE LOCALLY restructure (Compose substack + Attach Canon)
+// Surface 3: Locally-attached Canon containers
+// Vocabulary: Knowledge Pack / Governance Admin / Workflow Author
+(function(){
+  if(typeof window.CANON_DOCUMENTS === 'undefined' || !window.CANON_DOCUMENTS) return;
+  // KC_STATE is declared `const` at file scope so it isn't attached to window.
+  // Reference it directly; if that throws, bail out.
+  try { if(typeof KC_STATE === 'undefined' || !KC_STATE) return; } catch(e){ return; }
+
+  // 1. Mock data extensions ─────────────────────────────────────────
+  if(!CANON_DOCUMENTS.find(function(c){ return c.id === 'canon-016'; })){
+    CANON_DOCUMENTS.push({
+      id:'canon-016',
+      name:'Q3 Roadmap Reference Doc',
+      description:'Internal Q3 product roadmap and milestone tracking. Read-only reference for sales conversations.',
+      version:'1.2', publishedDate:'Mar 18, 2026',
+      owner:'Priya Shah', ownerId:'priya-shah',
+      audienceScope:'Sales team', category:'Operations',
+      publicationState:'published', lastUpdated:'Mar 18, 2026',
+      previewText:'Q3 priorities focus on enterprise-tier expansion and partner integrations. Major deliverables include the v4 retrieval API, a partner sandbox tier, and SOC 2 Type II controls hardening. Sales conversations may reference roadmap items only with the standard forward-looking disclaimer…',
+      factCount:0
+    });
+  }
+  window.KC_STACK_CANONS = window.KC_STACK_CANONS || {
+    'st-pricing':  ['canon-001','canon-005','canon-003','canon-006','canon-004'],
+    'st-comp':     ['canon-008','canon-014'],
+    'st-audit':    ['canon-006','canon-013'],
+    'st-onboard':  ['canon-004','canon-002']
+  };
+  KC_STATE.localCanons      = KC_STATE.localCanons      || [];
+  KC_STATE.composeLocalOpen = (typeof KC_STATE.composeLocalOpen !== 'undefined') ? KC_STATE.composeLocalOpen : null;
+  KC_STACKS.forEach(function(st){
+    var ids = window.KC_STACK_CANONS[st.id] || [];
+    st.canonCount = ids.length;
+  });
+
+  // 2. Helpers ───────────────────────────────────────────────────────
+  function kcCanon(id){ return CANON_DOCUMENTS.find(function(c){ return c.id === id; }); }
+  function kcEsc(s){ return _kcEsc(s); }
+  function kcCanonDrift(c){
+    if(!c) return null;
+    if(c.publicationState === 'deprecated') return 'deprecated';
+    if(c.latestVersion && c.latestVersion !== c.version) return 'version';
+    return null;
+  }
+  var ICO_DOC_CANON = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h5l3 3v8a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5z"/><path d="M8 1.5v3h3"/></svg>';
+  var ICO_ALERT_TRI = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5L13 12H1L7 1.5z"/><path d="M7 6v3M7 10.5h.01"/></svg>';
+  var ICO_X_CANON   = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg>';
+
+  // 3. Surface 1 — Pack expansion CANONS section ────────────────────
+  if(typeof window._kcRenderAttachedSection === 'function'){
+    var _b17OrigAttached = window._kcRenderAttachedSection;
+    window._kcRenderAttachedSection = function(){
+      var items = KC_STATE.items || [];
+      var locals = KC_STATE.localCanons || [];
+      if(!items.length && !locals.length){
+        return '<div class="kc-attached-empty">Add knowledge from the options below.</div>';
+      }
+      var html = (items.length) ? _b17OrigAttached.apply(this, arguments) : '<div class="kc-attached-list"></div>';
+
+      items.forEach(function(item){
+        if(item.kind !== 'stack') return;
+        var canonIds = item.canons || window.KC_STACK_CANONS[item.stackId] || [];
+        if(!canonIds.length) return;
+        if(!(KC_STATE.expandedItem || {})[item.id]) return;
+
+        var canons = canonIds.map(kcCanon).filter(Boolean);
+        var rows = canons.map(function(c){
+          var drift = kcCanonDrift(c);
+          var driftEl = '';
+          if(drift === 'deprecated'){
+            driftEl = '<span class="kc-attached-canon-row-drift" title="Deprecated upstream by its owner">' + ICO_ALERT_TRI + '</span>';
+          } else if(drift === 'version'){
+            driftEl = '<span class="kc-attached-canon-row-drift" title="Newer version available: v' + kcEsc(c.latestVersion) + '">' + ICO_ALERT_TRI + '</span>';
+          }
+          return '<div class="kc-attached-canon-row" onclick="event.stopPropagation();_kcOpenCanonPanel(\'' + kcEsc(c.id) + '\',\'pack\')">' +
+            '<span class="kc-attached-canon-row-ico">' + ICO_DOC_CANON + '</span>' +
+            '<span class="kc-attached-canon-row-nm">' + kcEsc(c.name) + '</span>' +
+            driftEl +
+            '<span class="kc-attached-canon-row-ver">v' + kcEsc(c.version) + '</span>' +
+          '</div>';
+        }).join('');
+
+        var section =
+          '<div class="kc-attached-canon-section" onclick="event.stopPropagation()">' +
+            '<div class="kc-attached-canon-section-hd">CANONS · ' + canons.length + '</div>' +
+            '<div class="kc-attached-canon-rows">' + rows + '</div>' +
+          '</div>';
+
+        var anchor = '_kcToggleAttachedItem(\'' + item.id + '\')';
+        var anchorIdx = html.indexOf(anchor);
+        if(anchorIdx < 0) return;
+        // Walk back to the kc-attached-card wrapper (NOT kc-attached-card-row).
+        // The wrapper class always starts with "kc-attached-card " (trailing
+        // space) or "kc-attached-card\"" — never "kc-attached-card-row".
+        var cardStartIdx = -1;
+        var scanRe = /<div class="kc-attached-card(?: |")/g;
+        var scanMatch;
+        while((scanMatch = scanRe.exec(html)) !== null){
+          if(scanMatch.index < anchorIdx) cardStartIdx = scanMatch.index;
+          else break;
+        }
+        if(cardStartIdx < 0) return;
+        var depth = 0;
+        var tokenRe = /<\/?div\b[^>]*>/g;
+        tokenRe.lastIndex = cardStartIdx;
+        var closeIdx = -1;
+        var m;
+        while((m = tokenRe.exec(html)) !== null){
+          if(m[0].charAt(1) === '/'){
+            depth--;
+            if(depth === 0){ closeIdx = m.index; break; }
+          } else {
+            depth++;
+          }
+        }
+        if(closeIdx < 0) return;
+        html = html.substring(0, closeIdx) + section + html.substring(closeIdx);
+      });
+
+      if(locals.length){
+        var localCards = locals.map(function(canonId){
+          var c = kcCanon(canonId); if(!c) return '';
+          var drift = kcCanonDrift(c);
+          var driftEl = '';
+          if(drift === 'deprecated'){
+            driftEl = '<span class="kc-attached-canon-row-drift" title="Deprecated upstream">' + ICO_ALERT_TRI + '</span>';
+          } else if(drift === 'version'){
+            driftEl = '<span class="kc-attached-canon-row-drift" title="Newer version available: v' + kcEsc(c.latestVersion) + '">' + ICO_ALERT_TRI + '</span>';
+          }
+          return '<div class="kc-attached-card localcanon">' +
+            '<div class="kc-attached-card-row" onclick="_kcOpenCanonPanel(\'' + kcEsc(c.id) + '\',\'local\')">' +
+              '<span class="kc-attached-local-canon-ico">' + ICO_DOC_CANON + '</span>' +
+              '<div class="kc-attached-main">' +
+                '<div class="kc-attached-nm">' + kcEsc(c.name) + '</div>' +
+                '<div class="kc-attached-meta">Attached locally · ' + kcEsc(c.publishedDate) + '</div>' +
+              '</div>' +
+              driftEl +
+              '<span class="kc-attached-local-canon-ver">v' + kcEsc(c.version) + '</span>' +
+              '<button class="kc-attached-rm" type="button" onclick="event.stopPropagation();_kcConfirmDetachLocalCanon(\'' + kcEsc(c.id) + '\')" aria-label="Detach">×</button>' +
+            '</div>' +
+          '</div>';
+        }).join('');
+        if(/kc-attached-list/.test(html)){
+          html = html.replace(/(<div class="kc-attached-list">)([\s\S]*?)(<\/div>\s*)$/, function(_, open, inner, close){
+            return open + inner + localCards + close;
+          });
+        } else {
+          html = '<div class="kc-attached-list">' + localCards + '</div>';
+        }
+      }
+      // Vocabulary leak fix on touched copy
+      html = html.replace(/Curated · /g, 'Knowledge Pack · ');
+      return html;
+    };
+    try { _kcRenderAttachedSection = window._kcRenderAttachedSection; } catch(e){}
+  }
+
+  // 4. Wrap _kcAddStack to carry Canon refs onto the attached item ─
+  if(typeof window._kcAddStack === 'function'){
+    var _b17OrigAddStack = window._kcAddStack;
+    window._kcAddStack = function(stackId){
+      var r = _b17OrigAddStack.apply(this, arguments);
+      var last = (KC_STATE.items || [])[(KC_STATE.items || []).length - 1];
+      if(last && last.kind === 'stack' && last.stackId === stackId){
+        last.canons = (window.KC_STACK_CANONS[stackId] || []).slice();
+      }
+      return r;
+    };
+  }
+
+  // 5. Canon detail slide-out panel ─────────────────────────────────
+  window._kcOpenCanonPanel = function(canonId, source){
+    var c = kcCanon(canonId); if(!c) return;
+    var bd = document.getElementById('kcCanonPanelBd');
+    var pn = document.getElementById('kcCanonPanel');
+    if(!bd){
+      bd = document.createElement('div'); bd.id = 'kcCanonPanelBd';
+      bd.className = 'kc-canon-panel-backdrop';
+      bd.addEventListener('click', _kcCloseCanonPanel);
+      document.body.appendChild(bd);
+    }
+    if(!pn){
+      pn = document.createElement('div'); pn.id = 'kcCanonPanel';
+      pn.className = 'kc-canon-panel';
+      document.body.appendChild(pn);
+    }
+    var drift = kcCanonDrift(c);
+    var driftLine = '';
+    if(drift === 'deprecated'){
+      driftLine = '<div class="kc-canon-panel-field"><div class="kc-canon-panel-field-lbl" style="color:var(--warn)">Status</div><div class="kc-canon-panel-field-val" style="color:var(--warn)">Deprecated upstream</div></div>';
+    } else if(drift === 'version'){
+      driftLine = '<div class="kc-canon-panel-field"><div class="kc-canon-panel-field-lbl" style="color:var(--warn)">Update available</div><div class="kc-canon-panel-field-val" style="color:var(--warn)">v' + kcEsc(c.latestVersion) + ' published ' + kcEsc(c.latestVersionDate || '') + '</div></div>';
+    }
+    var relatedFactsLine = (c.factCount ? '<div class="kc-canon-panel-field"><div class="kc-canon-panel-field-lbl">Related facts</div><div class="kc-canon-panel-field-val">' + c.factCount + ' fact(s) linked from this Canon</div></div>' : '');
+    pn.innerHTML =
+      '<div class="kc-canon-panel-hd">' +
+        '<span class="kc-canon-panel-hd-ico">' + ICO_DOC_CANON + '</span>' +
+        '<div class="kc-canon-panel-hd-body">' +
+          '<div class="kc-canon-panel-hd-ttl">' + kcEsc(c.name) + '</div>' +
+          '<div class="kc-canon-panel-hd-meta">v' + kcEsc(c.version) + ' · ' + kcEsc(c.publishedDate) + ' · ' + kcEsc(c.owner) + '</div>' +
+        '</div>' +
+        '<button class="kc-canon-panel-close" type="button" onclick="_kcCloseCanonPanel()" aria-label="Close">' + ICO_X_CANON + '</button>' +
+      '</div>' +
+      '<div class="kc-canon-panel-body">' +
+        '<div class="kc-canon-panel-field"><div class="kc-canon-panel-field-lbl">Description</div><div class="kc-canon-panel-field-val">' + kcEsc(c.description) + '</div></div>' +
+        '<div class="kc-canon-panel-field"><div class="kc-canon-panel-field-lbl">Audience</div><div class="kc-canon-panel-field-val">' + kcEsc(c.audienceScope) + '</div></div>' +
+        '<div class="kc-canon-panel-field"><div class="kc-canon-panel-field-lbl">Category</div><div class="kc-canon-panel-field-val">' + kcEsc(c.category) + '</div></div>' +
+        driftLine +
+        relatedFactsLine +
+        '<div class="kc-canon-panel-field"><div class="kc-canon-panel-field-lbl">Document preview</div><div class="kc-canon-panel-preview">' + kcEsc(c.previewText || '') + '</div></div>' +
+      '</div>' +
+      '<div class="kc-canon-panel-ft">' +
+        (source === 'pack'
+          ? '<button class="kc-canon-panel-ft-link" type="button" onclick="_kcViewPackInHgs()">View Knowledge Pack in HGS →</button>'
+          : '<button class="kc-canon-panel-ft-link" type="button">View full document in Canon Plane →</button>') +
+      '</div>';
+    setTimeout(function(){ bd.classList.add('open'); pn.classList.add('open'); }, 10);
+  };
+  window._kcCloseCanonPanel = function(){
+    var bd = document.getElementById('kcCanonPanelBd');
+    var pn = document.getElementById('kcCanonPanel');
+    if(bd) bd.classList.remove('open');
+    if(pn) pn.classList.remove('open');
+  };
+  window._kcViewPackInHgs = function(){
+    try { _kcCloseCanonPanel(); } catch(e){}
+    var st = (KC_STATE.items || []).find(function(i){ return i.kind === 'stack'; });
+    if(st && typeof _kcNavToHgs === 'function') _kcNavToHgs(st.stackId);
+  };
+
+  // 6. Detach confirm dialog for local Canons ───────────────────────
+  window._kcConfirmDetachLocalCanon = function(canonId){
+    var c = kcCanon(canonId); if(!c) return;
+    var ov = document.getElementById('kcDetachDlgOv');
+    if(!ov){
+      ov = document.createElement('div');
+      ov.id = 'kcDetachDlgOv';
+      ov.className = 'kc-detach-dlg-ov';
+      ov.addEventListener('click', function(e){ if(e.target === ov) _kcCloseDetachDlg(); });
+      document.body.appendChild(ov);
+    }
+    ov.innerHTML =
+      '<div class="kc-detach-dlg" role="dialog" aria-modal="true">' +
+        '<div class="kc-detach-dlg-ttl">Detach ' + kcEsc(c.name) + ' from this binding?</div>' +
+        '<div class="kc-detach-dlg-body">The Canon will no longer be available to your agent. You can re-attach it later through Compose locally.</div>' +
+        '<div class="kc-detach-dlg-ft">' +
+          '<button class="kc-detach-dlg-cancel" type="button" onclick="_kcCloseDetachDlg()">Cancel</button>' +
+          '<button class="kc-detach-dlg-confirm" type="button" onclick="_kcDetachLocalCanon(\'' + kcEsc(canonId) + '\')">Detach</button>' +
+        '</div>' +
+      '</div>';
+    setTimeout(function(){ ov.classList.add('open'); }, 10);
+  };
+  window._kcCloseDetachDlg = function(){
+    var ov = document.getElementById('kcDetachDlgOv');
+    if(ov) ov.classList.remove('open');
+  };
+  window._kcDetachLocalCanon = function(canonId){
+    KC_STATE.localCanons = (KC_STATE.localCanons || []).filter(function(id){ return id !== canonId; });
+    _kcCloseDetachDlg();
+    if(typeof _kcRender === 'function') _kcRender();
+  };
+
+  // 7. Surface 2 — COMPOSE LOCALLY restructure ──────────────────────
+  function renderComposeLocallySection(){
+    var openState = KC_STATE.composeLocalOpen;
+    var subActive = (openState === 'substack') ? ' active' : '';
+    var canonActive = (openState === 'canon') ? ' active' : '';
+    var body = '';
+    if(openState === 'substack'){
+      var inner = '';
+      try { if(typeof _kcRenderSearchCard === 'function') inner = _kcRenderSearchCard(); } catch(e){}
+      body =
+        '<div class="kc-compose-locally-body">' +
+          '<div class="kc-cyo">' +
+            '<div class="kc-cyo-sub">Compose a substack by filtering Truth and selecting the facts you want to bundle.</div>' +
+            inner +
+          '</div>' +
+        '</div>';
+    }
+    return '<div class="kc-compose-locally">' +
+      '<div class="kc-compose-locally-hd">Compose locally</div>' +
+      '<div class="kc-compose-locally-sub">Add content directly to this binding without engaging governance. Locally-composed content is owned by you and lives only within this binding.</div>' +
+      '<div class="kc-compose-locally-cards">' +
+        '<button class="kc-compose-locally-cta' + subActive + '" type="button" onclick="_kcToggleComposeLocal(\'substack\')">' +
+          '<div class="kc-compose-locally-cta-ttl">+ Compose substack</div>' +
+          '<div class="kc-compose-locally-cta-sub">Filter Truth and bundle facts</div>' +
+        '</button>' +
+        '<button class="kc-compose-locally-cta' + canonActive + '" type="button" onclick="_kcOpenCanonPickerForBinding()">' +
+          '<div class="kc-compose-locally-cta-ttl">+ Attach Canon</div>' +
+          '<div class="kc-compose-locally-cta-sub">Add a Canon document directly</div>' +
+        '</button>' +
+      '</div>' +
+      body +
+    '</div>';
+  }
+  window._kcToggleComposeLocal = function(which){
+    KC_STATE.composeLocalOpen = (KC_STATE.composeLocalOpen === which) ? null : which;
+    if(typeof _kcRender === 'function') _kcRender();
+  };
+
+  if(typeof window._kcRenderStateB === 'function'){
+    var _b17OrigRenderStateB = window._kcRenderStateB;
+    window._kcRenderStateB = function(){
+      var html = _b17OrigRenderStateB.apply(this, arguments);
+      if(!html || typeof html !== 'string') return html;
+      html = html.replace(/<button class="kc-find-tab[^"]*"[^>]*>Create your own<\/button>/, '');
+      if(window.KC_FIND_TAB === 'create'){ window.KC_FIND_TAB = 'precurated'; }
+      var section = renderComposeLocallySection();
+      html = html.replace(/<div class="kc-find-section">/, section + '<div class="kc-find-section">');
+      return html;
+    };
+    try { _kcRenderStateB = window._kcRenderStateB; } catch(e){}
+  }
+
+  // 8. Canon picker — configurator context ──────────────────────────
+  window.KC_CP_CONTEXT = window.KC_CP_CONTEXT || 'hgs';
+  window._kcOpenCanonPickerForBinding = function(){
+    if(typeof window.hgsOpenCanonPicker !== 'function') return;
+    window.KC_CP_CONTEXT = 'binding';
+    var attached = new Set(KC_STATE.localCanons || []);
+    (KC_STATE.items || []).forEach(function(it){
+      if(it.kind === 'stack'){
+        (it.canons || window.KC_STACK_CANONS[it.stackId] || []).forEach(function(id){ attached.add(id); });
+      }
+    });
+    window.KC_CP_ATTACHED_SET = attached;
+    window.hgsOpenCanonPicker();
+    setTimeout(function(){
+      var ttl = document.querySelector('#hgsCpOv .hgs-cp-hd-ttl');
+      if(ttl) ttl.textContent = 'Attach Canons to this binding';
+      document.querySelectorAll('#hgsCpOv .hgs-cp-row').forEach(function(row){
+        var cb = row.querySelector('input.hgs-cp-row-cb');
+        if(!cb) return;
+        var onclickStr = cb.getAttribute('onclick') || '';
+        var m = onclickStr.match(/hgsCpToggle\('([^']+)'\)/);
+        if(!m) return;
+        var cid = m[1];
+        if(attached.has(cid) && !row.classList.contains('disabled')){
+          row.classList.add('disabled');
+          cb.disabled = true;
+          row.onclick = null;
+          var top = row.querySelector('.hgs-cp-row-top');
+          if(top && !top.querySelector('.hgs-cp-row-already')){
+            var span = document.createElement('span');
+            span.className = 'hgs-cp-row-already';
+            span.textContent = 'already attached';
+            top.appendChild(span);
+          }
+        }
+      });
+      var attachBtn = document.querySelector('#hgsCpOv .hgs-cp-attach');
+      if(attachBtn){
+        attachBtn.setAttribute('onclick', '_kcCpAttachToBinding()');
+      }
+    }, 30);
+  };
+  window._kcCpAttachToBinding = function(){
+    var picked = window.HGS_CP_SELECTED;
+    if(!picked || !picked.size) return;
+    KC_STATE.localCanons = KC_STATE.localCanons || [];
+    picked.forEach(function(cid){
+      if(KC_STATE.localCanons.indexOf(cid) < 0 && !(window.KC_CP_ATTACHED_SET && window.KC_CP_ATTACHED_SET.has(cid))){
+        KC_STATE.localCanons.push(cid);
+      }
+    });
+    if(typeof window.hgsCloseCanonPicker === 'function') window.hgsCloseCanonPicker();
+    window.KC_CP_CONTEXT = 'hgs';
+    window.KC_CP_ATTACHED_SET = null;
+    KC_STATE.composeLocalOpen = null;
+    if(typeof _kcRender === 'function') _kcRender();
+  };
 })();
 
 </script>
