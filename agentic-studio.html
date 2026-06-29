@@ -3801,6 +3801,23 @@ html.theme-light .search-footer-link{color:#7C3AED}
 .hgs-l-card-vis.tenant { color:var(--t3); }
 .hgs-l-card-vis.restricted { color:var(--warn); }
 .hgs-l-card-vis svg { flex-shrink:0; }
+/* v2 KP picker — per-card visibility indicator (sits inside .b20-pp-card-meta) */
+.b18-pp-card-vis { display:inline-flex; align-items:center; gap:4px; font-size:10px; color:var(--t3); }
+.b18-pp-card-vis.restricted { color:var(--warn); }
+/* v2 rail row — restricted pack subtitle */
+.hgs-rail-row.pack.restricted-pack .hgs-rail-row-sub { color:var(--warn); }
+.b18-rail-lock-ico { color:var(--warn); display:inline-flex; vertical-align:middle; margin-right:4px; }
+/* v2 restricted-access placeholder main view */
+.b18-restricted-view { padding:48px 30px 30px; max-width:560px; margin:0 auto; text-align:center; }
+.b18-restricted-view-ico { display:inline-flex; width:64px; height:64px; border-radius:50%; background:rgba(212,143,2,0.10); border:1px solid rgba(212,143,2,0.30); color:var(--warn); align-items:center; justify-content:center; margin-bottom:20px; }
+.b18-restricted-view-ttl { font-size:16px; font-weight:600; color:var(--t1); margin-bottom:10px; }
+.b18-restricted-view-sub { font-size:12.5px; color:var(--t3); line-height:1.55; margin-bottom:24px; }
+.b18-restricted-detach { background:transparent; border:1px solid var(--warn); color:var(--warn); font-size:12px; font-weight:600; padding:8px 18px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
+.b18-restricted-detach:hover { background:rgba(212,143,2,0.08); }
+/* Aggregated view — restricted-content summary row */
+.b18-restricted-summary-row { background:rgba(212,143,2,0.05); }
+.b18-restricted-summary-row td { color:var(--t3) !important; font-style:italic; }
+.b18-restricted-summary-row .b18-restricted-pill { display:inline-flex; align-items:center; gap:4px; font-size:10px; padding:2px 8px; border-radius:999px; background:rgba(212,143,2,0.12); border:0.5px solid rgba(212,143,2,0.30); color:var(--warn); font-style:normal; }
 
 /* Knowledge Pack picker (modal-within-modal, z above v2 modal) */
 .b20-pp-ov { position:fixed; inset:0; background:rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:1200; opacity:0; pointer-events:none; transition:opacity 0.15s; }
@@ -21855,7 +21872,8 @@ function hgsSmConfirmRemove(){
       (B20_STATE.attachedPacks || []).forEach(function(p){
         var packFacts = (p.factCount != null) ? p.factCount : ((p.facts != null) ? p.facts : 0);
         var packCanons = (p.canons || []).length;
-        html += '<button class="hgs-rail-row pack' + (sel === ('pack-' + p.id) ? ' active' : '') + '" type="button" onclick="_b20Select(\'pack-' + esc(p.id) + '\')">' +
+        var pid = p.packId || p.id;
+        html += '<button class="hgs-rail-row pack' + (sel === ('pack-' + pid) ? ' active' : '') + '" type="button" onclick="_b20Select(\'pack-' + esc(pid) + '\')">' +
           '<span class="pack-ico"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"><path d="M2 4l5-2.5L12 4l-5 2.5L2 4z"/><path d="M2 4v6l5 2.5L12 10V4"/><path d="M7 6.5v6"/></svg></span>' +
           '<div class="hgs-rail-row-main">' +
             '<div class="hgs-rail-row-nm">' + esc(p.name || 'Pack') + '</div>' +
@@ -23855,6 +23873,241 @@ function hgsSmConfirmRemove(){
         // Also hide the "no X yet" inline empty notes (they're noisy in the empty-state landing)
         Array.from(rail.querySelectorAll('[style*="font-style:italic"]')).forEach(function(el){
           el.style.display = 'none';
+        });
+      }
+    }
+  };
+})();
+
+// ─── Brief 18 Pass 2: v2 configurator visibility surfaces ────────────
+// KP picker visibility-aware filtering + per-card indicator, restricted
+// pack rail row, restricted-access main view placeholder, aggregated
+// view summary row, demo seed of one governance-only attached pack.
+//
+// Runs AFTER Pass 1 so the b18CanSeePack helper is available.
+window.addEventListener && window.addEventListener('DOMContentLoaded', function(){
+  // No-op: kept for future hooks. Actual logic is below in an IIFE that
+  // resolves dependencies at first modal open.
+});
+(function(){
+  if(typeof window === 'undefined') return;
+  if(typeof window.B20_STATE === 'undefined') return;
+  if(typeof tenantStacks === 'undefined') return;
+
+  function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function role(){ return window.CURRENT_USER_ROLE || 'workflow-author'; }
+  function canSee(pack){
+    if(typeof window.b18CanSeePack === 'function') return window.b18CanSeePack(pack, role());
+    return true; // fail-open if helper missing
+  }
+  function visLabel(v){
+    if(typeof window.b18VisibilityLabel === 'function') return window.b18VisibilityLabel(v);
+    return 'All tenant users';
+  }
+  function getVis(s){ return s && s.visibility ? s.visibility : { scope:'tenant', roles:[] }; }
+  function isAttachedPackRestricted(p){
+    // p is an item in B20_STATE.attachedPacks (snapshot). Resolve current
+    // visibility from tenantStacks (canonical source).
+    var t = tenantStacks.find(function(s){ return s.id === p.packId; });
+    if(!t) return false;
+    return !canSee(t);
+  }
+
+  var ICO_GLOBE = '<svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="7" cy="7" r="5"/><path d="M2 7h10M7 2c1.7 1.7 1.7 8.3 0 10M7 2c-1.7 1.7-1.7 8.3 0 10"/></svg>';
+  var ICO_LOCK  = '<svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><rect x="2" y="5.5" width="8" height="5" rx="1"/><path d="M4 5.5V3.5a2 2 0 014 0v2"/></svg>';
+  var ICO_LOCK_BIG = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>';
+
+  // ─── Seed demo: attach one governance-only pack so restricted-access
+  // state is reachable on first open (per Brief 18 mock data spec)
+  if(typeof window._b20OpenModal === 'function'){
+    var _b18OrigOpen = window._b20OpenModal;
+    window._b20OpenModal = function(net, parent, sub){
+      _b18OrigOpen.call(this, net, parent, sub);
+      var binding = sub && sub.binding;
+      var alreadyHasRestricted = (B20_STATE.attachedPacks || []).some(function(p){ return p.packId === 'internal-engineering-notes'; });
+      if(!alreadyHasRestricted && !(binding && binding.attachedPacks)){
+        var ien = tenantStacks.find(function(s){ return s.id === 'internal-engineering-notes'; });
+        if(ien){
+          B20_STATE.attachedPacks = B20_STATE.attachedPacks || [];
+          B20_STATE.attachedPacks.push({
+            packId: ien.id,
+            name: ien.name,
+            owner: ien.owner,
+            factCount: ien.factCount,
+            canons: (window.KC_STACK_CANONS && window.KC_STACK_CANONS['st-audit']) ? window.KC_STACK_CANONS['st-audit'] : [],
+            categories: ien.categories,
+            iconBg: ien.iconBg,
+            iconColor: ien.iconColor,
+            lastUpdated: ien.lastUpdated,
+            dependentCount: ien.dependentCount,
+            workflowControl: ien.workflowControl,
+            description: ien.description
+          });
+        }
+      }
+      if(typeof window._b20Render === 'function') window._b20Render();
+    };
+  }
+
+  // ─── Surface 3: KP picker — visibility-aware filtering + indicators ─
+  // Wrap _b20OpenPackPicker so we can patch every render of the picker.
+  // The picker render is _b20RenderPackPicker (internal) — patch the
+  // public open + every state change re-render via render observer.
+  function patchPickerDom(){
+    var ov = document.getElementById('b20PackPickerOv');
+    if(!ov) return;
+    var cards = ov.querySelectorAll('.b20-pp-card');
+    var seenIds = new Set();
+    cards.forEach(function(card){
+      // Extract pack id from the Add button onclick
+      var addBtn = card.querySelector('.b20-pp-card-add, .b20-pp-card-added');
+      var packId = null;
+      if(addBtn){
+        var onclickStr = addBtn.getAttribute('onclick') || '';
+        var m = onclickStr.match(/_b20PpAttach\('([^']+)'\)/);
+        if(m) packId = m[1];
+      }
+      if(!packId){
+        // Fallback: read pack name from card nm
+        var nm = card.querySelector('.b20-pp-card-nm');
+        var name = nm ? nm.textContent.trim() : '';
+        var t = tenantStacks.find(function(s){ return s.name === name; });
+        if(t) packId = t.id;
+      }
+      if(!packId) return;
+      var pack = tenantStacks.find(function(s){ return s.id === packId; });
+      if(!pack) return;
+      // 1. Hide cards the user can't see
+      if(!canSee(pack)){ card.style.display = 'none'; return; }
+      seenIds.add(packId);
+      // 2. Inject visibility indicator into the meta row
+      if(!card.querySelector('.b18-pp-card-vis')){
+        var meta = card.querySelector('.b20-pp-card-meta');
+        if(meta){
+          var v = getVis(pack);
+          var restricted = v.scope === 'restricted';
+          var ind = document.createElement('span');
+          ind.className = 'b18-pp-card-vis' + (restricted ? ' restricted' : '');
+          ind.innerHTML = (restricted ? ICO_LOCK : ICO_GLOBE) + '<span>' + esc(visLabel(v)) + '</span>';
+          // Append after a separator
+          var sep = document.createElement('span');
+          sep.textContent = '·';
+          meta.appendChild(sep);
+          meta.appendChild(ind);
+        }
+      }
+    });
+    // Update footer "N available" count to reflect visibility-filtered total
+    var ft = ov.querySelector('.b20-pp-ft > div');
+    if(ft){
+      var attachedTotal = (B20_STATE.attachedPacks || []).length;
+      ft.textContent = seenIds.size + ' available · ' + attachedTotal + ' already attached';
+    }
+  }
+  // Hook into both open + state-change re-renders
+  if(typeof window._b20OpenPackPicker === 'function'){
+    var _origOpenPicker = window._b20OpenPackPicker;
+    window._b20OpenPackPicker = function(){
+      var r = _origOpenPicker.apply(this, arguments);
+      setTimeout(patchPickerDom, 10);
+      return r;
+    };
+  }
+  if(typeof window._b20PpSetSearch === 'function'){
+    var _origSetSearch = window._b20PpSetSearch;
+    window._b20PpSetSearch = function(v){
+      _origSetSearch.apply(this, arguments);
+      setTimeout(patchPickerDom, 10);
+    };
+  }
+  if(typeof window._b20PpToggleCategory === 'function'){
+    var _origToggleCat = window._b20PpToggleCategory;
+    window._b20PpToggleCategory = function(c){
+      _origToggleCat.apply(this, arguments);
+      setTimeout(patchPickerDom, 10);
+    };
+  }
+  if(typeof window._b20PpAttach === 'function'){
+    var _origAttach = window._b20PpAttach;
+    window._b20PpAttach = function(id){
+      _origAttach.apply(this, arguments);
+      setTimeout(patchPickerDom, 10);
+    };
+  }
+
+  // ─── Surface 5: restricted-access state in v2 modal ─────────────────
+  // (a) Rail row for restricted attached packs: add .restricted-pack
+  //     class, swap subtitle to "Restricted · N facts · M Canons"
+  // (b) Single-pack main view: render lock placeholder when not visible
+  // (c) Aggregated All facts / All Canons: add a summary row for
+  //     restricted-content with N facts/Canons + "Restricted access" pill
+
+  var _b18OrigRender = window._b20Render;
+  window._b20Render = function(){
+    _b18OrigRender.apply(this, arguments);
+    var ov = document.getElementById('b20ModalOv');
+    if(!ov || !ov.classList.contains('open')) return;
+
+    // (a) Rail rows for restricted packs
+    var packRows = ov.querySelectorAll('.b20-modal .hgs-rail-row.pack');
+    packRows.forEach(function(row){
+      var onclickStr = row.getAttribute('onclick') || '';
+      var m = onclickStr.match(/_b20Select\('pack-([^']+)'\)/);
+      if(!m) return;
+      var packId = m[1];
+      var attached = (B20_STATE.attachedPacks || []).find(function(p){ return p.packId === packId; });
+      if(!attached) return;
+      if(!isAttachedPackRestricted(attached)) return;
+      row.classList.add('restricted-pack');
+      var sub = row.querySelector('.hgs-rail-row-sub');
+      if(sub){
+        var facts = (attached.factCount != null) ? attached.factCount : 0;
+        var canons = (attached.canons || []).length;
+        sub.innerHTML = '<span class="b18-rail-lock-ico">' + ICO_LOCK + '</span>Restricted · ' + facts + ' facts · ' + canons + ' Canons';
+      }
+    });
+
+    // (b) Single-pack main view for restricted pack
+    var sel = B20_STATE.railSelection;
+    if(sel && sel.indexOf('pack-') === 0){
+      var packId2 = sel.slice('pack-'.length);
+      var attached2 = (B20_STATE.attachedPacks || []).find(function(p){ return p.packId === packId2; });
+      if(attached2 && isAttachedPackRestricted(attached2)){
+        var mainHost = ov.querySelector('.b20-modal .hgs-main');
+        if(mainHost){
+          mainHost.innerHTML =
+            '<div style="padding:16px 20px">' +
+              '<button class="b20-back-link" onclick="_b20Select(\'all-facts\')"><svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l-4 4 4 4"/></svg> All content</button>' +
+              '<div class="b18-restricted-view">' +
+                '<div class="b18-restricted-view-ico">' + ICO_LOCK_BIG + '</div>' +
+                '<div class="b18-restricted-view-ttl">You no longer have access to view ' + esc(attached2.name) + '</div>' +
+                '<div class="b18-restricted-view-sub">Your binding still uses this pack\'s content, but its facts and Canons are no longer visible to you. Talk to the pack owner (' + esc(attached2.owner) + ') if you need access restored.</div>' +
+                '<button class="b18-restricted-detach" type="button" onclick="_b20ConfirmDetachPack(\'' + esc(attached2.packId) + '\')">Detach pack from binding</button>' +
+              '</div>' +
+            '</div>';
+        }
+      }
+    }
+
+    // (c) Aggregated All facts / All Canons summary row
+    var restrictedPacks = (B20_STATE.attachedPacks || []).filter(isAttachedPackRestricted);
+    if(restrictedPacks.length && (sel === 'all-facts' || sel === 'all-canons')){
+      var tbody = ov.querySelector('.b20-modal .hgs-main .hgs-table tbody');
+      if(tbody){
+        restrictedPacks.forEach(function(p){
+          var isFacts = (sel === 'all-facts');
+          var count = isFacts ? (p.factCount || 0) : (p.canons || []).length;
+          if(count === 0) return;
+          // Insert a summary row at the top of tbody
+          var tr = document.createElement('tr');
+          tr.className = 'hgs-table-row b18-restricted-summary-row';
+          var label = count + (isFacts ? ' fact' : ' Canon') + (count === 1 ? '' : 's') + ' from ' + p.name;
+          var colspan = isFacts ? 5 : 5;
+          tr.innerHTML = '<td colspan="' + colspan + '">' +
+            '<span class="b18-restricted-pill">' + ICO_LOCK + ' Restricted access</span>' +
+            ' &nbsp; ' + esc(label) +
+          '</td>';
+          tbody.insertBefore(tr, tbody.firstChild);
         });
       }
     }
