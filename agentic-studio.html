@@ -3609,6 +3609,53 @@ html.theme-light .search-footer-link{color:#7C3AED}
 .kc-detach-dlg-cancel { background:transparent; border:1px solid var(--bd); color:var(--t1); font-size:12px; padding:7px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
 .kc-detach-dlg-confirm { background:var(--warn); border:none; color:#1a1a1a; font-size:12px; font-weight:600; padding:7px 14px; border-radius:var(--r6); cursor:pointer; font-family:inherit; }
 .kc-detach-dlg-confirm:hover { filter:brightness(1.1); }
+
+/* ══════ Brief 20: Knowledge Packs v2 — parallel-experience deploy ══════ */
+/* PREVIEW pill on the sidebar entry */
+.sb-preview-pill { display:inline-block; margin-left:6px; padding:1px 5px; font-size:8.5px; font-weight:700; letter-spacing:0.06em; background:rgba(167,139,250,0.18); color:var(--pur); border:1px solid rgba(167,139,250,0.35); border-radius:3px; line-height:1.2; vertical-align:middle; text-transform:uppercase; }
+#sbHgsV2Btn.active{background:var(--shell-sidebar-item-active-bg,rgba(167,139,250,0.12));color:var(--shell-sidebar-item-active-color,var(--t1))}
+#sbHgsV2Btn.active .sb-preview-pill { background:rgba(167,139,250,0.28); }
+/* v2 view containers — match HGS list defaults */
+#vHgsV2List{display:none;flex-direction:column;height:100%;width:100%;background:var(--bg);color:var(--t1);overflow:auto}
+#vHgsV2List.active{display:flex}
+#vHgsV2{display:none;flex-direction:column;height:100%;width:100%;background:var(--bg);color:var(--t1);overflow:hidden}
+#vHgsV2.active{display:flex}
+/* v2 page chrome */
+.hgs2-pagehd { padding:18px 22px 14px; border-bottom:1px solid var(--bd); display:flex; align-items:flex-start; gap:16px; }
+.hgs2-pagehd-body { flex:1; min-width:0; }
+.hgs2-pagehd-back { font-size:11.5px; color:var(--t3); cursor:pointer; background:transparent; border:none; padding:0; font-family:inherit; display:inline-flex; align-items:center; gap:4px; margin-bottom:6px; }
+.hgs2-pagehd-back:hover { color:var(--t1); }
+.hgs2-pagehd-ttl-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.hgs2-pagehd-ttl { font-size:18px; font-weight:600; color:var(--t1); }
+.hgs2-preview-banner { background:rgba(167,139,250,0.10); border:1px solid rgba(167,139,250,0.30); color:var(--pur); padding:8px 14px; border-radius:var(--r6); font-size:11.5px; margin:10px 22px 0; display:flex; align-items:center; gap:10px; }
+.hgs2-preview-banner strong { color:var(--pur); font-weight:600; }
+.hgs2-preview-pill-inline { display:inline-block; padding:1px 6px; font-size:9px; font-weight:700; letter-spacing:0.06em; background:rgba(167,139,250,0.20); color:var(--pur); border:1px solid rgba(167,139,250,0.35); border-radius:3px; line-height:1.3; text-transform:uppercase; vertical-align:middle; }
+.hgs2-pagehd-sub { font-size:12px; color:var(--t3); margin-top:4px; }
+/* v2 list grid mirrors v1 styling */
+.hgs2-list-body { padding:16px 22px 30px; }
+.hgs2-list-filterrow { display:flex; align-items:center; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
+.hgs2-list-search { flex:1; min-width:240px; max-width:420px; position:relative; }
+.hgs2-list-search input { width:100%; background:var(--bg2); border:1px solid var(--bd); border-radius:var(--r6); padding:7px 10px 7px 30px; font-size:12px; color:var(--t1); font-family:inherit; }
+.hgs2-list-search-ico { position:absolute; left:10px; top:50%; transform:translateY(-50%); color:var(--t3); display:inline-flex; }
+.hgs2-list-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:12px; }
+.hgs2-list-card { background:rgba(255,255,255,0.02); border:1px solid var(--bd); border-radius:var(--r8); padding:14px; cursor:pointer; transition:background 0.15s, border-color 0.15s; }
+.hgs2-list-card:hover { background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.18); }
+.hgs2-list-card-top { display:flex; align-items:flex-start; gap:10px; margin-bottom:8px; }
+.hgs2-list-card-ico { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:600; flex-shrink:0; }
+.hgs2-list-card-body { flex:1; min-width:0; }
+.hgs2-list-card-nm { font-size:13px; font-weight:600; color:var(--t1); margin-bottom:2px; }
+.hgs2-list-card-desc { font-size:11px; color:var(--t3); line-height:1.4; }
+.hgs2-list-card-meta { display:flex; flex-wrap:wrap; gap:8px; font-size:10.5px; color:var(--t3); margin-top:8px; padding-top:8px; border-top:1px solid var(--bd); }
+.hgs2-list-card-meta-item { display:inline-flex; align-items:center; gap:4px; }
+.hgs2-list-card-status { font-size:9.5px; font-weight:600; padding:1px 6px; border-radius:3px; text-transform:uppercase; letter-spacing:0.05em; }
+.hgs2-list-card-status.published { background:rgba(5,223,114,0.15); color:var(--ok); }
+.hgs2-list-card-status.draft { background:rgba(253,199,0,0.15); color:var(--warn); }
+.hgs2-list-card-status.deprecated { background:rgba(255,100,103,0.15); color:rgb(255,100,103); }
+/* v2 pack edit placeholder shell (Pass B fills it in) */
+.hgs2-edit-shell { padding:30px 24px; max-width:780px; margin:0 auto; text-align:center; color:var(--t3); }
+.hgs2-edit-shell-ttl { font-size:16px; font-weight:600; color:var(--t1); margin-bottom:6px; }
+.hgs2-edit-shell-sub { font-size:12px; color:var(--t3); line-height:1.5; }
+.hgs2-edit-shell-passnote { margin-top:20px; padding:10px 14px; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.25); border-radius:var(--r6); display:inline-block; font-size:11px; color:var(--pur); }
 </style>
 </head>
 <body>
@@ -3651,6 +3698,12 @@ html.theme-light .search-footer-link{color:#7C3AED}
     <button class="sb-item" id="sbHgsBtn" onclick="openHgs()" title="Knowledge Stacks" aria-label="Knowledge Stacks">
       <span class="sb-item-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L2.5 5L9 8L15.5 5L9 2z"/><path d="M2.5 9L9 12L15.5 9"/><path d="M2.5 13L9 16L15.5 13"/></svg></span>
       <span class="sb-label">Knowledge Stacks</span>
+    </button>
+
+    <!-- Brief 20: parallel v2 entry (PREVIEW pill, shared data layer) -->
+    <button class="sb-item" id="sbHgsV2Btn" onclick="openHgsV2()" title="Knowledge Packs v2 (Preview)" aria-label="Knowledge Packs v2">
+      <span class="sb-item-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5h12v9h-12z"/><path d="M3 4.5L9 8L15 4.5"/><path d="M9 8v5.5"/></svg></span>
+      <span class="sb-label">Knowledge Packs v2 <span class="sb-preview-pill">PREVIEW</span></span>
     </button>
 
     <div class="sb-divider"></div>
@@ -4967,6 +5020,10 @@ html.theme-light .search-footer-link{color:#7C3AED}
 
     <!-- ══════ HGS — Stacks list (Brief 1.5) ══════ -->
     <div id="vHgsList" class="view"></div>
+
+    <!-- ══════ Brief 20: Knowledge Packs v2 — parallel-experience deploy ══════ -->
+    <div id="vHgsV2List" class="view"></div>
+    <div id="vHgsV2" class="view"></div>
 
     <!-- New Stack modal (Brief 1.5) -->
     <div class="hgs-ns-ov" id="hgsNsOv" onclick="if(event.target===this)hgsCloseNewStack()">
@@ -21183,6 +21240,201 @@ function hgsSmConfirmRemove(){
     window.KC_CP_ATTACHED_SET = null;
     KC_STATE.composeLocalOpen = null;
     if(typeof _kcRender === 'function') _kcRender();
+  };
+})();
+
+// ─── Brief 20 Pass A: parallel v2 experience — nav entry + routing + list ───
+// Builds a "Knowledge Packs v2" sidebar entry (PREVIEW pill) that routes to a
+// parallel set of view containers (#vHgsV2List, #vHgsV2). Pass A sets up the
+// scaffolding and a list page that reads the shared tenantStacks data. Pass B
+// fills in the unified composition surface inside the v2 pack edit page.
+(function(){
+  if(typeof window === 'undefined') return;
+  if(!document.getElementById('sbHgsV2Btn')) return;
+
+  window.HGS_V2_STATE = window.HGS_V2_STATE || {
+    activePackId: null,
+    listSearch: ''
+  };
+
+  // Extend showView to know about the new view IDs
+  (function _extendShowViewForV2(){
+    if(typeof showView !== 'function') return;
+    var _orig = showView;
+    showView = function(id){
+      var known = ['vList','vOverview','vBuilder','vHgs','vHgsList','vHgsV2List','vHgsV2'];
+      known.forEach(function(v){
+        var el = document.getElementById(v);
+        if(el) el.classList.toggle('active', v === id);
+      });
+    };
+  })();
+
+  // Patch setSidebarActive (Brief 1's helper) to handle v2 button
+  if(typeof window.setSidebarActive === 'function'){
+    var _origSetActive = window.setSidebarActive;
+    window.setSidebarActive = function(which){
+      _origSetActive(which);
+      var v2btn = document.getElementById('sbHgsV2Btn');
+      if(v2btn){
+        var on = (which === 'hgsv2');
+        v2btn.classList.toggle('active', on);
+        if(on) v2btn.setAttribute('aria-current','page');
+        else v2btn.removeAttribute('aria-current');
+      }
+      // De-activate networks/hgs buttons when v2 is on
+      if(which === 'hgsv2'){
+        var sbN = document.getElementById('sbNetworksBtn');
+        var sbH = document.getElementById('sbHgsBtn');
+        if(sbN){ sbN.classList.remove('active'); sbN.removeAttribute('aria-current'); }
+        if(sbH){ sbH.classList.remove('active'); sbH.removeAttribute('aria-current'); }
+      }
+    };
+  }
+
+  // ─── Helpers ─────────────────────────────────────────────────────
+  function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  function getV2Stacks(){
+    // Shared data layer: read from tenantStacks (Brief 15) if it exists.
+    if(typeof window.tenantStacks !== 'undefined' && Array.isArray(window.tenantStacks)) return window.tenantStacks;
+    if(typeof tenantStacks !== 'undefined' && Array.isArray(tenantStacks)) return tenantStacks;
+    return [];
+  }
+
+  // ─── Top-level openers ───────────────────────────────────────────
+  window.openHgsV2 = function(){
+    setSidebarActive('hgsv2');
+    HGS_V2_STATE.activePackId = null;
+    renderHgsV2List();
+    showView('vHgsV2List');
+  };
+
+  window.openHgsV2PackEdit = function(packId){
+    HGS_V2_STATE.activePackId = packId;
+    renderHgsV2PackEdit(packId);
+    showView('vHgsV2');
+  };
+
+  window.backToHgsV2List = function(){
+    HGS_V2_STATE.activePackId = null;
+    renderHgsV2List();
+    showView('vHgsV2List');
+  };
+
+  // ─── Icons ───────────────────────────────────────────────────────
+  var ICO_SEARCH_V2 = '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4"/><path d="M9.5 9.5L12 12"/></svg>';
+  var ICO_BACK_V2   = '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l-4 4 4 4"/></svg>';
+
+  var STACK_ICON_THEMES_V2 = (typeof window.STACK_ICON_THEMES === 'object' && window.STACK_ICON_THEMES) ? window.STACK_ICON_THEMES : {};
+  var DEFAULT_ICON_THEME_V2 = { bg:'rgba(167,139,250,0.16)', fg:'var(--pur)' };
+
+  // ─── v2 list page ────────────────────────────────────────────────
+  window.renderHgsV2List = function(){
+    var host = document.getElementById('vHgsV2List');
+    if(!host) return;
+    var stacks = getV2Stacks();
+    var q = (HGS_V2_STATE.listSearch || '').toLowerCase().trim();
+    var filtered = stacks.filter(function(s){
+      if(!q) return true;
+      var n = String(s.name || '').toLowerCase();
+      var d = String(s.desc || '').toLowerCase();
+      return n.indexOf(q) >= 0 || d.indexOf(q) >= 0;
+    });
+
+    var cards = filtered.map(function(s){
+      var theme = STACK_ICON_THEMES_V2[s.id] || DEFAULT_ICON_THEME_V2;
+      var letter = String(s.name || '?').charAt(0).toUpperCase();
+      var status = s.publicationState || 'draft';
+      var statusLabel = status === 'published' ? 'Published' : status === 'deprecated' ? 'Deprecated' : 'Draft';
+      var canonCount = (window.KC_STACK_CANONS && window.KC_STACK_CANONS[s.id]) ? window.KC_STACK_CANONS[s.id].length : (s.canonCount || 0);
+      return '<div class="hgs2-list-card" onclick="openHgsV2PackEdit(\'' + esc(s.id) + '\')">' +
+        '<div class="hgs2-list-card-top">' +
+          '<div class="hgs2-list-card-ico" style="background:' + theme.bg + ';color:' + theme.fg + '">' + esc(letter) + '</div>' +
+          '<div class="hgs2-list-card-body">' +
+            '<div class="hgs2-list-card-nm">' + esc(s.name) + ' <span class="hgs2-list-card-status ' + esc(status) + '">' + esc(statusLabel) + '</span></div>' +
+            '<div class="hgs2-list-card-desc">' + esc(s.desc || '') + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="hgs2-list-card-meta">' +
+          '<span class="hgs2-list-card-meta-item">' + esc(s.owner || '—') + '</span>' +
+          '<span class="hgs2-list-card-meta-item">·</span>' +
+          '<span class="hgs2-list-card-meta-item">' + (s.facts != null ? s.facts : '0') + ' facts</span>' +
+          (canonCount ? '<span class="hgs2-list-card-meta-item">·</span><span class="hgs2-list-card-meta-item">' + canonCount + ' Canons</span>' : '') +
+          '<span class="hgs2-list-card-meta-item">·</span>' +
+          '<span class="hgs2-list-card-meta-item">' + esc(s.lastUpdated || s.updated || '—') + '</span>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    host.innerHTML =
+      '<div class="hgs2-pagehd">' +
+        '<div class="hgs2-pagehd-body">' +
+          '<div class="hgs2-pagehd-ttl-row">' +
+            '<div class="hgs2-pagehd-ttl">Knowledge Packs</div>' +
+            '<span class="hgs2-preview-pill-inline">v2 preview</span>' +
+          '</div>' +
+          '<div class="hgs2-pagehd-sub">Unified composition surface — Brief 20. Reads the same data as the v1 Knowledge Packs experience.</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="hgs2-preview-banner">' +
+        '<span><strong>v2 preview.</strong> This parallel experience renders Knowledge Packs through Brief 20\'s unified composition component. Data is shared with v1; switch to "Knowledge Stacks" in the sidebar to compare.</span>' +
+      '</div>' +
+      '<div class="hgs2-list-body">' +
+        '<div class="hgs2-list-filterrow">' +
+          '<div class="hgs2-list-search">' +
+            '<span class="hgs2-list-search-ico">' + ICO_SEARCH_V2 + '</span>' +
+            '<input type="text" placeholder="Search Knowledge Packs…" value="' + esc(HGS_V2_STATE.listSearch || '') + '" oninput="window._hgsV2SetListSearch(this.value)"/>' +
+          '</div>' +
+          '<div style="font-size:11px;color:var(--t3)">' + filtered.length + ' of ' + stacks.length + ' packs</div>' +
+        '</div>' +
+        (filtered.length ? '<div class="hgs2-list-grid">' + cards + '</div>' : '<div style="padding:30px;text-align:center;color:var(--t3)">No Knowledge Packs match your search.</div>') +
+      '</div>';
+  };
+
+  window._hgsV2SetListSearch = function(v){
+    HGS_V2_STATE.listSearch = String(v == null ? '' : v);
+    renderHgsV2List();
+    setTimeout(function(){
+      var inp = document.querySelector('#vHgsV2List .hgs2-list-search input');
+      if(inp){ try { inp.focus(); var l = inp.value.length; inp.setSelectionRange(l,l); } catch(e){} }
+    }, 0);
+  };
+
+  // ─── v2 pack edit page (placeholder shell — Pass B fills it) ──────
+  window.renderHgsV2PackEdit = function(packId){
+    var host = document.getElementById('vHgsV2');
+    if(!host) return;
+    var stacks = getV2Stacks();
+    var s = stacks.find(function(x){ return x.id === packId; });
+    if(!s){
+      host.innerHTML = '<div class="hgs2-edit-shell"><div class="hgs2-edit-shell-ttl">Knowledge Pack not found</div><div class="hgs2-edit-shell-sub">The pack id "' + esc(packId) + '" is no longer in the catalog.</div><button class="hgs2-pagehd-back" style="margin-top:14px" onclick="backToHgsV2List()">' + ICO_BACK_V2 + ' Back to list</button></div>';
+      return;
+    }
+    var theme = STACK_ICON_THEMES_V2[s.id] || DEFAULT_ICON_THEME_V2;
+    var letter = String(s.name || '?').charAt(0).toUpperCase();
+    var status = s.publicationState || 'draft';
+    var statusLabel = status === 'published' ? 'Published' : status === 'deprecated' ? 'Deprecated' : 'Draft';
+    var canonCount = (window.KC_STACK_CANONS && window.KC_STACK_CANONS[s.id]) ? window.KC_STACK_CANONS[s.id].length : (s.canonCount || 0);
+
+    host.innerHTML =
+      '<div class="hgs2-pagehd">' +
+        '<div class="hgs2-pagehd-body">' +
+          '<button class="hgs2-pagehd-back" onclick="backToHgsV2List()">' + ICO_BACK_V2 + ' Knowledge Packs</button>' +
+          '<div class="hgs2-pagehd-ttl-row">' +
+            '<div class="hgs2-list-card-ico" style="background:' + theme.bg + ';color:' + theme.fg + ';width:28px;height:28px;font-size:13px">' + esc(letter) + '</div>' +
+            '<div class="hgs2-pagehd-ttl">' + esc(s.name) + '</div>' +
+            '<span class="hgs2-list-card-status ' + esc(status) + '">' + esc(statusLabel) + '</span>' +
+            '<span class="hgs2-preview-pill-inline">v2 preview</span>' +
+          '</div>' +
+          '<div class="hgs2-pagehd-sub">' + esc(s.owner || '—') + ' · ' + (s.facts != null ? s.facts : '0') + ' facts · ' + canonCount + ' Canons · Last updated ' + esc(s.lastUpdated || s.updated || '—') + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="hgs2-edit-shell">' +
+        '<div class="hgs2-edit-shell-ttl">Composition surface — Brief 20</div>' +
+        '<div class="hgs2-edit-shell-sub">This is where the unified composition rail (All facts · All Canons · Substacks · Canons · Pending review · Excluded) and main view render.</div>' +
+        '<div class="hgs2-edit-shell-passnote">Pass A scaffold · Pass B fills in the composition surface · Passes C and D add configurator-only surfaces, Settings divergence, Save-and-publish, and the notify-first ribbon.</div>' +
+      '</div>';
   };
 })();
 
